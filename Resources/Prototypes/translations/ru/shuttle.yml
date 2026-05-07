@@ -1,12 +1,19 @@
 - type: entity
-  id: FtlVisualizerEntity
-  categories: [ HideSpawnMenu ]
-  description: Visualizer for shuttles arriving. You shouldn't see this!
+  id: FTLPoint
+  parent: MarkerBase
+  name: FTL point
   components:
-    - type: FtlVisualizer
-      sprite:
-        sprite: /Textures/Effects/medi_holo.rsi
-        state: medi_holo
-    - type: Tag
-      tags:
-        - HideContextMenu
+    - type: FTLSmashImmune
+    - type: FTLBeacon
+    - type: Sprite
+      state: pink
+
+- type: entity
+  id: FTLExclusion
+  parent: MarkerBase
+  name: FTL exclusion point
+  components:
+    - type: FTLExclusion
+      range: 32
+    - type: Sprite
+      state: pink
