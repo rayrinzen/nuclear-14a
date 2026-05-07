@@ -1,62 +1,38 @@
-- type: entity
-  parent: PlushieMoth
-  id: PlushieMothRandom
-  name: moth plushie
-  suffix: Random
-  description: A cute little mothperson that you can hold in the palm of your hand.
-  components:
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
-      layers:
-        - state: moff1
-          map: [ "enum.DamageStateVisualLayers.Base" ]
-    - type: RandomSprite
-      available:
-        - enum.DamageStateVisualLayers.Base:
-            moff1: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff2: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff3: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff4: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff5: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff6: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff7: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff8: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff9: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff10: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff11: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff12: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff13: ""
-        - enum.DamageStateVisualLayers.Base:
-            moff14: ""
+- type: constructionGraph
+  id: PlushieGhostRevenant
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: plushie
+          steps:
+            - tag: PlushieGhost
+              name: ghost soft toy
+              icon:
+                sprite: Mobs/Ghosts/ghost_human.rsi
+                state: icon
+            - tag: Ectoplasm
+              name: ectoplasm
+              icon:
+                sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
+                state: ectoplasm
+              doAfter: 10
+    - node: plushie
+      entity: PlushieGhostRevenant
 
-- type: entity
-  parent: PlushieMoth
-  id: PlushieMothMusician
-  name: moth musician plushie
-  description: A plushie depicting an adorable mothperson with a tiny synthesizer and tiny glasses.
-  components:
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
-      state: moffmusician
-
-- type: entity
-  parent: PlushieMoth
-  id: PlushieMothBartender
-  name: moth bartender plushie
-  description: A plushie depicting an adorable mothperson with a tiny tophat and tiny kevlar vest. It smells like cigarettes.
-  components:
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Fun/Toys/moff.rsi
-      state: moffbartender
+- type: constructionGraph
+  id: ClothingOuterSuitIan
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: suit
+          steps:
+            - tag: HideCorgi
+              name: corgi hide
+              icon:
+                sprite: Objects/Materials/materials.rsi
+                state: corgihide
+              doAfter: 5
+    - node: suit
+      entity: ClothingOuterSuitIan
