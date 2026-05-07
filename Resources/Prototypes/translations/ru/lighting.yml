@@ -1,121 +1,65 @@
-- type: constructionGraph
+- type: construction
+  name: cyan light tube
   id: CyanLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 1
-              doAfter: 1
-            - tag: CrystalCyan
-              name: cyan crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-                color: #52ff39
-                  
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalCyan
+  graph: CyanLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a cyan crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: blue light tube
   id: BlueLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 1
-            - tag: CrystalBlue
-              name: blue crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalBlue
+  graph: BlueLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a blue crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: pink light tube
   id: PinkLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 1
-            - tag: CrystalPink
-              name: pink crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalPink
+  graph: PinkLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a pink crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: orange light tube
   id: OrangeLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 1
-            - tag: CrystalOrange
-              name: orange crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalOrange
+  graph: OrangeLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing an orange crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: red light tube
   id: RedLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 1
-            - tag: CrystalRed
-              name: red crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalRed
+  graph: RedLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a red crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: green light tube
   id: GreenLight
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: icon
-          steps:
-            - material: Glass
-              amount: 2
-              doAfter: 1
-            - tag: CrystalGreen
-              name: green crystal shard
-              icon:
-                sprite: Objects/Materials/Shards/crystal.rsi
-                state: shard1
-              doAfter: 1
-    - node: icon
-      entity: LightTubeCrystalGreen
+  graph: GreenLight
+  startNode: start
+  targetNode: icon
+  category: construction-category-utilities
+  description: A high powered light tube containing a green crystal
+  icon: { sprite: Objects/Power/light_tube.rsi, state: normal }
+  objectType: Item
