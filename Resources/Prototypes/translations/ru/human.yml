@@ -1,50 +1,14 @@
-- type: body
-  id: Human
-  name: "human"
-  root: torso
-  slots:
-    head:
-      part: HeadHuman
-      connections:
-        - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: TorsoHuman
-      connections:
-        - right arm
-        - left arm
-        - right leg
-        - left leg
-        - head # Shitmed
-      organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
-    right arm:
-      part: RightArmHuman
-      connections:
-        - right hand
-    left arm:
-      part: LeftArmHuman
-      connections:
-        - left hand
-    right hand:
-      part: RightHandHuman
-    left hand:
-      part: LeftHandHuman
-    right leg:
-      part: RightLegHuman
-      connections:
-        - right foot
-    left leg:
-      part: LeftLegHuman
-      connections:
-        - left foot
-    right foot:
-      part: RightFootHuman
-    left foot:
-      part: LeftFootHuman
+- type: entity # Delta-V : Part of a mid-round PirateRadioSpawn
+  categories: [ HideSpawnMenu ]
+  parent: MobHumanSyndicateAgent
+  id: MobHumanSyndicateListener
+  name: Syndicate Listener
+  components:
+    - type: Loadout
+      prototypes: [ SyndicateListenerGear ]
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: AutoImplant
+      implants:
+        - DeathAcidifierImplant
