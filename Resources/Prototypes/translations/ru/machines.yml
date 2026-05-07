@@ -1,145 +1,183 @@
-﻿- type: construction
-  name: computer
-  id: Computer
-  graph: Computer
-  startNode: start
-  targetNode: computer
-  category: construction-category-machines
-  description: A frame used to construct anything with a computer circuitboard.
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  icon:
-    sprite: Structures/Machines/parts.rsi
-    state: 4
 - type: construction
-  name: machine frame
+  name: tall machine frame
   description: A machine under construction. Needs more parts.
-  id: MachineFrame
-  graph: Machine
+  id: N14TallMachineFrame
+  graph: N14TallMachineFrame
   startNode: start
-  targetNode: machine
+  targetNode: machineFrame
   category: construction-category-machines
-  hide: false # #Misfits Add: unhide so players can find this in the (G) crafting menu
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Machines/parts.rsi
-    state: "box_0"
-- # Switching
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: rack_on
+- #MARK: Servers / Racks / Panels
 type: construction
-  name: two-way lever
-  id: TwoWayLeverRecipe
-  graph: LeverGraph
+  name: electronics rack
+  id: N14RackElectronics
+  graph: N14TallMachineFrame
   startNode: start
-  targetNode: LeverNode
+  targetNode: ElectronicsRack
   category: construction-category-machines
-  description: A lever to control machines. It has 3 modes.
+  description: A server rack filled with electronics.
   objectType: Structure
   canBuildInImpassable: false
+  hide: true #MARK: Hide (Forge-Change)
   icon:
-    sprite: Structures/conveyor.rsi
-    state: switch-off
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: rack_on
   conditions:
     - !type :TileNotBlocked
 - type: construction
-  name: light switch
-  id: LightSwitchRecipe
-  graph: LightSwitchGraph
+  name: server rack
+  id: N14ServerRack
+  graph: N14TallMachineFrame
   startNode: start
-  targetNode: LightSwitchNode
+  targetNode: ServerRack
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: A server rack filled with electronics.
+  objectType: Structure
+  canBuildInImpassable: false
+  hide: true #MARK: Hide (Forge-Change)
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: serverrack_on
+  conditions:
+    - !type :TileNotBlocked
+- #MARK: Terminals
+type: construction
+  name: terminal
+  id: N14Terminal
+  graph: N14TallMachineFrame
+  startNode: start
+  targetNode: ServerRack
+  category: construction-category-machines
+  description: A server rack filled with electronics.
+  objectType: Structure
+  canBuildInImpassable: false
+  hide: true #MARK: Hide (Forge-Change)
+  icon:
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: rack_on
+  conditions:
+    - !type :TileNotBlocked
+- #MARK: Crafting Benches
+type: construction
+  name: Workbench
+  id: N14WorkbenchMetal
+  graph: N14WorkbenchMetal
+  startNode: start
+  targetNode: WorkbenchMetal
+  category: construction-category-machines
+  description: A workbench with metal working tools for crafting.
+  icon:
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: workbench
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
 - type: construction
-  name: signal switch
-  id: SignalSwitchRecipe
-  graph: SignalSwitchGraph
+  name: Workbench Ammo
+  id: N14WorkbenchAmmobench
+  graph: N14WorkbenchAmmobench
   startNode: start
-  targetNode: SignalSwitchNode
+  targetNode: WorkbenchAmmobench
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: A workbench with metal working tools for crafting.
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: ammobench
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
 - type: construction
-  name: signal button
-  id: SignalButtonRecipe
-  graph: SignalButtonGraph
+  name: Workbench Chemistry
+  id: N14WorkbenchChemistryset
+  graph: N14WorkbenchChemistryset
   startNode: start
-  targetNode: SignalButtonNode
+  targetNode: WorkbenchChemistryset
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: A workbench with metal working tools for crafting.
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: chemicalset
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
 - type: construction
-  name: directional light switch
-  id: LightSwitchDirectionalRecipe
-  graph: LightSwitchDirectionalGraph
+  name: Workbench Forge
+  id: N14WorkbenchForge
+  graph: N14WorkbenchForge
   startNode: start
-  targetNode: LightSwitchDirectionalNode
+  targetNode: WorkbenchForge
   category: construction-category-machines
-  description: A switch for toggling lights that are connected to the same apc.
+  description: A forge made from pieces of scrap. Looks hot.
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Misc/forgeworkbench.rsi
+    state: forgeicon
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
 - type: construction
-  name: directional signal switch
-  id: SignalSwitchDirectionalRecipe
-  graph: SignalSwitchDirectionalGraph
+  name: tinker workbench
+  id: N14WorkbenchTinkerbench
+  graph: N14WorkbenchTinkerbench
   startNode: start
-  targetNode: SignalSwitchDirectionalNode
+  targetNode: WorkbenchTinkerbench
   category: construction-category-machines
-  description: It's a switch for toggling power to things.
+  description: A workbench with tinkering tools for crafting.
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: tinkerbench
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
 - type: construction
-  name: directional signal button
-  id: SignalButtonDirectionalRecipe
-  graph: SignalButtonDirectionalGraph
+  name: armor workbench
+  id: N14WorkbenchArmorbench
+  graph: N14WorkbenchArmorbench
   startNode: start
-  targetNode: SignalButtonDirectionalNode
+  targetNode: WorkbenchArmorbench
   category: construction-category-machines
-  description: It's a button for activating something.
+  description: A workbench with metal working tools for crafting.
   icon:
-    sprite: Structures/Wallmounts/switch.rsi
-    state: on
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: armorbench
   objectType: Structure
   placementMode: SnapgridCenter
-  canRotate: true
-  canBuildInImpassable: true
+  canBuildInImpassable: false
   conditions:
-    - !type :WallmountCondition
+    - !type :TileNotBlocked
+  hide: false
+- type: construction
+  name: weapon workbench
+  id: N14WorkbenchWeaponbench
+  graph: N14WorkbenchWeaponbench
+  startNode: start
+  targetNode: WorkbenchWeaponbench
+  category: construction-category-machines
+  description: A workbench with weapon working tools for crafting.
+  icon:
+    sprite: _Nuclear14/Structures/Misc/workbenches.rsi
+    state: weaponbench
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type :TileNotBlocked
+  hide: false
