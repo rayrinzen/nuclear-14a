@@ -1,8 +1,10 @@
-- type: messagePack
-  id: HotDrinksMachineGoodbyes
-  messages:
-    - vending-machine-thanks
-    - thankyou-coffee-1
-    - thankyou-coffee-2
-    - thankyou-coffee-3
-    - thankyou-coffee-4
+- type: vendingMachineInventory
+  id: HotDrinksMachineInventory
+  startingInventory:
+    DrinkHotCoffee: 5
+    DrinkCafeLatte: 5
+    DrinkTeacup: 5
+    DrinkGreenTea: 5
+    DrinkHotCoco: 5
+  emaggedInventory:
+    DrinkNothing: 2
