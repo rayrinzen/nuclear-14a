@@ -1,35 +1,25 @@
 - type: entity
-  abstract: true
+  id: BaseMagazine762Rifle
+  name: "magazine (7.62mm)"
   parent: BaseItem
-  id: BaseMagazineBox762Rifle
+  abstract: true
   components:
+  - type: Tag
+    tags:
+      - N14Magazine762Rifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - N14Cartridge762Rifle
-    proto: N14Cartridge762ifle
-    capacity: 60
+    proto: N14Cartridge762Rifle
+    capacity: 30
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type :Container
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/7-62.rsi
     netsync: false
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
-- type: entity
-  parent: BaseMagazineBox762Rifle
-  id: MagazineBox762
-  name: ammunition box (7.62mm)
-  components:
-  - type: BallisticAmmoProvider
-    proto: N14Cartridge762Rifle
-  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/7.62/mag.rsi
     layers:
     - state: base
       map:
@@ -37,3 +27,67 @@
     - state: mag-1
       map:
       - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: Magazine762Rifle
+  name: "magazine (7.62mm)"
+  parent: BaseMagazine762Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge762Rifle
+- type: entity
+  id: Magazine762AmmoBelt
+  name: "ammo belt (7.62mm)"
+  parent: BaseMagazine762Rifle
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine762Belt
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge762Rifle
+    proto: N14Cartridge762Rifle
+    capacity: 100
+  - type: Item # Forge-Change
+    size: Normal
+    shape:
+    - 0,0,1,1
+    - 0,1,0,1
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/7.62/belt.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+- type: entity
+  id: Magazine762AmmoShort
+  name: "short magazine (7.62mm)"
+  parent: BaseMagazine762Rifle
+  components:
+  - type: Tag
+    tags:
+      - N14Magazine762Short
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge762Rifle
+    proto: N14Cartridge762Rifle
+    capacity: 20
+  - type: Sprite
+    netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/7.62/mag2.rsi
