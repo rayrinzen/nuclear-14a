@@ -1,13 +1,10 @@
 - type: entity
-  categories:
-  - HideSpawnMenu
-  id: BaseAPC
-  name: APC
-  description: A control terminal for the area's electrical systems.
+  id: N14APCBreaker
+  name: Electrical Breaker
+  description: A breaker box for controlling electrical systems.
   placement:
     mode: SnapgridCenter
   components:
-  - type: StationAiWhitelist
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -9
@@ -21,16 +18,12 @@
     castShadows: false
     netsync: false
   - type: Clickable
-  - type: AccessReader
-    access:
-    - 
-      - "Engineering"
   - type: InteractionOutline
   - type: Transform
     anchored: true
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    drawdepth: Overdoors
+    sprite: _Nuclear14/Structures/Power/breakerbox.rsi
     layers:
     - state: base
     - state: panel
@@ -49,7 +42,7 @@
       shader: unshaded
       map:
       - "enum.ApcVisualLayers.PanelLock"
-    - state: channel0-auto_on
+    - state: channel1-auto_on
       shader: unshaded
       map:
       - "enum.ApcVisualLayers.Equipment"
@@ -57,14 +50,14 @@
       shader: unshaded
       map:
       - "enum.ApcVisualLayers.Lighting"
-    - state: channel2-auto_on
+    - state: channel1-auto_on
       shader: unshaded
       map:
       - "enum.ApcVisualLayers.Environment"
   - type: Appearance
   - type: ApcVisuals
   - type: Battery
-    maxCharge: 50000
+    maxCharge: 500
     startingCharge: 0
   - type: ExaminableBattery
   - type: NodeContainer
@@ -72,13 +65,6 @@
     nodes:
       input: '!type:CableDeviceNode nodeGroupID: MVPower'
       output: '!type:CableDeviceNode nodeGroupID: Apc'
-  - type: PowerMonitoringDevice
-    group: APC
-    sourceNode: input
-    loadNode: output
-    collectionName: apc
-    sprite: Structures/Power/apc.rsi
-    state: static
   - type: BatteryCharger
     voltage: Medium
   - type: PowerProvider
@@ -94,8 +80,8 @@
     inHandsOnly: false
     singleUser: true
     key: enum.ApcUiKey.Key
-  - type: Construction
-    graph: APC
+  - type: Construction # Corvax-Change
+    graph: N14APC
     node: apc
   - type: PowerNetworkBattery
     maxSupply: 10000
@@ -111,7 +97,7 @@
   - type: Destructible
     thresholds:
     - trigger: '!type:DamageTrigger damage: 200 behaviors:'
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ] - !type:PlaySoundBehavior sound: collection: MetalGlassBreak'
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:SpawnEntitiesBehavior spawn: N14ScrapSteel1: min: 2 max: 4 N14ScrapElectronic1: min: 2 max: 3 - !type:DoActsBehavior acts: [ "Destruction" ]'
   - type: StationInfiniteBatteryTarget
   - type: Electrified
     onHandInteract: false
@@ -120,19 +106,13 @@
     requirePower: true
     mediumVoltageNode: input
     lowVoltageNode: output
-  - type: LightningTarget
-    priority: 1
   - type: StaticPrice
     price: 500
-  - type: BatteryDrinkerSource # Parkstation IPCs
-    maxAmount: 10000
 - # APC under construction
 type: entity
-  categories:
-  - HideSpawnMenu
-  id: APCFrame
+  id: N14APCBreakerFrame
   name: APC frame
-  description: A control terminal for the area's electrical systems, lacking the electronics.
+  description: A breaker box for controlling electrical systems, lacking the electronics.
   placement:
     mode: SnapgridCenter
   components:
@@ -141,11 +121,11 @@ type: entity
   - type: Transform
     anchored: true
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: Structures/Power/apc.rsi
+    drawdepth: Overdoors
+    sprite: _Nuclear14/Structures/Power/breakerbox.rsi
     state: frame
-  - type: Construction
-    graph: APC
+  - type: Construction # Corvax-Change
+    graph: N14APC
     node: apcFrame
   - type: WallMount
   - type: Damageable
@@ -154,53 +134,12 @@ type: entity
   - type: Destructible
     thresholds:
     - trigger: '!type:DamageTrigger damage: 200 behaviors:'
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 1 max: 1 - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:SpawnEntitiesBehavior spawn: N14ScrapSteel1: min: 2 max: 4 - !type:DoActsBehavior acts: [ "Destruction" ]'
 - # Constructed APC
 type: entity
-  parent: BaseAPC
-  id: APCConstructed
+  parent: N14APCBreaker
+  id: N14APCBreakerConstructed
   suffix: Open
   components:
   - type: WiresPanel
     open: true
-- # APCs in use
-type: entity
-  parent: BaseAPC
-  id: APCBasic
-  suffix: Basic, 50kW
-  components:
-  - type: Battery
-    maxCharge: 50000
-    startingCharge: 50000
-  - type: BatteryDrinkerSource # Parkstation IPCs
-    maxAmount: 5000
-- type: entity
-  parent: BaseAPC
-  id: APCHighCapacity
-  suffix: High Capacity, 100kW
-  components:
-  - type: Battery
-    maxCharge: 100000
-    startingCharge: 100000
-  - type: BatteryDrinkerSource # Parkstation IPCs
-    maxAmount: 12000
-- type: entity
-  parent: BaseAPC
-  id: APCSuperCapacity
-  suffix: Super Capacity, 150kW
-  components:
-  - type: Battery
-    maxCharge: 150000
-    startingCharge: 150000
-  - type: BatteryDrinkerSource # Parkstation IPCs
-    maxAmount: 18000
-- type: entity
-  parent: BaseAPC
-  id: APCHyperCapacity
-  suffix: Hyper Capacity, 200kW
-  components:
-  - type: Battery
-    maxCharge: 200000
-    startingCharge: 200000
-  - type: BatteryDrinkerSource # Parkstation IPCs # Parkstation IPCs
-    maxAmount: 26000
