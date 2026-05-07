@@ -1,28 +1,53 @@
-- # Welding
+﻿- # :TODO: Add the destroyed versions of these as a destruction spawn.
 type: entity
-  id: WeldingFuelTank
-  parent:
-  - StorageTank
-  - StructureWheeled
+  parent: BaseStructure
+  id: StorageTankBase
+  name: storage tank
+  description: A liquids storage tank.
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+  - type: InteractionOutline
+  - type: Physics
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTypeTrigger damageType: Heat damage: 5 behaviors: - !type:SolutionExplosionBehavior solution: tank'
+    - trigger: '!type:DamageTypeTrigger damageType: Piercing damage: 5 behaviors: - !type:SolutionExplosionBehavior solution: tank'
+    - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:SpillBehavior solution: tank - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:DoActsBehavior acts: ["Destruction"]'
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1500
+  - type: DrainableSolution
+    solution: tank
+  - type: ReagentTank
+  - type: Transform
+    noRot: true
+- # In use
+type: entity
+  id: StorageTankWide
+  parent: StorageTankBase
   name: fuel tank
   description: A fuel tank. It's used to store high amounts of fuel.
   suffix: Empty
   components:
-  - type: StaticPrice
-    price: 750
   - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
+    sprite: Structures/Storage/tanksx64.rsi
     layers:
-      - state: fueltank-2
-      - state: fueltank-2-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 3
-    fillBaseName: fueltank-2-
-  - type: ExaminableSolution
+      - state: chemical_container
+  -   # - state: chemical_container
+  # map: ["enum.SolutionContainerLayers.Fill"]
+  # visible: false
+type: Appearance
+  -   # - type: SolutionContainerVisuals
+  # maxFillLevels: 3
+  # fillBaseName: fueltank-2-
+type: ExaminableSolution
     solution: tank
   - type: ReagentTank
     tankType: Fuel
@@ -35,9 +60,47 @@ type: entity
   - type: Explosive
     explosionType: Default
     totalIntensity: 120 # ~ 5 tile radius
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.9,-0.5,0.9,0.2"'
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
 - type: entity
-  id: WeldingFuelTankFull
-  parent: WeldingFuelTank
+  parent: StorageTankWide
+  id: StorageTankWideFullFuel
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 2000
+- type: entity
+  parent: StorageTankWide
+  id: StorageTank2
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/tanksx64.rsi
+    layers:
+      - state: largetank_chemical
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.9,-0.7,-0.1,0.4"'
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+- type: entity
+  id: StorageTankFullFuel
+  parent: StorageTank2
   suffix: Full
   components:
   - type: SolutionContainerManager
@@ -47,168 +110,31 @@ type: entity
         - ReagentId: WeldingFuel
           Quantity: 1500
 - type: entity
-  parent:  #StorageTankBig must come first, or else the desnity won't get inherited. id: WeldingFuelTankHighCapacity name: high-capacity fuel tank description: A highly pressurized fuel tank made to hold gargantuan amounts of welding fuel. suffix: Full components: - type: StaticPrice price: 2500 - type: Sprite sprite: Structures/Storage/tanks.rsi layers: - state: highfueltank-2 - state: highfueltank-2-1 map: ["enum.SolutionContainerLayers.Fill"]
-  0: StorageTankBig #StorageTankBig must come first, or else the desnity won't get inherited. id: WeldingFuelTankHighCapacity name: high-capacity fuel tank description: A highly pressurized fuel tank made to hold gargantuan amounts of welding fuel. suffix: Full components: - type: StaticPrice price: 2500 - type: Sprite sprite: Structures/Storage/tanks.rsi layers: - state: highfueltank-2 - state: highfueltank-2-1 map: ["enum.SolutionContainerLayers.Fill"]
-  1: WeldingFuelTank #StorageTankBig must come first, or else the desnity won't get inherited. id: WeldingFuelTankHighCapacity name: high-capacity fuel tank description: A highly pressurized fuel tank made to hold gargantuan amounts of welding fuel. suffix: Full components: - type: StaticPrice price: 2500 - type: Sprite sprite: Structures/Storage/tanks.rsi layers: - state: highfueltank-2 - state: highfueltank-2-1 map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  2:
-type: SolutionContainerVisuals
-    maxFillLevels: 7
-    fillBaseName: highfueltank-2-
-  3:
-type: SolutionContainerManager
+  id: StorageTankHuge
+  parent: StorageTankWide
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: Structures/Storage/tanksx64.rsi
+    layers:
+      - state: largetank_chemical_huge
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.7,-0.7,0.2,0.6"'
+        density: 155
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+- type: entity
+  id: StorageTankHugeFullFuel
+  parent: StorageTankHuge
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
     solutions:
       tank:
         reagents:
         - ReagentId: WeldingFuel
-          Quantity: 5000
-        maxVol: 5000
-  4:
-type: Explosive
-    explosionType: Default
-    totalIntensity: 140
-- # Water
-type: entity
-  id: WaterTank
-  parent:
-  - StorageTank
-  - StructureWheeled
-  name: water tank
-  description: A water tank. It's used to store high amounts of water.
-  suffix: Empty
-  components:
-  - type: StaticPrice
-    price: 500
-  - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
-    layers:
-      - state: watertank-2
-      - state: watertank-2-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: watertank-2-
-  - type: ExaminableSolution
-    solution: tank
-- type: entity
-  parent: WaterTank
-  id: WaterTankFull
-  suffix: Full
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 1500
-- type: entity
-  parent: StorageTank
-  id: WaterCooler
-  name: water cooler
-  description: Seems like a good place to stand and waste time. It has a stock of paper cups on the side.
-  components:
-  - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
-    layers:
-      - state: watercooler-2
-      - state: watercooler-2-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 4
-    fillBaseName: watercooler-2-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-  - type: ContainerContainer
-    containers:
-      bin-container: !type :Container
-  - type: Bin
-    initialContents:
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    - DrinkWaterCup
-    whitelist:
-      requireAll: true
-      components:
-      - FitsInDispenser
-      tags:
-      - Trash
-  - type: ExaminableSolution
-    solution: tank
-  - type: StaticPrice
-    price: 500
-- type: entity
-  parent:
-  - StorageTankBig
-  - WaterTank
-  id: WaterTankHighCapacity
-  name: high-capacity water tank
-  description: A highly pressurized water tank made to hold gargantuan amounts of water.
-  suffix: Full
-  components:
-  - type: StaticPrice
-    price: 2500
-  - type: Sprite
-    sprite: Structures/Storage/tanks.rsi
-    layers:
-      - state: highwatertank-2
-      - state: highwatertank-2-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 7
-    fillBaseName: highwatertank-2-
-  - type: SolutionContainerManager
-    solutions:
-      tank:
-        reagents:
-        - ReagentId: Water
-          #         This is *100, 000* on /tg/
-          Quantity: 10000
-        maxVol: 10000
-  -   #   It's pressurized...
-type: ExaminableSolution
-    solution: tank
-  - type: ReagentTank
-    transferAmount: 100
-- type: entity
-  id: GenericTank
-  parent:
-  - StorageTank
-  - StructureWheeled
-  suffix: Empty
-  components:
-    - type: StaticPrice
-      price: 500
-    - type: Sprite
-      sprite: Structures/Storage/tanks.rsi
-      layers:
-        - state: generictank-1
-        - state: watertank-2-1
-          map:
-          - "enum.SolutionContainerLayers.Fill"
-          visible: false
-    - type: Appearance
-    - type: SolutionContainerVisuals
-      maxFillLevels: 5
-      fillBaseName: watertank-2-
-    - type: ExaminableSolution
-      solution: tank
+          Quantity: 2000
