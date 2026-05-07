@@ -1,33 +1,40 @@
-- type: constructionGraph
-  id: MediBot
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: bot
-          steps:
-            - tag: Medkit
-              icon:
-                sprite: Objects/Specific/Medical/firstaidkits.rsi
-                state: firstaid
-              name: medkit
-            - tag: DiscreteHealthAnalyzer
-              icon:
-                sprite: Objects/Specific/Medical/healthanalyzer.rsi
-                state: analyzer
-              name: health analyzer
-              doAfter: 2
-            - tag: ProximitySensor
-              icon:
-                sprite: Objects/Misc/proximity_sensor.rsi
-                state: icon
-              name: proximity sensor
-              doAfter: 2
-            - tag: BorgArm
-              icon:
-                sprite: Mobs/Silicon/drone.rsi
-                state: l_hand
-              name: borg arm
-              doAfter: 2
-    - node: bot
-      entity: MobMedibot
+- type: htnCompound
+  id: MedibotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: InjectNearbyCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: InjectNearbyCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            targetKey: InjectTarget
+            targetMoveKey: TargetCoordinates
+        - !type 
+          operator: !type
+            speech: medibot-start-inject
+            hidden: true
+        - !type 
+          operator: !type
+            pathfindInPlanning: false
+        - !type 
+          operator: !type
+            targetKey: IdleTime
+            amount: 3
+        - !type 
+          operator: !type
+            key: IdleTime
+          preconditions:
+            - !type 
+              key: IdleTime
+        - !type 
+          operator: !type
+            targetKey: InjectTarget
