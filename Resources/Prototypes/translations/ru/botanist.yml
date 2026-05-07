@@ -1,73 +1,40 @@
-#- type: characterItemGroup
-#  id: LoadoutBotanistBackpacks
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistEquipment
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistGloves
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBotanistMask
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutBotanistOuter
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceBotanistWinterCoat
-#- type: characterItemGroup
-#  id: LoadoutBotanistShoes
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutBotanistUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceBotanistUniformOveralls
-    - type: loadout
-      id: LoadoutServiceJumpsuitHydroponicsNt
-    - type: loadout
-      id: LoadoutServiceJumpsuitHydroponicsIdris
-    - type: loadout
-      id: LoadoutServiceJumpsuitHydroponicsOrion
+- type: job
+  id: Botanist
+  name: job-name-botanist
+  description: job-description-botanist
+  playTimeTracker: JobBotanist
+  startingGear: BotanistGear
+  icon: "JobIconBotanist"
+  supervisors: job-supervisors-hop
+  access:
+    - Service
+    - Maintenance
+    - Hydroponics
+  extendedAccess:
+    - Kitchen
+    - Bar
+  setPreference: false
+
+- type: startingGear
+  id: BotanistGear
+  subGear:
+    - BotanistPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHydroponics
+    back: ClothingBackpackHydroponicsFilled
+    shoes: ClothingShoesColorBrown
+    id: BotanistPDA
+    ears: ClothingHeadsetService
+    outerClothing: ClothingOuterApronBotanist
+    belt: ClothingBeltPlantFilled
+  innerClothingSkirt: ClothingUniformJumpskirtHydroponics
+  satchel: ClothingBackpackSatchelHydroponicsFilled
+  duffelbag: ClothingBackpackDuffelHydroponicsFilled
+
+- type: startingGear
+  id: BotanistPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHydroponics
+    head: ClothingHeadEnvirohelmHydroponics
+    gloves: ClothingHandsGlovesEnviroglovesLeather
