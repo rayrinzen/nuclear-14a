@@ -1,451 +1,462 @@
-- type: entity
-  id: BaseMechPart
-  abstract: true
-  components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: CollisionWake
-  - type: TileFrictionModifier
-    modifier: 0.5
-  - type: Physics
-    bodyType: Dynamic
-    fixedRotation: false
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.25,-0.25,0.25,0.25"'
-        density: 100
-        mask:
-        - ItemMask
-        restitution: 0.3 # fite me
-        friction: 0.2
-  - type: Pullable
-- # - type: GuideHelp
-# guides:
-# - Robotics
-# Ripley APLU
+- # Ripley MK-II
 type: entity
-  id: BaseRipleyPart
+  id: BaseRipleyMKIIPart
   parent: BaseMechPart
   abstract: true
   components:
   - type: Sprite
     drawdepth: Items
     noRot: false
-    sprite: Objects/Specific/Mech/ripley_construction.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/ripleymkii_construction.rsi
 - type: entity
-  id: BaseRipleyPartItem
-  parent: BaseRipleyPart
-  abstract: true
-  components:
-  - type: Item
-    size: Ginormous
-- type: entity
-  parent: BaseRipleyPart
-  id: RipleyHarness
-  name: ripley harness
-  description: The core of the Ripley APLU.
+  parent: BaseRipleyMKIIPart
+  id: RipleyMKIIHarness
+  name: ripley MK-II harness
+  description: The core of the Ripley MK-II.
   components:
   - type: Appearance
   - type: ItemMapper
     mapLayers:
-      ripley_l_arm+o:
+      ripleymkii_upgrade_kit+o:
+        whitelist:
+          tags:
+          - RipleyMKIIUpgradeKit
+      ripleymkii_l_arm+o:
         whitelist:
           tags:
           - RipleyLArm
-      ripley_r_arm+o:
+      ripleymkii_r_arm+o:
         whitelist:
           tags:
           - RipleyRArm
-      ripley_l_leg+o:
+      ripleymkii_l_leg+o:
         whitelist:
           tags:
           - RipleyLLeg
-      ripley_r_leg+o:
+      ripleymkii_r_leg+o:
         whitelist:
           tags:
           - RipleyRLeg
-    sprite: Objects/Specific/Mech/ripley_construction.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/ripleymkii_construction.rsi
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type :Container
   - type: MechAssembly
-    finishedPrototype: RipleyChassis
+    finishedPrototype: RipleyMKIIChassis
     requiredParts:
+      RipleyMKIIUpgradeKit: false
       RipleyLArm: false
       RipleyRArm: false
       RipleyLLeg: false
       RipleyRLeg: false
   - type: Sprite
-    state: ripley_harness+o
+    state: ripleymkii_harness+o
     noRot: true
 - type: entity
-  parent: BaseRipleyPartItem
-  id: RipleyLArm
-  name: ripley left arm
-  description: The left arm of the Ripley APLU. It belongs on the chassis of the mech.
-  components:
-  - type: Sprite
-    state: ripley_l_arm
-  - type: Tag
-    tags:
-    - RipleyLArm
-- type: entity
-  parent: BaseRipleyPartItem
-  id: RipleyLLeg
-  name: ripley left leg
-  description: The left leg of the Ripley APLU. It belongs on the chassis of the mech.
-  components:
-  - type: Sprite
-    state: ripley_l_leg
-  - type: Tag
-    tags:
-    - RipleyLLeg
-- type: entity
-  parent: BaseRipleyPartItem
-  id: RipleyRLeg
-  name: ripley right leg
-  description: The right leg of the Ripley APLU. It belongs on the chassis of the mech.
-  components:
-  - type: Sprite
-    state: ripley_r_leg
-  - type: Tag
-    tags:
-    - RipleyRLeg
-- type: entity
-  parent: BaseRipleyPartItem
-  id: RipleyRArm
-  name: ripley right arm
-  description: The right arm of the Ripley APLU. It belongs on the chassis of the mech.
-  components:
-  - type: Sprite
-    state: ripley_r_arm
-  - type: Tag
-    tags:
-    - RipleyRArm
-- type: entity
-  id: RipleyChassis
-  parent: BaseRipleyPart
-  name: ripley chassis
-  description: An in-progress construction of the Ripley APLU mech.
+  id: RipleyMKIIChassis
+  parent: BaseRipleyMKIIPart
+  name: ripley MK-II chassis
+  description: An in-progress construction of the Ripley MK-II mech.
   components:
   - type: Appearance
   - type: ContainerContainer
     containers:
       battery-container: !type :Container
   - type: MechAssemblyVisuals
-    statePrefix: ripley
+    statePrefix: ripleymkii
   - type: Sprite
     noRot: true
-    state: ripley0
+    state: ripleymkii0
   - type: Construction
-    graph: Ripley
+    graph: RipleyMKII
     node: start
-    defaultTarget: ripley
-- # H.O.N.K.
+    defaultTarget: ripleymkii
+- # Clarke
 type: entity
+  id: BaseClarkePart
   parent: BaseMechPart
-  id: BaseHonkerPart
   abstract: true
   components:
   - type: Sprite
     drawdepth: Items
     noRot: false
-    sprite: Objects/Specific/Mech/honker_construction.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/clarke_construction.rsi
 - type: entity
-  id: BaseHonkerPartItem
-  parent: BaseHonkerPart
+  id: BaseClarkePartItem
+  parent: BaseClarkePart
   abstract: true
   components:
   - type: Item
     size: Ginormous
 - type: entity
-  parent: BaseHonkerPart
-  id: HonkerHarness
-  name: H.O.N.K. harness
-  description: The core of the H.O.N.K. mech
+  parent: BaseClarkePart
+  id: ClarkeHarness
+  name: clarke harness
+  description: The core of the Clarke.
   components:
   - type: Appearance
   - type: ItemMapper
     mapLayers:
-      honker_l_arm+o:
+      clarke_head+o:
         whitelist:
           tags:
-          - HonkerLArm
-      honker_r_arm+o:
+          - ClarkeHead
+      clarke_r_arm+o:
         whitelist:
           tags:
-          - HonkerRArm
-      honker_l_leg+o:
+          - ClarkeLArm
+      clarke_l_arm+o:
         whitelist:
           tags:
-          - HonkerLLeg
-      honker_r_leg+o:
+          - ClarkeRArm
+      clarke_treads+o:
         whitelist:
           tags:
-          - HonkerRLeg
-    sprite: Objects/Specific/Mech/honker_construction.rsi
+          - ClarkeTreads
+    sprite: _Goobstation/Objects/Specific/Mech/clarke_construction.rsi
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type :Container
   - type: MechAssembly
-    finishedPrototype: HonkerChassis
+    finishedPrototype: ClarkeChassis
     requiredParts:
-      HonkerLArm: false
-      HonkerRArm: false
-      HonkerLLeg: false
-      HonkerRLeg: false
+      ClarkeHead: false
+      ClarkeLArm: false
+      ClarkeRArm: false
+      ClarkeTreads: false
   - type: Sprite
-    state: honker_harness+o
+    state: clarke_harness+o
     noRot: true
 - type: entity
-  parent: BaseHonkerPartItem
-  id: HonkerLArm
-  name: H.O.N.K. left arm
-  description: A H.O.N.K. left arm, with unique sockets that accept odd weaponry designed by clown scientists.
+  parent: BaseClarkePartItem
+  id: ClarkeHead
+  name: clarke head
+  description: The head of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: honker_l_arm
+    state: clarke_head
   - type: Tag
     tags:
-    - HonkerLArm
+    - ClarkeHead
 - type: entity
-  parent: BaseHonkerPartItem
-  id: HonkerLLeg
-  name: H.O.N.K. left leg
-  description: A H.O.N.K. left leg. The foot appears just large enough to fully accommodate a clown shoe.
+  parent: BaseClarkePartItem
+  id: ClarkeRArm
+  name: clarke right arm
+  description: The right arm of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: honker_l_leg
+    state: clarke_l_arm
   - type: Tag
     tags:
-    - HonkerLLeg
+    - ClarkeRArm
 - type: entity
-  parent: BaseHonkerPartItem
-  id: HonkerRLeg
-  name: H.O.N.K. right leg
-  description: A H.O.N.K. right leg. The foot appears just large enough to fully accommodate a clown shoe.
+  parent: BaseClarkePartItem
+  id: ClarkeLArm
+  name: clarke left arm
+  description: The left arm of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: honker_r_leg
+    state: clarke_r_arm
   - type: Tag
     tags:
-    - HonkerRLeg
+    - ClarkeLArm
 - type: entity
-  parent: BaseHonkerPartItem
-  id: HonkerRArm
-  name: H.O.N.K. right arm
-  description: A H.O.N.K. right arm, with unique sockets that accept odd weaponry designed by clown scientists.
+  parent: BaseClarkePartItem
+  id: ClarkeTreads
+  name: clarke treads
+  description: The treads of the Clarke. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: honker_r_arm
+    state: clarke_treads
   - type: Tag
     tags:
-    - HonkerRArm
+    - ClarkeTreads
 - type: entity
-  id: HonkerChassis
-  parent: BaseHonkerPart
-  name: H.O.N.K. chassis
-  description: An in-progress construction of a H.O.N.K. mech. Contains chuckle unit, bananium core and honk support systems.
+  id: ClarkeChassis
+  parent: BaseClarkePart
+  name: clarke chassis
+  description: An in-progress construction of the Clarke mech.
   components:
   - type: Appearance
   - type: ContainerContainer
     containers:
       battery-container: !type :Container
   - type: MechAssemblyVisuals
-    statePrefix: honker
+    statePrefix: clarke
   - type: Sprite
     noRot: true
-    state: honker0
+    state: clarke0
   - type: Construction
-    graph: Honker
+    graph: Clarke
     node: start
-    defaultTarget: honker
-- # H.A.M.T.R.
+    defaultTarget: clarke
+- # Durand
 type: entity
-  id: BaseHamtrPart
+  id: BaseDurandPart
   parent: BaseMechPart
   abstract: true
   components:
   - type: Sprite
     drawdepth: Items
     noRot: false
-    sprite: Objects/Specific/Mech/hamtr_construction.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/durand_construction.rsi
 - type: entity
-  id: BaseHamtrPartItem
-  parent: BaseHamtrPart
+  id: BaseDurandPartItem
+  parent: BaseDurandPart
   abstract: true
   components:
   - type: Item
-    size: Huge
+    size: Ginormous
 - type: entity
-  parent: BaseHamtrPart
-  id: HamtrHarness
-  name: HAMTR harness
-  description: The core of the HAMTR.
+  parent: BaseDurandPart
+  id: DurandHarness
+  name: durand harness
+  description: The core of the Durand.
   components:
   - type: Appearance
   - type: ItemMapper
     mapLayers:
-      hamtr_l_arm+o:
+      durand_head+o:
         whitelist:
           tags:
-          - HamtrLArm
-      hamtr_r_arm+o:
+          - DurandHead
+      durand_l_arm+o:
         whitelist:
           tags:
-          - HamtrRArm
-      hamtr_l_leg+o:
+          - DurandLArm
+      durand_r_arm+o:
         whitelist:
           tags:
-          - HamtrLLeg
-      hamtr_r_leg+o:
+          - DurandRArm
+      durand_l_leg+o:
         whitelist:
           tags:
-          - HamtrRLeg
-    sprite: Objects/Specific/Mech/hamtr_construction.rsi
+          - DurandLLeg
+      durand_r_leg+o:
+        whitelist:
+          tags:
+          - DurandRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/durand_construction.rsi
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type :Container
   - type: MechAssembly
-    finishedPrototype: HamtrChassis
+    finishedPrototype: DurandChassis
     requiredParts:
-      HamtrLArm: false
-      HamtrRArm: false
-      HamtrLLeg: false
-      HamtrRLeg: false
+      DurandHead: false
+      DurandLArm: false
+      DurandRArm: false
+      DurandLLeg: false
+      DurandRLeg: false
   - type: Sprite
-    state: hamtr_harness+o
+    state: durand_harness+o
     noRot: true
 - type: entity
-  parent: BaseHamtrPartItem
-  id: HamtrLArm
-  name: HAMTR left arm
-  description: The left arm of the HAMTR. It belongs on the chassis of the mech.
+  parent: BaseDurandPartItem
+  id: DurandHead
+  name: durand head
+  description: The head of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: hamtr_l_arm
+    state: durand_head
   - type: Tag
     tags:
-    - HamtrLArm
+    - DurandHead
 - type: entity
-  parent: BaseHamtrPartItem
-  id: HamtrLLeg
-  name: HAMTR left leg
-  description: The left leg of the HAMTR. It belongs on the chassis of the mech.
+  parent: BaseDurandPartItem
+  id: DurandLArm
+  name: durand left arm
+  description: The left arm of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: hamtr_l_leg
+    state: durand_l_arm
   - type: Tag
     tags:
-    - HamtrLLeg
+    - DurandLArm
 - type: entity
-  parent: BaseHamtrPartItem
-  id: HamtrRLeg
-  name: HAMTR right leg
-  description: The right leg of the HAMTR. It belongs on the chassis of the mech.
+  parent: BaseDurandPartItem
+  id: DurandLLeg
+  name: durand left leg
+  description: The left leg of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: hamtr_r_leg
+    state: durand_l_leg
   - type: Tag
     tags:
-    - HamtrRLeg
+    - DurandLLeg
 - type: entity
-  parent: BaseHamtrPartItem
-  id: HamtrRArm
-  name: HAMTR right arm
-  description: The right arm of the HAMTR. It belongs on the chassis of the mech.
+  parent: BaseDurandPartItem
+  id: DurandRLeg
+  name: durand right leg
+  description: The right leg of the Durand. It belongs on the chassis of the mech.
   components:
   - type: Sprite
-    state: hamtr_r_arm
+    state: durand_r_leg
   - type: Tag
     tags:
-    - HamtrRArm
+    - DurandRLeg
 - type: entity
-  id: HamtrChassis
-  parent: BaseHamtrPart
-  name: HAMTR chassis
-  description: An in-progress construction of the HAMTR mech.
+  parent: BaseDurandPartItem
+  id: DurandRArm
+  name: durand right arm
+  description: The right arm of the Durand. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: durand_r_arm
+  - type: Tag
+    tags:
+    - DurandRArm
+- type: entity
+  id: DurandChassis
+  parent: BaseDurandPart
+  name: durand chassis
+  description: An in-progress construction of the Durand mech.
   components:
   - type: Appearance
   - type: ContainerContainer
     containers:
       battery-container: !type :Container
   - type: MechAssemblyVisuals
-    statePrefix: hamtr
+    statePrefix: durand
   - type: Sprite
     noRot: true
-    state: hamtr0
+    state: durand0
   - type: Construction
-    graph: Hamtr
+    graph: Durand
     node: start
-    defaultTarget: hamtr
-- # Vim!!!!!!
+    defaultTarget: durand
+- # Gygax
 type: entity
+  id: BaseGygaxPart
   parent: BaseMechPart
-  id: BaseVimPart
   abstract: true
   components:
   - type: Sprite
     drawdepth: Items
     noRot: false
-    sprite: Objects/Specific/Mech/vim_construction.rsi
+    sprite: _Goobstation/Objects/Specific/Mech/gygax_construction.rsi
 - type: entity
-  parent: BaseVimPart
-  id: BaseVimPartItem
+  id: BaseGygaxPartItem
+  parent: BaseGygaxPart
   abstract: true
   components:
   - type: Item
-    size: Small
+    size: Ginormous
 - type: entity
-  parent: BaseVimPartItem
-  id: VimHarness
-  name: vim harness
-  description: A small mounting bracket for vim parts.
+  parent: BaseGygaxPart
+  id: GygaxHarness
+  name: gygax harness
+  description: The core of the Gygax.
   components:
   - type: Appearance
   - type: ItemMapper
     mapLayers:
-      helmet:
+      gygax_head+o:
         whitelist:
           tags:
-          - HelmetEVA
-      left_leg:
+          - GygaxHead
+      gygax_l_arm+o:
         whitelist:
           tags:
-          - BorgLeg
-      right_leg:
+          - GygaxLArm
+      gygax_r_arm+o:
         whitelist:
           tags:
-          - BorgLeg
-    sprite: Objects/Specific/Mech/vim_construction.rsi
+          - GygaxRArm
+      gygax_l_leg+o:
+        whitelist:
+          tags:
+          - GygaxLLeg
+      gygax_r_leg+o:
+        whitelist:
+          tags:
+          - GygaxRLeg
+    sprite: _Goobstation/Objects/Specific/Mech/gygax_construction.rsi
   - type: ContainerContainer
     containers:
       mech-assembly-container: !type :Container
   - type: MechAssembly
-    finishedPrototype: VimChassis
+    finishedPrototype: GygaxChassis
     requiredParts:
-      HelmetEVA: false
-      BorgLeg: false
+      GygaxHead: false
+      GygaxLArm: false
+      GygaxRArm: false
+      GygaxLLeg: false
+      GygaxRLeg: false
   - type: Sprite
-    state: harness
+    state: gygax_harness+o
     noRot: true
 - type: entity
-  id: VimChassis
-  parent: BaseVimPart
-  name: vim chassis
-  description: An in-progress construction of the Vim exosuit.
+  parent: BaseGygaxPartItem
+  id: GygaxHead
+  name: gygax head
+  description: The head of the Gygax. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: gygax_head
+  - type: Tag
+    tags:
+    - GygaxHead
+- type: entity
+  parent: BaseGygaxPartItem
+  id: GygaxLArm
+  name: gygax left arm
+  description: The left arm of the Gygax. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: gygax_l_arm
+  - type: Tag
+    tags:
+    - GygaxLArm
+- type: entity
+  parent: BaseGygaxPartItem
+  id: GygaxLLeg
+  name: gygax left leg
+  description: The left leg of the Gygax. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: gygax_l_leg
+  - type: Tag
+    tags:
+    - GygaxLLeg
+- type: entity
+  parent: BaseGygaxPartItem
+  id: GygaxRLeg
+  name: gygax right leg
+  description: The right leg of the Gygax. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: gygax_r_leg
+  - type: Tag
+    tags:
+    - GygaxRLeg
+- type: entity
+  parent: BaseGygaxPartItem
+  id: GygaxRArm
+  name: gygax right arm
+  description: The right arm of the Gygax. It belongs on the chassis of the mech.
+  components:
+  - type: Sprite
+    state: gygax_r_arm
+  - type: Tag
+    tags:
+    - GygaxRArm
+- type: entity
+  id: GygaxChassis
+  parent: BaseGygaxPart
+  name: gygax chassis
+  description: An in-progress construction of the Gygax mech.
   components:
   - type: Appearance
   - type: ContainerContainer
     containers:
       battery-container: !type :Container
   - type: MechAssemblyVisuals
-    statePrefix: vim
+    statePrefix: gygax
   - type: Sprite
     noRot: true
-    state: vim0
+    state: gygax0
   - type: Construction
-    graph: Vim
+    graph: Gygax
     node: start
-    defaultTarget: vim
+    defaultTarget: gygax
