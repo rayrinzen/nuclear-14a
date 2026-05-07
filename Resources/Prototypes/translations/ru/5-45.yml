@@ -1,35 +1,25 @@
 - type: entity
-  abstract: true
+  id: BaseMagazine545Rifle
+  name: "magazine (5.45mm)"
   parent: BaseItem
-  id: BaseMagazineBox545Rifle
+  abstract: true
   components:
+  - type: Tag
+    tags:
+      - Magazine545Rifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - N14Cartridge545Rifle
     proto: N14Cartridge545Rifle
-    capacity: 75
+    capacity: 24
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type :Container
   - type: Sprite
-    sprite: Corvax/Objects/Weapons/Guns/Ammunition/Boxes/5-45box.rsi
     netsync: false
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
-- type: entity
-  parent: BaseMagazineBox545Rifle
-  id: MagazineBox545
-  name: ammunition box (5.45mm)
-  components:
-  - type: BallisticAmmoProvider
-    proto: N14Cartridge545Rifle
-  - type: Sprite
+    sprite: Corvax/Objects/Weapons/Guns/Ammunition/Magazines/5.45/ak112mag.rsi
     layers:
     - state: base
       map:
@@ -37,3 +27,15 @@
     - state: mag-1
       map:
       - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: Magazine545Rifle
+  name: "magazine (5.45mm)"
+  parent: BaseMagazine545Rifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge545Rifle
