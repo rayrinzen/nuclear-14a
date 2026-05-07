@@ -1,18 +1,35 @@
-# See the following file for existing categories: Resources\Prototypes\Loadouts\categories.yml
+# class
+- type: vesselCategory
+  id: Civilian
 
-- type: loadoutCategory
-  id: Bags
-  root: true
-  subCategories:
-    - Backpacks
-    - Duffel
-    - Satchel
+- type: vesselCategory
+  id: Military
 
-- type: loadoutCategory
-  id: Backpacks
+- type: vesselCategory
+  id: Experimental
 
-- type: loadoutCategory
-  id: Duffel
+# size
+- type: vesselCategory
+  id: Small
 
-- type: loadoutCategory
-  id: Satchel
+- type: vesselCategory
+  id: Medium
+
+- type: vesselCategory
+  id: Large
+
+# purpose
+- type: vesselCategory
+  id: Medical
+
+- type: vesselCategory
+  id: Mining
+
+- type: vesselCategory
+  id: Research
+
+- type: vesselCategory
+  id: Shipping
+
+- type: vesselCategory
+  id: Transport
