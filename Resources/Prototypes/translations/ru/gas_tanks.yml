@@ -1,271 +1,297 @@
-# Moles calculation
-#
-#   moles = 1000 / (8.31446261 * 293.15 / volume)
-#
-#   More practically:
-#
-#   moles = volume * 0.41027581
-#
-#   Yes, you do need all those digits or your pressure wont end up exactly 1000
-#
-#
-# The number 1000 comes from the default MaxReleasePressure for a GasCanister,
-# which is 10 * Atmospherics.OneAtmosphere, rounded down.
-#
-# 8.31446261 is the universal gas constant
-#
-# 293.15 is our default atmospheric temperature
-#
-
-# If you change the mole amounts, you can calculate the new gas supply times with:
-# minutes = (moles / outputPressure) * 325
 - type: entity
-  id: OxygenTankFilled
-  parent: OxygenTank
-  suffix: Filled
+  abstract: true
+  parent: BaseItem
+  id: GasTankBase
   components:
+    - type: Sprite
+      sprite: Objects/Tanks/generic.rsi
+      state: icon
+    - type: Item
+      size: Normal
+      sprite: Objects/Tanks/generic.rsi
+    - type: Clothing
+      quickEquip: false
+      sprite: Objects/Tanks/generic.rsi
+      slots:
+        - Back
+        - suitStorage
+    - type: ActivatableUI
+      key: enum.SharedGasTankUiKey.Key
+    - type: UserInterface
+      interfaces:
+        enum.SharedGasTankUiKey.Key:
+          type: GasTankBoundUserInterface
     - type: GasTank
       outputPressure: 21.3
       air:
-        # 31 minutes
+        # If gas tank volume is changed, adjust MinimumTritiumOxyburnEnergy in Atmospherics.cs by the same proportions
         volume: 5
-        moles:
-          - 2.051379050 # oxygen
         temperature: 293.15
+      tankLowPressure: 30.0
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 20
+    - type: MeleeWeapon
+      wideAnimationRotation: 45
+      attackRate: 1.25
+      range: 1.75
+      damage:
+        types:
+          Blunt: 8
+      bluntStaminaDamageFactor: 2.5
+      heavyRateModifier: 1.25
+      heavyDamageBaseModifier: 1.5
+      heavyStaminaCost: 10
+      maxTargets: 3
+      angle: 100
+      soundHit:
+        path: /Audio/Weapons/smash.ogg
+    - type: DamageOtherOnHit
+      staminaCost: 8
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 185
+    - type: StaticPrice
+      price: 20
 
 - type: entity
-  id: EmergencyOxygenTankFilled
+  abstract: true
+  parent: GasTankBase
+  id: GasTankRoundBase
+  components:
+    - type: Tool
+      qualities:
+        - Rolling
+      speedModifier: 0.6 # fairly unwieldly but nice round surface
+
+- type: entity
+  parent: GasTankRoundBase
+  id: OxygenTank
+  name: oxygen tank
+  description: A standard cylindrical gas tank for oxygen.
+  components:
+    - type: Sprite
+      sprite: Objects/Tanks/oxygen.rsi
+    - type: Item
+      sprite: Objects/Tanks/oxygen.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/oxygen.rsi
+
+- type: entity
+  parent: GasTankRoundBase
+  id: NitrogenTank
+  name: nitrogen tank
+  description: A standard cylindrical gas tank for nitrogen.
+  components:
+    - type: Sprite
+      sprite: Objects/Tanks/red.rsi
+    - type: Item
+      sprite: Objects/Tanks/red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/red.rsi
+
+- type: entity
+  parent: GasTankRoundBase
+  id: EmergencyOxygenTank
+  name: emergency oxygen tank
+  description: An easily portable tank for emergencies. Contains very little oxygen, rated for survival use only.
+  components:
+    - type: Sprite
+      sprite: Objects/Tanks/emergency.rsi
+    - type: Item
+      size: Small
+      sprite: Objects/Tanks/emergency.rsi
+    - type: GasTank
+      air:
+        volume: 0.66
+        temperature: 293.15
+    - type: Clothing
+      sprite: Objects/Tanks/emergency.rsi
+      slots:
+        - Pocket
+        - Belt
+        - suitStorage
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 5
+    - type: DamageOtherOnHit
+      staminaCost: 3.5
+    - type: PhysicalComposition
+      materialComposition:
+        Steel: 100
+
+- type: entity
   parent: EmergencyOxygenTank
-  suffix: Filled
+  id: EmergencyNitrogenTank
+  name: emergency nitrogen tank
+  description: An easily portable tank for emergencies. Contains very little nitrogen, rated for survival use only.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 4 minutes
-        volume: 0.66
-        moles:
-          - 0.270782035 # oxygen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_red.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_red.rsi
 
 - type: entity
-  id: EmergencyNitrogenTankFilled
-  parent: EmergencyNitrogenTank
-  suffix: Filled
+  parent: EmergencyOxygenTank
+  id: EmergencyPlasmaTank
+  name: emergency plasma tank
+  description: An easily portable tank for emergencies. Contains very little plasma, rated for survival use only.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 4 minutes
-        volume: 0.66
-        moles:
-          - 0 # oxygen
-          - 0.270782035 # nitrogen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_red.rsi # TODO: emergency plasma tank sprite
+    - type: Item
+      sprite: Objects/Tanks/emergency_red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_red.rsi
 
 - type: entity
-  id: EmergencyPlasmaTankFilled
-  parent: EmergencyPlasmaTank
-  suffix: Filled
+  parent: EmergencyOxygenTank
+  id: ExtendedEmergencyOxygenTank
+  name: extended-capacity emergency oxygen tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_extended.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_extended.rsi
     - type: GasTank
-      outputPressure: 5.325
       air:
-        # 16 minutes with Plasmaman lungs
-        volume: 0.66
-        moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0.270782035 # nitrogen
+        volume: 1.5
         temperature: 293.15
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_extended.rsi
 
 - type: entity
-  id: ExtendedEmergencyOxygenTankFilled
   parent: ExtendedEmergencyOxygenTank
-  suffix: Filled
+  id: ExtendedEmergencyNitrogenTank
+  name: extended-capacity emergency nitrogen tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 9 minutes
-        volume: 1.5
-        moles:
-          - 0.615413715 # oxygen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_extended_red.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_extended_red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_extended_red.rsi
 
 - type: entity
-  id: ExtendedEmergencyNitrogenTankFilled
-  parent: ExtendedEmergencyNitrogenTank
-  suffix: Filled
+  parent: ExtendedEmergencyOxygenTank
+  id: ExtendedEmergencyPlasmaTank
+  name: extended-capacity emergency plasma tank
+  description: An emergency tank with extended capacity. Technically rated for prolonged use.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 9 minutes
-        volume: 1.5
-        moles:
-          - 0 # oxygen
-          - 0.615413715 # nitrogen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_extended_red.rsi # TODO: extended-capacity emergency plasma tank sprite
+    - type: Item
+      sprite: Objects/Tanks/emergency_extended_red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_extended_red.rsi
 
 - type: entity
-  id: ExtendedEmergencyPlasmaTankFilled
-  parent: ExtendedEmergencyPlasmaTank
-  suffix: Filled
+  parent: ExtendedEmergencyOxygenTank
+  id: DoubleEmergencyOxygenTank
+  name: double emergency oxygen tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of oxygen for it's small size.
   components:
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_double.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_double.rsi
     - type: GasTank
-      outputPressure: 5.325
       air:
-        # 37 minutes with Plasmaman lungs
-        volume: 1.5
-        moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0.615413715 # plasma
+        volume: 2.5
         temperature: 293.15
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_double.rsi
+    - type: MeleeWeapon
+      attackRate: 0.9
+      damage:
+        types:
+          Blunt: 7.5
+    - type: DamageOtherOnHit
+      staminaCost: 5
 
 - type: entity
-  id: DoubleEmergencyOxygenTankFilled
   parent: DoubleEmergencyOxygenTank
-  suffix: Filled
+  id: DoubleEmergencyNitrogenTank
+  name: double emergency nitrogen tank
+  description: A high-grade dual-tank emergency life support container. It holds a decent amount of nitrogen for its small size.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 15 minutes
-        volume: 2.5
-        moles:
-          - 1.025689525 # oxygen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_double_red.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_double_red.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_double_red.rsi
 
 - type: entity
-  id: DoubleEmergencyNitrogenTankFilled
-  parent: DoubleEmergencyNitrogenTank
-  suffix: Filled
+  parent: DoubleEmergencyOxygenTank
+  id: DoubleEmergencyPlasmaTank
+  name: plasma internals tank
+  description: A tank of plasma designed to be internals for Plasmamen.
   components:
-    - type: GasTank
-      outputPressure: 21.3
-      air:
-        # 15 minutes
-        volume: 2.5
-        moles:
-          - 0 # oxygen
-          - 1.025689525 # nitrogen
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/plasmaman.rsi
+    - type: Item
+      sprite: Objects/Tanks/plasmaman.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/plasmaman.rsi
 
 - type: entity
-  id: DoubleEmergencyPlasmaTankFilled
-  parent: DoubleEmergencyPlasmaTank
-  suffix: Filled
+  parent: EmergencyOxygenTank
+  id: EmergencyFunnyOxygenTank
+  name: funny emergency oxygen tank
+  description: An easily portable tank for emergencies. Contains very little oxygen with an extra of funny gas, rated for survival use only.
   components:
-    - type: GasTank
-      outputPressure: 5.325
-      air:
-        # 62 minutes with Plasmaman lungs
-        volume: 1.5
-        moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 1.025689525 # plasma
-        temperature: 293.15
+    - type: Sprite
+      sprite: Objects/Tanks/emergency_clown.rsi
+    - type: Item
+      sprite: Objects/Tanks/emergency_clown.rsi
+    - type: Clothing
+      sprite: Objects/Tanks/emergency_clown.rsi
 
 - type: entity
-  id: EmergencyFunnyOxygenTankFilled
-  parent: EmergencyFunnyOxygenTank
-  suffix: Filled
-  components:
-    - type: GasTank
-      outputPressure: 22.4
-      air:
-        # 4 minutes
-        volume: 0.66
-        moles:
-          - 0.270782035 # 95% oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # plasma
-          - 0 # tritium
-          - 0 # water vapor
-          - 0 # ammonia
-          - 0.014251686 # 5% N2O
-          # 0.285033721       total
-        temperature: 293.15
-
-- type: entity
-  id: AirTankFilled
-  parent: AirTank
-  suffix: Filled
+  parent: GasTankRoundBase
+  id: AirTank
+  name: air tank
+  description: Mixed anyone?
   components:
     - type: GasTank
       outputPressure: 101.3
-      air:
-        # 6 minutes due to output pressure
-        volume: 5
-        moles:
-          - 0.451303391 # 22% oxygen
-          - 1.600075659 # 78% nitrogen
-          # 2.051379050       total
-        temperature: 293.15
 
 - type: entity
-  id: NitrogenTankFilled
-  parent: NitrogenTank
-  suffix: Filled
-  name: nitrogen tank
-  components:
-    - type: GasTank
-      air:
-        # 31 minutes
-        volume: 5
-        moles:
-          - 0 # oxygen not included
-          - 2.051379050 # nitrogen
-        temperature: 293.15
-
-- type: entity
-  id: NitrousOxideTankFilled
-  parent: NitrousOxideTank
-  suffix: Filled
+  parent: GasTankRoundBase
+  id: NitrousOxideTank
   name: nitrous oxide tank
+  description: Contains a mixture of air and nitrous oxide. Make sure you don't refill it with pure N2O.
   components:
+    - type: Sprite
+      sprite: Objects/Tanks/anesthetic.rsi
+    - type: Item
+      sprite: Objects/Tanks/anesthetic.rsi
     - type: GasTank
-      #      0.21  | % oxygen in normal atmosphere
-      #  /   0.7   | % oxygen in this mixture
-      #  * 101.325 | one atmosphere
-      # __________
-      #    30.3975   optimal output pressure
       outputPressure: 30.4
-      air:
-        # only 22 minutes due to pressure
-        volume: 5
-        moles:
-          - 1.435965335 # 70% oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 0 # plasma
-          - 0 # tritium
-          - 0 # water vapor
-          - 0 # ammonia
-          - 0.615413715 # 30% N2O
-          # 2.051379050       total
-        temperature: 293.15
+    - type: Clothing
+      sprite: Objects/Tanks/anesthetic.rsi
 
 - type: entity
-  id: PlasmaTankFilled
-  parent: PlasmaTank
+  # it's a square so no rolling dough
+  parent: GasTankBase
+  id: PlasmaTank
   name: plasma tank
-  suffix: Filled
+  description: Contains dangerous plasma. Do not inhale, unless you're a plasmaman. Extremely flammable.
   components:
+    - type: Sprite
+      sprite: Objects/Tanks/plasma.rsi
+    - type: Item
+      sprite: Objects/Tanks/plasma.rsi
     - type: GasTank
-      outputPressure: 5.325
-      air:
-        # 125.2 minutes with Plasmaman lungs
-        volume: 5
-        moles:
-          - 0 # oxygen
-          - 0 # nitrogen
-          - 0 # CO2
-          - 2.051379050 # plasma
-        temperature: 293.15
+      outputPressure: 101.3
+    - type: Clothing
+      sprite: Objects/Tanks/plasma.rsi
+      slots:
+        - Belt
+        - suitStorage
