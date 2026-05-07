@@ -2,275 +2,46 @@
 # Copyright (c) 2024 Delta-V Contributors
 # See AGPLv3.txt for details.
 type: entity
+  id: LamiaInitialSegment
   save: false
-  name: Lamia
-  parent: BaseMobHuman #parenting human so I can remove most of these components
-  id: MobLamiaBase
-  abstract: true
-  description: A miserable pile of scales. #TODO: Add a better description
+  categories:
+  - HideSpawnMenu
   components:
-  - type: Flashable
-  - type: Polymorphable
-  - type: Identity
-  - type: Hands
-  - type: HumanoidAppearance
-    species: Lamia
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 6
-  - type: MovedByPressure
-  - type: Hunger
-  - type: Thirst
-  - type: IdExaminable
-  - type: Inventory
-    speciesId: lamia
-    templateId: lamia
-  - type: HealthExaminable
-    examinableTypes:
-    - Blunt
-    - Slash
-    - Piercing
-    - Heat
-    - Shock
-  - type: Stamina
-  - type: Blindable
+  - type: Damageable
+  - type: StandingState
   - type: Clickable
   - type: InteractionOutline
-  - type: InteractionPopup
-    successChance: 0.5
-    interactSuccessString: petting-success-lamia
-    interactFailureString: petting-failure-lamia
-    interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/Animals/lizard_happy.ogg #placeholder sound
-    interactFailureSound:
-      path: /Audio/Animals/snake_hiss.ogg #placeholder sound
-  - type: Icon
-    sprite: Mobs/Species/Human/parts.rsi
-    state: full
+  - type: PsionicInsulation #Not a brain, target the lamia instead
   - type: Physics
     bodyType: KinematicController
+  - type: Fixtures
+    fixtures:  # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.25'
+        density: 80
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Transform
+    anchored: false
   - type: Tag
     tags:
-    - CanPilot
-    - DoorBumpOpener
+    - HideContextMenu
+  - type: RequireProjectileTarget
+    active: True
+- type: entity
+  id: LamiaSegment
+  save: false
+  parent: LamiaInitialSegment
+  name: lamia segment
+  categories:
+  - HideSpawnMenu
+  description: A tail segment, hopefully attached to a lamia.
+  components:
   - type: Sprite
-    netsync: false
-    noRot: true
-    drawdepth: Mobs
-    scale: 1, 1
-    offset: 0, 0.4
-    layers:  #TODO: manually fix these layers
-      - map:
-      - "enum.HumanoidVisualLayers.Chest"
-        color: "#e8b59b"
-        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: torso_m
-      - map:
-      - "enum.HumanoidVisualLayers.Head"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: head_m
-      - map:
-      - "enum.HumanoidVisualLayers.Eyes"
-        color: "#008800"
-        sprite: Mobs/Customization/eyes.rsi
-        state: eyes
-      - map:
-      - "enum.HumanoidVisualLayers.Face"
-      - map:
-      - "enum.HumanoidVisualLayers.RArm"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_arm
-      - map:
-      - "enum.HumanoidVisualLayers.LArm"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_arm
-      - map:
-      - "enum.HumanoidVisualLayers.Tail"
-      - map:
-      - "jumpsuit"
-      - map:
-      - "enum.HumanoidVisualLayers.LHand"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_hand
-      - map:
-      - "enum.HumanoidVisualLayers.RHand"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_hand
-      - map:
-      - "enum.HumanoidVisualLayers.Handcuffs"
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map:
-      - "id"
-      - map:
-      - "gloves"
-      - map:
-      - "ears"
-      - map:
-      - "innerBelt"
-      - map:
-      - "innerNeck"
-      - map:
-      - "outerClothing"
-      - map:
-      - "eyes"
-      - map:
-      - "belt"
-      - map:
-      - "belt2"
-      - map:
-      - "neck"
-      - map:
-      - "back"
-      - map:
-      - "enum.HumanoidVisualLayers.FacialHair"
-      - map:
-      - "enum.HumanoidVisualLayers.Hair"
-      - map:
-      - "enum.HumanoidVisualLayers.HeadSide"
-      - map:
-      - "enum.HumanoidVisualLayers.HeadTop"
-      - map:
-      - "mask"
-      - map:
-      - "head"
-      - map:
-      - "pocket1"
-      - map:
-      - "pocket2"
-      - map:  # Dynamically generated
-      - "clownedon"
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_human"
-        visible: false
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: Scale #TODO: make a new damage modifier set
-  - type: NoSlip
-  - type: Internals
-  - type: MobState
-  - type: DamageVisuals
-    thresholds:  #these values aren't final, adjust accordingly with thresholds above' targetLayers: - "enum.HumanoidVisualLayers.Chest" - "enum.HumanoidVisualLayers.Head" - "enum.HumanoidVisualLayers.LArm" - "enum.HumanoidVisualLayers.RArm" damageOverlayGroups: Brute: sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi color: "#FF0000" Burn: sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi - type: MobThresholds thresholds: 0: Alive 200: Critical #these values aren't final' 300: Dead #these values aren't final' - type: SlowOnDamage speedModifierThresholds: #these values aren't final, adjust accordingly with thresholds above' 60: 0.9 80: 0.8 100: 0.7 120: 0.6 140: 0.5 - type: FireVisuals sprite: Mobs/Effects/onfire.rsi normalState: Generic_mob_burning alternateState: Standing fireStackAlternateState: 3 - type: CombatMode - type: Climbing - type: Cuffable - type: AnimationPlayer - type: MeleeWeapon soundHit: path: /Audio/Items/hypospray.ogg animation: WeaponArcBite damage: types: Piercing: 2 Poison: 3 - type: SolutionContainerManager solutions: melee: maxVol: 30 - type: SolutionRegeneration solution: melee generated: reagents: - ReagentId: SpaceDrugs Quantity: 1 - type: MeleeChemicalInjector solution: melee transferAmount: 3 - type: Pullable - type: DoAfter - type: CreamPied - type: Stripping - type: Strippable - type: Puller - type: Fixtures fixtures: fix1: shape: !type:PhysShapeCircle radius: 0.35 density: 1000 restitution: 0.0 mask: - MobMask layer: - MobLayer - type: SegmentedEntity numberOfSegments: 18 texturePath: /Textures/Nyanotrasen/Mobs/Species/lamia.rsi/segment.png - type: Speech speechSounds: Alto - type: Vocal - type: Emoting - type: Grammar attributes: proper: true - type: StandingState - type: Fingerprint - type: Perishable - type: Bloodstream bloodMaxVolume: 60000 bloodlossDamage: types: Bloodloss: 1 bloodlossHealDamage: types: Bloodloss: -1 - type: PortalExempt - type: FootPrints leftBarePrint: "dragging-1" rightBarePrint: "dragging-1" shoesPrint: "dragging-1" suitPrint: "dragging-1" - type: entity save: false name: Lamia Dummy parent: MobHumanDummy id: MobLamiaDummy description: A dummy lamia meant to be used in character setup. components: - type: Sprite netsync: false noRot: true drawdepth: Mobs scale: 1, 1 layers: - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    0: 60 #these values aren't final, adjust accordingly with thresholds above' targetLayers: - "enum.HumanoidVisualLayers.Chest" - "enum.HumanoidVisualLayers.Head" - "enum.HumanoidVisualLayers.LArm" - "enum.HumanoidVisualLayers.RArm" damageOverlayGroups: Brute: sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi color: "#FF0000" Burn: sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi - type: MobThresholds thresholds: 0: Alive 200: Critical #these values aren't final' 300: Dead #these values aren't final' - type: SlowOnDamage speedModifierThresholds: #these values aren't final, adjust accordingly with thresholds above' 60: 0.9 80: 0.8 100: 0.7 120: 0.6 140: 0.5 - type: FireVisuals sprite: Mobs/Effects/onfire.rsi normalState: Generic_mob_burning alternateState: Standing fireStackAlternateState: 3 - type: CombatMode - type: Climbing - type: Cuffable - type: AnimationPlayer - type: MeleeWeapon soundHit: path: /Audio/Items/hypospray.ogg animation: WeaponArcBite damage: types: Piercing: 2 Poison: 3 - type: SolutionContainerManager solutions: melee: maxVol: 30 - type: SolutionRegeneration solution: melee generated: reagents: - ReagentId: SpaceDrugs Quantity: 1 - type: MeleeChemicalInjector solution: melee transferAmount: 3 - type: Pullable - type: DoAfter - type: CreamPied - type: Stripping - type: Strippable - type: Puller - type: Fixtures fixtures: fix1: shape: !type:PhysShapeCircle radius: 0.35 density: 1000 restitution: 0.0 mask: - MobMask layer: - MobLayer - type: SegmentedEntity numberOfSegments: 18 texturePath: /Textures/Nyanotrasen/Mobs/Species/lamia.rsi/segment.png - type: Speech speechSounds: Alto - type: Vocal - type: Emoting - type: Grammar attributes: proper: true - type: StandingState - type: Fingerprint - type: Perishable - type: Bloodstream bloodMaxVolume: 60000 bloodlossDamage: types: Bloodloss: 1 bloodlossHealDamage: types: Bloodloss: -1 - type: PortalExempt - type: FootPrints leftBarePrint: "dragging-1" rightBarePrint: "dragging-1" shoesPrint: "dragging-1" suitPrint: "dragging-1" - type: entity save: false name: Lamia Dummy parent: MobHumanDummy id: MobLamiaDummy description: A dummy lamia meant to be used in character setup. components: - type: Sprite netsync: false noRot: true drawdepth: Mobs scale: 1, 1 layers: - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    1: 120 #these values aren't final, adjust accordingly with thresholds above' targetLayers: - "enum.HumanoidVisualLayers.Chest" - "enum.HumanoidVisualLayers.Head" - "enum.HumanoidVisualLayers.LArm" - "enum.HumanoidVisualLayers.RArm" damageOverlayGroups: Brute: sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi color: "#FF0000" Burn: sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi - type: MobThresholds thresholds: 0: Alive 200: Critical #these values aren't final' 300: Dead #these values aren't final' - type: SlowOnDamage speedModifierThresholds: #these values aren't final, adjust accordingly with thresholds above' 60: 0.9 80: 0.8 100: 0.7 120: 0.6 140: 0.5 - type: FireVisuals sprite: Mobs/Effects/onfire.rsi normalState: Generic_mob_burning alternateState: Standing fireStackAlternateState: 3 - type: CombatMode - type: Climbing - type: Cuffable - type: AnimationPlayer - type: MeleeWeapon soundHit: path: /Audio/Items/hypospray.ogg animation: WeaponArcBite damage: types: Piercing: 2 Poison: 3 - type: SolutionContainerManager solutions: melee: maxVol: 30 - type: SolutionRegeneration solution: melee generated: reagents: - ReagentId: SpaceDrugs Quantity: 1 - type: MeleeChemicalInjector solution: melee transferAmount: 3 - type: Pullable - type: DoAfter - type: CreamPied - type: Stripping - type: Strippable - type: Puller - type: Fixtures fixtures: fix1: shape: !type:PhysShapeCircle radius: 0.35 density: 1000 restitution: 0.0 mask: - MobMask layer: - MobLayer - type: SegmentedEntity numberOfSegments: 18 texturePath: /Textures/Nyanotrasen/Mobs/Species/lamia.rsi/segment.png - type: Speech speechSounds: Alto - type: Vocal - type: Emoting - type: Grammar attributes: proper: true - type: StandingState - type: Fingerprint - type: Perishable - type: Bloodstream bloodMaxVolume: 60000 bloodlossDamage: types: Bloodloss: 1 bloodlossHealDamage: types: Bloodloss: -1 - type: PortalExempt - type: FootPrints leftBarePrint: "dragging-1" rightBarePrint: "dragging-1" shoesPrint: "dragging-1" suitPrint: "dragging-1" - type: entity save: false name: Lamia Dummy parent: MobHumanDummy id: MobLamiaDummy description: A dummy lamia meant to be used in character setup. components: - type: Sprite netsync: false noRot: true drawdepth: Mobs scale: 1, 1 layers: - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    2: 200 #these values aren't final, adjust accordingly with thresholds above' targetLayers: - "enum.HumanoidVisualLayers.Chest" - "enum.HumanoidVisualLayers.Head" - "enum.HumanoidVisualLayers.LArm" - "enum.HumanoidVisualLayers.RArm" damageOverlayGroups: Brute: sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi color: "#FF0000" Burn: sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi - type: MobThresholds thresholds: 0: Alive 200: Critical #these values aren't final' 300: Dead #these values aren't final' - type: SlowOnDamage speedModifierThresholds: #these values aren't final, adjust accordingly with thresholds above' 60: 0.9 80: 0.8 100: 0.7 120: 0.6 140: 0.5 - type: FireVisuals sprite: Mobs/Effects/onfire.rsi normalState: Generic_mob_burning alternateState: Standing fireStackAlternateState: 3 - type: CombatMode - type: Climbing - type: Cuffable - type: AnimationPlayer - type: MeleeWeapon soundHit: path: /Audio/Items/hypospray.ogg animation: WeaponArcBite damage: types: Piercing: 2 Poison: 3 - type: SolutionContainerManager solutions: melee: maxVol: 30 - type: SolutionRegeneration solution: melee generated: reagents: - ReagentId: SpaceDrugs Quantity: 1 - type: MeleeChemicalInjector solution: melee transferAmount: 3 - type: Pullable - type: DoAfter - type: CreamPied - type: Stripping - type: Strippable - type: Puller - type: Fixtures fixtures: fix1: shape: !type:PhysShapeCircle radius: 0.35 density: 1000 restitution: 0.0 mask: - MobMask layer: - MobLayer - type: SegmentedEntity numberOfSegments: 18 texturePath: /Textures/Nyanotrasen/Mobs/Species/lamia.rsi/segment.png - type: Speech speechSounds: Alto - type: Vocal - type: Emoting - type: Grammar attributes: proper: true - type: StandingState - type: Fingerprint - type: Perishable - type: Bloodstream bloodMaxVolume: 60000 bloodlossDamage: types: Bloodloss: 1 bloodlossHealDamage: types: Bloodloss: -1 - type: PortalExempt - type: FootPrints leftBarePrint: "dragging-1" rightBarePrint: "dragging-1" shoesPrint: "dragging-1" suitPrint: "dragging-1" - type: entity save: false name: Lamia Dummy parent: MobHumanDummy id: MobLamiaDummy description: A dummy lamia meant to be used in character setup. components: - type: Sprite netsync: false noRot: true drawdepth: Mobs scale: 1, 1 layers: - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        color: "#e8b59b"
-        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: torso_m
-      3:
-map:
-      - "enum.HumanoidVisualLayers.Head"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: head_m
-      4:
-map:
-      - "enum.HumanoidVisualLayers.Eyes"
-        color: "#008800"
-        sprite: Mobs/Customization/eyes.rsi
-        state: eyes
-      5:
-map:
-      - "enum.HumanoidVisualLayers.Face"
-      6:
-map:
-      - "enum.HumanoidVisualLayers.RArm"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_arm
-      7:
-map:
-      - "enum.HumanoidVisualLayers.LArm"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_arm
-      8:
-map:
-      - "jumpsuit"
-        shader: StencilDraw
-      9:
-map:
-      - "enum.HumanoidVisualLayers.LHand"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_hand
-      10:
-map:
-      - "enum.HumanoidVisualLayers.RHand"
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_hand
-      11:
-map:
-      - "enum.HumanoidVisualLayers.Handcuffs"
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      12:
-map:
-      - "id"
-      13:
-map:
-      - "gloves"
-      14:
-map:
-      - "ears"
-      15:
-map:
-      - "innerBelt"
-      16:
-map:
-      - "innerNeck"
-      17:
-map:
-      - "outerClothing"
-      18:
-map:
-      - "eyes"
-      19:
-map:
-      - "belt"
-      20:
-map:
-      - "neck"
-      21:
-map:
-      - "back"
-      22:
-map:
-      - "enum.HumanoidVisualLayers.FacialHair"
-      23:
-map:
-      - "enum.HumanoidVisualLayers.Hair"
-      24:
-map:
-      - "enum.HumanoidVisualLayers.HeadSide"
-      25:
-map:
-      - "enum.HumanoidVisualLayers.HeadTop"
-      26:
-map:
-      - "mask"
-      27:
-map:
-      - "head"
-      28:
-map:
-      - "pocket1"
-      29:
-map:
-      - "pocket2"
-      30:
-map:
-      - "enum.HumanoidVisualLayers.Tail"
-  - type: Inventory
-    templateId: lamia
+  - type: Tag
+    tags:
+    - HideContextMenu
+    - DoorBumpOpener
