@@ -2,7 +2,7 @@
 # For produce that can't be immediately eaten
 type: entity
   parent: BaseItem
-  id: ProduceBase
+  id: N14ProduceBase
   abstract: true
   components:
   - type: SolutionContainerManager
@@ -16,10 +16,17 @@ type: Food
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food
+  -   # #Misfits Add: Allow clicking produce onto the compost box to pour its food solution in.
+type: DrainableSolution
+    solution: food
+  - type: SolutionTransfer
+    canChangeTransferAmount: false
+  - type: DeleteOnSolutionEmpty # #Misfits Add: Consume item when fully drained into compost box.
+    solution: food
 - # For produce that can be immediately eaten
 type: entity
   parent: FoodInjectableBase
-  id: FoodProduceBase
+  id: N14FoodProduceBase
   abstract: true
   components:
   - type: SolutionContainerManager
@@ -30,12 +37,19 @@ type: entity
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food
+  -   # #Misfits Add: Allow clicking food produce onto the compost box to pour its food solution in.
+type: DrainableSolution
+    solution: food
+  - type: SolutionTransfer
+    canChangeTransferAmount: false
+  - type: DeleteOnSolutionEmpty # #Misfits Add: Consume item when fully drained into compost box.
+    solution: food
 - # Subclasses
 type: entity
   name: wheat bushel
   description: Sigh... wheat... a-grain?
-  id: WheatBushel
-  parent: ProduceBase
+  id: N14WheatBushel
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/wheat.rsi
@@ -51,31 +65,10 @@ type: entity
     tags:
     - Wheat
 - type: entity
-  name: meatwheat bushel
-  description: Some blood-drenched wheat stalks. You can crush them into what passes for meat if you squint hard enough.
-  id: MeatwheatBushel
-  parent: ProduceBase
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/meatwheat.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 10
-  - type: SpawnItemsOnUse
-    items:
-      - id: FoodMeatWheat
-    sound:
-      path: /Audio/Voice/Slime/slime_squish.ogg
-  - type: Produce
-    seedId: meatwheat
-- type: entity
   name: oat bushel
   description: Eat oats, do squats.
-  id: OatBushel
-  parent: ProduceBase
+  id: N14OatBushel
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/oat.rsi
@@ -95,8 +88,8 @@ type: entity
 - type: entity
   name: sugarcane
   description: Sickly sweet.
-  id: Sugarcane
-  parent: ProduceBase
+  id: N14Sugarcane
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/sugarcane.rsi
@@ -109,22 +102,8 @@ type: entity
   - type: Produce
     seedId: sugarcane
 - type: entity
-  name: papercane roll
-  description: Why do we even need to grow paper?
-  id: Papercane
-  parent: ProduceBase
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/papercane.rsi
-  - type: SolutionContainerManager
-  - type: Produce
-    seedId: papercane
-  - type: Log
-    spawnedPrototype: SheetPaper1
-    spawnCount: 2
-- type: entity
-  parent: FoodProduceBase
-  id: FoodLaughinPeaPod
+  parent: N14FoodProduceBase
+  id: N14FoodLaughinPeaPod
   name: laughin' pea pod
   description: The clown's favorite plant.
   components:
@@ -157,8 +136,8 @@ type: entity
 - type: entity
   name: tower-cap log
   description: It's better than bad, it's good!
-  id: Log
-  parent: ProduceBase
+  id: N14Log
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/towercap.rsi
@@ -173,8 +152,8 @@ type: entity
 - type: entity
   name: steel-cap log
   description: Steel doesn't grow on trees! It grows on mushrooms, of course.
-  id: SteelLog
-  parent: ProduceBase
+  id: N14SteelLog
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/steelcap.rsi
@@ -191,8 +170,8 @@ type: entity
 - type: entity
   name: nettle
   description: Stingy little prick.
-  id: Nettle
-  parent: ProduceBase
+  id: N14Nettle
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/nettle.rsi
@@ -213,7 +192,7 @@ type: entity
   - type: Produce
     seedId: nettle
   - type: MeleeChemicalInjector
-    transferAmount: 3 #TODO someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
+    transferAmount: 3 #To OD someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
     solution: food
     pierceArmor: false
   - type: Extractable
@@ -221,8 +200,8 @@ type: entity
 - type: entity
   name: death nettle
   description: This nettle's out for blood.
-  id: DeathNettle
-  parent: ProduceBase
+  id: N14DeathNettle
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/death_nettle.rsi
@@ -253,8 +232,8 @@ type: entity
     grindableSolutionName: food
 - type: entity
   name: banana
-  parent: FoodProduceBase
-  id: FoodBanana
+  parent: N14FoodProduceBase
+  id: N14FoodBanana
   description: Rich in potassium.
   components:
   - type: FlavorProfile
@@ -285,14 +264,10 @@ type: entity
     tags:
     - Fruit
     - Banana
-  - type: FoodSequenceElement
-    entries:
-      Burger: Banana
-      Taco: Banana
 - type: entity
   name: mimana
-  parent: FoodProduceBase
-  id: FoodMimana
+  parent: N14FoodProduceBase
+  id: N14FoodMimana
   description: Mime's favorite.
   components:
   - type: FlavorProfile
@@ -325,115 +300,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Mimana
-      Taco: Mimana
-- type: entity
-  name: banana peel
-  parent: BaseItem
-  id: TrashBananaPeel
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/banana.rsi
-    state: peel
-  - type: Item
-    sprite: Objects/Specific/Hydroponics/banana.rsi
-    heldPrefix: peel
-  - type: Slippery
-    launchForwardsMultiplier: 1.5
-  - type: StepTrigger
-    intersectRatio: 0.2
-    triggerGroups:
-      types:
-      - SlipEntity
-  - type: CollisionWake
-    enabled: false
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      slips:
-        shape: '!type:PhysShapeAabb bounds: "-0.2,-0.2,0.2,0.2"'
-        hard: false
-        layer:
-        - SlipLayer
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.2,-0.2,0.2,0.2"'
-        density: 30
-        mask:
-        - ItemMask
-  - type: Tag
-    tags:
-    - Recyclable
-    - Trash
-    - BananaPeel
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 4
-        reagents:
-        - ReagentId: PulpedBananaPeel
-          Quantity: 4
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SpaceGarbage
-- type: entity
-  name: baked banana peel
-  parent: TrashBananaPeel
-  id: TrashBakedBananaPeel
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/banana.rsi
-    state: baked-peel
-  - type: Item
-    sprite: Objects/Specific/Hydroponics/banana.rsi
-    heldPrefix: baked-peel
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: PulpedBananaPeel
-          Quantity: 1
-        - ReagentId: Bananadine
-          Quantity: 1
-        - ReagentId: Carbon
-          Quantity: 2
-- type: entity
-  name: mimana peel
-  parent: TrashBananaPeel
-  id: TrashMimanaPeel
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/mimana.rsi
-    state: peel
-  - type: Item
-    sprite: Objects/Specific/Hydroponics/mimana.rsi
-    heldPrefix: peel
-  - type: Slippery
-    slipSound:
-      path: /Audio/Effects/slip.ogg
-      params:
-        volume: -100
-    launchForwardsMultiplier: 1.6
-- type: entity
-  name: bananium peel
-  parent: TrashBananaPeel
-  id: TrashBananiumPeel
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-    state: peel
-  - type: Item
-    sprite: Objects/Materials/materials.rsi
-    heldPrefix: peel
-  - type: Slippery
-    paralyzeTime: 4
-    launchForwardsMultiplier: 2
 - type: entity
   name: carrot
-  parent: FoodProduceBase
-  id: FoodCarrot
+  parent: N14FoodProduceBase
+  id: N14FoodCarrot
   description: It's good for the eyes!
   components:
   - type: FlavorProfile
@@ -465,14 +335,10 @@ type: entity
         Quantity: 10
       - ReagentId: Oculine
         Quantity: 2
-  - type: FoodSequenceElement
-    entries:
-      Burger: CarrotBurger
-      Taco: Carrot
 - type: entity
   name: cabbage
-  parent: FoodProduceBase
-  id: FoodCabbage
+  parent: N14FoodProduceBase
+  id: N14FoodCabbage
   description: Ewwwwwwwwww. Cabbage.
   components:
   - type: FlavorProfile
@@ -494,14 +360,10 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Burger: CabbageBurger
-      Taco: Cabbage
 - type: entity
   name: garlic
-  parent: FoodProduceBase
-  id: FoodGarlic
+  parent: N14FoodProduceBase
+  id: N14FoodGarlic
   description: Delicious, but with a potentially overwhelming odor.
   components:
   - type: FlavorProfile
@@ -525,14 +387,10 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Burger: GarlicBurger
-      Taco: Garlic
 - type: entity
   name: lemon
-  parent: FoodProduceBase
-  id: FoodLemon
+  parent: N14FoodProduceBase
+  id: N14FoodLemon
   description: When life gives you lemons, be grateful they aren't limes.
   components:
   - type: FlavorProfile
@@ -560,14 +418,10 @@ type: entity
     tags:
     - Lemon
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Lemon
-      Taco: Lemon
 - type: entity
   name: lemoon
-  parent: FoodProduceBase
-  id: FoodLemoon
+  parent: N14FoodProduceBase
+  id: N14FoodLemoon
   description: People says Moon is made out of cheese, but Moon is actually made out of milk and laurel!
   components:
   - type: FlavorProfile
@@ -594,14 +448,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Lemoon
-      Taco: Lemoon
 - type: entity
   name: lime
-  parent: FoodLemon
-  id: FoodLime
+  parent: N14FoodLemon
+  id: N14FoodLime
   description: Cures Space Scurvy, allows you to act like a Space Pirate.
   components:
   - type: FlavorProfile
@@ -620,14 +470,10 @@ type: entity
     tags:
     - Lime
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Lime
-      Taco: Lime
 - type: entity
   name: orange
-  parent: FoodLemon
-  id: FoodOrange
+  parent: N14FoodLemon
+  id: N14FoodOrange
   description: Healthy, very orange.
   components:
   - type: FlavorProfile
@@ -645,89 +491,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Orange
-      Taco: Orange
-- type: entity
-  name: extradimensional orange
-  parent: FoodProduceBase
-  id: FoodExtradimensionalOrange
-  description: You can hardly wrap your head around this thing.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - truenature
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 14
-        reagents:
-        - ReagentId: Haloperidol
-          Quantity: 5
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Vitamin
-          Quantity: 4
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/extradimensional_orange.rsi
-    scale: 0.5,0.5
-  - type: Produce
-    seedId: extradimensionalOrange
-  - type: PotencyVisuals
-    minimumScale: 0.5 # reduce this in size because the sprite is way too big
-    maximumScale: 1
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceOrange
-        Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: ExtradimensionalOrangeBurger
-      Taco: ExtradimensionalOrange
-- type: entity
-  name: pineapple
-  parent: FoodProduceBase
-  id: FoodPineapple
-  description: Mmm, tropical.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - pineapple
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 16
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Water
-          Quantity: 4
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/pineapple.rsi
-  - type: Produce
-    seedId: pineapple
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuicePineapple
-        Quantity: 10
-  - type: SliceableFood
-    count: 5
-    slice: FoodPineappleSlice
-  - type: Tag
-    tags:
-    - Fruit
 - type: entity
   name: potato
-  parent: FoodProduceBase
-  id: FoodPotato
+  parent: N14FoodProduceBase
+  id: N14FoodPotato
   description: The space Irish starved to death after their potato crops died. Sadly they were unable to fish for space carp due to it being the queen's space. Bringing this up to any space IRA member will drive them insane with anger.
   components:
   - type: FlavorProfile
@@ -755,16 +522,12 @@ type: entity
     tags:
     - Potato
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Burger: Potato
-      Taco: Potato
 - type: entity
   name: tomato
   parent:
-  - FoodProduceBase
+  - N14FoodProduceBase
   - ItemHeftyBase
-  id: FoodTomato
+  id: N14FoodTomato
   description: I say to-mah-to, you say tom-mae-to.
   components:
   - type: FlavorProfile
@@ -805,15 +568,10 @@ type: entity
     tags:
     - Fruit
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Skewer: TomatoSkewer
-      Burger: Tomato
-      Taco: Tomato
 - type: entity
   name: blue tomato
-  parent: FoodTomato
-  id: FoodBlueTomato
+  parent: N14FoodTomato
+  id: N14FoodBlueTomato
   description: This one is blue.
   components:
   - type: SolutionContainerManager
@@ -844,14 +602,10 @@ type: entity
     tags:
     - Fruit
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Burger: BlueTomato
-      Taco: BlueTomato
 - type: entity
   name: blood tomato
-  parent: FoodTomato
-  id: FoodBloodTomato
+  parent: N14FoodTomato
+  id: N14FoodBloodTomato
   description: Wait, that's not ketchup...
   components:
   - type: SolutionContainerManager
@@ -880,15 +634,10 @@ type: entity
     tags:
     - Fruit
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Skewer: TomatoSkewer
-      Burger: BloodTomato
-      Taco: BloodTomato
 - type: entity
   name: eggplant
-  parent: FoodProduceBase
-  id: FoodEggplant
+  parent: N14FoodProduceBase
+  id: N14FoodEggplant
   description: Maybe there's a chicken inside?
   components:
   - type: FlavorProfile
@@ -913,8 +662,8 @@ type: entity
     - Vegetable
 - type: entity
   name: apple
-  parent: FoodProduceBase
-  id: FoodApple
+  parent: N14FoodProduceBase
+  id: N14FoodApple
   description: It's a little piece of Eden.
   components:
   - type: FlavorProfile
@@ -929,7 +678,7 @@ type: entity
           Quantity: 7
         - ReagentId: Vitamin
           Quantity: 4
-        - ReagentId: Sugar # Misfits Add - apples are naturally sugary; small amount accumulates across multiple apples
+        - ReagentId: Sugar
           Quantity: 3
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/apple.rsi
@@ -943,53 +692,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: Apple
-      Taco: Apple
-- type: entity
-  name: golden apple
-  parent: FoodProduceBase
-  id: FoodGoldenApple
-  description: It should be shaped like a cube, shouldn't it?
-  components:
-  - type: FlavorProfile
-    flavors:
-      - apple
-      - metallic
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 4
-        - ReagentId: DoctorsDelight
-          Quantity: 13
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/golden_apple.rsi
-  - type: Produce
-    seedId: goldenApple
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceApple
-        Quantity: 10
-      - ReagentId: Gold
-        Quantity: 10
-  - type: Tag
-    tags:
-    - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: GoldenApple
-      Taco: GoldenApple
 - type: entity
   name: cocoa pod
-  parent: FoodProduceBase
-  id: FoodCocoaPod
+  parent: N14FoodProduceBase
+  id: N14FoodCocoaPod
   description: You can never have too much chocolate!
   components:
   - type: FlavorProfile
@@ -1020,8 +726,8 @@ type: entity
     - Fruit
 - type: entity
   name: ear of corn
-  parent: FoodProduceBase
-  id: FoodCorn
+  parent: N14FoodProduceBase
+  id: N14FoodCorn
   description: Needs some butter! And some cooking...
   components:
   - type: FlavorProfile
@@ -1055,15 +761,10 @@ type: entity
         Quantity: 3
       - ReagentId: Enzyme
         Quantity: 2
-  - type: FoodSequenceElement
-    entries:
-      Burger: Corn
-      Taco: Corn
-      Skewer: CornSkewer
 - type: entity
   name: corn cob
   parent: BaseItem
-  id: FoodCornTrash
+  id: N14FoodCornTrash
   description: Not a dang kernel left.
   components:
   - type: Sprite
@@ -1083,8 +784,8 @@ type: entity
           Quantity: 10
 - type: entity
   name: onion
-  parent: FoodProduceBase
-  id: FoodOnion
+  parent: N14FoodProduceBase
+  id: N14FoodOnion
   description: Nothing to cry over.
   components:
   - type: FlavorProfile
@@ -1107,14 +808,14 @@ type: entity
     seedId: onion
   - type: SliceableFood
     count: 5
-    slice: FoodOnionSlice
+    slice: N14FoodOnionSlice
   - type: Tag
     tags:
     - Vegetable
 - type: entity
   name: red onion
-  parent: FoodProduceBase
-  id: FoodOnionRed
+  parent: N14FoodProduceBase
+  id: N14FoodOnionRed
   description: Purple despite the name.
   components:
   - type: FlavorProfile
@@ -1137,14 +838,14 @@ type: entity
     seedId: onionred
   - type: SliceableFood
     count: 5
-    slice: FoodOnionRedSlice
+    slice: N14FoodOnionRedSlice
   - type: Tag
     tags:
     - Vegetable
 - type: entity
   name: chanterelle cluster
-  parent: FoodProduceBase
-  id: FoodMushroom
+  parent: N14FoodProduceBase
+  id: N14FoodMushroom
   description: "Cantharellus Cibarius: These jolly yellow little shrooms sure look tasty!"
   components:
   - type: SolutionContainerManager
@@ -1160,13 +861,10 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement # Misfits Change /Add/: mushrooms need a skewer sequence entry so fiesta skewers can assemble and metamorph reliably.
-    entries:
-      Skewer: MushroomSkewer
 - # Slices
 type: entity
   parent: FoodInjectableBase
-  id: ProduceSliceBase
+  id: N14ProduceSliceBase
   abstract: true
   components:
   - type: SolutionContainerManager
@@ -1180,37 +878,10 @@ type: entity
     state: slice
   - type: Extractable
     grindableSolutionName: food
-  - type: Tag
-    tags:
-    - Slice
-- type: entity
-  name: pineapple slice
-  parent: ProduceSliceBase
-  id: FoodPineappleSlice
-  description: Mmm, tropical.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - pineapple
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/pineapple.rsi
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuicePineapple
-        Quantity: 2
-  - type: Tag
-    tags:
-    - Fruit
-    - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: PineappleSliceBurger
-      Taco: PineappleSlice
 - type: entity
   name: onion slice
-  parent: ProduceSliceBase
-  id: FoodOnionSlice
+  parent: N14ProduceSliceBase
+  id: N14FoodOnionSlice
   description: Nothing to cry over.
   components:
   - type: FlavorProfile
@@ -1229,18 +900,10 @@ type: entity
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
-  - type: Tag
-    tags:
-    - Vegetable
-    - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: OnionSliceBurger
-      Taco: OnionSlice
 - type: entity
   name: red onion slice
-  parent: ProduceSliceBase
-  id: FoodOnionRedSlice
+  parent: N14ProduceSliceBase
+  id: N14FoodOnionRedSlice
   description: Purple despite the name.
   components:
   - type: FlavorProfile
@@ -1254,85 +917,67 @@ type: entity
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 1
         - ReagentId: Allicin
           Quantity: 1
         - ReagentId: Vitamin
           Quantity: 1
-  - type: Tag
-    tags:
-    - Vegetable
-    - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: OnionRedSliceBurger
-      Taco: OnionRedSlice
 - type: entity
-  name: chili pepper
-  parent: FoodProduceBase
-  id: FoodChiliPepper
+  name: chili
+  parent: N14FoodProduceBase
+  id: N14FoodChili
   description: Spicy, best not touch your eyes.
   components:
-  - type: FlavorProfile
-    flavors:
-      - spicy
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 4
-          - ReagentId: CapsaicinOil
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 4
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/chili.rsi
-  - type: Produce
-    seedId: chili
-  - type: Tag
-    tags:
-    - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: ChiliPepper
-      Burger: ChiliPepper
-      Skewer: ChiliPepperSkewer
+    - type: FlavorProfile
+      flavors:
+        - spicy
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 18
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 4
+            - ReagentId: CapsaicinOil
+              Quantity: 10
+            - ReagentId: Vitamin
+              Quantity: 4
+    - type: Sprite
+      sprite: Objects/Specific/Hydroponics/chili.rsi
+    - type: Produce
+      seedId: chili
+    - type: Tag
+      tags:
+      - Vegetable
 - type: entity
   name: chilly pepper
-  parent: FoodProduceBase
-  id: FoodChillyPepper
+  parent: N14FoodProduceBase
+  id: N14FoodChilly
   description: Icy hot.
   components:
-  - type: FlavorProfile
-    flavors:
-      - spicy
-      - cold
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 18
-        reagents:
-          - ReagentId: Nutriment
-            Quantity: 4
-          - ReagentId: Frostoil
-            Quantity: 10
-          - ReagentId: Vitamin
-            Quantity: 4
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/chilly.rsi
-  - type: Produce
-    seedId: chilly
-  - type: FoodSequenceElement
-    entries:
-      Taco: ChillyPepper
-      Burger: ChillyPepper
-      Skewer: ChillyPepperSkewer
+    - type: FlavorProfile
+      flavors:
+        - spicy
+        - cold
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 18
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 4
+            - ReagentId: Frostoil
+              Quantity: 10
+            - ReagentId: Vitamin
+              Quantity: 4
+    - type: Sprite
+      sprite: Objects/Specific/Hydroponics/chilly.rsi
+    - type: Produce
+      seedId: chilly
 - type: entity
   name: aloe
-  parent: FoodProduceBase
-  id: FoodAloe
+  parent: N14FoodProduceBase
+  id: N14FoodAloe
   description: A fragrant plant with soothing properties.
   components:
   - type: FlavorProfile
@@ -1356,14 +1001,10 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: Aloe
-      Burger: Aloe
 - type: entity
   name: poppy
-  parent: FoodProduceBase
-  id: FoodPoppy
+  parent: N14FoodProduceBase
+  id: N14FoodPoppy
   description: A flower with extracts often used in the production of medicine
   components:
   - type: Clothing
@@ -1391,21 +1032,10 @@ type: entity
   - type: Tag
     tags:
     - Flower
-  - type: FoodSequenceElement
-    entries:
-      Taco: Poppy
-      Burger: Poppy
-- type: entity
-  name: hairflower
-  id: FoodPoppyWhite
-  parent: FoodPoppy
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/poppywhite.rsi
 - type: entity
   name: lily
-  parent: FoodPoppy
-  id: FoodLily
+  parent: N14FoodPoppy
+  id: N14FoodLily
   description: A beautiful orange flower.
   components:
   - type: FlavorProfile
@@ -1429,14 +1059,10 @@ type: entity
   - type: Tag
     tags:
     - Flower
-  - type: FoodSequenceElement
-    entries:
-      Taco: Lily
-      Burger: Lily
 - type: entity
   name: lingzhi
-  parent: FoodProduceBase
-  id: FoodLingzhi
+  parent: N14FoodProduceBase
+  id: N14FoodLingzhi
   description: A potent medicinal mushroom. Don't go overboard.
   components:
   - type: FlavorProfile
@@ -1458,14 +1084,10 @@ type: entity
     seedId: lingzhi
   - type: Extractable
     grindableSolutionName: food
-  - type: FoodSequenceElement
-    entries:
-      Taco: Lingzhi
-      Burger: Lingzhi
 - type: entity
   name: ambrosia vulgaris
-  parent: FoodProduceBase
-  id: FoodAmbrosiaVulgaris
+  parent: N14FoodProduceBase
+  id: N14FoodAmbrosiaVulgaris
   description: A medicinal plant. May make you feel a little funny.
   components:
   - type: FlavorProfile
@@ -1500,14 +1122,10 @@ type: entity
   - type: Tag
     tags:
     - Ambrosia
-  - type: FoodSequenceElement
-    entries:
-      Taco: AmbrosiaVulgaris
-      Burger: AmbrosiaVulgarisBurger
 - type: entity
   name: ambrosia deus
-  parent: FoodProduceBase
-  id: FoodAmbrosiaDeus
+  parent: N14FoodProduceBase
+  id: N14FoodAmbrosiaDeus
   description: An extremely sought-after medicinal plant. May have some funky side effects.
   components:
   - type: FlavorProfile
@@ -1540,14 +1158,10 @@ type: entity
   - type: Tag
     tags:
     - Ambrosia
-  - type: FoodSequenceElement
-    entries:
-      Taco: AmbrosiaDeus
-      Burger: AmbrosiaDeusBurger
 - type: entity
   name: galaxythistle
-  parent: FoodProduceBase
-  id: FoodGalaxythistle
+  parent: N14FoodProduceBase
+  id: N14FoodGalaxythistle
   description: A medicinal plant used for its antitoxin.
   components:
   - type: FlavorProfile
@@ -1570,66 +1184,10 @@ type: entity
     tags:
     - Galaxythistle
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Galaxythistle
-      Burger: GalaxythistleBurger
-- type: entity
-  name: glasstle
-  parent: FoodProduceBase
-  id: FoodGlasstle
-  description: A fragile crystal plant with lot of spiky thorns.
-  components:
-  - type: Item
-    size: Small
-    sprite: Objects/Specific/Hydroponics/glasstle.rsi
-    heldPrefix: produce
-  - type: FlavorProfile
-    flavors:
-      - sharp
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Razorium
-          Quantity: 15
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/glasstle.rsi
-  - type: Produce
-    seedId: glasstle
-  - type: Extractable
-    grindableSolutionName: food
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: ToolRefinable
-    refineResult:
-    - id: SheetGlass1
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak params: volume: -4 - !type:SpawnEntitiesBehavior spawn: ShardGlass: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: DamageOnHit
-    damage:
-      types:
-        Blunt: 10
-  - type: MeleeWeapon
-    wideAnimationRotation: 60
-    damage:
-      types:
-        Slash: 15
-    soundHit:
-        path: /Audio/Weapons/bladeslice.ogg
-  - type: Tag
-    tags:
-    - Galaxythistle
-  - type: FoodSequenceElement
-    entries:
-      Taco: Glasstle
-      Burger: GlasstleBurger
 - type: entity
   name: fly amanita
-  parent: FoodProduceBase
-  id: FoodFlyAmanita
+  parent: N14FoodProduceBase
+  id: N14FoodFlyAmanita
   description: A delicious-looking mushroom like you see in those cartoons.
   components:
   - type: FlavorProfile
@@ -1651,90 +1209,11 @@ type: entity
   - type: Extractable
     grindableSolutionName: food
   - type: BadFood
-  - type: FoodSequenceElement
-    entries:
-      Taco: FlyAmanita
-      Burger: FlyAmanita
-- type: entity
-  name: gatfruit
-  parent: FoodProduceBase
-  id: FoodGatfruit
-  description: A delicious, gun-shaped fruit with a thick wooden stem.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - gunpowder
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Sulfur
-          Quantity: 5
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/gatfruit.rsi
-  - type: Produce
-    seedId: gatfruit
-  - type: Food
-    trash:
-    - WeaponRevolverPython
-  - type: Tag
-    tags:
-    - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Gatfruit
-      Burger: GatfruitBurger
-- type: entity
-  name: capfruit
-  parent: FoodProduceBase
-  id: FoodRealCapfruit
-  description: A soft but smooth gun-shaped fruit.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - plastic
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 5
-        - ReagentId: Sulfur
-          Quantity: 5
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/capfruit.rsi
-  - type: Produce
-    seedId: realCapfruit
-  - type: Food
-    trash:
-    - RevolverCapGun
-  - type: Tag
-    tags:
-    - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Capfruit
-      Burger: CapfruitBurger
-- type: entity
-  name: capfruit
-  parent: FoodRealCapfruit
-  id: FoodFakeCapfruit
-  suffix: Fake
-  components:
-  - type: Produce
-    seedId: fakeCapfruit
-  - type: Food
-    trash:
-    - RevolverCapGunFake
 - type: entity
   name: rice bushel
   description: Can be ground into rice, perfect for pudding or sake.
-  id: RiceBushel
-  parent: ProduceBase
+  id: N14RiceBushel
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/rice.rsi
@@ -1749,8 +1228,8 @@ type: entity
 - type: entity
   name: soybeans
   description: For those who can't stand seeing good old meat.
-  id: FoodSoybeans
-  parent: ProduceBase
+  id: N14FoodSoybeans
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/soybeans.rsi
@@ -1771,15 +1250,11 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: Soybeans
-      Burger: SoybeansBurger
 - type: entity
   name: spaceman's trumpet
   description: A vivid flower that smells faintly of freshly cut grass. Touching the flower seems to stain the skin some time after contact, yet most other surfaces seem to be unaffected by this phenomenon.
-  id: FoodSpacemansTrumpet
-  parent: FoodProduceBase
+  id: N14FoodSpacemansTrumpet
+  parent: N14FoodProduceBase
   components:
   - type: FlavorProfile
     flavors:
@@ -1802,15 +1277,11 @@ type: entity
     - Flower
   - type: Instrument #hehe trumpet
     program: 56
-  - type: FoodSequenceElement
-    entries:
-      Taco: SpacemansTrumpet
-      Burger: SpacemansTrumpetBurger
 - type: entity
   name: koibean
   description: These beans seem a little bit fishy.
-  id: FoodKoibean
-  parent: ProduceBase
+  id: N14FoodKoibean
+  parent: N14ProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/koibean.rsi
@@ -1833,16 +1304,12 @@ type: entity
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: Koibean
-      Burger: KoibeanBurger
 - type: entity
   name: watermelon
   parent:
-  - FoodProduceBase
+  - N14FoodProduceBase
   - ItemHeftyBase
-  id: FoodWatermelon
+  id: N14FoodWatermelon
   description: Round green object that you can slice and eat.
   components:
   - type: Item
@@ -1882,7 +1349,7 @@ type: entity
     - trigger: '!type:DamageTrigger damage: 1 behaviors: - !type:PlaySoundBehavior sound: collection: desecration - !type:SpillBehavior solution: food - !type:DoActsBehavior acts: [ "Destruction" ]'
   - type: SliceableFood
     count: 5
-    slice: FoodWatermelonSlice
+    slice: N14FoodWatermelonSlice
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -1892,8 +1359,8 @@ type: entity
     - Fruit
 - type: entity
   name: watermelon slice
-  parent: ProduceSliceBase
-  id: FoodWatermelonSlice
+  parent: N14ProduceSliceBase
+  id: N14FoodWatermelonSlice
   description: Juicy green and red slice.
   components:
   - type: Item
@@ -1919,113 +1386,11 @@ type: entity
       reagents:
       - ReagentId: JuiceWatermelon
         Quantity: 4
-  - type: Tag
-    tags:
-    - Fruit
-    - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: WatermelonSliceBurger
-      Taco: WatermelonSlice
-      Skewer: WatermelonSliceSkewer
-- type: entity
-  name: holymelon
-  parent:
-  - FoodProduceBase
-  - ItemHeftyBase
-  id: FoodHolymelon
-  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon.
-  components:
-  - type: Item
-    size: Small
-  - type: FlavorProfile
-    flavors:
-      - holy
-      - watermelon
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 5
-        - ReagentId: HolyWater
-          Quantity: 10
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/holymelon.rsi
-  - type: Produce
-    seedId: watermelon
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Wine
-        Quantity: 20
-  - type: Damageable
-    damageContainer: Biological
-  - type: DamageOnHighSpeedImpact
-    minimumSpeed: 0.1
-    damage:
-      types:
-        Blunt: 1
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 1 behaviors: - !type:PlaySoundBehavior sound: collection: desecration - !type:SpillBehavior solution: food - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: SliceableFood
-    count: 5
-    slice: FoodHolymelonSlice
-  - type: Butcherable
-    butcheringType: Knife
-    spawned:
-    - id: ClothingHeadHatHolyWatermelon
-  - type: Tag
-    tags:
-    - Fruit
-- type: entity
-  name: holymelon slice
-  parent: ProduceSliceBase
-  id: FoodHolymelonSlice
-  description: Juicy golden and red slice.
-  components:
-  - type: Item
-    size: Tiny
-  - type: FlavorProfile
-    flavors:
-      - holy
-      - watermelon
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/holymelon.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 2
-        - ReagentId: Vitamin
-          Quantity: 1
-        - ReagentId: HolyWater
-          Quantity: 2
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Wine
-        Quantity: 4
-  - type: Tag
-    tags:
-    - Fruit
-    - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: HolymelonSliceBurger
-      Taco: HolymelonSlice
-      Skewer: HolymelonSliceSkewer
 - type: entity
   name: grapes
-  parent: FoodProduceBase
-  id: FoodGrape
-  description: The food of emperors, Space France inhabitants (usually as wine) and soccer moms. One day it could be used in wine production for the bartender if he ever runs out.
+  parent: N14FoodProduceBase
+  id: N14FoodGrape
+  description: The food of emperors, wasteland survivors (usually hoarded), and pre-war soccer moms. One day it could be used in wine production for the bartender if he ever runs out.
   components:
   - type: FlavorProfile
     flavors:
@@ -2053,8 +1418,8 @@ type: entity
     - Fruit
 - type: entity
   name: berries
-  parent: FoodProduceBase
-  id: FoodBerries
+  parent: N14FoodProduceBase
+  id: N14FoodBerries
   description: A handful of various types of berries.
   components:
   - type: FlavorProfile
@@ -2081,14 +1446,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Berries
-      Burger: BerriesBurger
 - type: entity
   name: bungo fruit
-  parent: FoodProduceBase
-  id: FoodBungo
+  parent: N14FoodProduceBase
+  id: N14FoodBungo
   description: The humble bungo fruit.
   components:
   - type: FlavorProfile
@@ -2113,14 +1474,10 @@ type: entity
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Bungo
-      Burger: Bungo
 - type: entity
   name: bungo pit
   parent: FoodInjectableBase
-  id: FoodBungoPit
+  id: N14FoodBungoPit
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/bungo.rsi
@@ -2145,8 +1502,8 @@ type: entity
   - type: SpaceGarbage
   - type: BadFood
 - type: entity
-  parent: FoodProduceBase
-  id: FoodPeaPod
+  parent: N14FoodProduceBase
+  id: N14FoodPeaPod
   name: pea pod
   description: A duck's favorite treat!
   components:
@@ -2170,40 +1527,9 @@ type: entity
     tags:
     - Vegetable
 - type: entity
-  parent: FoodProduceBase
-  id: FoodWorldPeas
-  name: cluster of world peas
-  description: It's rumored to bring peace to any who consume it.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - numbingtranquility
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Happiness
-          Quantity: 3
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Pax
-          Quantity: 2
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/world_pea.rsi
-  - type: Produce
-    seedId: worldPea
-  - type: Tag
-    tags:
-    - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: Pea
-      Burger: Pea
-- type: entity
   name: pumpkin
-  parent: FoodProduceBase
-  id: FoodPumpkin
+  parent: N14FoodProduceBase
+  id: N14FoodPumpkin
   description: A large, orange... berry. Seriously.
   components:
   - type: Item
@@ -2241,8 +1567,8 @@ type: entity
 - type: entity
   name: cotton boll
   description: Moth people's favorite snack, and just as fluffy as them.
-  id: CottonBol
-  parent: FoodProduceBase
+  id: N14CottonBol
+  parent: N14FoodProduceBase
   components:
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/cotton.rsi
@@ -2266,100 +1592,3 @@ type: entity
     tags:
     - ClothMade
     - CottonBoll
-- type: entity
-  name: pyrotton boll
-  description: This will probably set you on fire.
-  id: PyrottonBol
-  parent: FoodProduceBase
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/pyrotton.rsi
-  - type: FlavorProfile
-    flavors:
-      - pyrotton
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: Phlogiston
-          Quantity: 5
-  - type: Log
-    spawnedPrototype: MaterialPyrotton1
-    spawnCount: 2
-  - type: Produce
-    seedId: pyrotton
-  - type: Tag
-    tags:
-    - ClothMade
-    - CottonBoll
-  - type: Extractable
-    grindableSolutionName: food
-- type: entity
-  name: cherry
-  parent: FoodProduceBase
-  id: FoodCherry
-  description: Juicy red cherry with a pit inside.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - cherry
-  - type: Food
-    trash:
-    - TrashCherryPit
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 8
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 3
-        - ReagentId: Vitamin
-          Quantity: 3
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
-  - type: Produce
-    seedId: cherry
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceCherry
-        Quantity: 5
-  - type: Tag
-    tags:
-    - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: Cherry
-      Burger: Cherry
-- type: entity
-  name: cherry pit
-  parent: FoodInjectableBase
-  id: TrashCherryPit
-  components:
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
-    state: pit
-  - type: Item
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
-    heldPrefix: pit
-  - type: Tag
-    tags:
-    - Recyclable
-    - Trash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 1
-        reagents:
-        - ReagentId: Toxin
-          Quantity: 1
-  - type: Extractable
-    grindableSolutionName: food
-  - type: Seed
-    seedId: cherry
-  - type: SpaceGarbage
-  - type: BadFood
