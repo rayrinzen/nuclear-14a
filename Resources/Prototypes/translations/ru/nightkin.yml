@@ -1,93 +1,55 @@
-# #Misfits Add - Nightkin base mob entity.
-# Inherits all stats/body/inventory from N14BaseMobSuperMutant.
-# Overrides species to Nightkin and icon to use nightkin full sprite.
+# #Misfits Add - Nightkin species: Super Mutants with Stealth Boy-induced blue-purple skin.
+# Same stats as SuperMutant. Uses its own job whitelist and shares the clothing template.
 
-- type: entity
-  save: false
-  name: nightkin
-  id: N14BaseMobNightkin
-  parent: N14BaseMobSuperMutant
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: Nightkin
-    - type: Icon
-      sprite: _Misfits/Mobs/Species/Nightkin/parts.rsi
-      state: full
-    # #Misfits Add - Innate Stealth Boy implant: toggle-able cloak with hallucination side effects.
-    - type: NightkinPassiveStealth
-    # #Misfits Tweak - Nightkin are tougher than standard supermutants (200 crit / 400 dead).
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        400: Critical
-        600: Dead
-    # Scale healCap to 90% of dead threshold (540 = 90% of 600).
-    - type: RadiationHealing
-      healCap: 540
-
-# Character-creation preview dummy for Nightkin.
-# Parents MobHumanDummy (not the base mob) to match the supermutant dummy pattern.
-- type: entity
-  save: false
-  parent: MobHumanDummy
-  id: N14MobNightkinDummy
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: Nightkin
-    - type: Icon
-      sprite: _Misfits/Mobs/Species/Nightkin/parts.rsi
-      state: full
-    - type: Sprite
-      drawdepth: Mobs
-      noRot: true
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: _Misfits/Mobs/Species/SuperMutant/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: female_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "innerBelt" ]
-        - map: [ "innerNeck" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        - map: [ "enum.HumanoidVisualLayers.Hair" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-    - type: Inventory
-      templateId: supermutant
-      speciesId: supermutant
+- type: species
+  id: Nightkin
+  name: species-name-nightkin
+  roundStart: true
+  order: 4
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedLoadoutCategories:
+    - Weapons
+    - Bags
+    - Backpacks
+    - Duffel
+    - Satchel
+    - Items
+    - Uniform
+    - Outer
+    - Hands
+    - Shoes
+    - Head
+    - Mask
+    - Accessories
+  allowedTraitCategories: # #Misfits Change: allow traits via same mechanism as loadouts
+    - Uncategorized
+    - Auditory
+    - Mental
+    - Speech
+    - TraitsSpeechUncategorized
+    - TraitsSpeechAccents
+    - TraitsSpeechLanguages
+    - Visual
+    - Language
+    - Pets
+    # #Misfits Fix - Nightkin need their own whitelist entry under FEV Mutants.
+  jobWhitelistUnlock: Nightkin
+  restrictedJobs:
+    - Nightkin
+  prototype: N14MobNightkinPlayer
+  sprites: MobSuperMutantSprites
+  markingLimits: MobSuperMutantMarkingLimits
+  dollPrototype: N14MobNightkinDummy
+  skinColoration: Hues
+  # Nightkin slate blue-purple (from prolonged Stealth Boy exposure in lore).
+  defaultSkinTone: "#4A5878"
+  minHeight: 1.5
+  defaultHeight: 1.5
+  maxHeight: 1.5
+  minWidth: 1.5
+  defaultWidth: 1.5
+  maxWidth: 1.5
+  sexes:
+    - Male
+    - Female
