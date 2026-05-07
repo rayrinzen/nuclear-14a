@@ -1,110 +1,107 @@
-# #Misfits Change — Consolidated from _Nuclear14/Guidebooks/factions.yml
-# All text paths updated to _Misfits/Guidebooks/ location
+- type: department
+  id: Robots
+  description: department-Robots-description
+  color: "#607d8b"
+  weight: -100
+  uiCategory: Whitelist
+  roles:
+    - SyntheticAssaultron # combat robots — no vault access
+    - SyntheticSentryBot # combat robots — no vault access
+    # #Misfits Change - reorder: vault-assigned robots grouped below (showBorder separator on MrGutsy — sorts first alphabetically)
+    - SyntheticMrHandy
+    - SyntheticProtectron
+    - SyntheticMrGutsy
+    - SyntheticRobobrain
 
-# Factions overview page — parent entry for all faction guides
-- type: guideEntry
-  id: Factions
-  name: guide-entry-factions
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/factions.xml"
-  children:
-    - N14NCR # #Misfits Tweak - reordered: NCR first
-    - N14BrotherhoodOfSteel
-    - N14CaesarsLegion
-    - N14Tribes
-    - N14Townsfolk
-    - N14VaultDwellers
-    - N14Wastelanders
-    - N14MinorFactions
-    - MisfitsOutlaws # #Misfits Add - outlaw gangs
+# #Misfits Change
+- type: department
+  id: FEVMutants
+  description: department-FEVMutants-description
+  color: "#6b8e23"
+  weight: -100
+  uiCategory: Whitelist
+  roles:
+    - SuperMutant
+    - Nightkin # #Misfits Add - separate Nightkin whitelist under FEV Mutants
+    - SuperMutantGladiator # #Misfits Add - Supermutant Legion Gladiator (Legion-aligned)
+    - SuperMutantNCRRanger # #Misfits Add - NCR-aligned supermutant ranger
+    - SuperMutantNCRTrooper # #Misfits Add - NCR-aligned supermutant trooper
+    - SuperMutantTribal # #Misfits Add - Tribe aligned supermutant trooper
+    # #Misfits Removed - generic variants hidden from department; NCR-specific ones take their place
+    # - SuperMutantRanger
+    # - SuperMutantTrooper
 
-# NCR
-- type: guideEntry
-  id: N14NCR
-  name: guide-entry-ncr
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/NCR/index.xml"
-  filterEnabled: true
+# #Misfits Add - Enclave department is job-whitelist-only and sorted below other special departments.
+# #Misfits Change - Expanded from 3 roles to 8 (5 military + 3 science).
+# #Misfits Tweak - UI rank blocks now read top-down as reformer, officers, science, then enlisted.
+- type: department
+  id: Enclave
+  description: department-Enclave-description
+  color: "#2d5d91"
+  weight: -101
+  uiCategory: Whitelist
+  roles:
+    - EnclaveReformer # The Reformer (admin whitelist)  | _Misfits/Roles/Jobs/Enclave/enclave_reformer.yml  # #Misfits Add
+    - EnclaveCommander
+    - EnclaveSeniorOfficer
+    - EnclaveJuniorOfficer
+    - EnclaveHeadScientist
+    - EnclaveScientist
+    - EnclaveJuniorScientist
+    - EnclaveNCO
+    - EnclaveEnlisted
 
-# Townsfolk
-- type: guideEntry
-  id: N14Townsfolk
-  name: guide-entry-townsfolk
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Townsfolk/index.xml"
-  filterEnabled: true
+# #Misfits Add — Caesar's Legion department. Groups all Legion roles for the
+# character-creation screen and for department-based requirements/lookups.
+# #Misfits Fix: Commented out — canonical definition now lives in
+# _Nuclear14/Roles/Jobs/factions.yml (marked #Misfits Add) to avoid duplicate prototype ID.
+#- type: department
+#  id: CaesarLegion
+#  description: department-CaesarLegion-description
+#  color: "#8b0000"
+#  weight: -99
+#  roles:
+#  - CaesarLegionLegate
+#  - CaesarLegionCenturion
+#  - CaesarLegionOrator
+#  - CaesarLegionPrimeDecanus
+#  - CaesarLegionVeteranDecanus
+#  - CaesarLegionDean
+#  - CaesarLegionVexillarius
+#  - CaesarLegionHoundmaster
+#  - CaesarLegionFrumentarii
+#  - CaesarLegionExplorer
+#  - CaesarLegionLegionnaireVeteran
+#  - CaesarLegionLegionnaireWarrior
+#  - CaesarLegionLegionnaireRecruit
+#  - CaesarLegionAuxilia
+#  - CaesarLegionRecruit
+#  - CaesarLegionSlave
+# #Misfits Change — Outlaws/Raider department dissolved. The Eighties gang is now its own
+# full department with 5 ranked roles. Khan deactivated. Raider placeholder removed.
+# #Misfits Add — Eighties department. Named after Interstate 80.
+# Job prototypes live in _Misfits/Roles/Jobs/Eighties/eighties.yml.
+- type: department
+  id: Eighties
+  description: department-Eighties-description
+  color: "#226b00" # US highway sign green
+  uiCategory: MinorFaction
+  roles:
+    - EightiesTheBlock # leader, 1 slot
+    - EightiesCylinders # officer tier, 2 slots
+    - EightiesPistons # NCO tier, 3 slots
+    - EightiesOilers # specialist tier, 4 slots
+    - EightiesRoadRash # recruit tier, 4 slots
 
-# Tribes
-- type: guideEntry
-  id: N14Tribes
-  name: guide-entry-tribes
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Tribes/index.xml"
-  filterEnabled: true
-
-# Vault Dwellers
-- type: guideEntry
-  id: N14VaultDwellers
-  name: guide-entry-vaultdwellers
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/VaultDwellers/index.xml"
-  filterEnabled: true
-
-# Wastelanders
-- type: guideEntry
-  id: N14Wastelanders
-  name: guide-entry-wastelanders
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/Wastelanders/index.xml"
-  filterEnabled: true
-
-# Caravan Company — not currently active on server
-# - type: guideEntry
-#   id: N14CaravanCompany
-#   name: guide-entry-caravancompany
-#   text: "/ServerInfo/_Misfits/Guidebooks/Factions/CaravanCompany/index.xml"
-#   filterEnabled: True
-# Brotherhood of Steel
-- type: guideEntry
-  id: N14BrotherhoodOfSteel
-  name: guide-entry-brotherhoodofsteel
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/BrotherhoodOfSteel/index.xml"
-  filterEnabled: true
-
-# Caesar's Legion
-- type: guideEntry
-  id: N14CaesarsLegion
-  name: guide-entry-caesarslegion
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/CaesarsLegion/index.xml"
-  filterEnabled: true
-
-# Minor Factions
-- type: guideEntry
-  id: N14MinorFactions
-  name: guide-entry-minorfactions
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/index.xml"
-  children:
-    - N14Enclave
-    - N14FollowersOfTheApocalypse
-    - N14ChildrenOfAtom
-    - N14Zetan
-
-- type: guideEntry
-  id: N14ChildrenOfAtom
-  name: guide-entry-childrenofatom
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/ChildrenOfAtom/index.xml"
-  filterEnabled: true
-
-# Enclave — points to Misfits expanded page
-- type: guideEntry
-  id: N14Enclave
-  name: guide-entry-enclave
-  text: "/ServerInfo/_Misfits/Guidebooks/Enclave.xml"
-  filterEnabled: true
-
-# Followers of the Apocalypse — points to Misfits expanded page
-- type: guideEntry
-  id: N14FollowersOfTheApocalypse
-  name: guide-entry-followersoftheapocalypse
-  text: "/ServerInfo/_Misfits/Guidebooks/Followers.xml"
-  filterEnabled: true
-
-- type: guideEntry
-  id: N14Zetan
-  name: guide-entry-zetan
-  text: "/ServerInfo/_Misfits/Guidebooks/Factions/MinorFactions/Zetan/index.xml"
-  filterEnabled: true
+# #Misfits Add - White Legs are now a full department while keeping the base WhiteLegs job ID for compatibility.
+- type: department
+  id: WhiteLegs
+  description: department-WhiteLegs-description
+  color: "#d8d0c4"
+  weight: -98
+  uiCategory: MinorFaction
+  roles:
+    - WhiteLegsWarChief
+    - WhiteLegsBoneBreaker
+    - WhiteLegsStormDrummer
+    - WhiteLegs
