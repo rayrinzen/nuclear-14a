@@ -1,165 +1,81 @@
 - type: characterItemGroup
-  id: LoadoutOuter
+  id: N14LoadoutOuter
   items:
     - type: loadout
-      id: LoadoutOuterCoatBomberjacket
+      id: N14LoadoutOuterGhostSheet
     - type: loadout
-      id: LoadoutOuterCoatHoodieBlack
+      id: N14LoadoutOuterJacketLettermanRed
     - type: loadout
-      id: LoadoutOuterCoatHoodieGrey
+      id: N14LoadoutOuterJacketLettermanBrown
     - type: loadout
-      id: LoadoutOuterCoatWinterCoat
+      id: N14LoadoutOuterRobeHubologist
     - type: loadout
-      id: LoadoutOuterCoatHyenhSweater
+      id: N14ClothingOuterFlannelRed
     - type: loadout
-      id: LoadoutOuterWinterCoatLong
+      id: N14ClothingOuterFlannelAqua
     - type: loadout
-      id: LoadoutOuterWinterCoatPlaid
+      id: N14ClothingOuterFlannelBrown
     - type: loadout
-      id: LoadoutOuterVestValet
+      id: N14LoadoutOuterCoatWinterArmored
     - type: loadout
-      id: LoadoutOuterVest
+      id: N14LoadoutOuterCoatBattlecoat
     - type: loadout
-      id: LoadoutOuterCoatLettermanBlue
+      id: N14LoadoutOuterCoatBattlecoatTan
     - type: loadout
-      id: LoadoutOuterCoatLettermanRed
+      id: N14LoadoutOuterCoatDuster
     - type: loadout
-      id: LoadoutOuterCoatMNKWhiteHoodie
+      id: N14LoadoutOuterCoatLeatherDuster
     - type: loadout
-      id: LoadoutOuterCoatMNKBlackTopCoat
+      id: N14ClothingOuterCoatLeatherJacket
     - type: loadout
-      id: LoadoutOuterCoatMNKBlackJacket
+      id: N14ClothingOuterCoatLeatherCoat
     - type: loadout
-      id: LoadoutOuterCorporateJacket
+      id: N14ClothingOuterTownCoat
     - type: loadout
-      id: LoadoutOuterCsCorporateJacket
+      id: N14ClothingOuterTownMediumCoat
     - type: loadout
-      id: LoadoutOuterEeCorporateJacket
+      id: N14LoadoutOuterLeatherArmor
     - type: loadout
-      id: LoadoutOuterHiCorporateJacket
+      id: N14LoadoutOuterMetalArmor
     - type: loadout
-      id: LoadoutOuterHmCorporateJacket
+      id: N14LoadoutOuterTribalArmor
     - type: loadout
-      id: LoadoutOuterIdCorporateJacket
+      id: N14LoadoutOuterTribalArmorHeavy
     - type: loadout
-      id: LoadoutOuterBcCorporateJacket
+      id: N14LoadoutOuterRaiderBadlands
     - type: loadout
-      id: LoadoutOuterDdCorporateJacket
+      id: N14LoadoutOuterRaiderBlastmaster
     - type: loadout
-      id: LoadoutOuterFaCorporateJacket
+      id: N14LoadoutOuterHarperCoat
     - type: loadout
-      id: LoadoutOuterGeCorporateJacket
+      id: N14LoadoutOuterScavengerHeavyArmor
     - type: loadout
-      id: LoadoutOuterZhCorporateJacket
+      id: N14ClothingOuterElderwintercoat
     - type: loadout
-      id: LoadoutOuterDenimJacket
+      id: N14ClothingOuterdrylandelder
     - type: loadout
-      id: LoadoutOuterFlannelRed
+      id: N14ClothingOuterBandito
     - type: loadout
-      id: LoadoutOuterFlannelGreen
+      id: N14ClothingOuterforager
     - type: loadout
-      id: LoadoutOuterFlannelBlue
+      id: N14ClothingOuterheadtaker
     - type: loadout
-      id: LoadoutOuterCoatTrench
+      id: N14ClothingOuterhunter
     - type: loadout
-      id: LoadoutOuterCoatJensen
+      id: N14ClothingOuterponcho
     - type: loadout
-      id: LoadoutOuterCoatGentle
+      id: N14ClothingOutershaman
     - type: loadout
-      id: LoadoutOuterCoatInspector
+      id: N14ClothingOuterdrylandersimple
     - type: loadout
-      id: LoadoutOuterCoatOvercoat
+      id: N14LoadoutOuterCoatLeatherJacketVault
     - type: loadout
-      id: LoadoutOuterBomberAerostatic
+      id: ClothingOuterCoatDetectiveVault
     - type: loadout
-      id: LoadoutOuterBomberPunkRed
+      id: ClothingOuterCoatGentleVault
     - type: loadout
-      id: LoadingOuterCoatJacketLeather
+      id: N14ClothingOuterJacketBomberVault
     - type: loadout
-      id: LoadoutOuterJacketLeather
+      id: N14LoadoutOuterCoatLeatherJacket
     - type: loadout
-      id: LoadoutOuterJacketBiker
-    - type: loadout
-      id: LoadoutOuterJacketJamrock
-    - type: loadout
-      id: LoadoutOuterJacketLettermanBlue
-    - type: loadout
-      id: LoadoutOuterJacketLettermanBrown
-    - type: loadout
-      id: LoadoutOuterJacketLettermanMagenta
-    - type: loadout
-      id: LoadoutOuterJacketLettermanRed
-    - type: loadout
-      id: LoadoutOuterBomberPinkSleeves
-    - type: loadout
-      id: LoadoutOuterCoatAcidRaincoat
-    - type: loadout
-      id: LoadoutOuterCoatAcidRaincoatBlue
-    - type: loadout
-      id: LoadoutOuterCoatAcidRaincoatGreen
-    - type: loadout
-      id: LoadoutOuterCoatAcidRaincoatMagenta
-    - type: loadout
-      id: LoadoutOuterCoatAcidRaincoatYellow
-    - type: loadout
-      id: LoadoutOuterSuitJacket
-    - type: loadout
-      id: LoadoutOuterSuitJacketOpened
-    - type: loadout
-      id: LoadoutOuterCoatModern
-    - type: loadout
-      id: LoadoutOuterTailcoat
-    - type: loadout
-      id: LoadoutOuterCoatVictorian
-    - type: loadout
-      id: LoadoutOuterCoatVictorianRed
-    - type: loadout
-      id: LoadoutOuterCardiganBasic
-    - type: loadout
-      id: LoadoutOuterCardiganBasicOpened
-    - type: loadout
-      id: LoadoutOuterCardiganArgyle
-    - type: loadout
-      id: LoadoutOuterCardiganArgyleOpened
-    - type: loadout
-      id: LoadoutOuterCardiganSweater
-    - type: loadout
-      id: LoadoutOuterCardiganSweaterOpened
-    - type: loadout
-      id: LoadoutOuterCardiganSlim
-    - type: loadout
-      id: LoadoutOuterCardiganSlimOpened
-    - type: loadout
-      id: LoadoutOuterCowboyDuster
-    - type: loadout
-      id: LoadoutOuterBlazerBasic
-    - type: loadout
-      id: LoadoutOuterBlazerBasicOpened
-    - type: loadout
-      id: LoadoutOuterBlazerLong
-    - type: loadout
-      id: LoadoutOuterBlazerLongOpened
-    - type: loadout
-      id: LoadoutOuterBlazerFormal
-    - type: loadout
-      id: LoadoutOuterBlazerLooseSleeve
-    - type: loadout
-      id: LoadoutOuterBlazerFlatCollar
-    - type: loadout
-      id: LoadoutOuterBlazerPosh
-    - type: loadout
-      id: LoadoutOuterCoatPeacoat
-    - type: loadout
-      id: LoadoutOuterCoatPeacoatOpened
-    - type: loadout
-      id: LoadoutOuterCoatAsymmetric
-    - type: loadout
-      id: LoadoutOuterCoatAsymmetricOpened
-    - type: loadout
-      id: LoadoutOuterCoatSubmariner
-    - type: loadout
-      id: LoadoutOuterCoatSubmarinerOpened
-    - type: loadout
-      id: LoadoutOuterVestColorable
-    - type: loadout
-      id: LoadoutOuterVestThick
+      id: ClothingOuterDenimJacketVault
