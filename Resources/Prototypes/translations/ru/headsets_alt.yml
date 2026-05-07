@@ -1,167 +1,218 @@
 - type: entity
   abstract: true
-  parent: ClothingHeadset
-  id: ClothingHeadsetAlt
+  parent: Clothing
+  id: N14ClothingHeadsetAlt
   name: headset
-  description: An updated, modular intercom that fits over the head. Takes encryption keys.
+  description: An earpiece with an intercom built into it, almost like a radio? Takes encryption keys.
   components:
-    - type: Sprite
-      state: icon_alt
-    - type: Clothing
-      equippedPrefix: alt
-
+  - type: Headset
+    # #Misfits Add - all N14 headsets passively receive PBS (Broadcast) without a key; transmit requires EncryptionKeyPBS
+    passiveChannels:
+    - PBS
+  - type: ContainerContainer
+    containers:
+      key_slots: !type :Container
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+  - type: EncryptionKeyHolder
+    keySlots: 4
+  - type: Sprite
+    scale: 0.75, 0.75
+    state: icon
+  - type: Clothing
+    # equippedPrefix: alt
+    slots:
+    - ears
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltCargo
-  name: logistics officer's over-ear headset # DeltaV - Logistics Department replacing Cargo
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaulttec #No longer used, all Vault dwellers got the same headset now
+  name: Vault-Tec over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyCargo
-          - EncryptionKeyCommand
-          - EncryptionKeyCommon
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/cargo.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/cargo.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMaster
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/centcom.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/centcom.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltCentCom
-  name: CentCom over-ear headset
-  components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyCentCom
-          - EncryptionKeyStationMaster
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/centcom.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/centcom.rsi
-
-- type: entity
-  parent: ClothingHeadsetAltCentCom
-  id: ClothingHeadsetAltCentComFake
-  suffix: Fake
-  components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyCommon
-
-- type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltCommand
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultCommand #No longer used, all Vault dwellers got the same headset now
   name: command over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyStationMaster
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/command.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/command.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMaster
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/command.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/command.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltEngineering
-  name: chief engineer's over-ear headset
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultDweller
+  name: vault over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyEngineering
-          - EncryptionKeyCommand
-          - EncryptionKeyCommon
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/engineering.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/engineering.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyVault
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/vault.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/vault.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltMedical
-  name: chief medical officer's over-ear headset
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultMedical #No longer used, all Vault dwellers got the same headset now
+  name: medical over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyMedical
-          - EncryptionKeyCommand
-          - EncryptionKeyCommon
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/medical.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/medical.rsi
-    - type: StealTarget
-      stealGroup: ClothingHeadsetAltMedical
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedical
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/medical.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/medical.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltSecurity
-  name: head of security's over-ear headset
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultSecurity #No longer used, all Vault dwellers got the same headset now
+  name: security over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeySecurity
-          - EncryptionKeyCommand
-          - EncryptionKeyCommon
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/security.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/security.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltScience
-  name: mystagogue's over-ear headset # DeltaV - Epistemics Department replacing Science
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultEngineering #No longer used, all Vault dwellers got the same headset now
+  name: engineering over-ear headset
   components:
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyScience
-          - EncryptionKeyCommand
-          - EncryptionKeyCommon
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/science.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/science.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEngineering
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/engineering.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/engineering.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltSyndicate
-  name: blood-red over-ear headset
-  description: An updated, modular syndicate intercom that fits over the head and takes encryption keys (there are 5 key slots.).
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetVaultScience #No longer used, all Vault dwellers got the same headset now
+  name: science over-ear headset
   components:
-    - type: Headset
-    - type: EncryptionKeyHolder
-      keySlots: 5
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeySyndie
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/syndicate.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/syndicate.rsi
-
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScience
+      - EncryptionKeyCommon
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/science.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/science.rsi
+- #Misfits Change /Comment-out/: Duplicate BoS headsets removed — consolidated into _Misfits/Entities/Clothing/Ears/bos_headsets.yml.
+#- type: entity
+#  parent: N14ClothingHeadsetAlt
+#  id: N14ClothingHeadsetBOSMidwest
+#  name: Brotherhood radio earpiece
+#  components:
+#  - type: ContainerFill
+#    containers:
+#      key_slots:
+#      - EncryptionKeyBrotherhoodOfSteel
+#      - EncryptionKeyWastelandGlobal
+#  - type: Sprite
+#    sprite: Clothing/Ears/Headsets/command.rsi
+#  - type: Clothing
+#    sprite: Clothing/Ears/Headsets/command.rsi
+#- type: entity
+#  parent: N14ClothingHeadsetAlt
+#  id: N14ClothingHeadsetBOSWashington
+#  name: Brotherhood radio earpiece
+#  components:
+#  - type: ContainerFill
+#    containers:
+#      key_slots:
+#      - EncryptionKeyBrotherhoodOfSteel
+#      - EncryptionKeyWastelandGlobal
+#  - type: Sprite
+#    sprite: Clothing/Ears/Headsets/security.rsi
+#  - type: Clothing
+#    sprite: Clothing/Ears/Headsets/security.rsi
+#  - type: Item
+#    sprite: Clothing/Ears/Headsets/security.rsi
+type: entity
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetEnclave
+  name: enclave radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyEnclave
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/enclave.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/enclave.rsi
 - type: entity
-  parent: ClothingHeadsetAlt
-  id: ClothingHeadsetAltFreelancer
-  name: freelancer's over-ear headset
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetNCR
+  name: NCR radio earpiece
   components:
-    - type: Headset
-    - type: EncryptionKeyHolder
-      keySlots: 5
-    - type: ContainerFill
-      containers:
-        key_slots:
-          - EncryptionKeyFreelance
-    - type: Sprite
-      sprite: Clothing/Ears/Headsets/freelance.rsi
-    - type: Clothing
-      sprite: Clothing/Ears/Headsets/freelance.rsi
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyNCR
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/ncr.rsi
+- # #Misfits Change - Legion headset
+type: entity
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetLegion
+  name: Legion radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyLegion
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: _Misfits/Clothing/Ears/Headsets/legion.rsi
+  - type: Clothing
+    sprite: _Misfits/Clothing/Ears/Headsets/legion.rsi
+- # #Misfits Add — Followers of the Apocalypse headset; grants both faction and wasteland channels
+type: entity
+  parent: N14ClothingHeadsetAlt
+  id: N14ClothingHeadsetFollowers
+  name: Followers radio earpiece
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyFollowers
+      - EncryptionKeyWastelandGlobal
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
