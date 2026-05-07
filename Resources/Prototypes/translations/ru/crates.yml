@@ -1,661 +1,628 @@
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledCigarettes
-  suffix: cigarette packs random # We don't give it a name, players need to break it to find out whats inside.
+  parent: CrateBaseWeldable
+  id: CrateGenericSteel
+  name: crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14CigarettePackSalem
-          prob: 0.5
-        - id: N14CigarettePackKool
-          prob: 0.5
-        - id: N14CigarettePackMarlboro
-          prob: 0.5
-        - id: N14CigarettePackWinston
-          prob: 0.5
-        - id: N14CigarettePackCustom
-          prob: 0.5
-        - id: N14CigarettePackSalem
-          prob: 0.4
-        - id: N14CigarettePackKool
-          prob: 0.4
-        - id: N14CigarettePackMarlboro
-          prob: 0.4
-        - id: N14CigarettePackWinston
-          prob: 0.4
-        - id: N14CigarettePackCustom
-          prob: 0.4
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/generic.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/generic.rsi
+  - type: Reflect
+    reflects:
+    - Energy
+    reflectProb: 0.2
+    spread: 90
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 16
+    staminaCost: 45
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledCigarettesRepublic #Would be nice to replace these with some sort of Blue Line smoke brand later
-  suffix: republics
-  name: Republic cigarette crate
-  description: Crate containing 6 republic cig packs
+  parent: CrateBaseWeldable
+  id: CratePlastic
+  name: plastic crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14CigarettePackRepublics
-          amount: 6
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/plastic.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/plastic.rsi
+  - type: Construction
+    graph: CratePlastic
+    node: crateplastic
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 80
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 10
+    staminaCost: 30
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledSteelSheet
-  name: Steel sheets crate
-  description: Crate containing 30 steel sheets
+  parent: CratePlastic
+  id: CrateFreezer
+  name: freezer
   components:
-    - type: StorageFill
-      contents:
-        - id: SheetSteel
-          amount: 1
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/freezer.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/freezer.rsi
+  - type: AntiRottingContainer
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledPlasticSheet
-  name: Plastic sheets crate
-  description: Crate containing 30 plastic sheets
+  parent: CratePlastic
+  id: CrateHydroponics
+  name: hydroponics crate
   components:
-    - type: StorageFill
-      contents:
-        - id: SheetPlastic
-          amount: 1
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/hydroponics.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/hydroponics.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGlassSheet
-  name: Glass sheets crate
-  description: Crate containing 30 glass sheets
+  parent: CratePlastic
+  id: CrateMedical
+  name: medical crate
   components:
-    - type: StorageFill
-      contents:
-        - id: SheetGlass
-          amount: 1
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/medical.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/medical.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWood
-  name: Wood crate
-  description: Crate containing 30 wood planks
+  parent: CrateGenericSteel
+  id: CrateRadiation
+  name: radiation gear crate
+  description: Is not actually lead lined. Do not store your plutonium in this.
   components:
-    - type: StorageFill
-      contents:
-        - id: MaterialWoodPlank
-          amount: 1
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/radiation.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/radiation.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledMechanicParts
-  name: Mechanic parts crate
-  description: Crate containing 4 screws, 2 small gears and 2 large gears
+  parent: CratePlastic
+  id: CrateInternals
+  name: oxygen crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14JunkComponentScrew
-          amount: 4
-        - id: N14JunkComponentGearSmall
-          amount: 2
-        - id: N14JunkComponentGearLarge
-          amount: 2
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/o2.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/o2.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledAdhesive
-  name: Adhesives crate
-  description: Crate containing 4 duct tapes
+  parent: CrateGenericSteel
+  id: CrateElectrical
+  name: electrical crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14JunkDuctTape
-          amount: 4
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/electrical.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/electrical.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledStimpak
-  name: Stimpak crate
-  description: Crate containing 6 stimpaks
+  parent: CrateGenericSteel
+  id: CrateEngineering
+  name: engineering crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14Stimpak
-          amount: 6
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/engineering.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/engineering.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledEmergencyRations
-  name: Premium rations crate
-  description: Crate containing 2 Pork n' Beans, 2 BlamCo Mac & Cheese, 2 Salisbury Steak and 2 Dandy Boy Apples.
+  parent: CrateGenericSteel
+  id: CrateScience
+  name: epistemics crate # DeltaV - Epistemics Department replacing Science
   components:
-    - type: StorageFill
-      contents:
-        - id: N14FoodPorkBeans
-          amount: 2
-        - id: N14FoodSalisburysteak
-          amount: 2
-        - id: N14FoodBlamcomaccheese
-          amount: 2
-        - id: N14FoodDandyboyapples
-          amount: 2
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/science.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/science.rsi
 - type: entity
-  parent: N14CrateArmy
-  id: N14CrateArmyFilledSmallGameRifle
-  name: Small game rifle crate
-  description: Crate containing 4 Varmint rifles.
+  parent: CrateGenericSteel
+  id: CrateSurgery
+  name: surgery crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponSniper556VarmintRifle
-          amount: 4
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/surgery.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/surgery.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWatterBottle
-  name: Water bottles crate
-  description: Crate containing 10 water bottles
+  parent: CrateGeneric
+  id: CrateWeb
+  name: web crate
   components:
-    - type: StorageFill
-      contents:
-        - id: DrinkWaterBottleFull
-          amount: 10
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/web.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/web.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.StorageVisualLayers.Base"
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Construction
+    graph: WebStructures
+    node: crate
+  - type: Damageable
+    damageModifierSet: Web
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWebSilk: min: 3 max: 5'
+  - type: EntityStorage
+    closeSound:
+      path: /Audio/Effects/rustle1.ogg
+    openSound:
+      path: /Audio/Effects/rustle2.ogg
+- # Secure Crates
+type: entity
+  parent: CrateBaseSecure
+  id: CrateSecgear
+  name: secgear crate
+  components:
+  - type: Icon
+    sprite: Structures/Storage/Crates/sec_gear.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/sec_gear.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Security"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledNukaCola
-  name: Nuka-Cola crate
-  description: Crate containing 10 Nuka-Colas
+  parent: CrateBaseSecure
+  id: CrateEngineeringSecure
+  name: secure engineering crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14DrinkNukaCola
-          amount: 10
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/engicrate_secure.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Engineering"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGunpowder
-  name: Gunpowder crate
-  description: Crate containing 10 gunpowder
+  parent: CrateBaseSecure
+  id: CrateMedicalSecure
+  name: secure medical crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14Gunpowder10
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/medicalcrate_secure.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Medical"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledLeadBar
-  name: Lead bars crate
-  description: Crate containing 20 lead bars
+  parent: CrateBaseSecure
+  id: CrateChemistrySecure
+  name: secure chemistry crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14IngotLead20
-
-- type: entity # Corvax-Add-Start
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledFuelTank
-  name: FuelTank crate
-  description: Crate containing 1 FuelTank
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14FuelTankHandy
-          amount: 1 # Corvax-Add-End
-
+    - type: Icon
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    - type: Sprite
+      sprite: Structures/Storage/Crates/chemcrate_secure.rsi
+    - type: AccessReader
+      access:
+      - 
+        - "Chemistry"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledAbraxo
-  name: Abraxo cleaner crate
-  description: Crate containing 4 Abraxo Cleaners
+  parent: CrateBaseSecure
+  id: CratePrivateSecure
+  name: private crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14JunkAbraxoCleaner
-          amount: 4
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/privatecrate_secure.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledRadaway
-  name: Radiation crate
-  description: Crate containing 6 Radaways
+  parent: CrateBaseSecure
+  id: CrateScienceSecure
+  name: secure epistemics crate # DeltaV - Epistemics Department replacing Science
   components:
-    - type: StorageFill
-      contents:
-        - id: N14RadAwayBloodbag
-          amount: 6
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/scicrate_secure.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Research"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledOintment
-  name: Burn crate
-  description: Crate containing 6 aloe vera salves.
+  parent: CrateBaseSecure
+  id: CratePlasma
+  name: plasma crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14AloeSalve
-          amount: 6
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/plasma.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/plasma.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Engineering"
+    - 
+      - "Research"
+    - 
+      - "Chemistry"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledAntidote
-  name: Antivenom crate
-  description: Crate containing 2 bottles of antidote
+  parent: CrateBaseSecure
+  id: CrateUranium
+  name: uranium crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14Antidote
-          amount: 2
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/uranium.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/uranium.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Engineering"
+    - 
+      - "Research"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWebley9mmPistol
-  name: Webley pistol crate
-  description: Crate containing 3 Webley 9mm pistols
+  parent: CrateBaseSecure
+  id: CrateSecure
+  name: secure crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponPistolWebley
-          amount: 3
-
+    - type: Icon
+      sprite: Structures/Storage/Crates/secure.rsi
+    - type: Sprite
+      sprite: Structures/Storage/Crates/secure.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWebley44revolver
-  name: Webley revolver crate
-  description: Crate containing 3 Webley .44 revolvers
+  parent: CrateBaseSecure
+  id: CrateHydroSecure
+  name: secure hydroponics crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponRevolverWebley
-          amount: 3
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/hydro_secure.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Hydroponics"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledC70
-  name: C70 rifle crate
-  description: Crate containing 3 C70 7.62mm rifles
+  parent: CrateBaseSecureReinforced
+  id: CrateWeaponSecure
+  name: secure weapon crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponRifle762Canadian
-          amount: 3
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/weapon.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Armory"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledF2
-  name: F2 marksman rifle crate
-  description: Crate containing 3 F2 7.62mm marksman rifles
+  parent: CrateBaseSecureReinforced
+  suffix: Armory, Secure, Reinforced
+  id: CrateContrabandStorageSecure
+  name: contraband storage crate
+  description: An armory access locked crate for storing contraband confiscated from suspects or prisoners.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponRifle762MarksmanCanadian
-          amount: 3
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/sec_gear.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Armory"
 - type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledF1
-  name: F1 sniper rifle crate
-  description: Crate containing 2 F1 .308 sniper rifles
+  parent: CrateBaseSecure
+  id: CrateCommandSecure
+  name: command crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponSniper308Canadian
-          amount: 2
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/command.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/command.rsi
+  - type: AccessReader
+    access:
+    - 
+      - "Command"
 - type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledRoss
-  name: Ross rifle crate
-  description: Crate containing 3 .308 Ross service rifles
+  parent: CrateGeneric
+  id: CrateLivestock
+  name: livestock crate
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponSniper308Ross
-          amount: 3
-
+  - type: EntityStorage
+    airtight: false
+  - type: Sprite
+    sprite: Structures/Storage/Crates/livestock.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.25,0.625"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/livestock.rsi
+    state: base
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 15 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroyHeavy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank1: min: 1 max: 4 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.4,-0.4,0.4,0.29"'
+        density: 135
+        mask:
+        - CrateMask
+        layer:
+        - LargeMobLayer
+  - type: Construction
+    graph: CrateLivestock
+    node: cratelivestock
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 125
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledFrenchi
-  name: Frenchi shotgun crate
-  description: Crate containing 3 12 gauge Frenchi shotguns
+  parent: CrateGeneric
+  id: CrateRodentCage
+  name: hamster cage
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponShotgunCanadian
-          amount: 3
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/cage.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,0.125"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/cage.rsi
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 15 behaviors: - !type:PlaySoundBehavior sound: collection: MetalGlassBreak - !type:SpawnEntitiesBehavior spawn: SheetPlastic: min: 1 max: 2 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Physics
+    bodyType: Dynamic
+  - type: EntityStorage
+    capacity: 1
+    airtight: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.4,-0.4,0.4,0.29"'
+        density: 80
+        mask:
+        - CrateMask
+        layer:
+        - LargeMobLayer
+  - type: StaticPrice
+    price: 60
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledSten
-  name: Sten SMG crate
-  description: Crate containing 3 9mm Sten SMGs
+  parent: CrateGeneric
+  id: CratePirate
+  name: pirate chest
+  description: A space pirate chest, not for station lubbers.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponSMG9mmCanadian
-          amount: 3
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/piratechest.rsi
+    layers:
+    - state: crate
+      map:
+      - "enum.StorageVisualLayers.Base"
+    - state: crate_door
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: welded
+      visible: false
+      map:
+      - "enum.WeldableLayers.BaseWelded"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,-0.09375"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/piratechest.rsi
+    state: crate_icon
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: crate_open
+    stateDoorClosed: crate_door
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledDouglas
-  name: Douglas SMG crate
-  description: Crate containing 3 12.7mm Douglas advanced SMGs
+  parent: CratePirate
+  id: CrateToyBox
+  name: toy box
+  suffix: Empty
+  description: A box overflowing with fun.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponSMG12mmAdvancedCanadian
-          amount: 3
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/toybox.rsi
+    layers:
+    - state: crate
+      map:
+      - "enum.StorageVisualLayers.Base"
+    - state: crate_door
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: welded
+      visible: false
+      map:
+      - "enum.WeldableLayers.BaseWelded"
+    - state: paper
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/toybox.rsi
+    state: crate_icon
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledHMG
-  name: HMG crate
-  description: Crate containing 1 7.62mm HMG, let the good times roll.
+  parent: CrateGeneric
+  id: CrateCoffin
+  name: coffin
+  description: A comfy coffin, excelent place for the vampires and corpses.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponHMGcanadian
-          amount: 1
-        - id: Magazine762AmmoBelt # Corvax-Add
-          amount: 1
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/coffin.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/coffin.rsi
+    state: base
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 15 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank1: min: 1 max: 4 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Construction
+    graph: CrateCoffin
+    node: cratecoffin
+    containers:
+    - entity_storage
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledBren
-  name: Bren crate
-  description: Crate containing the mighty .308 Bren HMG.
+  parent: CrateGeneric
+  id: CrateWoodenGrave
+  name: grave
+  suffix: wooden
+  description: Someone died here...
   components:
-    - type: StorageFill
-      contents:
-        - id: N14WeaponLMGBren
-          amount: 1
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/wooden_grave.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.28125,0.625"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/wooden_grave.rsi
+    state: base
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank1: min: 1 max: 4 - !type:DoActsBehavior acts: [ "Destruction" ]' # discourage just beating the grave to break it open
+  - type: Physics
+    bodyType: Static
+  - type: Grave
+  - type: EntityStorageLayingDownOverride # Misfits Change /Fix/: graves should rebury a downed body rather than behave like a generic crate.
+  - type: AntiRottingContainer # Replaced for N14, no one wants organs and limbs pop out from under the dirt after rot. Eventually we should get our own grave entities with sprites.
+  - type: EntityStorage
+    airtight: true
+    isCollidableWhenOpen: false
+    capacity: 1 # Misfits Change /Fix/: one grave should only rebury one body.
+    enteringRange: 0.35 # Misfits Change /Fix/: allow a nearby corpse to be caught reliably when the grave is closed with a shovel.
+    closeSound:
+      path: /Audio/Items/shovel_dig.ogg
+    openSound:
+      path: /Audio/Items/shovel_dig.ogg
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledCrayons
-  name: Crayon crate
-  description: Unleash your inner artist with 2 boxes of crayons
+  parent: CrateWoodenGrave
+  id: CrateStoneGrave
+  name: grave
+  suffix: stone
+  description: Someone died here...
   components:
-    - type: StorageFill
-      contents:
-        - id: CrayonBox
-          amount: 2
-
+  - type: Sprite
+    sprite: Structures/Storage/Crates/stone_grave.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "-0.3125,0.5625"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: Icon
+    sprite: Structures/Storage/Crates/stone_grave.rsi
+    state: base
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWhisky
-  name: Whisky restock
-  description: Crate containing 3 bottles of whisky
+  parent: CrateGenericSteel
+  id: CrateSyndicate
+  name: Syndicate crate
+  description: A dark steel crate with red bands and a letter S embossed on the front.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14DrinkWhisky
-          amount: 3
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/syndicate.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/syndicate.rsi
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledWine
-  name: Whisky restock
-  description: Crate containing 3 bottles of wine
+  parent:
+  - StructureWheeled
+  - CrateBaseWeldable
+  id: CrateTrashCart
+  name: trash cart
   components:
-    - type: StorageFill
-      contents:
-        - id: N14DrinkWine
-          amount: 3
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/trashcart.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/trashcart.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: welded
+      visible: false
+      map:
+      - "enum.WeldableLayers.BaseWelded"
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,0.03125"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledVodka
-  name: Vodka restock
-  description: Crate containing 3 bottles of vodka
+  parent: CrateBaseSecure
+  id: CrateTrashCartJani
+  name: janitorial trash cart
   components:
-    - type: StorageFill
-      contents:
-        - id: DrinkVodkaBottleFull
-          amount: 3
-
+  - type: Icon
+    sprite: Structures/Storage/Crates/trashcart_jani.rsi
+  - type: Sprite
+    sprite: Structures/Storage/Crates/trashcart_jani.rsi
+    layers:
+    - state: base
+    - state: closed
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: welded
+      visible: false
+      map:
+      - "enum.WeldableLayers.BaseWelded"
+    - state: locked
+      map:
+      - "enum.LockVisualLayers.Lock"
+      shader: unshaded
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: "0.0,0.03125"
+      map:
+      - "enum.PaperLabelVisuals.Layer"
+  - type: AccessReader
+    access:
+    - 
+      - "Janitor"
 - type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledRum
-  name: Rum restock
-  description: Crate containing 3 bottles of rum
+  parent: CrateBaseWeldable
+  id: InvisibleCrate
+  suffix: Stealth
   components:
-    - type: StorageFill
-      contents:
-        - id: N14DrinkRoentgenRum
-          amount: 3
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGin
-  name: Gin restock
-  description: Crate containing 3 bottles of gin
-  components:
-    - type: StorageFill
-      contents:
-        - id: DrinkGinBottleFull
-          amount: 3
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledTonic
-  name: Tonic water restock
-  description: Crate containing 3 bottles of tonic water
-  components:
-    - type: StorageFill
-      contents:
-        - id: DrinkTonicWaterBottleFull
-          amount: 3
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledBeer
-  name: Beer restock
-  description: 12 pack of beer, perfect for any party.
-  components:
-    - type: StorageFill
-      contents:
-        - id: DrinkBeerBottleFull
-          amount: 12
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledAle
-  name: Ale restock
-  description: 12 pack of ale, perfect for any party.
-  components:
-    - type: StorageFill
-      contents:
-        - id: DrinkAleBottleFull
-          amount: 12
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGammagulp
-  name: Gamma gulp restock
-  description: 12 pack of gamma gulps, perfect for any party.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14DrinkGammagulpBeer
-          amount: 12
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledHealthAnalyzer
-  name: Health analyzer
-  description: A sophisticated piece of tech used to accurately diagnose patients.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14HandheldHealthAnalyzer
-          amount: 1
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledEnergyCell
-  name: Energy cell crate
-  description: Crate containing 4 energy cells.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14MicrofusionCellRed
-          amount: 4
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledMFCell
-  name: MF cell crate
-  description: Crate containing 4 MF cells.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14MicrofusionCellRed
-          amount: 4
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledC4
-  name: C4 crate
-  description: Crate containing 3 bundles of C4 .
-  components:
-    - type: StorageFill
-      contents:
-        - id: C4
-          amount: 3 # Corvax-Change
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledHandheld
-  name: Handheld crate
-  description: Crate containing 4 handheld radios.
-  components:
-    - type: StorageFill
-      contents:
-        - id: RadioHandheld
-          amount: 4
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledDice
-  name: Dice crate
-  description: Crate containing 2 bags of dice.
-  components:
-    - type: StorageFill
-      contents:
-        - id: DiceBag
-          amount: 2
-
-- type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledMk1
-  name: Bulk Mk1 combat armor crate
-  description: Crate containing 3 sets of Blue Line branded Mk1 combat armor.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14ClothingOuterCombatArmorCargo
-          amount: 3
-        - id: N14ClothingHeadHatCombatHelmetCargo
-          amount: 3
-        - id: N14ClothingBootsCombat
-          amount: 3
-
-- type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledMk2
-  name: Bulk Mk2 combat armor crate
-  description: Crate containing 3 sets of Blue Line branded Mk2 combat armor.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14ClothingOuterCombatArmorMK2Cargo
-          amount: 3
-        - id: N14ClothingHeadHatCombatHelmetMK2Cargo
-          amount: 3
-        - id: N14ClothingBootsCombatMK2
-          amount: 3
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledPoliceVest
-  name: Bulk police vest armor crate
-  description: Crate containing 3 sets of Blue Line branded armored vests.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14ClothingOuterPoliceVestCargo
-          amount: 3
-
-- type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledCarrier
-  name: Bulk military carrier crate
-  description: Crate containing 3 military carriers.
-  components:
-    - type: StorageFill
-      contents:
-        - id: ClothingBeltMilitary
-          amount: 3
-
-- type: entity
-  parent: N14CrateArmy # Corvax-Change
-  id: N14CrateBreakPlainFilledDartboard
-  name: Dart box crate
-  description: Crate containing the needed board to play the game of darts.
-  components:
-    - type: StorageFill
-      contents:
-        - id: TargetDarts
-          amount: 1
-        - id: BoxDarts # Corvax-Change
-          amount: 1
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledDartBox
-  name: Dart box crate
-  description: Crate containing the needed darts to play the game of darts.
-  components:
-    - type: StorageFill
-      contents:
-        - id: BoxDarts
-          amount: 1
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGlassware
-  name: Glassware crate
-  description: Crate containing 5 glass cups, 5 coupe glasses, and 4 shotglasses.
-  components:
-    - type: StorageFill
-      contents:
-        - id: DrinkGlass
-          amount: 5
-        - id: DrinkGlassCoupeShaped
-          amount: 5
-        - id: DrinkShotGlass
-          amount: 4
-
-- type: entity
-  parent: N14CrateRed
-  id: N14CrateRedFilledBluelineUniforms
-  name: Uniform crate
-  description: Enterprising are we? Crate contains 3 Blue Line worker uniforms.
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14ClothingUniformJumpsuitCaravanOveralls
-          amount: 3
-        - id: N14ClothingHeadHatCaravanUniform
-          amount: 3
-        - id: N14ClothingShoesBrown
-          amount: 3
-
-- type: entity
-  parent: N14CrateBreakPlain
-  id: N14CrateBreakPlainFilledGrenadier
-  name: Grenadier crate
-  description: Dangerous! Contains 2 40mm grenades for the grenade launcher.
-  components:
-    - type: StorageFill
-      contents:
-        - id: 40mmGrenadeFrag
-          amount: 2 # Corvax-Change
+  - type: Stealth
+    hadOutline: true
+  - type: StealthOnMove
+    passiveVisibilityRate: '-0.10'
+    movementVisibilityRate: 0.10
