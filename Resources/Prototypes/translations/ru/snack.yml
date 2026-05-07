@@ -1,10 +1,11 @@
-- type: messagePack
-  id: GetmoreChocolateCorpGoodbyes
-  messages:
-    - vending-machine-thanks
-    - thankyou-snack-1
-    - thankyou-snack-2
-    - thankyou-snack-3
-    - thankyou-snack-4
-    - thankyou-snack-5
-    - thankyou-snack-6
+- type: vendingMachineInventory
+  id: GetmoreChocolateCorpInventory
+  startingInventory:
+    FoodSnackRaisins: 3
+    FoodSnackChocolate: 3
+    FoodSnackCnDs: 3
+    FoodSnackPistachios: 3
+    FoodSnackSus: 3
+    FoodSnackSemki: 3
+  emaggedInventory:
+    FoodSnackSyndi: 3
