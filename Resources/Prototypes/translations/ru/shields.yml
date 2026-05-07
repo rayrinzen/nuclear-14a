@@ -1,65 +1,55 @@
-- type: constructionGraph
-  id: N14LightShield
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: lightshield
-          steps:
-            - material: N14Scrap
-              amount: 3
-            - material: Steel
-              amount: 5
-              doAfter: 3
+- type: construction
+  name: light shield
+  id: N14ShieldMetalLight # Forge-Change
+  graph: N14LightShield
+  startNode: start
+  targetNode: lightshield
+  category: construction-category-weapons
+  description: A sheet of metal with some bolts and welds here and there, it can protect you from some damage.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Melee/shield_light.rsi
+    state: icon
+  objectType: Item
 
-    - node: lightshield
-      entity: N14ShieldMetalLight
-
-- type: constructionGraph
+- type: construction
+  name: legionnaire buckler
   id: N14LegionnaireBuckler #Misfits Change /Add/
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: legionnairebuckler
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
+  graph: N14LegionnaireBuckler
+  startNode: start
+  targetNode: legionnairebuckler
+  category: construction-category-weapons
+  description: Lightweight legionary shield.
+  hide: false
+  icon:
+    sprite: Corvax/Objects/Weapons/Melee/romanbuckler.rsi
+    state: icon
+  objectType: Item
 
-    - node: legionnairebuckler
-      entity: N14LegionnaireBuckler
+- type: construction
+  name: heavy shield
+  id: N14ShieldMetalHeavy # Forge-Change
+  graph: N14HeavyShield
+  startNode: start
+  targetNode: heavyshield
+  category: construction-category-weapons
+  description: A large chunk of metal with screws and fine welds, it can protect you from beast and gunfire.
+  hide: false
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Melee/shield_heavy.rsi
+    state: icon
+  objectType: Item
 
-- type: constructionGraph
-  id: N14HeavyShield
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: heavyshield
-          steps:
-            - material: N14Scrap
-              amount: 5
-            - material: Steel
-              amount: 10
-              doAfter: 3
-
-    - node: heavyshield
-      entity: N14ShieldMetalHeavy
-
-- type: constructionGraph
+- type: construction
+  name: legionnaire heater shield
   id: N14LegionnaireShield #Misfits Change /Add/
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: legionnaireshield
-          steps:
-            - material: WoodPlank
-              amount: 5
-            - material: Steel
-              amount: 3
-              doAfter: 3
-
-    - node: legionnaireshield
-      entity: N14LegionnaireShield
+  graph: N14LegionnaireShield
+  startNode: start
+  targetNode: legionnaireshield
+  category: construction-category-weapons
+  description: He had seen worse battles.
+  hide: false
+  icon:
+    sprite: Corvax/Objects/Weapons/Melee/romanshield.rsi
+    state: icon
+  objectType: Item
