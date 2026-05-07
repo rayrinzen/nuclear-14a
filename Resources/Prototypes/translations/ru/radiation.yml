@@ -1,14 +1,15 @@
-- type: entity
-  name: shimmering anomaly
+- type: soundCollection
   id: RadiationPulse
-  categories: [ HideSpawnMenu ]
-  description: Looking at this anomaly makes you feel strange, like something is pushing at your eyes.
-  components:
-    - type: RadiationSource
-      intensity: 5
-    - type: TimedDespawn
-      lifetime: 2
-    - type: EmitSoundOnSpawn
-      sound:
-        collection: RadiationPulse
-    - type: RadiationPulse
+  files:
+    - /Audio/Effects/radpulse1.ogg
+    - /Audio/Effects/radpulse2.ogg
+    - /Audio/Effects/radpulse3.ogg
+    - /Audio/Effects/radpulse4.ogg
+    - /Audio/Effects/radpulse5.ogg
+    - /Audio/Effects/radpulse6.ogg
+    - /Audio/Effects/radpulse7.ogg
+    - /Audio/Effects/radpulse8.ogg
+    - /Audio/Effects/radpulse9.ogg
+    - /Audio/Effects/radpulse10.ogg
+    - /Audio/Effects/radpulse11.ogg
+    - /Audio/Effects/radpulse12.ogg
