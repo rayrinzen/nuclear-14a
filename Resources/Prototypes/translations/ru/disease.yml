@@ -1,57 +1,64 @@
-- type: entity
-  parent: BaseItem
-  id: DiseaseSwab
-  name: sterile swab
-  description: Used for taking and transfering samples. Sterile until open. Single use only.
-  components:
-    - type: Item
-      size: Tiny
-    - type: Sprite
-      sprite: Objects/Specific/Medical/mouth_swab.rsi
-      state: icon
-    - type: Tag
-      tags:
-        - Recyclable
-        - Trash
-    - type: BotanySwab
-    # #Misfits Add - Disease swab sample collection component
-    - type: DiseaseSwab
-      # - type: GuideHelp
-      # guides:
-      # # - Virology (when it's back)
-      # - Botany
+- type: soundCollection
+  id: MaleSneezes
+  files:
+    - /Audio/Voice/Human/male_sneeze_1.ogg
 
-- type: entity
-  parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
-  id: BoxMouthSwab
-  name: sterile swab dispenser
-  description: Dispenses 30 sterile swabs, extremely useful for botany.
-  components:
-    - type: Sprite
-      layers:
-        - state: boxwide
-        - state: swab
-    - type: BallisticAmmoProvider
-      whitelist:
-        components:
-          - BotanySwab
-      proto: DiseaseSwab
-      capacity: 30
-      # - type: GuideHelp
-      # guides:
-      # - Virology (when it's back)
-      # - Botany
+- type: soundCollection
+  id: FemaleSneezes
+  files:
+    - /Audio/Voice/Human/female_sneeze_1.ogg
 
-- type: entity
-  parent: BaseItem
-  id: Vaccine
-  name: vaccine
-  description: Prevents people who DON'T already have a disease from catching it.
-  components:
-    - type: Item
-      size: Tiny
-    - type: Sprite
-      sprite: Objects/Specific/Medical/medipen.rsi
-      state: salpen
-    # #Misfits Add - Disease vaccine injection component
-    - type: DiseaseVaccine
+- type: soundCollection
+  id: MaleCoughs
+  files:
+    - /Audio/Voice/Human/male_cough_1.ogg
+    - /Audio/Voice/Human/male_cough_2.ogg
+
+- type: soundCollection
+  id: FemaleCoughs
+  files:
+    - /Audio/Voice/Human/female_cough_1.ogg
+    - /Audio/Voice/Human/female_cough_2.ogg
+
+- type: soundCollection
+  id: CatMeows
+  files:
+    - /Audio/Animals/cat_meow.ogg
+
+- type: soundCollection
+  id: CatHisses
+  files:
+    - /Audio/Animals/cat_hiss.ogg
+
+- type: soundCollection
+  id: MonkeyScreeches
+  files:
+    - /Audio/Effects/Diseases/monkey1.ogg
+    - /Audio/Effects/Diseases/monkey2.ogg
+
+- type: soundCollection
+  id: RobotBeeps
+  files:
+    - /Audio/Effects/Diseases/beepboop.ogg
+
+- type: soundCollection
+  id: MaleYawn
+  files:
+    - /Audio/Voice/Human/male_yawn_1.ogg
+
+- type: soundCollection
+  id: FemaleYawn
+  files:
+    - /Audio/Voice/Human/female_yawn_1.ogg
+
+- type: soundCollection
+  id: Snores
+  files:
+    - /Audio/Voice/Human/snore1.ogg
+    - /Audio/Voice/Human/snore2.ogg
+    - /Audio/Voice/Human/snore3.ogg
+
+- type: soundCollection
+  id: Honks
+  files:
+    - /Audio/Items/bikehorn.ogg
