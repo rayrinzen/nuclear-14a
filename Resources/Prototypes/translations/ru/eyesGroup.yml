@@ -1,47 +1,15 @@
 - type: characterItemGroup
-  id: LoadoutEyes
+  id: N14LoadoutEyes
   items:
     - type: loadout
-      id: LoadoutEyesEyepatch
+      id: N14ClothingEyesGlassesWelding
     - type: loadout
-      id: LoadoutEyesEyepatchColor
+      id: N14ClothingEyesSunGlasses
     - type: loadout
-      id: LoadoutEyesEyepatchColorFlipped
+      id: N14ClothingEyesGlasses
     - type: loadout
-      id: LoadoutEyesGlasses
+      id: N14LoadoutEyesEyepatch
     - type: loadout
-      id: LoadoutEyesGlassesJamjar
+      id: MisfitsLoadoutEyesPilotGoggles # #Misfits Add - cosmetic pilot goggles
     - type: loadout
-      id: LoadoutEyesGlassesJensen
-    - type: loadout
-      id: LoadoutEyesGlasses3D
-    - type: loadout
-      id: LoadoutEyesGlassesHipster
-    - type: loadout
-      id: LoadoutEyesGlassesMonocle
-    - type: loadout
-      id: LoadoutEyesGlassesPanto
-    - type: loadout
-      id: LoadoutEyesBlindfold
-    - type: loadout
-      id: LoadoutEyesBlindfoldColor
-    - type: loadout
-      id: LoadoutItemCheapSunglasses
-    - type: loadout
-      id: LoadoutEyesGlassesCheapSunglassesAviator
-    - type: loadout
-      id: LoadoutEyesGlassesCheapSunglassesBig
-    - type: loadout
-      id: LoadoutEyesGlassesCheapSunglassesVisor
-    - type: loadout
-      id: LoadoutItemSunglasses
-    - type: loadout
-      id: LoadoutEyesGlassesSunglassesAviator
-    - type: loadout
-      id: LoadoutEyesGlassesSunglassesBig
-    - type: loadout
-      id: LoadoutEyesGlassesSunglassesVisor
-    - type: loadout
-      id: LoadoutItemBlindfoldFake
-    - type: loadout
-      id: LoadoutEyesBlindfoldFakeColor
+      id: MisfitsLoadoutEyesGoggles # #Misfits Add - cosmetic goggles
