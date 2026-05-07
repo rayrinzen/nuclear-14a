@@ -1,86 +1,33 @@
 - type: entity
-  id: ElectricalDisruptionKit
-  parent: BoxCardboard
-  name: electrical disruption kit
+  id: CrateSyndicateSurplusBundle
+  parent: [ CrateSyndicate, StorePresetUplink ]
+  name: Syndicate surplus crate
+  description: Contains 50 telecrystals worth of completely random Syndicate items. It can be useless junk or really good.
+  components:
+    - type: SurplusBundle
+      totalPrice: 50
+
+- type: entity
+  id: CrateCybersunJuggernautBundle
   suffix: Filled
+  parent: CrateSyndicate
+  name: Cybersun juggernaut bundle
+  description: Contains everything except a big gun to go postal.
   components:
     - type: StorageFill
       contents:
-        - id: EmpGrenade
-          amount: 3
-        - id: EmpImplanter
-          amount: 1
+        - id: ClothingOuterHardsuitJuggernaut
+        - id: ClothingMaskGasSyndicate
+        - id: ClothingHandsGlovesCombat
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
+        - id: DoubleEmergencyPlasmaTankFilled
 
 - type: entity
-  parent: BoxVial
-  id: ChemicalSynthesisKit
-  name: chemical synthesis kit
-  description: A starter kit for the aspiring chemist, includes toxin and vestine for all your criminal needs!
+  id: CrateSyndicateSuperSurplusBundle
+  parent: [ CrateSyndicate, StorePresetUplink ]
+  name: Syndicate super surplus crate
+  description: Contains 125 telecrystals worth of completely random Syndicate items.
   components:
-    - type: Storage
-      grid:
-        - 0,0,3,2
-    - type: StorageFill
-      contents:
-        - id: Beaker
-          amount: 2
-        - id: Dropper
-        # It would be cool to have special "syndicate" chemical analysis goggles
-        - id: ClothingEyesGlassesChemical
-        - id: VestineChemistryVial
-          amount: 2
-        - id: BaseChemistryEmptyVial
-        - id: SyringeStimulants
-
-- type: entity
-  id: Observationskit
-  parent: BoxCardboard
-  name: observations kit
-  suffix: Filled
-  components:
-    - type: StorageFill
-      contents:
-        - id: SyndiCrewMonitorEmpty
-          amount: 1
-        - id: PowerCellHigh
-          amount: 1
-        - id: ClothingEyesGlassesHiddenSecurity
-          amount: 1
-        - id: SurveillanceCameraMonitorCircuitboard
-          amount: 1
-
-- type: entity
-  parent: BoxCardboard
-  id: ThrowingKnivesKit
-  name: throwing knives kit
-  description: A set of 4 syndicate branded throwing knives, perfect for embedding into the body of your victims.
-  components:
-    - type: Storage
-      grid:
-        - 0,0,3,1
-    - type: StorageFill
-      contents:
-        - id: ThrowingKnife
-          amount: 4
-    - type: Sprite
-      layers:
-        - state: box_of_doom
-        - state: throwing_knives
-
-- type: entity
-  parent: BoxCardboard
-  id: CombatBakeryKit
-  name: combat bakery kit
-  description: A kit of clandestine baked weapons.
-  components:
-    - type: Sprite
-      layers:
-        - state: box_of_doom
-        - state: france
-    - type: StorageFill
-      contents:
-        - id: WeaponCroissant
-          amount: 2
-        - id: WeaponBaguette
-        - id: SyndicateMicrowaveMachineCircuitboard
-        - id: PaperWrittenCombatBakeryKit
+    - type: SurplusBundle
+      totalPrice: 125
