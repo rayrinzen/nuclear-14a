@@ -1,54 +1,28 @@
 - type: entity
-  id: N14BaseShell20Shotgun
-  name: shell (20 gauge)
-  parent: BaseCartridge
-  abstract: true
+  id: PelletShotgun20
+  name: pellet (20 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - N14ShellShotgun20
-    - type: CartridgeAmmo
-      proto: PelletShotgun20Spread
-      soundEject:
-        collection: N14ShellEject
     - type: Sprite
-      netsync: false
-      sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: Appearance
-    - type: SpentAmmoVisuals
-    - type: EmitSoundOnLand
-      sound:
-        collection: N14ShellEject
-        params:
-          volume: -1
-    - type: EmitSoundOnCollide
-      sound:
-        collection: N14ShellEject
-        params:
-          volume: -1
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 8
+    # Misfits Add - 20 gauge pellets; same rapid falloff as 12 gauge
+    - type: BallisticDamageFalloff
+      falloffStartTiles: 3.0
+      maxFalloffTiles: 8.0
+      minDamageMultiplier: 0.30
 
 - type: entity
-  id: N14ShellShotgun20
-  name: shell (20 gauge)
-  parent: N14BaseShell20Shotgun
+  id: PelletShotgun20Spread
+  categories: [ HideSpawnMenu ]
+  parent: PelletShotgun20
   components:
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: CartridgeAmmo
-      proto: PelletShotgun20Spread
-    - type: EmitSoundOnLand
-      sound:
-        collection: N14ShellEject
-        params:
-          volume: -1
-    - type: EmitSoundOnCollide
-      sound:
-        collection: N14ShellEject
-        params:
-          volume: -1
+    - type: ProjectileSpread
+      proto: PelletShotgun20
+      count: 6
+      spread: 15
