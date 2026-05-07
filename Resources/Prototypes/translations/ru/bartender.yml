@@ -1,102 +1,42 @@
-# Bartender
-#- type: characterItemGroup
-#  id: LoadoutBartenderBackpacks
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBartenderBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBartenderEars
-#  maxItems: 1
-#  items:
-#
-
-- type: characterItemGroup
-  id: LoadoutBartenderAmmo
-  items:
-    - type: loadout
-      id: LoadoutServiceBartenderBoxBeanbags
-    - type: loadout
-      id: LoadoutServiceBartenderBoxLightRifleRubber
-
-- type: characterItemGroup
-  id: LoadoutBartenderWeapon
-  items:
-    - type: loadout
-      id: LoadoutServiceBartenderShotgunDoubleBarreledRubber
-    - type: loadout
-      id: LoadoutServiceBartenderMosinRubber
-    - type: loadout
-      id: LoadoutServiceBartenderArgentiNonlethal
-    - type: loadout
-      id: LoadoutServiceBartenderRepeaterNonlethal
-
-#- type: characterItemGroup
-#  id: LoadoutBartenderEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBartenderGloves
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutBartenderHead
-  items:
-    - type: loadout
-      id: LoadoutServiceHeadBartenderNt
-    - type: loadout
-      id: LoadoutServiceHeadBartenderIdris
-    - type: loadout
-      id: LoadoutServiceHeadBartenderOrion
-
-#- type: characterItemGroup
-#  id: LoadoutBartenderId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBartenderNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutBartenderMask
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutBartenderOuter
-  items:
-    - type: loadout
-      id: LoadoutServiceBartenderWinterCoat
-    - type: loadout
-      id: LoadoutServiceBartenderArmorDuraVest
-    - type: loadout
-      id: LoadoutServiceOuterBartenderNt
-    - type: loadout
-      id: LoadoutServiceOuterBartenderIdris
-    - type: loadout
-      id: LoadoutServiceOuterBartenderOrion
-
-#- type: characterItemGroup
-#  id: LoadoutBartenderShoes
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutBartenderUniforms
-  items:
-    - type: loadout
-      id: LoadoutServiceBartenderUniformPurple
-    - type: loadout
-      id: LoadoutServiceJumpsuitBartenderNt
-    - type: loadout
-      id: LoadoutServiceJumpsuitBartenderIdris
-    - type: loadout
-      id: LoadoutServiceJumpsuitBartenderOrion
+- type: job
+  id: Bartender
+  name: job-name-bartender
+  description: job-description-bartender
+  playTimeTracker: JobBartender
+  requirements:
+    - !type 
+      department: Civilian
+      min: 3600 #DeltaV
+  startingGear: BartenderGear
+  icon: "JobIconBartender"
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+  - Bar
+  extendedAccess:
+  - Kitchen
+  - Hydroponics
+  setPreference: false
+- type: startingGear
+  id: BartenderGear
+  subGear:
+  - BartenderPlasmamanGear
+  equipment:
+    head: ClothingHeadHatTophat
+    jumpsuit: ClothingUniformJumpsuitBartender
+    outerClothing: ClothingOuterVest
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: BartenderPDA
+    ears: ClothingHeadsetService
+  innerClothingSkirt: ClothingUniformJumpskirtBartender
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+- type: startingGear
+  id: BartenderPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
+    head: ClothingHeadEnvirohelmColorWhite
+    gloves: ClothingHandsGlovesEnviroglovesWhite
