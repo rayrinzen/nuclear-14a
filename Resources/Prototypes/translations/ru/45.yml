@@ -1,23 +1,19 @@
 - type: entity
-  id: N14CartridgePistol45
-  name: cartridge (.45 auto)
-  parent: BaseCartridgePistol
+  id: N14Bullet45
+  name: bullet (.45 auto)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: N14Bullet45
-      soundEject:
-        collection: N14PistolCasingEject
-    - type: Tag
-      tags:
-        - Cartridge
-        - N14CartridgePistol45
-    - type: EmitSoundOnLand
-      sound:
-        collection: N14PistolCasingEject
-        params:
-          volume: -1
-    - type: EmitSoundOnCollide
-      sound:
-        collection: N14PistolCasingEject
-        params:
-          volume: -1
+    - type: Reflective # #Misfits Change Add: .45 ACP pistol round is sub-5.56mm class; ricochets off power armor.
+      reflective:
+        - SmallCaliber
+        - NonEnergy
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 16
+    # Misfits Add - .45 ACP is subsonic and loses energy at similar rate to 9mm
+    - type: BallisticDamageFalloff
+      falloffStartTiles: 4.0
+      maxFalloffTiles: 12.0
+      minDamageMultiplier: 0.45
