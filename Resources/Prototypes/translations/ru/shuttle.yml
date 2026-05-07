@@ -1,67 +1,185 @@
-- type: entity
-  id: ShuttleWindow
-  name: shuttle window
-  parent: WindowRCDResistant
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/shuttle_window.rsi
-  - type: Icon
-    sprite: Structures/Windows/shuttle_window.rsi
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: RGlass
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 1000 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-    - trigger: '!type:DamageTrigger damage: 500 behaviors: - !type:PlaySoundBehavior sound: collection: WindowShatter - !type:SpawnEntitiesBehavior spawn: ShardGlassReinforced: min: 1 max: 2 PartRodMetal: min: 1 max: 2 - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: IconSmooth
-    base: swindow
-  - type: Appearance
-  - type: DamageVisuals
-    thresholds:
-    - 4
-    - 8
-    - 12
-    damageDivisor: 28
-    trackAllDamage: true
-    damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
-  - type: StaticPrice
-    price: 75
-- type: entity
-  parent: ShuttleWindow
-  id: ShuttleWindowDiagonal
-  suffix: diagonal
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Window
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/shuttle_window_diagonal.rsi
-    state: state0
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
-  - type: Icon
-    sprite: Structures/Windows/shuttle_window_diagonal.rsi
-    state: state0
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PolygonShape vertices: - "-0.5,-0.5" - "0.5,0.5" - "0.5,-0.5"'
-        mask:
-        - FullTileMask
-        layer:
-        - GlassLayer
-  - type: Airtight
-    noAirWhenFullyAirBlocked: false
-    airBlockedDirection:
-    - South
-    - East
-  - type: DamageVisuals
-    damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+- type: constructionGraph
+  id: AirlockShuttle
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: assembly
+      completed:
+      - !type 
+        value: false
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 2
+  - node: assembly
+    entity: AirlockShuttleAssembly
+    actions:
+    - !type ':SnapToGrid {}'
+    - !type ':SetAnchor {}'
+    edges:
+    - to: electronics
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - component: DoorElectronics
+        store: board
+        name: "door electronics circuit board"
+        icon:
+          sprite: "Objects/Misc/module.rsi"
+          state: "door_electronics"
+        doAfter: 1
+    - to: start
+      conditions:
+      - !type 
+        anchored: false
+      completed:
+      - !type 
+        prototype: SheetPlasteel1
+        amount: 2
+      - !type ':DeleteEntity {}'
+      steps:
+      - tool: Welding
+        doAfter: 3
+  - node: electronics
+    edges:
+    - to: wired
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - material: Cable
+        amount: 5
+        doAfter: 3
+    - to: assembly
+      completed:
+      - !type 
+        pickup: true
+        emptyAtUser: true
+      steps:
+      - tool: Prying
+        doAfter: 1
+  - node: wired
+    edges:
+    - to: electronics
+      completed:
+      - !type 
+        prototype: CableApcStack1
+        amount: 5
+      steps:
+      - tool: Cutting
+        doAfter: 2
+    - to: skeleton
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - material: Plasteel
+        amount: 2
+        doAfter: 1
+  - node: skeleton
+    edges:
+    - to: skeletonWrenched
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+    - to: wired
+      completed:
+      - !type 
+        prototype: SheetPlasteel1
+        amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 2
+  - node: skeletonWrenched
+    edges:
+    - to: skeletonWelded
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - tool: Welding
+        doAfter: 2
+    - to: skeleton
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+  - node: skeletonWelded
+    edges:
+    - to: skeletonSilver
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - material: Silver
+        amount: 2
+        doAfter: 1
+    - to: skeletonWrenched
+      steps:
+      - tool: Welding
+        doAfter: 2
+  - node: skeletonSilver
+    entity: AirlockShuttleAssembly
+    edges:
+    - to: airlock
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - tool: Screwing
+        doAfter: 2
+    - to: skeletonGlass
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - material: ReinforcedGlass
+        amount: 2
+        doAfter: 2
+    - to: skeletonWelded
+      completed:
+      - !type 
+        prototype: IngotSilver1
+        amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 2
+  - node: airlock
+    entity: AirlockShuttle
+    edges:
+    - to: skeletonSilver
+      conditions:
+      - !type ':EntityAnchored {}'
+      - !type ':DoorWelded {}'
+      - !type 
+        value: false
+      - !type ':WirePanel {}'
+      steps:
+      - tool: Prying
+        doAfter: 5
+  - node: skeletonGlass
+    entity: AirlockShuttleAssembly
+    edges:
+    - to: skeletonSilver
+      completed:
+        - !type 
+          prototype: SheetRGlass1
+          amount: 2
+      steps:
+      - tool: Prying
+        doAfter: 4
+    - to: airlockGlass
+      conditions:
+      - !type ':EntityAnchored {}'
+      steps:
+      - tool: Screwing
+        doAfter: 2
+  - node: airlockGlass
+    entity: AirlockGlassShuttle
+    edges:
+      - to: skeletonGlass
+        conditions:
+          - !type ':EntityAnchored {}'
+          - !type ':DoorWelded {}'
+          - !type 
+            value: false
+          - !type ':WirePanel {}'
+        steps:
+          - tool: Prying
+            doAfter: 5
