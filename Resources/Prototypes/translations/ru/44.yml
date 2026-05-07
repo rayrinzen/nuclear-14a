@@ -1,40 +1,41 @@
 - type: entity
-  id: N14BaseMagazine44Pistol
-  name: pistol magazine (44)
+  id: N14BaseSpeedLoader44
+  name: "speed loader (.44 magnum)"
   parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - N14MagazinePistol44
+      - SpeedLoader44
+  - type: SpeedLoader
   - type: BallisticAmmoProvider
-    mayTransfer: true
     whitelist:
       tags:
         - N14Cartridge44Magnum
-    capacity: 8
+    capacity: 6
+  - type: Sprite
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type :Container
-  - type: Sprite
-    netsync: false
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/44/pistolmag.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
+      ballistic-ammo: !type
+        ents: [ ]
 - type: entity
-  id: N14MagazinePistol44
-  name: pistol magazine (.44) # Forge-Change
-  parent: N14BaseMagazine44Pistol
+  id: SpeedLoader44
+  name: "speed loader (.44 magnum)"
+  parent: N14BaseSpeedLoader44
   components:
   - type: BallisticAmmoProvider
     proto: N14Cartridge44Magnum
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Speedloaders/44loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
