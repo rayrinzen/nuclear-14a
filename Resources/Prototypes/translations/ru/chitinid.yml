@@ -1,65 +1,111 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
 - type: entity
-  id: OrganChitinidStomach
-  parent: OrganHumanStomach
-  name: stomach
-  description: "Gross. This is hard to stomach."
+  id: PartChitinidBase
+  parent: [ BaseItem, BasePart ]
+  name: "Chitinid body part"
+  abstract: true
   components:
-    - type: Organ # Shitmed Change
-      slotId: stomach # Shitmed Change
     - type: Sprite
-      state: stomach
-    - type: Item
-      size: Small
-      heldPrefix: stomach
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: UncookedAnimalProteins
-              Quantity: 5
-    - type: Stomach
-    # The stomach metabolizes stuff like foods and drinks.
-    # TODO: Have it work off of the ent's solution container, and move this
-    # to intestines instead.
-    - type: Metabolizer
-      # mm yummy
-      maxReagents: 3
-      metabolizerTypes: [ Human ]
-      groups:
-        - id: Food
-        - id: Drink
+      sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: Fat
+            Quantity: 3
+          - ReagentId: Blood
+            Quantity: 10
 
 - type: entity
-  id: OrganChitinidLiver
-  parent: BaseAnimalOrgan
-  name: liver
-  categories: [ HideSpawnMenu ]
+  id: TorsoChitinid
+  name: "chitinid torso"
+  parent: [ PartChitinidBase, BaseTorso ]
   components:
-    - type: Organ
-      slotId: liver # Shitmed
-      onAdd:
-        - type: UnpoweredFlashlight
-        - type: PointLight
-          enabled: false
-          radius: 3
-          softness: 5
-          color: "#2CFA1F"
-          autoRot: true
     - type: Sprite
-      state: liver
-    - type: Metabolizer
-      maxReagents: 1
-      metabolizerTypes: [ Animal ]
-      groups:
-        - id: Alcohol
-          rateModifier: 0.1
-    - type: Liver # Shitmed
-    - type: Tag # goob edit
-      tags:
-        - Meat
-    - type: Item
-      size: Small
-      heldPrefix: liver
+      state: "torso_m"
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: Fat
+            Quantity: 10
+          - ReagentId: Blood
+            Quantity: 20
+
+- type: entity
+  id: HeadChitinid
+  name: "chitinid head"
+  parent: [ PartChitinidBase, BaseHead ]
+  components:
+    - type: Sprite
+      state: "head_m"
+    - type: Extractable
+      juiceSolution:
+        reagents:
+          - ReagentId: Fat
+            Quantity: 5
+          - ReagentId: Blood
+            Quantity: 10
+
+- type: entity
+  id: LeftArmChitinid
+  name: "left chitinid arm"
+  parent: [ PartChitinidBase, BaseLeftArm ]
+  components:
+    - type: Sprite
+      state: "l_arm"
+
+- type: entity
+  id: RightArmChitinid
+  name: "right chitinid arm"
+  parent: [ PartChitinidBase, BaseRightArm ]
+  components:
+    - type: Sprite
+      state: "r_arm"
+
+- type: entity
+  id: LeftHandChitinid
+  name: "left chitinid hand"
+  parent: [ PartChitinidBase, BaseLeftHand ]
+  components:
+    - type: Sprite
+      state: "l_hand"
+
+- type: entity
+  id: RightHandChitinid
+  name: "right chitinid hand"
+  parent: [ PartChitinidBase, BaseRightHand ]
+  components:
+    - type: Sprite
+      state: "r_hand"
+
+- type: entity
+  id: LeftLegChitinid
+  name: "left chitinid leg"
+  parent: [ PartChitinidBase, BaseLeftLeg ]
+  components:
+    - type: Sprite
+      state: "l_leg"
+
+- type: entity
+  id: RightLegChitinid
+  name: "right chitinid leg"
+  parent: [ PartChitinidBase, BaseRightLeg ]
+  components:
+    - type: Sprite
+      state: "r_leg"
+
+- type: entity
+  id: LeftFootChitinid
+  name: "left chitinid foot"
+  parent: [ PartChitinidBase, BaseLeftFoot ]
+  components:
+    - type: Sprite
+      state: "l_foot"
+
+- type: entity
+  id: RightFootChitinid
+  name: "right chitinid foot"
+  parent: [ PartChitinidBase, BaseRightFoot ]
+  components:
+    - type: Sprite
+      state: "r_foot"
