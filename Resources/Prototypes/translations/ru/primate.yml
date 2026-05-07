@@ -1,32 +1,41 @@
-- type: body
-  id: Primate
-  name: "primate"
-  root: torso
-  slots:
-    head: # Put pun pun into a humans body
-      part: HeadAnimal
-      connections:
-        - torso
-      organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
-    torso:
-      part: TorsoAnimal
-      connections:
-        - hands
-        - legs
-        - head # Shitmed
-      organs:
-        lungs: OrganAnimalLungs
-        stomach: OrganAnimalStomach
-        liver: OrganAnimalLiver
-        heart: OrganAnimalHeart
-        kidneys: OrganAnimalKidneys
-    hands:
-      part: HandsAnimal
-    legs:
-      part: LegsAnimal
-      connections:
-        - feet
-    feet:
-      part: FeetAnimal
+- type: entity
+  save: false
+  parent: BaseSpeciesDummy
+  id: MobMonkeyDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy monkey meant to be used in character setup.
+  components:
+    - type: Icon
+      sprite: Mobs/Animals/monkey.rsi
+      state: full
+    - type: Appearance
+    - type: HumanoidAppearance
+      species: Monkey
+    - type: Body
+      prototype: Monkey
+      requiredLegs: 2
+    - type: UserInterface
+      interfaces:
+        enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
+          type: HumanoidMarkingModifierBoundUserInterface
+
+- type: entity
+  save: false
+  parent: BaseSpeciesDummy
+  id: MobKoboldDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy kobold meant to be used in character setup.
+  components:
+    - type: Icon
+      sprite: Mobs/Animals/kobold.rsi
+      state: full
+    - type: Appearance
+    - type: HumanoidAppearance
+      species: Kobold
+    - type: Body
+      prototype: Kobold
+      requiredLegs: 2
+    - type: UserInterface
+      interfaces:
+        enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
+          type: HumanoidMarkingModifierBoundUserInterface
