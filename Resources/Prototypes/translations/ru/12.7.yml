@@ -1,15 +1,39 @@
 - type: entity
-  id: N14Bullet127
-  name: bullet (12.7mm)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox12
   components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 16 # Corvax-Change
-    # Misfits Add - 12.7mm heavy round; strong range retention
-    - type: BallisticDamageFalloff
-      falloffStartTiles: 7.0
-      maxFalloffTiles: 22.0
-      minDamageMultiplier: 0.65
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14CartridgePistol127
+    proto: N14CartridgePistol127
+    capacity: 75
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/12-7mm.rsi
+    netsync: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
+- type: entity
+  parent: BaseMagazineBox12
+  id: MagazineBox12
+  name: ammunition box (12.7mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol127
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
