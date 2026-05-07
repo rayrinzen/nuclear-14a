@@ -1,3 +1,11 @@
 - type: accessLevel
-  id: CentralCommand
-  name: id-card-access-level-central-command
+  id: NanotrasenRepresentative
+  name: id-card-access-level-ntr
+
+- type: accessLevel
+  id: BlueshieldOfficer
+  name: id-card-access-level-bso
+
+- type: accessLevel
+  id: Magistrate
+  name: id-card-access-level-mag
