@@ -1,510 +1,170 @@
+# Metal
+
 - type: stack
-  id: FloorTileSteel
-  name: steel tile
-  spawn: FloorTileItemSteel
+  id: FloorTileMetalBlue
+  name: metal floor blue
+  spawn: FloorTileItemMetalBlue
   maxCount: 30
   itemSize: 5
 
 - type: stack
-  id: FloorTileMetalDiamond
-  name: steel tile
-  spawn: FloorTileItemMetalDiamond
-  maxCount: 30
-  itemSize: 5
+  id: FloorTileMetalBlueSolid
+  name: metal floor blue solid
+  spawn: FloorTileItemMetalBlueSolid
 
 - type: stack
-  id: FloorTileWood
+  id: FloorTileMetalGreen
+  name: metal floor green
+  spawn: FloorTileItemMetalGreen
+
+- type: stack
+  id: FloorTileMetalGreenSolid
+  name: metal floor green solid
+  spawn: FloorTileItemMetalGreenSolid
+
+- type: stack
+  id: FloorTileMetalGrey
+  name: metal floor grey
+  spawn: FloorTileItemMetalGrey
+
+- type: stack
+  id: FloorTileMetalGreySolid
+  name: metal floor grey solid
+  spawn: FloorTileItemMetalGreySolid
+
+- type: stack
+  id: FloorTileMetalGreyDark
+  name: metal floor grey dark
+  spawn: FloorTileItemMetalGreyDark
+
+- type: stack
+  id: FloorTileMetalGreyDarkSolid
+  name: metal floor grey dark solid
+  spawn: FloorTileItemMetalGreyDarkSolid
+
+- type: stack
+  id: FloorTileMetalPurple
+  name: metal floor purple
+  spawn: FloorTileItemMetalPurple
+
+- type: stack
+  id: FloorTileMetalPurpleSolid
+  name: metal floor purple solid
+  spawn: FloorTileItemMetalPurpleSolid
+
+- type: stack
+  id: FloorTileMetalRed
+  name: metal floor red
+  spawn: FloorTileItemMetalRed
+
+- type: stack
+  id: FloorTileMetalRedSolid
+  name: metal floor red solid
+  spawn: FloorTileItemMetalRedSolid
+
+- type: stack
+  id: FloorTileMetalTeal
+  name: metal floor teal
+  spawn: FloorTileItemMetalTeal
+
+- type: stack
+  id: FloorTileMetalTealSolid
+  name: metal floor teal solid
+  spawn: FloorTileItemMetalTealSolid
+
+- type: stack
+  id: FloorTileMetalWhite
+  name: metal floor white
+  spawn: FloorTileItemMetalWhite
+
+- type: stack
+  id: FloorTileMetalWhiteSolid
+  name: metal floor white solid
+  spawn: FloorTileItemMetalWhiteSolid
+
+- type: stack
+  id: FloorTileMetalYellow
+  name: metal floor yellow
+  spawn: FloorTileItemMetalYellow
+
+- type: stack
+  id: FloorTileMetalYellowSolid
+  name: metal floor yellow solid
+  spawn: FloorTileItemMetalYellowSolid
+
+- type: stack
+  id: FloorTileMetalFreezer
+  name: metal floor freezer
+  spawn: FloorTileItemMetalFreezer
+
+# Other
+- type: stack
+  id: FloorTileWoodOak
   name: wood floor
-  spawn: FloorTileItemWood
+  spawn: FloorTileItemWoodOak
   maxCount: 30
   itemSize: 5
 
+# #Misfits Add: Plating-compatible stack for base SS14 areas
 - type: stack
-  id: FloorTileWhite
-  name: white tile
-  spawn: FloorTileItemWhite
+  id: FloorTileWoodOakCompat
+  name: wood floor (station compatible)
+  spawn: FloorTileItemWoodOakCompat
   maxCount: 30
   itemSize: 5
 
 - type: stack
-  id: FloorTileDark
-  name: dark tile
-  spawn: FloorTileItemDark
+  id: FloorTileWoodHouse
+  name: wood floor
+  spawn: FloorTileItemWoodHouse
   maxCount: 30
   itemSize: 5
 
+# #Misfits Add: Plating-compatible stack for base SS14 areas
 - type: stack
-  id: FloorTileTechmaint
-  name: techmaint floor
-  spawn: FloorTileItemTechmaint
+  id: FloorTileWoodHouseCompat
+  name: wood floor (station compatible)
+  spawn: FloorTileItemWoodHouseCompat
   maxCount: 30
   itemSize: 5
 
 - type: stack
-  id: FloorTileFreezer
-  name: freezer tile
-  spawn: FloorTileItemFreezer
+  id: FloorTileWoodMaple
+  name: wood floor
+  spawn: FloorTileItemWoodMaple
   maxCount: 30
   itemSize: 5
 
+# #Misfits Add: Plating-compatible stack for base SS14 areas
 - type: stack
-  id: FloorTileShowroom
-  name: showroom tile
-  spawn: FloorTileItemShowroom
+  id: FloorTileWoodMapleCompat
+  name: wood floor (station compatible)
+  spawn: FloorTileItemWoodMapleCompat
   maxCount: 30
   itemSize: 5
 
 - type: stack
-  id: FloorTileGCircuit
-  name: green-circuit floor
-  spawn: FloorTileItemGCircuit
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileGold
-  name: gold floor
-  spawn: FloorTileItemGold
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileReinforced
-  name: reinforced tile
-  spawn: FloorTileItemReinforced
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMono
-  name: mono tile
-  spawn: FloorTileItemMono
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileBrassFilled
-  name: filled brass plate
-  spawn: FloorTileItemBrassFilled
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileBrassReebe
-  name: smooth brass plate
-  spawn: FloorTileItemBrassReebe
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileLino
-  name: linoleum floor
-  spawn: FloorTileItemLino
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileHydro
-  name: hydro tile
-  spawn: FloorTileItemHydro
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileLime
-  name: lime tile
-  spawn: FloorTileItemLime
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileDirty
-  name: dirty tile
-  spawn: FloorTileItemDirty
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleWhite
-  name: white shuttle tile
-  spawn: FloorTileItemShuttleWhite
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleBlue
-  name: blue shuttle tile
-  spawn: FloorTileItemShuttleBlue
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleOrange
-  name: orange shuttle tile
-  spawn: FloorTileItemShuttleOrange
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttlePurple
-  name: purple shuttle tile
-  spawn: FloorTileItemShuttlePurple
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleRed
-  name: red shuttle tile
-  spawn: FloorTileItemShuttleRed
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleGrey
-  name: grey shuttle tile
-  spawn: FloorTileItemShuttleGrey
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackShuttleBlack
-  name: black shuttle tile
-  spawn: FloorTileItemShuttleBlack
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackEighties
-  name: eighties floor tile
-  spawn: FloorTileItemEighties
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackArcadeBlue
-  name: blue arcade tile
-  spawn: FloorTileItemArcadeBlue
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackArcadeBlue2
-  name: blue arcade tile
-  spawn: FloorTileItemArcadeBlue2
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackArcadeRed
-  name: red arcade tile
-  spawn: FloorTileItemArcadeRed
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetRed
-  name: red carpet tile
-  spawn: FloorCarpetItemRed
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetBlack
-  name: block carpet tile
-  spawn: FloorCarpetItemBlack
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetBlue
-  name: blue carpet tile
-  spawn: FloorCarpetItemBlue
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetGreen
-  name: green carpet tile
-  spawn: FloorCarpetItemGreen
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetOrange
-  name: orange carpet tile
-  spawn: FloorCarpetItemOrange
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetSkyBlue
-  name: skyblue carpet tile
-  spawn: FloorCarpetItemSkyBlue
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetPurple
-  name: purple carpet tile
-  spawn: FloorCarpetItemPurple
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetPink
-  name: pink carpet tile
-  spawn: FloorCarpetItemPink
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetCyan
-  name: cyan carpet tile
-  spawn: FloorCarpetItemCyan
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorCarpetWhite
-  name: white carpet tile
-  spawn: FloorCarpetItemWhite
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackCarpetClown
-  name: clown carpet tile
-  spawn: FloorTileItemCarpetClown
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackCarpetOffice
-  name: office carpet tile
-  spawn: FloorTileItemCarpetOffice
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackBoxing
-  name: boxing ring tile
-  spawn: FloorTileItemBoxing
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileStackGym
-  name: gym floor tile
-  spawn: FloorTileItemGym
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileElevatorShaft
-  name: elevator shaft tile
-  spawn: FloorTileItemElevatorShaft
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileRockVault
-  name: rock vault tile
-  spawn: FloorTileItemRockVault
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileBlue
-  name: blue floor tile
-  spawn: FloorTileItemBlue
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMining
-  name: mining floor tile
-  spawn: FloorTileItemMining
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMiningDark
-  name: dark mining floor tile
-  spawn: FloorTileItemMiningDark
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMiningLight
-  name: light mining floor tile
-  spawn: FloorTileItemMiningLight
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileBar
-  name: item bar floor tile
-  spawn: FloorTileItemBar
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileClown
-  name: clown floor tile
-  spawn: FloorTileItemClown
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMime
-  name: mime floor tile
-  spawn: FloorTileItemMime
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileKitchen
-  name: kitchen floor tile
-  spawn: FloorTileItemKitchen
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileLaundry
-  name: laundry floor tile
-  spawn: FloorTileItemLaundry
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileConcrete
-  name: concrete tile
-  spawn: FloorTileItemGrayConcrete
-  maxCount: 30
-  itemSize: 5
+  id: FloorTileCarpetRed
+  name: carpet floor
+  spawn: FloorTileItemCarpetRed
 
+# MS13
 - type: stack
-  id: FloorTileGrayConcrete
-  name: gray concrete tile
-  spawn: FloorTileItemLaundry
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileOldConcrete
-  name: old concrete tile
-  spawn: FloorTileItemOldConcrete
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileSilver
-  name: silver floor tile
-  spawn: FloorTileItemSilver
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileBCircuit
-  name: bcircuit floor tile
-  spawn: FloorTileItemBCircuit
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileGrass
-  name: grass floor tile
-  spawn: FloorTileItemGrass
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileGrassJungle
-  name: grass jungle floor tile
-  spawn: FloorTileItemGrassJungle
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileSnow
-  name: snow floor tile
-  spawn: FloorTileItemSnow
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileWoodPattern
-  name: wood pattern floor
-  spawn: FloorTileItemWoodPattern
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileFlesh
-  name: flesh floor
-  spawn: FloorTileItemFlesh
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileSteelMaint
-  name: steel maint floor
-  spawn: FloorTileItemSteelMaint
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileGratingMaint
-  name: grating maint floor
-  spawn: FloorTileItemGratingMaint
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileWeb
-  name: web tile
-  spawn: FloorTileItemWeb
-  maxCount: 30
-  itemSize: 5
-
-# Faux science tiles
-- type: stack
-  id: FloorTileAstroGrass
-  name: astro-grass floor
-  spawn: FloorTileItemAstroGrass
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileMowedAstroGrass
-  name: mowed astro-grass floor
-  spawn: FloorTileItemMowedAstroGrass
-  maxCount: 30
-  itemSize: 5
-
-- type: stack
-  id: FloorTileJungleAstroGrass
-  name: jungle astro-grass floor
-  spawn: FloorTileItemJungleAstroGrass
-  maxCount: 30
-  itemSize: 5
+  id: FloorTileMetalIndustrial
+  name: industrial floor
+  spawn: FloorTileItemMetalIndustrial
 
 - type: stack
-  id: FloorTileAstroIce
-  name: astro-ice floor
-  spawn: FloorTileItemAstroIce
-  maxCount: 30
-  itemSize: 5
+  id: FloorTileMetalMS13
+  name: metal tile floor
+  spawn: FloorTileItemMetalMS13
 
 - type: stack
-  id: FloorTileAstroSnow
-  name: astro-snow floor
-  spawn: FloorTileItemAstroSnow
-  maxCount: 30
-  itemSize: 5
+  id: FloorTileMetalGrate
+  name: metal grate floor
+  spawn: FloorTileItemMetalGrate
 
 - type: stack
-  id: FloorTileWoodLarge
-  name: large wood floor
-  spawn: FloorTileItemWoodLarge
-  maxCount: 30
+  id: FloorTileMetalSolid
+  name: metal solid floor
+  spawn: FloorTileItemMetalSolid
