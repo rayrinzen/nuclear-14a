@@ -1,42 +1,53 @@
 - type: job
-  id: Bartender
-  name: job-name-bartender
-  description: job-description-bartender
-  playTimeTracker: JobBartender
+  id: WastelandBartender
+  setPreference: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 25
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-townbartender
+  description: job-description-townbartender
+  playTimeTracker: WastelandBartender
   requirements:
     - !type 
-      department: Civilian
-      min: 3600 #DeltaV
-  startingGear: BartenderGear
+      species:
+      - Human
+      - Ghoul
+  #- !type:CharacterDepartmentTimeRequirement # TEMP REMOVED
+  #  department: Townsfolk
+  #  min: 18000 # 5 hours
+  startingGear: WastelandBartenderGear
   icon: "JobIconBartender"
-  supervisors: job-supervisors-hop
+  supervisors: job-supervisors-townsfolk
   access:
-  - Service
-  - Maintenance
-  - Bar
-  extendedAccess:
-  - Kitchen
-  - Hydroponics
-  setPreference: false
+  - WastelandBartender
+  - TownsPerson
+  - InnRoomOne
+  - InnRoomTwo
+  - InnRoomThree
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Townsfolk
+      - type: ProfessionalChef
 - type: startingGear
-  id: BartenderGear
-  subGear:
-  - BartenderPlasmamanGear
+  id: WastelandBartenderGear
   equipment:
     head: ClothingHeadHatTophat
-    jumpsuit: ClothingUniformJumpsuitBartender
-    outerClothing: ClothingOuterVest
-    back: ClothingBackpackFilled
-    shoes: ClothingShoesColorBlack
-    id: BartenderPDA
-    ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtBartender
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
-- type: startingGear
-  id: BartenderPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
-    head: ClothingHeadEnvirohelmColorWhite
-    gloves: ClothingHandsGlovesEnviroglovesWhite
+    jumpsuit: N14ClothingUniformJumpsuitBartenderAlt
+    ears: MisfitsClothingHeadsetWastelandScrap
+    outerClothing: N14ClothingOuterLeatherArmor
+    back: N14ClothingBackpackExplorer # Corvax-Change
+    shoes: N14ClothingBootsLeather
+    id: N14IDBartenderTown
+  innerClothingSkirt: N14ClothingUniformJumpsuitBartenderAlt #placeholder
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+- type: playTimeTracker
+  id: WastelandBartender
