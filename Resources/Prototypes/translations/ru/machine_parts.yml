@@ -1,19 +1,19 @@
-- type: machinePart
-  id: Capacitor
-  name: machine-part-name-capacitor
-  stockPartPrototype: CapacitorStockPart
-
-- type: machinePart
-  id: Manipulator
-  name: machine-part-name-manipulator
-  stockPartPrototype: MicroManipulatorStockPart
-
-- type: machinePart
-  id: MatterBin
-  name: machine-part-name-matter-bin
-  stockPartPrototype: MatterBinStockPart
-
-- type: machinePart
-  id: PowerCell
-  name: machine-part-name-power-cell
-  stockPartPrototype: PowerCellSmall
+- type: entity
+  id: N14PortableGeneratorWeldingFuelMachineParts
+  parent: BaseMachineCircuitboard
+  name: gas powered generator machine parts
+  description: Essential parts for making your own gas-powered generator.
+  components:
+    - type: MachineBoard
+      prototype: N14PortableGeneratorWeldingFuel
+      requirements:
+        Capacitor: 1
+      materialRequirements:
+        Cable: 10
+    - type: PhysicalComposition
+      materialComposition:
+        Glass: 200
+      chemicalComposition:
+        Silicon: 20
+    - type: StaticPrice
+      price: 30 # Corvax-Change
