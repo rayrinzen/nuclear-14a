@@ -1,115 +1,43 @@
-# Chemist
-- type: characterItemGroup
-  id: LoadoutChemistBackpacks
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutChemistryBackpackBackpack
-    - type: loadout
-      id: LoadoutBackpackSatchelChemistry
-    - type: loadout
-      id: LoadoutBackpackDuffelChemistry
-
-- type: characterItemGroup
-  id: LoadoutChemistBelt
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutChemistBeltChemBag
-
-#- type: characterItemGroup
-#  id: LoadoutChemistEars
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChemistEquipment
-  maxItems: 3
-  items:
-    - type: loadout
-      id: LoadoutMedicalItemHandLabeler
-    - type: loadout
-      id: LoadoutChemistPillCanisterKelotane
-    - type: loadout
-      id: LoadoutChemistPillCanisterTricordrazine
-    - type: loadout
-      id: LoadoutChemistPillCanisterHyronalin
-    - type: loadout
-      id: LoadoutChemistPillCanisterBicaridine
-    - type: loadout
-      id: LoadoutChemistPillCanisterDermaline
-    - type: loadout
-      id: LoadoutChemistPillCanisterDylovene
-    - type: loadout
-      id: LoadoutChemistPillCanisterDexalin
-    - type: loadout
-      id: LoadoutChemistPillCanisterSpaceDrugs
-
-- type: characterItemGroup
-  id: LoadoutChemistEyes
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalEyesGlassesChemicalBudget
-    - type: loadout
-      id: LoadoutMedicalEyesGlassesChemical
-    - type: loadout
-      id: LoadoutMedicalEyesGlassesChemist
-
-- type: characterItemGroup
-  id: LoadoutChemistGloves
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalHandsGlovesChemist
-
-#- type: characterItemGroup
-#  id: LoadoutChemistHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChemistId
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChemistNeck
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalNeckTieChem
-
-#- type: characterItemGroup
-#  id: LoadoutChemistMask
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChemistOuter
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalOuterLabcoatChem
-    - type: loadout
-      id: LoadoutMedicalOuterApronChemist
-    - type: loadout
-      id: LoadoutChemistWinterCoat
-
-- type: characterItemGroup
-  id: LoadoutChemistShoes
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalShoesEnclosedChem
-
-- type: characterItemGroup
-  id: LoadoutChemistUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutMedicalUniformJumpsuitChemShirt
-    - type: loadout
-      id: LoadoutMedicalUniformJumpsuitChemistry
-    - type: loadout
-      id: LoadoutMedicalUniformJumpskirtChemistry
+- type: job
+  id: Chemist
+  name: job-name-chemist
+  description: job-description-chemist
+  playTimeTracker: JobChemist
+  requirements:
+    - !type 
+      department: Medical
+      min: 28800 # DeltaV - 8 hours
+  startingGear: ChemistGear
+  icon: "JobIconChemist"
+  supervisors: job-supervisors-cmo
+  access:
+  - Medical
+  - Chemistry
+  - Maintenance
+  special:
+  - !type 
+    components:
+    - type: CPRTraining
+    - type: SurgerySpeedModifier
+      speedModifier: 1.75
+  setPreference: false
+- type: startingGear
+  id: ChemistGear
+  subGear:
+  - ChemistPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChemistry
+    back: ClothingBackpackChemistryFilled
+    shoes: ClothingShoesColorWhite
+    id: ChemistryPDA
+    ears: ClothingHeadsetMedical
+  innerClothingSkirt: ClothingUniformJumpskirtChemistry
+  satchel: ClothingBackpackSatchelChemistryFilled
+  duffelbag: ClothingBackpackDuffelChemistryFilled
+- type: startingGear
+  id: ChemistPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChemist
+    head: ClothingHeadEnvirohelmChemist
+    gloves: ClothingHandsGlovesEnviroglovesWhite
