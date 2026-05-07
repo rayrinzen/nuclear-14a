@@ -1,215 +1,138 @@
 - type: entity
-  parent: N14Machete
-  id: N14Gladius
-  name: gladius
-  description: The old sword of the Roman Empire. It is now in use by the Legion...
+  name: machete
+  parent: Machete
+  id: N14Machete
+  description: A large, vicious looking blade.
   components:
+    - type: EmbeddableProjectile
+      sound: /Audio/Weapons/star_hit.ogg
+    - type: EmbedPassiveDamage
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 28
+          Piercing: 10
+      soundHit:
+        collection: N14BladeMediumSwing
     - type: Clothing
-      sprite: Corvax/Objects/Weapons/Melee/gladius.rsi
+      sprite: _Nuclear14/Objects/Weapons/Melee/machete.rsi
       quickEquip: false
       slots:
         - Belt
-        - Back
         - suitStorage
     - type: Sprite
-      sprite: Corvax/Objects/Weapons/Melee/gladius.rsi
+      sprite: _Nuclear14/Objects/Weapons/Melee/machete.rsi
+      state: icon
+    - type: Item
+      size: Normal
+      sprite: _Nuclear14/Objects/Weapons/Melee/machete.rsi
+    - type: StaticPrice
+      price: 30
+
+- type: entity
+  name: tribal machete
+  parent: N14Machete
+  id: N14TribalMachete
+  description: A tribal machete, made from the materials given by nature, this long blade has the perfect balance between tool and weapon.
+  components:
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_machete.rsi
+      quickEquip: false
+      slots:
+        - Belt
+        - suitStorage
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_machete.rsi
       state: icon
     - type: DamageOtherOnHit
       damage:
         types:
-          Slash: 25
+          Slash: 30
+          Piercing: 10
     - type: MeleeWeapon
       damage:
         types:
-          Slash: 44
+          Slash: 32
+          Piercing: 6
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Item
-      sprite: Corvax/Objects/Weapons/Melee/gladius.rsi
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_machete.rsi
+    - type: StaticPrice
+      price: 30
 
 - type: entity
-  parent: BaseItem
-  id: N14WeaponThermospear
-  name: thermic lance
-  description: "A long two-handed thermic lance. Fuel is needed for use."
+  name: scrap machete
+  parent: N14Machete
+  id: N14ScrapMachete
+  description: A makeshift long blade machete, not the sharpest blade but it can still cut some meat.
   components:
-    - type: Sprite
-      sprite: Corvax/Objects/Weapons/Melee/thermospear.rsi
-      layers:
-        - state: icon
-        - state: welder_flame
-          visible: false
-          shader: unshaded
-          map: [ "enum.ToggleVisuals.Layer" ]
-    - type: Item
-      sprite: Corvax/Objects/Weapons/Melee/thermospear.rsi
-      size: Huge
-      # Misfits Fix - explicit inhand visuals so the weapon sprite shows correctly when held
-      inhandVisuals:
-        left:
-          - state: inhand-left
-        right:
-          - state: inhand-right
     - type: Clothing
-      sprite: Corvax/Objects/Weapons/Melee/thermospear.rsi
+      sprite: _Nuclear14/Objects/Weapons/Melee/scrap_machete.rsi
       quickEquip: false
       slots:
-        - Back
+        - Belt
         - suitStorage
-    - type: GenericVisualizer
-      visuals:
-        enum.ToggleVisuals.Toggled:
-          enum.ToggleVisuals.Layer:
-            true: { visible: true }
-            false: { visible: false }
-    - type: ItemToggleSize
-      activatedSize: Large
-    - type: ItemToggleHot
-    - type: UseDelay
-    - type: ItemToggle
-      predictable: false
-      soundActivate:
-        collection: WelderOn
-        params:
-          variation: 0.125
-          volume: -5
-      soundDeactivate:
-        collection: WelderOff
-        params:
-          variation: 0.125
-          volume: -5
-    - type: MeleeWeapon
-      soundHit:
-        path: "/Audio/Weapons/smash.ogg"
-        params:
-          volume: -3
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/scrap_machete.rsi
+      state: icon
+    - type: DamageOtherOnHit
       damage:
-        groups:
-          Brute: 5
-    - type: MultiHandedItem
-    - type: ItemToggleMeleeWeapon
-      activatedSoundOnHit:
-        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-        params:
-          variation: 0.250
-          volume: -10
-      activatedSoundOnHitNoDamage:
-        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-        params:
-          variation: 0.250
-          volume: -12
-      deactivatedSoundOnHitNoDamage:
-        collection: MetalThud
-      activatedDamage:
         types:
-          Heat: 55
-    # Misfits Fix - WelderComponent restores fuel quantity display when held
-    - type: Welder
-    - type: RefillableSolution
-      solution: Welder
-    - type: SolutionContainerManager
-      solutions:
-        Welder:
-          reagents:
-            - ReagentId: WeldingFuel
-              Quantity: 250
-          maxVol: 250
-    - type: PointLight
-      enabled: false
-      radius: 2
-      color: orange
-      netsync: false
-    - type: Appearance
-    - type: RequiresEyeProtection
-    - type: IgnitionSource
-      temperature: 700
+          Slash: 16
+          Piercing: 5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Slash: 32
+          Piercing: 4
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/scrap_machete.rsi
+    - type: StaticPrice
+      price: 15
 
 - type: entity
-  parent: BaseItem
-  id: N14WeaponKebab
-  name: Shishkebab
-  description: "A one-handed homemade weapon powered by fuel."
+  name: ripper
+  parent: N14Machete
+  id: N14ripper
+  description: A light one-handed chainsaw originally designed for the pre-war army sappers to clean selvatic and wooded paths, it also works well against flesh.
   components:
-    - type: Sprite
-      sprite: Corvax/Objects/Weapons/Melee/kebab.rsi
-      layers:
-        - state: icon
-        - state: welder_flame
-          visible: false
-          shader: unshaded
-          map: [ "enum.ToggleVisuals.Layer" ]
-    - type: Item
-      sprite: Corvax/Objects/Weapons/Melee/kebab.rsi
-      size: Huge
-      # Misfits Fix - explicit inhand visuals so the weapon sprite shows correctly when held
-      inhandVisuals:
-        left:
-          - state: inhand-left
-        right:
-          - state: inhand-right
     - type: Clothing
-      sprite: Corvax/Objects/Weapons/Melee/kebab.rsi
+      sprite: _Nuclear14/Objects/Weapons/Melee/ripper.rsi
       quickEquip: false
       slots:
-        - belt
-    - type: GenericVisualizer
-      visuals:
-        enum.ToggleVisuals.Toggled:
-          enum.ToggleVisuals.Layer:
-            true: { visible: true }
-            false: { visible: false }
-    - type: ItemToggleSize
-      activatedSize: Large
-    - type: ItemToggleHot
-    - type: ToggleableLightVisuals
-      spriteLayer: flame
-      inhandVisuals:
-        left:
-          - state: inhand-left-flame
-            shader: unshaded
-        right:
-          - state: inhand-right-flame
-            shader: unshaded
-    - type: UseDelay
-    - type: ItemToggle
-      predictable: false
-      soundActivate:
-        collection: WelderOn
-        params:
-          variation: 0.125
-          volume: -5
-      soundDeactivate:
-        collection: WelderOff
-        params:
-          variation: 0.125
-          volume: -5
-    - type: MeleeWeapon
-      attackRate: 1
-      soundHit:
-        path: "/Audio/Weapons/smash.ogg"
-        params:
-          volume: -3
+        - Belt
+        - suitStorage
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/ripper.rsi
+      state: icon
+    - type: EmbeddableProjectile
+      sound: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+    - type: EmbedPassiveDamage
+    - type: DamageOtherOnHit
       damage:
-        groups:
-          Brute: 5
-    - type: ItemToggleMeleeWeapon
-      activatedSoundOnHit:
-        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-        params:
-          variation: 0.250
-          volume: -10
-      activatedSoundOnHitNoDamage:
-        path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
-        params:
-          variation: 0.250
-          volume: -12
-      deactivatedSoundOnHitNoDamage:
-        collection: MetalThud
-      activatedDamage:
         types:
-          Heat: 50
-    # Misfits Fix - WelderComponent restores fuel quantity display when held
-    - type: Welder
+          Slash: 20
+          Piercing: 9
+    - type: Sharp
+    - type: MeleeWeapon
+      autoAttack: true
+      angle: 0
+      wideAnimationRotation: -135
+      attackRate: 0.25
+      damage:
+        types:
+          Slash: 6
+          Piercing: 3
+          Structural: 8
+      soundHit:
+        path: /Audio/_Nuclear14/Weapons/Melee/Swing/ripper.ogg
+    - type: Item
+      size: Large
+      sprite: _Nuclear14/Objects/Weapons/Melee/ripper.rsi
+    - type: DisarmMalus
     - type: RefillableSolution
       solution: Welder
     - type: SolutionContainerManager
@@ -217,14 +140,131 @@
         Welder:
           reagents:
             - ReagentId: WeldingFuel
-              Quantity: 250
-          maxVol: 250
-    - type: PointLight
-      enabled: false
-      radius: 1.5
-      color: orange
-      netsync: false
-    - type: Appearance
-    - type: RequiresEyeProtection
-    - type: IgnitionSource
-      temperature: 700
+              Quantity: 300
+          maxVol: 300
+    - type: UseDelay
+      delay: 1
+    - type: Tool
+      qualities:
+        - Sawing
+      speedModifier: 3.0
+    - type: StaticPrice
+      price: 50
+    - type: SurgeryTool
+      startSound:
+        path: /Audio/Medical/Surgery/saw.ogg
+    - type: BoneSaw
+      speed: 0.75
+    - type: Scalpel
+      speed: 0.5
+
+- type: entity
+  name: ceremonial sword
+  parent: N14Machete
+  id: N14CeremonialSword
+  description: "An impressive double-edged sword, this weapon's size and sharpness make you think it could cleave a man in two."
+  components:
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Melee/ceremonialsword.rsi
+      quickEquip: false
+      slots:
+        - Belt
+        - suitStorage
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/ceremonialsword.rsi
+      state: icon
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 32
+          Piercing: 18
+    - type: MeleeWeapon
+      damage:
+        types:
+          Slash: 40
+          Piercing: 10
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/ceremonialsword.rsi
+    - type: StaticPrice
+      price: 70
+
+- type: entity
+  name: chinese officer sword
+  parent: N14Machete
+  id: N14ChineseSword
+  description: "An impressive double-edged sword used by pre-war chinese officers, this weapon's size and sharpness make you think it could cleave a man in two."
+  components:
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Melee/chinesesword.rsi
+      quickEquip: false
+      slots:
+        - Belt
+        - suitStorage
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/chinesesword.rsi
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 40
+          Piercing: 8
+    - type: MeleeWeapon
+      damage:
+        types:
+          Slash: 38
+          Piercing: 9
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/chinesesword.rsi
+    - type: StaticPrice
+      price: 70
+
+- type: entity
+  name: longsword
+  parent: N14Machete
+  id: N14LongSword
+  description: You feel like you're in the medieval ages already...
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/long_sword.rsi
+      state: icon
+    - type: MeleeWeapon
+      damage:
+        types:
+          Slash: 32
+          Piercing: 8
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/long_sword.rsi
+    - type: StaticPrice
+      price: 70
+
+- type: entity
+  name: tribal sword
+  parent: N14Machete
+  id: N14TribalSword
+  description: A tribal sword, made from teeth and claws from the hunts and bound to a piece of wood.
+  components:
+    - type: Clothing
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
+      quickEquip: false
+      slots:
+        - Belt
+        - suitStorage
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
+      state: icon
+    - type: MeleeWeapon
+      damage:
+        types:
+          Piercing: 24
+          Slash: 18
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    - type: Item
+      sprite: _Nuclear14/Objects/Weapons/Melee/tribal_sword.rsi
+    - type: StaticPrice
+      price: 50
