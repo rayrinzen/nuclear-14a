@@ -1,54 +1,146 @@
 - type: entity
-  id: SpawnPointPlayerCharacter
+  abstract: true
+  parent: MarkerBase
+  id: BaseAntagSpawner
   name: ghost role spawn point
-  suffix: player character, DO NOT MAP
+  components:
+    - type: GhostRole
+      raffle:
+        settings: default
+    - type: GhostRoleAntagSpawner
+
+- type: entity
+  id: SpawnPointGhostRatKing
+  name: ghost role spawn point
+  suffix: rat king
   parent: MarkerBase
   components:
     - type: GhostRole
-      name: Roleplay Ghost Role
-      description: Placeholder
-      rules: Placeholder
-    - type: GhostRoleCharacterSpawner
+      name: ghost-role-information-rat-king-name
+      description: ghost-role-information-rat-king-description
+      rules: ghost-role-information-rat-king-rules
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobRatKing
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
         - state: green
-        - sprite: Mobs/Species/Human/parts.rsi
-          state: full
+        - sprite: Mobs/Animals/regalrat.rsi
+          state: icon
 
-- type: entity # Part of PirateRadioSpawn
-  categories: [ HideSpawnMenu ]
-  id: SpawnPointGhostSyndicateListener
+- type: entity
+  id: SpawnPointGhostRemilia
   name: ghost role spawn point
-  suffix: syndicate listener
+  suffix: Remilia
   parent: MarkerBase
   components:
     - type: GhostRole
-      name: ghost-role-information-listeningop-name
-      description: ghost-role-information-listeningop-description
-      rules: ghost-role-information-listeningop-rules
+      name: ghost-role-information-remilia-name
+      description: ghost-role-information-remilia-description
+      rules: ghost-role-information-remilia-rules
+      raffle:
+        settings: short
     - type: GhostRoleMobSpawner
-      prototype: MobHumanSyndicateListener
+      prototype: MobBatRemilia
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Mobs/Animals/bat.rsi
+          state: bat
+
+- type: entity
+  id: SpawnPointGhostCerberus
+  name: ghost role spawn point
+  suffix: cerberus
+  parent: MarkerBase
+  components:
+    - type: GhostRole
+      name: ghost-role-information-cerberus-name
+      description: ghost-role-information-cerberus-description
+      rules: ghost-role-information-cerberus-rules
+      raffle:
+        settings: default
+    - type: GhostRoleMobSpawner
+      prototype: MobCorgiCerberus
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Mobs/Pets/corgi.rsi
+          state: narsian
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  id: SpawnPointGhostNukeOperative
+  name: ghost role spawn point
+  suffix: nukeops
+  parent: BaseAntagSpawner
+  components:
+    - type: GhostRole
+      rules: ghost-role-information-nukeop-rules
+    - type: GhostRoleMobSpawner
+      prototype: MobHumanNukeOp
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
         - state: green
         - sprite: Structures/Wallmounts/signs.rsi
           state: radiation
-    - type: GhostRoleAntagSpawner
 
 - type: entity
-  parent: MarkerBase
-  id: SpawnPointGhostParadoxAnomaly
-  name: paradox anomaly spawn point
+  categories: [ HideSpawnMenu, Spawner ]
+  id: SpawnPointLoneNukeOperative
+  name: ghost role spawn point
+  suffix: loneops
+  parent: BaseAntagSpawner
   components:
     - type: GhostRole
-      name: ghost-role-information-paradox-anomaly-name
-      description: ghost-role-information-paradox-anomaly-description
-      rules: ghost-role-information-paradox-anomaly-rules
-    - type: ParadoxAnomalySpawner
-    - type: GhostRoleAntagSpawner
+      name: ghost-role-information-loneop-name
+      description: ghost-role-information-loneop-description
+      rules: ghost-role-information-loneop-rules
     - type: Sprite
       sprite: Markers/jobs.rsi
       layers:
         - state: green
+        - sprite: Structures/Wallmounts/signs.rsi
+          state: radiation
+
+- type: entity
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostDragon
+  categories: [ HideSpawnMenu, Spawner ]
+  name: ghost role spawn point
+  suffix: dragon
+  components:
+    - type: GhostRole
+      name: ghost-role-information-space-dragon-name
+      description: ghost-role-information-space-dragon-description
+      rules: ghost-role-component-default-rules
+    - type: GhostRoleMobSpawner
+      prototype: MobDragon
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: Mobs/Aliens/Carps/dragon.rsi
+          state: alive
+
+- type: entity
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostSpaceNinja
+  categories: [ HideSpawnMenu, Spawner ]
+  name: ghost role spawn point
+  suffix: space ninja
+  components:
+    - type: GhostRole
+      name: ghost-role-information-space-ninja-name
+      description: ghost-role-information-space-ninja-description
+      rules: ghost-role-information-space-ninja-rules
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Objects/Weapons/Melee/energykatana.rsi
+          state: icon
