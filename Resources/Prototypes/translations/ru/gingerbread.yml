@@ -1,117 +1,48 @@
-- type: species
-  id: Gingerbread
-  name: species-name-human
-  roundStart: false
-  prototype: MobGingerbread
-  sprites: MobGingerbreadSprites
-  markingLimits: MobHumanMarkingLimits
-  dollPrototype: MobGingerbreadDummy
-  skinColoration: HumanToned
-  defaultSkinTone: "#9a7c5a"
-
-- type: speciesBaseSprites
-  id: MobGingerbreadSprites
-  sprites:
-    Head: MobGingerbreadHead
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Chest: MobGingerbreadTorso
-    Eyes: MobGingerbreadEyes
-    LArm: MobGingerbreadLArm
-    RArm: MobGingerbreadRArm
-    LHand: MobGingerbreadLHand
-    RHand: MobGingerbreadRHand
-    LLeg: MobGingerbreadLLeg
-    RLeg: MobGingerbreadRLeg
-    LFoot: MobGingerbreadLFoot
-    RFoot: MobGingerbreadRFoot
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadEyes
-  baseSprite:
-    sprite: Mobs/Customization/eyes.rsi
-    state: no_eyes
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadHead
-  baseSprite:
+- type: entity
+  save: false
+  name: Urist McCookie
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobGingerbread
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Gingerbread
+  - type: Icon
     sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadHeadMale
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadHeadFemale
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: head_f
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadTorso
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadTorsoMale
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadTorsoFemale
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadLLeg
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: l_leg
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadLHand
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: l_hand
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadLArm
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: l_arm
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadLFoot
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: l_foot
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadRLeg
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadRHand
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: r_hand
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadRArm
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: r_arm
-
-- type: humanoidBaseSprite
-  id: MobGingerbreadRFoot
-  baseSprite:
-    sprite: Mobs/Species/Gingerbread/parts.rsi
-    state: r_foot
+    state: full
+  - type: Body
+    prototype: Gingerbread
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Gingerbread
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#896e55"
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+      - id: FoodBakedCookie
+        amount: 5
+  - type: Bloodstream
+    bloodReagent: Sugar
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.35'
+        density: 100 #fairly light
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobGingerbreadDummy
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: HumanoidAppearance
+    species: Gingerbread
