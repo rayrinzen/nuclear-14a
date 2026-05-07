@@ -1,96 +1,209 @@
 - type: entity
-  name: security PDA box
-  parent: BoxPDA
-  id: BoxPDASecurity
-  description: A box of spare PDA microcomputers for the security department.
+  parent: BasePDA
+  id: CorpsmanPDA
+  name: corpsman PDA
+  description: Red and Sterile. Has a built-in health analyzer.
   components:
-    - type: StorageFill
-      contents:
-        - id: SecurityPDA
-          amount: 2
-        - id: DetectivePDA
-        - id: WardenPDA
+    - type: Sprite
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      layers:
+        - map: [ "enum.PdaVisualLayers.Base" ]
+        - state: "light_overlay"
+          map: [ "enum.PdaVisualLayers.Flashlight" ]
+          shader: "unshaded"
+          visible: false
+        - state: "id_overlay"
+          map: [ "enum.PdaVisualLayers.IdLight" ]
+          shader: "unshaded"
+          visible: false
+    - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
+      preinstalled:
+        - CrewManifestCartridge
+        - NotekeeperCartridge
+        - NewsReaderCartridge
+        - CrimeAssistCartridge
+        - SecWatchCartridge
+        - NanoChatCartridge
+    - type: Pda
+      id: BrigmedicIDCard
+      state: pda-corpsman
+    - type: PdaBorderColor
+      borderColor: "#A32D26"
+      accentVColor: "#447987"
+    - type: Icon
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      state: pda-corpsman
+    - type: HealthAnalyzer
+      scanDelay: 1
+      scanningEndSound:
+        path: "/Audio/Items/Medical/healthscanner.ogg"
 
 - type: entity
-  name: prisoner PDA box
-  parent: BoxPDA
-  id: BoxPDAPrisoner
-  description: A box of spare PDA microcomputers for the warden to use for prisoners.
+  parent: BasePDA
+  id: ChiefJusticePDA
+  name: chief justice PDA
+  description: Whosoever bears this PDA is the law.
   components:
-    - type: StorageFill
-      contents:
-        - id: PrisonerPDA
-          amount: 4
+    - type: Sprite
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      layers:
+        - map: [ "enum.PdaVisualLayers.Base" ]
+        - state: "light_overlay"
+          map: [ "enum.PdaVisualLayers.Flashlight" ]
+          shader: "unshaded"
+          visible: false
+        - state: "id_overlay"
+          map: [ "enum.PdaVisualLayers.IdLight" ]
+          shader: "unshaded"
+          visible: false
+    - type: Pda
+      id: ChiefJusticeIDCard
+      state: pda-chiefjustice
+      penSlot:
+        startingItem: LuxuryPen
+        priority: -1
+        whitelist:
+          tags:
+            - Write
+    - type: PdaBorderColor
+      borderColor: "#470823"
+    - type: Icon
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      state: pda-chiefjustice
+    - type: CartridgeLoader
+      preinstalled:
+        - CrewManifestCartridge
+        - NotekeeperCartridge
+        - NewsReaderCartridge
+        - CrimeAssistCartridge
+        - NanoChatCartridge
 
 - type: entity
-  name: medical PDA box
-  parent: BoxPDA
-  id: BoxPDAMedical
-  description: A box of spare PDA microcomputers for the medical department.
+  parent: BasePDA
+  id: ClerkPDA
+  name: clerk PDA
+  description: It has the stamp to prove it's been officially notarized!
   components:
-    - type: StorageFill
-      contents:
-        - id: MedicalPDA
-          amount: 2
-        - id: ChemistryPDA
-        - id: ParamedicPDA
+    - type: Sprite
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      layers:
+        - map: [ "enum.PdaVisualLayers.Base" ]
+        - state: "light_overlay"
+          map: [ "enum.PdaVisualLayers.Flashlight" ]
+          shader: "unshaded"
+          visible: false
+        - state: "id_overlay"
+          map: [ "enum.PdaVisualLayers.IdLight" ]
+          shader: "unshaded"
+          visible: false
+    - type: Pda
+      id: ClerkIDCard
+      state: pda-clerk
+      penSlot:
+        startingItem: LuxuryPen
+        priority: -1
+        whitelist:
+          tags:
+            - Write
+    - type: PdaBorderColor
+      borderColor: "#611528"
+    - type: Icon
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      state: pda-clerk
+    - type: CartridgeLoader
+      preinstalled:
+        - CrewManifestCartridge
+        - NotekeeperCartridge
+        - NewsReaderCartridge
+        - CrimeAssistCartridge
+        - NanoChatCartridge # DeltaV
 
 - type: entity
-  name: epistemics PDA box
-  parent: BoxPDA
-  id: BoxPDAScience
-  description: A box of spare PDA microcomputers for the epistemics department.
+  parent: BasePDA
+  id: ProsecutorPDA
+  name: prosecutor PDA
+  description: Sharp. Looks like it could prosecute you all on its own.
   components:
-    - type: Item
-      shape:
-        - 0,0,4,3
-    - type: Storage
-      grid:
-        - 0,0,3,2 # Increased storage space for more PDA types
-    - type: StorageFill
-      contents:
-        - id: SciencePDA
-          amount: 2
-        - id: ForensicMantisPDA
-        - id: ChaplainPDA
-        - id: RoboticsPDA
+    - type: Sprite
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      layers:
+        - map: [ "enum.PdaVisualLayers.Base" ]
+        - state: "light_overlay"
+          map: [ "enum.PdaVisualLayers.Flashlight" ]
+          shader: "unshaded"
+          visible: false
+        - state: "id_overlay"
+          map: [ "enum.PdaVisualLayers.IdLight" ]
+          shader: "unshaded"
+          visible: false
+    - type: Pda
+      id: ProsecutorIDCard
+      state: pda-prosecutor
+      penSlot:
+        startingItem: LuxuryPen
+        priority: -1
+        whitelist:
+          tags:
+            - Write
+    - type: PdaBorderColor
+      borderColor: "#6f6192"
+    - type: Icon
+      sprite: DeltaV/Objects/Devices/pda.rsi
+      state: pda-prosecutor
+    - type: CartridgeLoader # DeltaV - Crime Assist
+      preinstalled:
+        - CrewManifestCartridge
+        - NotekeeperCartridge
+        - NewsReaderCartridge
+        - CrimeAssistCartridge
+        - NanoChatCartridge
 
 - type: entity
-  name: engineering PDA box
-  parent: BoxPDA
-  id: BoxPDAEngineering
-  description: A box of spare PDA microcomputers for the engineering department.
+  parent: SyndiPDA
+  id: SyndiListeningPostPDA
   components:
-    - type: StorageFill
-      contents:
-        - id: EngineerPDA
-          amount: 3
-        - id: AtmosPDA
+    - type: Pda
+      id: SyndicateIDCard
+      state: pda-syndi-agent
+      penSlot:
+        startingItem: CyberPen
+        whitelist:
+          tags:
+            - Write
 
 - type: entity
-  name: logistics PDA box
-  parent: BoxPDA
-  id: BoxPDACargo
-  description: A box of spare PDA microcomputers for the logistics department.
+  parent: BasePDA
+  id: AdminAssistantPDA
+  name: administrative assistant PDA
+  description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
-    - type: StorageFill
-      contents:
-        - id: CargoPDA
-          amount: 2
-        - id: SalvagePDA
-          amount: 1
-        - id: MailCarrierPDA
-          amount: 1
-
-- type: entity
-  name: justice PDA box
-  parent: BoxPDA
-  id: BoxPDAJustice
-  description: A box of spare PDA microcomputers for the justice department.
-  components:
-    - type: StorageFill
-      contents:
-        - id: LawyerPDA
-          amount: 2
-        - id: ProsecutorPDA
-        - id: ClerkPDA
+    - type: Sprite
+      sprite: Objects/Devices/pda.rsi
+      layers:
+        - map: [ "enum.PdaVisualLayers.Base" ]
+        - state: "light_overlay"
+          map: [ "enum.PdaVisualLayers.Flashlight" ]
+          shader: "unshaded"
+          visible: false
+        - state: "id_overlay"
+          map: [ "enum.PdaVisualLayers.IdLight" ]
+          shader: "unshaded"
+          visible: false
+    - type: Pda
+      id: AdminAssistantIDCard
+      state: pda-lawyer
+      penSlot:
+        startingItem: LuxuryPen
+        priority: -1
+        whitelist:
+          tags:
+            - Write
+    - type: Icon
+      sprite: Objects/Devices/pda.rsi
+      state: pda-lawyer
+    - type: CartridgeLoader
+      preinstalled:
+        - CrewManifestCartridge
+        - NotekeeperCartridge
+        - NewsReaderCartridge
+        - NanoChatCartridge
