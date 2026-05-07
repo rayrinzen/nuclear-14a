@@ -1,11 +1,17 @@
 - type: entity
-  id: N14IntercomVault
-  parent: Intercom
-  suffix: Vault
+  id: IntercomElectronics
+  parent: BaseElectronics
+  name: intercom electronics
+  description: An electronics board used in intercoms
   components:
-    - type: ContainerFill
-      containers:
-        board:
-          - IntercomElectronics
-        key_slots:
-          - EncryptionKeyVault
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: id_mod
+    - type: Tag
+      tags:
+        - IntercomElectronics
+    - type: ReverseEngineering # Nyano
+      recipes:
+        - IntercomElectronics
+    - type: StaticPrice
+      price: 55
