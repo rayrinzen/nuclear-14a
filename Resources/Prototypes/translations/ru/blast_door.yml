@@ -1,92 +1,104 @@
-﻿- type: entity
+﻿- type: constructionGraph
   id: BlastDoor
-  parent: BaseShutter
-  name: blast door
-  description: This one says 'BLAST DONGER'.
-  components:
-  - type: AccessReader
-  - type: Sprite
-    sprite: Structures/Doors/Shutters/blastdoor.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Door
-    closeTimeOne: 0.4
-    closeTimeTwo: 0.4
-    openTimeOne: 0.4
-    openTimeTwo: 0.4
-    openingAnimationTime: 1.0
-    closingAnimationTime: 1.0
-    canPry: false
-    crushDamage:
-      types:
-        Blunt: 25 # yowch
-  - type: Occluder
-  - type: Appearance
-  - type: RadiationBlocker
-    resistance: 10
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
-  - type: ContainerFill
-    containers:
-      board:
-      - DoorElectronics
-  - type: Construction
-    graph: BlastDoor
-    node: blastdoor
-    containers:
-    - board
-  - type: StaticPrice
-    price: 280
-- type: entity
-  id: BlastDoorOpen
-  parent: BlastDoor
-  suffix: Open
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Physics
-    canCollide: false
-  - type: Airtight
-    airBlocked: false
-  - type: RadiationBlocker
-    enabled: false
-- type: entity
-  id: BlastDoorFrame
-  parent: BaseStructureDynamic
-  name: blast door frame
-  description: This one says 'BLAST DONGER'.
-  components:
-  - type: Sprite
-    sprite: Structures/Doors/Shutters/blastdoor.rsi
-    state: assembly
-  - type: InteractionOutline
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 300 behaviors: - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.45,-0.45,0.45,0.45"'
-        density: 55
-        mask:
-        - Impassable
-        - HighImpassable
-        layer:
-        - HighImpassable
-  - type: Transform
-    noRot: true
-  - type: Construction
-    graph: BlastDoor
-    node: frame1
-  placement:
-    mode: SnapgridCenter
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: frame1
+          completed:
+            - !type 
+              value: false
+          steps:
+            - material: Plasteel
+              amount: 10
+              doAfter: 3
+    - node: frame1
+      entity: BlastDoorFrame
+      actions:
+        - !type ':SnapToGrid {}'
+        - !type ':SetAnchor {}'
+      edges:
+        - to: frame2
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Cable
+              amount: 5
+              doAfter: 2
+        - to: start
+          conditions:
+            - !type 
+              anchored: false
+          completed:
+            - !type 
+              prototype: SheetPlasteel1
+              amount: 10
+            - !type ':DeleteEntity {}'
+          steps:
+            - tool: Welding
+              doAfter: 4
+    - node: frame2
+      edges:
+        - to: frame3
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tag: DoorElectronics
+              store: board
+              name: Door Electronics
+              icon:
+                sprite: "Objects/Misc/module.rsi"
+                state: "door_electronics"
+              doAfter: 2
+        - to: frame1
+          completed:
+            - !type 
+              prototype: CableApcStack1
+              amount: 5
+          steps:
+            - tool: Cutting
+              doAfter: 4
+            - tool: Prying
+              doAfter: 2
+    - node: frame3
+      edges:
+        - to: frame4
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Screwing
+              doAfter: 2
+            - tool: Prying
+              doAfter: 3
+    - node: frame4
+      edges:
+        - to: blastdoor
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Anchoring
+              doAfter: 2
+        - to: frame2
+          conditions:
+            - !type ':EntityAnchored {}'
+          completed:
+            - !type 
+              pickup: true
+              emptyAtUser: true
+          steps:
+            - tool: Screwing
+              doAfter: 4
+            - tool: Anchoring
+              doAfter: 3
+            - tool: Prying
+              doAfter: 3
+    - node: blastdoor
+      entity: BlastDoorOpen
+      edges:
+        - to: frame4
+          conditions:
+            - !type 
+              welded: true
+          steps:
+            - tool: Anchoring
+              doAfter: 2
