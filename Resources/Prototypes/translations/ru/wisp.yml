@@ -1,0 +1,31 @@
+- type: htnCompound
+  id: GlimmerWispCompound
+  branches:
+    - 
+  tasks:
+    - !type 
+      task: RangedCombatCompound
+    - 
+  tasks:
+    - !type 
+      task: DrainPsionicCompound
+    - 
+  tasks:
+    - !type 
+      task: IdleCompound
+- type: htnCompound
+  id: DrainPsionicCompound
+  branches:
+    - 
+  tasks:
+    - !type 
+      operator: !type
+        targetKey: TargetCoordinates
+        drainKey: DrainTarget
+        rangeKey: IdleRange
+    - !type 
+      operator: !type
+        pathfindInPlanning: false
+    - !type 
+      operator: !type
+        drainKey: DrainTarget
