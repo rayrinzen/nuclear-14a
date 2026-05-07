@@ -1,38 +1,50 @@
-- type: entity
-  id: OrganDwarfHeart
-  parent: OrganHumanHeart
-  name: dwarf heart
-  components:
-    - type: Metabolizer
-      metabolizerTypes: [ Dwarf ]
-
-- type: entity
-  id: OrganDwarfLiver
-  parent: OrganHumanLiver
-  name: dwarf liver
-  components:
-    - type: Metabolizer
-      metabolizerTypes: [ Dwarf, LiquorLifeline ]
-
-- type: entity
-  id: OrganDwarfStomach
-  parent: OrganHumanStomach
-  name: dwarf stomach
-  components:
-    - type: Sprite
-      state: stomach
-    - type: Organ
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 75
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: UncookedAnimalProteins
-              Quantity: 5
-    - type: Stomach
-    - type: Metabolizer
-      # mm very yummy
-      maxReagents: 5
-      metabolizerTypes: [ Dwarf ]
+- type: body
+  id: Dwarf
+  name: "dwarf"
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHuman
+      connections:
+        - right arm
+        - left arm
+        - right leg
+        - left leg
+        - head # Shitmed
+      organs:
+        heart: OrganDwarfHeart
+        lungs: OrganHumanLungs
+        stomach: OrganDwarfStomach
+        liver: OrganDwarfLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHuman
+      connections:
+        - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+        - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+        - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+        - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
