@@ -1,15 +1,106 @@
 - type: loadout
-  id: N14LoadoutHandsGlovesDriver
+  id: N14LoadoutHandsGlovesCloth
+  category: Hands
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHands
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHandsGlovesCloth
+- type: loadout
+  id: N14LoadoutHandsGlovesLeather
+  category: Hands
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHands
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHandsGlovesLeather
+- type: loadout
+  id: N14LoadoutHandsGlovesFur
+  category: Hands
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHands
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHandsGlovesFur
+- type: loadout
+  id: N14LoadoutHandsGlovesBlackLeather
+  category: Hands
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHands
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHandsGlovesBlackLeather
+- type: loadout
+  id: N14LoadoutHandsGlovesNitrile
   category: Hands
   cost: 3
   requirements:
     - !type 
-      department: Vault
-      min: 1500 # 25 hours
+      group: N14LoadoutHands
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+      - VaultDweller
+      - VaultSecurity
+      - VaultEngineer
+      - Overseer
+  items:
+    - N14ClothingHandsGlovesNitrile
+- type: loadout
+  id: N14LoadoutHandsGlovesNitrilePurple
+  category: Hands
+  cost: 3
+  requirements:
     - !type 
       group: N14LoadoutHands
     - !type 
-       jobs:
-        - VaultDweller
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+      - VaultDweller
+      - VaultSecurity
+      - VaultEngineer
+      - Overseer
   items:
-    - N14ClothingHandsGlovesDriver
+    - N14ClothingHandsGlovesNitrilePurple
