@@ -1,44 +1,69 @@
 - type: entity
-  name: Prisoner encryption key box
+  name: colored lighttube box
   parent: BoxCardboard
-  id: BoxEncryptionKeyPrisoner
-  description: A box of spare encryption keys.
+  id: BoxColoredLighttube
+  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
     - type: StorageFill
       contents:
-        - id: EncryptionKeyPrison
+        - id: ColoredLightTubeRed
+          amount: 4
+        - id: ColoredLightTubeFrostyBlue
+          amount: 4
+        - id: ColoredLightTubeBlackLight
           amount: 4
     - type: Sprite
       layers:
         - state: box
-        - state: encryptokey
+        - state: lighttube
     - type: Storage
+      maxItemSize: Small
+      grid:
+        - 0,0,4,4
       whitelist:
         components:
-          - EncryptionKey
+          - LightBulb
 
 - type: entity
-  name: justice encryption key box
-  parent: BoxEncryptionKeyPassenger
-  id: BoxEncryptionKeyJustice
-  description: A box of spare encryption keys.
+  name: maintenance lightbulb box
+  parent: BoxCardboard
+  id: BoxMaintenanceLightbulb
+  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
     - type: StorageFill
       contents:
-        - id: EncryptionKeyJustice
-          amount: 4
+        - id: LightBulbMaintenance
+          amount: 6
+        - id: LightBulbMaintenanceRed
+          amount: 6
+    - type: Sprite
+      layers:
+        - state: box
+        - state: light
+    - type: Storage
+      maxItemSize: Small
+      grid:
+        - 0,0,4,4
+      whitelist:
+        components:
+          - LightBulb
 
-#- type: entity
-#  name: syndicate radio implanter box
-#  parent: BoxCardboard
-#  id: BoxSyndicateRadioImplanter
-#  description: Contains cranial radio implants favored by Syndicate agents.
-#  components:
-#  - type: Sprite
-#    layers:
-#    - state: box_of_doom
-#    - state: implant
-#  - type: StorageFill
-#    contents:
-#    - id: SyndicateRadioImplanter
-#      amount: 2
+- type: entity
+  name: holy water kit
+  parent: BoxCardboard
+  id: BoxHolyWater
+  description: This box is filled with everything you need to make homemade holy water. Water not included.
+  components:
+    - type: StorageFill
+      contents:
+        - id: DrinkWineCan
+          amount: 2
+        - id: SprayBottle
+          amount: 1
+        - id: MercuryChemistryBottle
+          amount: 2
+    - type: Sprite
+      layers:
+        - state: box_science
+        - sprite: Nyanotrasen/Objects/Storage/boxes.rsi
+          state: holywater
