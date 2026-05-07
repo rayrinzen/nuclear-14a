@@ -1,8 +1,8 @@
 - type: reagent
-  id: Blood
-  name: reagent-name-blood
+  id: WastelandBlood
+  name: reagent-name-wasteland-blood
   group: Biological
-  desc: reagent-desc-blood
+  desc: reagent-desc-wasteland-blood
   flavor: metallic
   color: "#800000"
   metamorphicSprite:
@@ -12,7 +12,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   recognizable: true
-  physicalDesc: reagent-physical-desc-ferrous
+  physicalDesc: reagent-physical-desc-necrotic
   slippery: false
   metabolisms:
     Drink:
@@ -23,38 +23,11 @@
           - !type 
             type: Human
             shouldHave: false
-      - !type 
-        factor: 0.5
-        conditions:
-        - !type 
-          type: Vampiric
-      - !type 
-        conditions:
-        - !type 
-          type: Vampiric
-        reagent: Water
-        amount: 0.15
-      - !type 
-        conditions:
-        - !type 
-          type: Vampiric
-        reagent: Protein
-        amount: 0.125 # See below
-      - !type 
-        conditions:
-        - !type 
-          type: Vampiric
-        reagent: Omnizine
-        amount: 0.2
     Food:
       effects:
         - !type 
-          reagent: UncookedAnimalProteins
-          amount: 0.125 # 0.25 proteins for 1u of blood - restores 0.75 hunger, adds 0.25 blood per unit
-          conditions:
-          - !type 
-            type: Vampiric
-            shouldHave: false
+          reagent: N14UncookedAnimalProteinsRad
+          amount: 0.5
     Medicine:
       effects:
       - !type 
@@ -65,205 +38,70 @@
           groups:
             Brute: -3
             Burn: '-1.25'
-  plantMetabolism:
-    - !type 
-      amount: 0.5
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  parent: Blood
-  id: InsectBlood
-  name: reagent-name-insect-blood
-  group: Biological
-  desc: reagent-desc-insect-blood
-  flavor: horrible
-  color: "#808A51"
-  recognizable: true
-  physicalDesc: reagent-physical-desc-slimy
-  slippery: false
-- type: reagent
-  id: Slime
-  name: reagent-name-slime
-  group: Biological
-  desc: reagent-desc-slime
-  flavor: slimy
-  color: "#2cf274"
-  recognizable: true
-  physicalDesc: reagent-physical-desc-viscous
-  slippery: false
-  viscosity: 0.25
-  tileReactions:
-    - !type :SpillTileReaction
-  metabolisms:
-    Food:
-      # Delicious!
-      effects:
-      - !type 
-        factor: 1
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  id: Sap
-  name: reagent-name-sap
-  group: Biological
-  desc: reagent-desc-sap
-  flavor: sweet
-  color: "#cd7314"
-  recognizable: true
-  physicalDesc: reagent-physical-desc-sticky
-  slippery: false
-  viscosity: 0.10
-  tileReactions:
-    - !type :SpillTileReaction
-  metabolisms:
-    Food:
-      # Sweet!
-      effects:
-      - !type 
-        factor: 0.5
-      - !type 
-        factor: 0.5
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  parent: Blood
-  id: CopperBlood
-  name: reagent-name-hemocyanin-blood
-  group: Biological
-  desc: reagent-desc-hemocyanin-blood
-  flavor: metallic
-  color: "#162581"
-  recognizable: true
-  physicalDesc: reagent-physical-desc-metallic
-  slippery: false
-- type: reagent
-  parent: Blood
-  id: AmmoniaBlood
-  name: reagent-name-ammonia-blood
-  group: Biological
-  desc: reagent-desc-ammonia-blood
-  flavor: bitter
-  color: "#7a8bf2"
-  recognizable: true
-  physicalDesc: reagent-physical-desc-pungent
-  slippery: false
-- # Misfits Change Tweak: ZombieBlood does not evaporate so mops can clean its puddles
-type: reagent
-  id: ZombieBlood
-  name: reagent-name-zombie-blood
-  group: Biological
-  desc: reagent-desc-zombie-blood
-  physicalDesc: reagent-physical-desc-necrotic
-  flavor: bitter
-  color: "#2b0700"
-  slippery: false
-  metabolisms:
-    Drink:
-      # Disgusting!
-      effects:
-      - !type 
-        factor: '-0.5'
-    Poison:
-      effects:
-      - !type 
-        damage:
           types:
-            Poison: 4
+            Radiation: 0.2
       - !type 
         probability: 0.25
-- # Misfits Change Tweak: Ichor does not evaporate so mops can clean its puddles
-type: reagent
-  id: Ichor
-  name: reagent-name-ichor
+  plantMetabolism:
+    - !type 
+      amount: 0.25
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
+- type: reagent
+  id: NightstalkerBlood
+  name: reagent-name-nightstalker-blood
   group: Biological
-  desc: reagent-desc-ichor
-  physicalDesc: reagent-physical-desc-roaring
+  desc: reagent-desc-nightstalker-blood
   flavor: metallic
-  color: "#f4692e"
+  color: "#bf1029"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/bloodglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
   recognizable: true
+  physicalDesc: reagent-physical-desc-necrotic
+  slippery: false
   metabolisms:
     Drink:
       effects:
       - !type 
-        factor: 1.5
-    # Dragon doesn't require airloss healing, so omnizine is still best for humans.
+        factor: 0.5
+        conditions:
+          - !type 
+            type: Human
+            shouldHave: false
+    Food:
+      effects:
+        - !type 
+          reagent: N14UncookedAnimalProteinsRad
+          amount: 0.5
     Medicine:
       effects:
       - !type 
-        amount: 3
-      - !type 
         damage:
           groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -2
-          types:
-            Bloodloss: -5
-  # Just in case you REALLY want to water your plants
-  plantMetabolism:
-  - !type 
-    amount: 0.5
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  id: Fat
-  name: reagent-name-fat
-  group: Biological
-  desc: reagent-desc-fat
-  flavor: terrible
-  color: "#d8d8b0"
-  physicalDesc: reagent-physical-desc-exotic-smelling
-  slippery: false
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  id: Vomit
-  name: reagent-name-vomit
-  group: Biological
-  desc: reagent-desc-vomit
-  flavor: terrible
-  color: "#87ab08"
-  physicalDesc: reagent-physical-desc-pungent
-  slippery: true
-  metabolisms:
-    Drink:
-      effects:
+            Toxin: 0.5
       - !type 
-        factor: 0.5
-      - !type 
-        reagent: Nutriment
-        amount: 0.1
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-- type: reagent
-  id: GreyMatter
-  name: reagent-name-grey-matter
-  group: Biological
-  desc: reagent-desc-grey-matter
-  physicalDesc: reagent-physical-desc-neural
-  flavor: mindful
-  color: "#C584B8"
-  slippery: false
-  metabolisms:
-    Drink:
-      effects:
-      - !type 
-        factor: 1.5
-    Poison:
-      effects:
-      - !type 
+        conditions:
+        - !type 
+          type: Bloodsucker
         damage:
+          groups:
+            Brute: -3
+            Burn: '-1.25'
+            Toxin: '-0.5' # to negate toxin damage
           types:
-            Cellular: 2
+            Radiation: 0.2
+      - !type 
+        probability: 0.25
+  plantMetabolism:
+    - !type 
+      amount: 0.25
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
