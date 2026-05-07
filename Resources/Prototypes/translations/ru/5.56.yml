@@ -1,18 +1,39 @@
 - type: entity
-  id: N14Bullet556
-  name: bullet (5.56mm)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox556Rifle
   components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 19
-    # Misfits Add - 5.56mm intermediate rifle round; good range retention
-    - type: BallisticDamageFalloff
-      falloffStartTiles: 5.0
-      maxFalloffTiles: 18.0
-      minDamageMultiplier: 0.57
-    # #Misfits Add: 5.56mm is a medium-caliber rifle round; power armor has a low chance to glance it.
-    - type: Reflective
-      reflective: MediumCaliber
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14Cartridge556Rifle
+    proto: N14Cartridge556Rifle
+    capacity: 75
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/5-56.rsi
+    netsync: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
+- type: entity
+  parent: BaseMagazineBox556Rifle
+  id: MagazineBox556
+  name: ammunition box (5.56mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14Cartridge556Rifle
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
