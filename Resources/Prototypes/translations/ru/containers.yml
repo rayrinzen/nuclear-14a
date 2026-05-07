@@ -1,65 +1,12 @@
 - type: damageContainer
-  id: Biological
-  supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-    - Airloss
-    - Genetic
-    - Malnutrition # Misfits Add - Starvation/Dehydration tracking via needs system
-
-- type: damageContainer
-  id: Inorganic
-  supportedGroups:
-    - Brute
-  supportedTypes:
-    - Heat
-    - Shock
-
-- type: damageContainer
-  id: StructuralInorganic
-  supportedGroups:
-    - Brute
-  supportedTypes:
-    - Heat
-    - Shock
-    - Structural
-
-- type: damageContainer
-  id: Silicon
-  supportedGroups:
-    - Brute
-  supportedTypes:
-    - Heat
-    - Shock
-
-- type: damageContainer
-  id: Shield
-  supportedGroups:
-    - Brute
-  supportedTypes:
-    - Heat
-
-- type: damageContainer
-  id: Box
-  supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-  supportedTypes:
-    - Shock
-
-- type: damageContainer
-  id: ShadowHaze
-  supportedTypes:
-    - Heat
-
-- type: damageContainer
-  id: HalfSpirit
+  id: Spirit
   supportedGroups:
     - Burn
-    - Brute
-    - Airloss
     - Immaterial
-  supportedTypes:
-    - Poison
+
+- type: damageContainer
+  id: CorporealSpirit
+  supportedGroups:
+    - Burn
+    - Brute
+    - Immaterial
