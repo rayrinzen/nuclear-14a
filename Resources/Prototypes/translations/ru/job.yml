@@ -1,34 +1,34 @@
 - type: jobIcon
   parent: JobIcon
-  id: JobIconMedicalBorg
+  id: JobIconGladiator
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: MedicalBorg
+    state: nyanoGladiator
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconChiefJustice
+  id: JobIconPrisonGuard
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: ChiefJustice
+    state: nyanoPrisonGuard
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconClerk
+  id: JobIconMailCarrier
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: Clerk
+    state: nyanoMailCarrier
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconProsecutor
+  id: JobIconMartialArtist
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: Prosecutor #need prosecutor
+    state: nyanoMartialArtist
 
 - type: jobIcon
   parent: JobIcon
-  id: JobIconAdminAssitant
+  id: JobIconForensicMantis
   icon:
     sprite: /Textures/DeltaV/Interface/Misc/job_icons.rsi
-    state: AdminAssistant
+    state: nyanoMantis
