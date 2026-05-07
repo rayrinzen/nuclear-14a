@@ -1,8 +1,13 @@
-- type: messagePack
-  id: RobustSoftdrinksGoodbyes
-  messages:
-    - vending-machine-thanks
-    - thankyou-cola-1
-    - thankyou-cola-2
-    - thankyou-cola-3
-    - thankyou-cola-4
+- type: vendingMachineInventory
+  id: RobustSoftdrinksInventory
+  startingInventory:
+    DrinkColaCan: 4
+    DrinkGrapeCan: 2
+    DrinkRootBeerCan: 2
+    DrinkIcedTeaCan: 2
+    DrinkSolDryCan: 2
+    DrinkLemonLimeCan: 2
+    DrinkFourteenLokoCan: 2
+  emaggedInventory:
+    DrinkNukieCan: 2
+    DrinkChangelingStingCan: 2
