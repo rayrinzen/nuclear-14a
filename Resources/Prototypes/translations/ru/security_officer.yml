@@ -1,0 +1,62 @@
+- type: job
+  id: SecurityOfficer
+  name: job-name-security
+  description: job-description-security
+  playTimeTracker: JobSecurityOfficer
+  requirements:
+    - !type 
+      department: Security
+      min: 36000 # 10 hours
+  # - !type:CharacterTraitRequirement
+  # inverted: true
+  # traits:
+  # - Foreigner
+  # - ForeignerLight
+  # - Muted
+  # - Blindness
+  # - Pacifist
+  # - BrittleBoneDisease
+  startingGear: SecurityOfficerGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  afterLoadoutSpecial:
+  - !type 
+    charges: 6
+  - !type 
+    powerCell: PowerCellHigh
+  setPreference: false
+- type: startingGear
+  id: SecurityOfficerGear
+  subGear:
+  - SecurityOfficerPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHelmetBasic
+    outerClothing: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBasic replaced in favour of plate carrier
+    id: SecurityPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
+  innerClothingSkirt: ClothingUniformJumpskirtSec
+  satchel: ClothingBackpackSatchelSecurity
+  duffelbag: ClothingBackpackDuffelSecurity
+- type: startingGear
+  id: SecurityOfficerPlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSec
+    head: ClothingHeadEnvirohelmSec
+    gloves: ClothingHandsGlovesEnviroglovesBlack
