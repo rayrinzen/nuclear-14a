@@ -1,56 +1,83 @@
 - type: entity
-  id: PelletClusterRubber
-  name: pellet (ball, Rubber)
-  categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  id: BaseMagazineGrenade
+  name: grenade cartridge
+  parent: BaseItem
+  abstract: true
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      state: buckshot
-    - type: Projectile
-      deleteOnCollide: false
-      damage:
-        types:
-          Blunt: 4
-    - type: StaminaDamageOnCollide
-      damage: 55
-    - type: TimedDespawn
-      lifetime: 0.25
-
+  - type: Tag
+    tags:
+    - MagazineGrenade
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 5
+    soundRack:
+      path: /Audio/Weapons/Guns/Bolt/lmg_bolt_closed.ogg
+      params:
+        variation: 0.05
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+      params:
+        variation: 0.05
+  - type: Item
+    size: Large
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Grenade/grenade_cartridge.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-4
+      map:
+      - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  id: PelletClusterLethal
-  name: pellet (ball, Lethal)
-  categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  id: MagazineGrenadeEmpty
+  name: grenade cartridge
+  parent: BaseMagazineGrenade
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      state: buckshot
-    - type: Projectile
-      deleteOnCollide: false
-      damage:
-        types:
-          Piercing: 45
-    - type: TimedDespawn
-      lifetime: 0.25
-
+  - type: BallisticAmmoProvider
 - type: entity
-  id: PelletClusterIncendiary
-  name: pellet (ball, incendiary)
-  categories: [ HideSpawnMenu ]
-  parent: BaseBulletIncendiary
+  id: MagazineGrenadeFrag
+  name: frag grenade cartridge
+  parent: BaseMagazineGrenade
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      state: buckshot-flare
-    - type: Projectile
-      deleteOnCollide: false
-      damage:
-        types:
-          Blunt: 1
-          Heat: 2
-    - type: IgniteOnCollide
-      fireStacks: 1
-      count: 10
-    - type: TimedDespawn
-      lifetime: 0.25
+  - type: BallisticAmmoProvider
+    proto: GrenadeFrag
+- type: entity
+  id: MagazineGrenadeEMP
+  name: EMP grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeEMP
+- type: entity
+  id: MagazineGrenadeFlash
+  name: flash grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeFlash
+- type: entity
+  id: MagazineGrenadeBlast
+  name: blast grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeBlast
+- type: entity
+  id: MagazineGrenadeBaton
+  name: baton grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+  - type: BallisticAmmoProvider
+    proto: GrenadeBaton
