@@ -1,403 +1,429 @@
-﻿- type: constructionGraph
-  id: Table
+- type: constructionGraph
+  id: N14TableCounterBarRecipes
   start: start
   graph:
     - node: start
-      actions:
-        - !type ':DeleteEntity {}'
       edges:
-        - to: TableFrame
+        - to: TableCounterBar
           completed:
             - !type 
               southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
           steps:
-            - material: MetalRod
+            - material: WoodPlank
               amount: 2
-              doAfter: 1
-        - to: CounterWoodFrame
+              doAfter: 2
+    - node: TableCounterBar
+      entity: N14TableCounterBar
+- type: constructionGraph
+  id: N14TableMetalGrateRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: TableMetalGrate
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 2
+    - node: TableMetalGrate
+      entity: N14TableMetalGrate
+- type: constructionGraph
+  id: N14TableRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: TableWoodSettler
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+    - node: TableWoodSettler
+      entity: N14TableWoodSettler
+- type: constructionGraph
+  id: N14WoodTableRecipes
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: TableDeskSchoolDamaged
           completed:
             - !type 
               southRotation: true
           steps:
             - material: WoodPlank
-              amount: 1
-              doAfter: 1
-        - to: CounterMetalFrame
+              amount: 2
+              doAfter: 2
+        - to: TableWoodEnd
           completed:
             - !type 
               southRotation: true
           steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-    - node: TableFrame
-      entity: TableFrame
-      edges:
-        - to: start
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: TableWoodSquare
           completed:
             - !type 
-                prototype: PartRodMetal
-                amount: 2
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-        - to: Table
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-        - to: TableReinforced
-          steps:
-            - material: Plasteel
-              amount: 1
-              doAfter: 1
-        - to: TableGlass
-          steps:
-            - material: Glass
-              amount: 1
-              doAfter: 1
-        - to: TableReinforcedGlass
-          steps:
-            - material: ReinforcedGlass
-              amount: 1
-              doAfter: 1
-        - to: TablePlasmaGlass
-          steps:
-            - material: PlasmaGlass
-              amount: 1
-              doAfter: 1
-        - to: TableBrass
-          steps:
-            - material: Brass
-              amount: 1
-              doAfter: 1
-        - to: TableWood
+              southRotation: true
           steps:
             - material: WoodPlank
-              amount: 1
-              doAfter: 1
-    - node: CounterWoodFrame
-      entity: CounterWoodFrame
-      edges:
-        - to: start
+              amount: 2
+              doAfter: 2
+        - to: TableDeskWood
           completed:
             - !type 
-              prototype: MaterialWoodPlank1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-        - to: CounterWood
+              southRotation: true
           steps:
             - material: WoodPlank
-              amount: 1
-              doAfter: 1
-    - node: CounterMetalFrame
-      entity: CounterMetalFrame
+              amount: 4
+              doAfter: 3
+        - to: TableDeskWoodSmall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: TableWoodStand
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 2
+        - to: TableWoodenSquareWide
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 2
+        - to: TableWoodenOvalWide
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: TableWoodLow
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: TableWoodCabledrum
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: TableCounterCraft
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 3
+              doAfter: 2
+        - to: TableCounterCraftBend
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 2
+        - to: TableCounterCraftIntersect
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 5
+              doAfter: 2
+        - to: TableCounterCraftCross
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 6
+              doAfter: 2
+    - node: TableDeskSchoolDamaged
+      entity: N14TableDeskSchoolDamaged
       edges:
         - to: start
           completed:
             - !type 
-              prototype: SheetSteel1
-              amount: 1
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type :DeleteEntity
           steps:
-          - tool: Anchoring
-            doAfter: 1
-        - to: CounterMetal
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-    - node: Table
-      entity: Table
+            - tool: Screwing
+              doAfter: 5
+    - node: TableWoodEnd
+      entity: N14TableWoodEnd
       edges:
-        - to: TableFrame
+        - to: start
           completed:
             - !type 
-              prototype: SheetSteel1
+              prototype: MaterialWoodPlank
               amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: TableReinforced
-      entity: TableReinforced
-      edges:
-        - to: TableFrame
-          completed:
-            - !type 
-              prototype: SheetPlasteel1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: TableGlass
-      entity: TableGlass
-      edges:
-        - to: TableFrame
-          completed:
-            - !type 
-              prototype: SheetGlass1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: TableReinforcedGlass
-      entity: TableReinforcedGlass
-      edges:
-        - to: TableFrame
-          completed:
-            - !type 
-              prototype: SheetRGlass1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: TablePlasmaGlass
-      entity: TablePlasmaGlass
-      edges:
-        - to: TableFrame
-          completed:
-            - !type 
-              prototype: SheetPGlass1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: TableBrass
-      entity: TableBrass
-      edges:
-        - to: TableFrame
-          completed:
-            - !type 
-              prototype: SheetBrass1
-              amount: 1
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableWood
-      entity: TableWood
+              doAfter: 5
+    - node: TableWoodSquare
+      entity: N14TableWoodSquare
       edges:
-        - to: TableFrame
+        - to: TableWoodRound
           completed:
             - !type 
-              prototype: MaterialWoodPlank1
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Screwing
+              doAfter: 2
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
               amount: 1
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-        - to: TableCarpet
+              doAfter: 5
+    - node: TableWoodRound
+      entity: N14TableWoodRound
+      edges:
+        - to: TableWoodSquare
+          steps:
+            - tool: Prying
+              doAfter: 5
+        - to: TableCasinoDice
           steps:
             - material: Cloth
-              amount: 1
-              doAfter: 1
-        - to: TableFancyBlack
-          steps:
-            - tag: CarpetBlack
-              name: black carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-black
-        - to: TableFancyBlue
-          steps:
-            - tag: CarpetBlue
-              name: blue carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-blue
-        - to: TableFancyCyan
-          steps:
-            - tag: CarpetCyan
-              name: cyan carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-cyan
-        - to: TableFancyGreen
-          steps:
-            - tag: CarpetGreen
-              name: green carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-green
-        - to: TableFancyOrange
-          steps:
-            - tag: CarpetOrange
-              name: orange carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-orange
-        - to: TableFancyPurple
-          steps:
-            - tag: CarpetPurple
-              name: purple carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-purple
-        - to: TableFancyPink
-          steps:
-            - tag: CarpetPink
-              name: pink carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-pink
-        - to: TableFancyRed
-          steps:
-            - tag: CarpetRed
-              name: red carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-red
-        - to: TableFancyWhite
-          steps:
-            - tag: CarpetWhite
-              name: white carpet
-              icon:
-                sprite: Objects/Tiles/tile.rsi
-                state: carpet-white
-        - to: TableWoodReinforced #Nyano - See Resources/Prototypes/Nyanotrasen/Entities/Furniture/Tables/tables.yml
-          steps:
-            - material: WoodPlank
               amount: 2
-              doAfter: 1
-    - node: TableCarpet
-      entity: TableCarpet
+              doAfter: 2
+    - node: TableWoodLow
+      entity: N14TableWoodLow
       edges:
-        - to: TableWood
+        - to: start
           completed:
             - !type 
-              prototype: MaterialCloth1
-              amount: 1
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyBlack
-      entity: TableFancyBlack
+              doAfter: 5
+    - node: TableCasinoDice
+      entity: N14TableCasinoDice
       edges:
-        - to: TableWood
+        - to: TableWoodRound
           completed:
             - !type 
-              prototype: FloorCarpetItemBlack
-              amount: 1
+              southRotation: true
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+        - to: TableWoodRound
+          completed:
+            - !type 
+              prototype: MaterialCloth
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Cutting
+              doAfter: 3
+    - node: TableWoodStand
+      entity: N14TableWoodStand
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyBlue
-      entity: TableFancyBlue
+              doAfter: 5
+    - node: TableWoodCabledrum
+      entity: N14TableWoodCabledrum
       edges:
-        - to: TableWood
+        - to: start
           completed:
             - !type 
-              prototype: FloorCarpetItemBlue
+              prototype: MaterialWoodPlank
               amount: 1
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyCyan
-      entity: TableFancyCyan
+              doAfter: 5
+    - node: TableDeskWood
+      entity: N14TableDeskWood
       edges:
-        - to: TableWood
+        - to: TableDeskWood2
+          completed:
+            - !type :SnapToGrid
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Screwing
+              doAfter: 2
+        - to: start
           completed:
             - !type 
-              prototype: FloorCarpetItemCyan
-              amount: 1
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyGreen
-      entity: TableFancyGreen
+              doAfter: 5
+    - node: TableDeskWood2
+      entity: N14TableDeskWood2
       edges:
-        - to: TableWood
-          completed:
-            - !type 
-              prototype: FloorCarpetItemGreen
-              amount: 1
+        - to: TableDeskWood
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyOrange
-      entity: TableFancyOrange
+              doAfter: 5
+    - node: TableDeskWoodSmall
+      entity: N14TableDeskWoodSmall
       edges:
-        - to: TableWood
+        - to: start
           completed:
             - !type 
-              prototype: FloorCarpetItemOrange
+              prototype: MaterialWoodPlank
               amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 5
+    - node: TableWoodenSquareWide
+      entity: N14TableWoodenSquareWide
+      edges:
+        - to: TableCasinoPool
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 2
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyPurple
-      entity: TableFancyPurple
+              doAfter: 5
+    - node: TableCasinoCards
+      entity: N14TableCasinoCards
       edges:
-        - to: TableWood
+        - to: TableCasinoPool
           completed:
             - !type 
-              prototype: FloorCarpetItemPurple
-              amount: 1
+              southRotation: true
           steps:
             - tool: Prying
-              doAfter: 1
-    - node: TableFancyPink
-      entity: TableFancyPink
+              doAfter: 3
+    - node: TableCasinoPool
+      entity: N14TableCasinoPool
       edges:
-        - to: TableWood
+        - to: TableCasinoCards
           completed:
             - !type 
-              prototype: FloorCarpetItemPink
-              amount: 1
+              southRotation: true
           steps:
-            - tool: Prying
-              doAfter: 1
-    - node: TableFancyRed
-      entity: TableFancyRed
-      edges:
-        - to: TableWood
+            - tool: Screwing
+              doAfter: 3
+        - to: TableWoodenSquareWide
           completed:
             - !type 
-              prototype: FloorCarpetItemRed
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
-    - node: TableFancyWhite
-      entity: TableFancyWhite
-      edges:
-        - to: TableWood
-          completed:
-            - !type 
-              prototype: FloorCarpetItemWhite
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
-    - node: TableWoodReinforced #Nyano - See Resources/Prototypes/Nyanotrasen/Entities/Furniture/Tables/tables.yml
-      entity: TableWoodReinforced
-      edges:
-        - to: TableWood
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
+              prototype: MaterialCloth
               amount: 2
           steps:
-            - tool: Prying
-              doAfter: 1
-    - node: CounterMetal
-      entity: TableCounterMetal
+            - tool: Cutting
+              doAfter: 4
+    - node: TableWoodenOvalWide
+      entity: N14TableWoodenOvalWide
       edges:
-        - to: CounterMetalFrame
+        - to: start
           completed:
             - !type 
-              prototype: SheetSteel1
-              amount: 1
-          steps:
-            - tool: Anchoring
-              doAfter: 1
-    - node: CounterWood
-      entity: TableCounterWood
-      edges:
-        - to: CounterWoodFrame
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 1
+              prototype: MaterialWoodPlank
+              amount: 2
+            - !type :DeleteEntity
           steps:
             - tool: Prying
-              doAfter: 1
+              doAfter: 5
+    - node: TableCounterCraft
+      entity: N14TableCounterCraft
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: TableCounterCraftBend
+      entity: N14TableCounterCraftBend
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: TableCounterCraftIntersect
+      entity: N14TableCounterCraftIntersect
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: TableCounterCraftCross
+      entity: N14TableCounterCraftCross
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
