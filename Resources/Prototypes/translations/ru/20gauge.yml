@@ -1,18 +1,19 @@
 - type: entity
-  id: MisfitsShellShotgun20Beanbag
-  name: beanbag shell (20 gauge)
-  parent: N14ShellShotgun20
+  id: PelletShotgun20Beanbag
+  name: beanbag (20 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - N14ShellShotgun20
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-      layers:
-        - state: beanbag
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: CartridgeAmmo
-      proto: PelletShotgun20Beanbag
-    - type: SpentAmmoVisuals
-      state: beanbag
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 10
+    - type: StaminaDamageOnCollide
+      damage: 35 # 3 hits to stun
+    - type: BallisticDamageFalloff
+      falloffStartTiles: 3.0
+      maxFalloffTiles: 8.0
+      minDamageMultiplier: 0.3
