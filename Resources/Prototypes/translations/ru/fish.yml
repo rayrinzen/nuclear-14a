@@ -1,575 +1,557 @@
-# SPDX-FileCopyrightText: 2025 Evige <jussi.heikkila1@gmail.com>
-# SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-# SPDX-FileCopyrightText: 2025 Rouden <149893554+Roudenn@users.noreply.github.com>
-# SPDX-FileCopyrightText: 2025 Roudenn <romabond091@gmail.com>
-#
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
 - type: entity
-  id: BaseFish
-  parent: [ N14MobBaseSimple, BaseItem ]
-  abstract: true
-  name: fish
-  description: Water-born creature from the infinite sea... Or toilet.
+  name: crab sticks
+  parent: FoodBakedBase
+  id: Crabstick
+  description: Imitation crab meat. Mostly starch and fish flavoring.
   components:
-    - type: Fish
-      difficulty: 0.029
-    - type: StaticPrice
-      price: 20
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        1: Critical
-        5: Dead
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 0.1
-      baseSprintSpeed: 0.1
-    - type: PassiveDamage
-      allowedStates:
-        - Alive
-      damageCap: 20
-      damage:
-        types:
-          Asphyxiation: 1
-    - type: Respirator
-      damage:
-        types:
-          Asphyxiation: 1.0
-      damageRecovery:
-        types:
-          Asphyxiation: 0
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatFish
-          amount: 2
-    - type: Bloodstream
-      bloodMaxVolume: 20
-      bloodReagent: Blood
-    - type: ZombieImmune
-
+  - type: Stack
+    stackType: Crabsticks
+    count: 1
+    composite: true
+    layerStates:
+    - crab_sticks1
+    - crab_sticks2
+    - crab_sticks3
+    - crab_sticks4
+    - crab_sticks5
+    - crab_sticks6
+    - crab_sticks7
+    - crab_sticks8
+    - crab_sticks9
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/crab_sticks.rsi
+    layers:
+    - state: crab_sticks1
+      map:
+      - "crab_sticks1"
+      visible: true
+    - state: crab_sticks2
+      map:
+      - "crab_sticks2"
+      visible: false
+    - state: crab_sticks3
+      map:
+      - "crab_sticks3"
+      visible: false
+    - state: crab_sticks4
+      map:
+      - "crab_sticks4"
+      visible: false
+    - state: crab_sticks5
+      map:
+      - "crab_sticks5"
+      visible: false
+    - state: crab_sticks6
+      map:
+      - "crab_sticks6"
+      visible: false
+    - state: crab_sticks7
+      map:
+      - "crab_sticks7"
+      visible: false
+    - state: crab_sticks8
+      map:
+      - "crab_sticks8"
+      visible: false
+    - state: crab_sticks9
+      map:
+      - "crab_sticks9"
+      visible: false
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Crabsticks
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Protein
+          Quantity: 1
+        - ReagentId: Sugar
+          Quantity: 1
+        - ReagentId: Omnizine
+          Quantity: 2
+- type: stack
+  id: Crabsticks
+  name: crab sticks
+  spawn: Crabstick
+  maxCount: 9
+  itemSize: 1
+- type: Tag
+  id: Crabsticks
 - type: entity
-  id: BaseFishRare
-  parent: BaseFish
-  abstract: true
-  name: rare fish
-  description: Water-born creature from the infinite sea... Or toilet.
+  name: raw red fish
+  parent: N14FoodMeatRadRaw
+  id: FoodMeatRedfishRaw
+  description: A fatty piece of raw red fish.
   components:
-    - type: Fish
-      difficulty: 0.01
-    - type: StaticPrice
-      price: 30
-
+  - type: Sprite
+    scale: 1, 1
+    sprite: Corvax/Objects/Consumable/Food/fish.rsi
+    state: redfish
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 2 # Red fish has vitamins even when raw
+  - type: Construction
+    graph: FoodMeatRedfish
+    node: start
+    defaultTarget: FoodMeatRedfishCooked
+  - type: StaticPrice
+    price: 5
 - type: entity
-  id: FishAlien
-  parent: BaseFishRare
-  name: alien fish
-  description: Looks pretty... Abductory.
+  name: raw white fish
+  parent: N14FoodMeatRadRaw
+  id: FoodMeatWhitefishRaw
+  description: A lean piece of raw white fish.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: alien
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    scale: 1, 1
+    sprite: Corvax/Objects/Consumable/Food/fish.rsi
+    state: whitefish
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: N14UncookedAnimalProteinsRad
+          Quantity: 6 # White fish is almost pure protein
+  - type: Construction
+    graph: FoodMeatWhitefish
+    node: start
+    defaultTarget: FoodMeatWhitefishCooked
+  - type: StaticPrice
+    price: 4
 - type: entity
-  id: FishAngler
-  parent: BaseFish
-  name: angler fish
-  description: Scariest thing in existence, after bingles.
+  name: redfish steak
+  parent: N14FoodMeatCooked
+  id: FoodMeatRedfishCooked
+  description: A perfectly cooked, fatty steak. Good for your health.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: angler
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    scale: 1, 1
+    sprite: Corvax/Objects/Consumable/Food/fish.rsi
+    state: redfish-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Protein
+          Quantity: 6
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 5
+  - type: Construction
+    graph: FoodMeatRedfish
+    node: MeatCooked
+    defaultTarget: FoodMeatRedfishCooked
+  - type: StaticPrice
+    price: 10
 - type: entity
-  id: FishBass
-  parent: BaseFish
-  name: bass fish
-  description: Probably the most normal fish in existence. Unless you use it as bass guitar.
+  name: whitefish steak
+  parent: N14FoodMeatCooked
+  id: FoodMeatWhitefishCooked
+  description: A tender, lean steak. An excellent source of pure protein.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: bass
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    scale: 1, 1
+    sprite: Corvax/Objects/Consumable/Food/fish.rsi
+    state: whitefish-cooked
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Protein
+          Quantity: 9 # Protein focus (for wasteland lifters!)
+  - type: Construction
+    graph: FoodMeatWhitefish
+    node: MeatCooked
+    defaultTarget: FoodMeatWhitefishCooked
+  - type: StaticPrice
+    price: 8
+- type: constructionGraph
+  id: FoodMeatRedfish
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: MeatCooked
+      completed:
+      - !type 
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+  - node: MeatCooked
+    entity: FoodMeatRedfishCooked
+- type: constructionGraph
+  id: FoodMeatWhitefish
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: MeatCooked
+      completed:
+      - !type 
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 305
+  - node: MeatCooked
+    entity: FoodMeatWhitefishCooked
+- # --- COMPLEX DISHES ---
+type: entity
+  name: crab salad
+  parent: N14CookedFoodBowlBase
+  id: FoodCrabSalad
+  description: A hearty salad with vegetables and egg. A balanced meal.
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/bowl_food_fish.rsi
+    state: crab_salad
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Protein
+          Quantity: 3
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: Omnizine
+          Quantity: 5
 - type: entity
-  id: FishBingle
-  parent: BaseFishRare
-  name: bingle fish
-  description: bingle
+  name: fish soup
+  parent: N14CookedFoodBowlBase
+  id: FoodFishSoup
+  description: Hot fish soup. Great for quenching thirst and warming you up.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: bingle
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/bowl_food_fish.rsi
+    state: fish_soup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Water
+          Quantity: 15 # The most important part of soup is water!
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+        - ReagentId: Omnizine
+          Quantity: 8 # Soup heals better than dry rations
+- # --- BAKED GOODS ---
+type: entity
+  name: fish pie
+  parent: FoodPieBase
+  id: FoodFishPie
+  description: A hearty fish pie. One is enough to stay full all day.
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/fish_pie.rsi
+    state: fish
+  - type: SliceableFood
+    count: 5
+    slice: FoodFishPieSlice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20 # Very filling (dough + fish)
+        - ReagentId: Protein
+          Quantity: 10
+        - ReagentId: Omnizine
+          Quantity: 10
 - type: entity
-  id: FishBlob
-  parent: BaseFish
-  name: blob fish
-  description: Unfortuantly, this is not a 5th level bio-hazard threat.
+  name: fish pie slice
+  parent: FoodPieSliceBase
+  id: FoodFishPieSlice
+  description: An appetizing slice of pie.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: blob
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/fish_pie.rsi
+    state: fish-slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 2
+        - ReagentId: Omnizine
+          Quantity: 2
+- # --- DELICACIES (Caviar) ---
+type: entity
+  name: red caviar
+  parent: N14CookedFoodTacoBase
+  id: FoodRedCaviar
+  description: A jar of fresh red caviar. Salty and nutritious.
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/redcaviar.rsi
+    state: redcaviar
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Sodium
+          Quantity: 5 # Caviar is always salty!
+        - ReagentId: Vitamin
+          Quantity: 8 # Concentrated goodness
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Saline
+          Quantity: 15
 - type: entity
-  id: FishBlueFintuna
-  parent: BaseFish
-  name: blue fintuna
-  description: It's looking straight to you...
+  name: caviar tartlet
+  parent: N14CookedFoodBreadBase
+  id: FoodCaviarTartlet
+  description: A small crispy snack with caviar.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: blue_fintuna
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/caviar_food.rsi
+    state: tartletredcaviar
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Sodium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 3
+        - ReagentId: Saline
+          Quantity: 15
 - type: entity
-  id: FishBoyFisher
-  parent: BaseFishRare
-  name: boy fisher
-  description: You like kissing fish, don't you?
+  name: caviar toast
+  parent: N14CookedFoodBreadBase
+  id: FoodCaviarToast
+  description: A crunchy toast with butter and caviar. A taste of luxury.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: boy_fisher
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/caviar_food.rsi
+    state: toastredcaviar
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Sodium
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 3
+        - ReagentId: Saline
+          Quantity: 15
 - type: entity
-  id: FishCat
-  parent: BaseFish
-  name: cat fish
-  description: Ironically this looks nothing like a cat. And it doesn't meow.
+  parent:
+  - FoodTinBase
+  - FoodMeatBase
+  id: N14FoodCannedFish
+  name: canned fish
+  description: A tin can of preserved fish. Plenty of oil inside.
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: catfish
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/canned_fish.rsi
+    state: icon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+        - ReagentId: Sodium
+          Quantity: 3
+  - type: Construction
+    graph: FoodCannedFishHeat
+    node: start
+  - type: Food
+    trash:
+    - N14FoodCannedFishTrash
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+  - type: Temperature
+    currentTemperature: 290
+  - type: InternalTemperature
+    conductivity: 0.43
+    thickness: 0.1
+    area: 0.05
+- # Hot (Tasty and healing)
+type: entity
+  parent: FoodTinBase
+  id: N14FoodCannedFishHot
+  name: heated canned fish
+  description: Hot fish in its own juices. Restores strength well.
+  components:
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/canned_fish_hot.rsi
+    state: icon
+  - type: Openable
+    opened: true
+    openableByHand: true
+  - type: Construction
+    graph: FoodCannedFishHeat
+    node: start
+    defaultTarget: N14FoodCannedFishHot
+  - type: Food
+    trash:
+    - N14FoodCannedFishTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 12 # More filling than cold
+        - ReagentId: Protein
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Omnizine
+          Quantity: 8 # Heals well
+  - type: FlavorProfile
+    flavors:
+    - fishy
 - type: entity
-  id: FishTropicalClown
-  parent: BaseFish
-  name: clown clown fish
-  description: That is almost certanly some kind of joke.
+  parent: FoodTinBaseTrash
+  id: N14FoodCannedFishTrash
+  name: empty fish can
   components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: clown
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-    - type: Bloodstream
-      bloodMaxVolume: 20
-      bloodReagent: Laughter
-
-- type: entity
-  id: FishNukeDisk
-  parent: BaseFishRare
-  name: nuke disk fish
-  description: Erm, Actually, it's a bad idea trying to fit a fish inside a nuclear explosion device.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: disk
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishGib
-  parent: BaseFishRare
-  name: gib stick fish
-  description: "My face when i open a present and get gibstick:"
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: gib
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishMutant
-  parent: BaseFishRare
-  name: mutant fish
-  description: Anomalous fish that looks like it ate some nuclear waste.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: mutant
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishNuker
-  parent: BaseFishRare
-  name: nuclear operative fish
-  description: Predator of the nuke disk fish.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: nuker
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishPuffer
-  parent: BaseFish
-  name: puffer fish
-  description: It is poisonous... in many ways.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: pufferfish
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishSilver
-  parent: BaseFish
-  name: silver fish
-  description: Actually contains silver.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: silverfish
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishTropicalSun
-  parent: BaseFish
-  name: tropical sun fish
-  description: It probably looked at the sun for too long...?
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: sun_tropical
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishToxic
-  parent: BaseFishRare
-  name: toxic waste fish
-  description: "Looking at this fish, you understand how much it was a bad idea to allow nuclear waste to be dumped into rivers."
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: toxic
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-- type: entity
-  id: FishTropical
-  parent: BaseFish
-  name: clown fish
-  description: This fish is always searching for something... Or maybe someone?
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: tropical
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-    - type: Bloodstream
-      bloodMaxVolume: 10
-      bloodReagent: Laughter
-
-- type: entity
-  id: FishIan
-  parent: BaseFishRare
-  name: ian fish
-  description: Water-born ian from the sea.
-  components:
-    - type: Sprite
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-      state: ian
-    - type: Item
-      sprite: _Goobstation/Objects/Specific/Fishing/fish.rsi
-
-# =========================
-# FISH PARENTS (N14)
-# =========================
-- type: entity
-  id: BaseFishWhite
-  parent: BaseFish
-  abstract: true
-  components:
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatWhitefishRaw
-          amount: 1
-        - id: FoodMeatWhitefishRaw
-          prob: 0.5
-          amount: 1
-        - id: FoodMeatWhitefishRaw
-          prob: 0.5
-          amount: 1
-
-- type: entity
-  id: BaseFishRed
-  parent: BaseFishRare
-  abstract: true
-  components:
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatRedfishRaw
-          amount: 1
-        - id: FoodMeatRedfishRaw
-          prob: 0.5
-          amount: 1
-        - id: FoodRedCaviar
-          prob: 0.5
-          amount: 1
-
-# =========================
-# COMMON FISH (WHITE MEAT)
-# =========================
-- type: entity
-  id: FishSardina
-  parent: BaseFishWhite
-  name: silverside
-  description: Small, nimble fish. A staple of wasteland diets.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/sardina
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/sardina
-
-- type: entity
-  id: FishCarp
-  parent: BaseFishWhite
-  name: river carp
-  description: The most ordinary fish. Stares at you with an empty gaze.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/carp
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/carp
-
-- type: entity
-  id: FishShrimp
-  parent: BaseFishWhite
-  name: titan shrimp
-  description: Mutated oversized shrimp. Lots of meat and lots of legs.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/shrimp
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/shrimp
-
-- type: entity
-  id: FishCrab
-  parent: BaseFishWhite
-  name: swamp crab
-  description: Nasty scavenger with a tough shell. Watch your fingers.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/cancer
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/cancer
-
-- type: entity
-  id: FishBone
-  parent: BaseFishWhite
-  name: skeleton fish
-  description: A creepy pile of bones that refuses to die. A great source of calcium and preservatives.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/bone-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/bone-fish
-
-- type: entity
-  id: FishStar
-  parent: BaseFishWhite
-  name: blood star
-  description: A pulsing sea star. Its slime heals burns well.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/star
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/star
-
-- type: entity
-  id: FishCarrot
-  parent: BaseFishWhite
-  name: mud flounder
-  description: Looks like a dirty carrot. Covered in a thick layer of useful clay.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/carrot-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/carrot-fish
-
-- type: entity
-  id: FishYorsh
-  parent: BaseFishWhite
-  name: silt ruffe
-  description: Slimy, spiny, and unpleasant. Secretes thick mucus.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/yorsh
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/yorsh
-
-# =========================
-# RARE FISH (RED MEAT + CAVIAR 50%)
-# =========================
-- type: entity
-  id: FishSvarka
-  parent: BaseFishRed
-  name: welder catfish
-  description: Lives in industrial runoff. Sparks when struck, full of flammable fat inside.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/svarka-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/svarka-fish
-
-- type: entity
-  id: FishPowerArmor
-  parent: BaseFishRed
-  name: armor fish
-  description: Fish with stone skin. To butcher it, you need an angle grinder, not a knife.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/powerarmor-carp
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/powerarmor-carp
-
-- type: entity
-  id: NF14FishAngler
-  parent: BaseFishRed
-  name: deep angler
-  description: A nightmare from the dark. Its lantern keeps glowing even after death.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/anglerfish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/anglerfish
-
-- type: entity
-  id: FishFugu
-  parent: BaseFishRed
-  name: rad puffer
-  description: An inflated ball full of deadly neurotoxin. A delicacy for the reckless.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/fugu
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/fugu
-
-- type: entity
-  id: FishClown
-  parent: BaseFishRed
-  name: clown fish
-  description: Makes funny noises when pressed. They say its meat can change human nature itself.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/clown-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/clown-fish
-
-- type: entity
-  id: FishLegion
-  parent: BaseFishRed
-  name: dream fish
-  description: It has too many eyes. Stare at it long enough and you might see the future... or just catch a trip.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/legion-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/legion-fish
-
-- type: entity
-  id: FishGun
-  parent: BaseFishRed
-  name: ballistic trout
-  description: A living weapon. Smells of gunpowder and violence. Be careful when butchering!
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/gun-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/gun-fish
-
-- type: entity
-  id: FishBomb
-  parent: BaseFishRed
-  name: pyro pike
-  description: Hot to the touch. Its insides can be used as explosives.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/bomb-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/bomb-fish
-
-- type: entity
-  id: FishGold
-  parent: BaseFishRed
-  name: golden carp
-  description: A living legend. Its scales are pure gold. Lucky to catch one!
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/gold-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/gold-fish
-
-- type: entity
-  id: FishExocoetidae
-  parent: BaseFishRed
-  name: air shark
-  description: Evolution gave it wings, and radiation gave it plasteel hide. Queen of the depths.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/exocoetidae
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/exocoetidae
-
-- type: entity
-  id: FishOctopus
-  parent: BaseFishRed
-  name: red octopus
-  description: A smart mollusk with a reserve of ink. Great for making smoke screens.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/octopus
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/octopus
-
-- type: entity
-  id: FishTropic
-  parent: BaseFishRed
-  name: acid eel
-  description: Bright coloring warns of danger. Secretes caustic acid.
-  components:
-    - type: Sprite
-      sprite: Corvax/Mobs/Fish/tropic-fish
-      state: icon
-    - type: Item
-      sprite: Corvax/Mobs/Fish/tropic-fish
+  - type: Sprite
+    sprite: Corvax/Objects/Consumable/Food/canned_fish.rsi
+    state: trash
+- type: constructionGraph
+  id: FoodCannedFishHeat
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: FoodCannedFishHot
+      completed:
+      - !type 
+        sound: /Audio/Effects/sizzle.ogg
+      steps:
+      - minTemperature: 292
+  - node: FoodCannedFishHot
+    entity: N14FoodCannedFishHot
+- type: microwaveMealRecipe
+  id: N14RecipeFoodCrabSalad
+  name: crab salad (wasteland)
+  result: FoodCrabSalad
+  time: 10
+  solids:
+    Crabstick: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+    N14FloraProduceWildTarberries: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodFishSoupWhite
+  name: fish soup (whitefish)
+  result: FoodFishSoup
+  time: 10
+  solids:
+    FoodMeatWhitefishCooked: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodFishSoupRed
+  name: fish soup (redfish)
+  result: FoodFishSoup
+  time: 10
+  solids:
+    FoodMeatRedfishCooked: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodFishSoupStarlight
+  name: fish soup (starlight)
+  result: FoodFishSoup
+  time: 15
+  solids:
+    FoodMeatWhitefishCooked: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+    N14FloraProduceWildStarlightBerries: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodFishPieWhite
+  name: fish pie (whitefish)
+  result: FoodFishPie
+  time: 15
+  solids:
+    N14FloraProduceWildRazorgrain: 1
+    FoodMeatWhitefishCooked: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodFishPieRed
+  name: fish pie (redfish)
+  result: FoodFishPie
+  time: 15
+  solids:
+    N14FloraProduceWildRazorgrain: 1
+    FoodMeatRedfishCooked: 1
+    N14FloraProduceWildOnion: 1
+    N14FloraProduceWildTato: 1
+- # Caviar
+type: microwaveMealRecipe
+  id: N14RecipeFoodCaviarTartlet
+  name: caviar tartlet (wasteland)
+  result: FoodCaviarTartlet
+  time: 5
+  solids:
+    FoodRedCaviar: 1
+    N14FloraProduceWildPricklyPearFruit: 1
+    N14FoodDoughTortillaFlat: 1
+- type: microwaveMealRecipe
+  id: N14RecipeFoodCaviarToast
+  name: caviar toast (wasteland)
+  result: FoodCaviarToast
+  time: 5
+  solids:
+    FoodRedCaviar: 1
+    N14FloraProduceWildPricklyPearFruit: 1
+    N14CookedFoodBreadPlainSlice: 1
+- # Crab sticks (better from Cooked, as you did)
+type: microwaveMealRecipe
+  id: N14RecipeCrabstick
+  name: crab sticks
+  result: Crabstick
+  time: 5
+  solids:
+    FoodMeatWhitefishCooked: 1
+    N14FloraProduceWildRazorgrain: 1
+    N14FloraProduceWildTato: 1
