@@ -1,50 +1,54 @@
+## This is for Nyano and Delta V tags
 - type: Tag
-  id: SolarAssemblyFlatpack
+  id: AllowLamiaHardsuit
 
 - type: Tag
-  id: Brahdo
+  id: BeltSlotNotBelt #not a 'belt'
 
 - type: Tag
-  id: N14Bandage
+  id: BulletBB
 
 - type: Tag
-  id: N14Board
+  id: CartridgeSpecial # For the .38 special ammo and revolver
 
 - type: Tag
-  id: N14Capacitor
+  id: Directional
 
 - type: Tag
-  id: N14Diode
+  id: DockShipyard
 
 - type: Tag
-  id: N14Fuse
+  id: ForensicBeltEquip
 
 - type: Tag
-  id: N14Resistor
+  id: Gavel
 
 - type: Tag
-  id: N14Transistor
+  id: GasPipeHalf #Craftable Musket
 
 - type: Tag
-  id: N14Magazine68Rifle
+  id: HandLabeler
 
 - type: Tag
-  id: N14Cartridge68Rifle
+  id: HidesHarpyWings
 
 - type: Tag
-  id: Magazine545Rifle
+  id: MagazinePistolSpecial # For the .38 special ammo and pistol
 
 - type: Tag
-  id: MagazineDrum545Rifle
+  id: SecDogWearable # allows Laika to wear meson goggles (and more later?)
 
 - type: Tag
-  id: N14Cartridge545Rifle
+  id: SpeedLoaderSpecial
 
 - type: Tag
-  id: N14PowerCellMagnetoSmall
+  id: PreventLabel
 
 - type: Tag
-  id: N14AmmoCellMagneto
+  id: BionicSyrinxImplant
 
 - type: Tag
-  id: N14PowerCellFocusedYk42b
+  id: PaperSlip
+
+- type: Tag
+  id: Skirt
