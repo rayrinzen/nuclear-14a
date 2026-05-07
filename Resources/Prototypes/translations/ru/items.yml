@@ -1,799 +1,211 @@
-- #Smokes
-type: loadout
-  id: LoadoutItemCig
-  category: Items
-  cost: 0
-  items:
-    - Cigarette
-  requirements:
-    - !type 
-      group: LoadoutSmokes
 - type: loadout
-  id: LoadoutItemCigsGreen
-  category: Items
-  cost: 0
-  items:
-    - CigPackGreen
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- type: loadout
-  id: LoadoutItemCigsRed
-  category: Items
-  cost: 0
-  items:
-    - CigPackRed
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- type: loadout
-  id: LoadoutItemCigsBlue
-  category: Items
-  cost: 0
-  items:
-    - CigPackBlue
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- type: loadout
-  id: LoadoutItemCigsBlack
-  category: Items
-  cost: 0
-  items:
-    - CigPackBlack
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- type: loadout
-  id: LoadoutItemCigsMixed
-  category: Items
-  cost: 1
-  items:
-    - CigPackMixed
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- type: loadout
-  id: LoadoutItemCigsSyndicate
+  id: N14InstrumentBanjo
   category: Items
   cost: 2
   items:
-    - CigPackSyndicate
+    - N14InstrumentBanjo
+- type: loadout
+  id: N14InstrumentClarinet
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentClarinet
+- type: loadout
+  id: N14InstrumentFlute
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentFlute
+- type: loadout
+  id: N14InstrumentGuitar
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentGuitar
+- type: loadout
+  id: N14InstrumentHarmonica
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentHarmonica
+- type: loadout
+  id: N14InstrumentPanflute
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentPanflute
+- type: loadout
+  id: N14InstrumentSaxaphone
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentSaxaphone
+- type: loadout
+  id: N14InstrumentTrombone
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentTrombone
+- type: loadout
+  id: N14InstrumentTrumpet
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentTrumpet
+- type: loadout
+  id: N14InstrumentViolin
+  category: Items
+  cost: 2
+  items:
+    - N14InstrumentViolin
+- # Smokeables
+type: loadout
+  id: N14LoadoutItemCigsSalem
+  category: Items
+  cost: 2
   requirements:
     - !type 
-      group: LoadoutSmokes
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackSalem
 - type: loadout
-  id: LoadoutItemLighter
+  id: N14LoadoutItemCigsKool
+  category: Items
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackKool
+- type: loadout
+  id: N14LoadoutItemCigsMarlboro
+  category: Items
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackMarlboro
+- type: loadout
+  id: N14LoadoutItemCigsWinston
+  category: Items
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackWinston
+- type: loadout
+  id: N14LoadoutItemCigsCustom
+  category: Items
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackCustom
+- type: loadout
+  id: N14LoadoutItemCigsRepublics
+  category: Items
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutSmokeables
+  items:
+    - N14CigarettePackRepublics
+- # Lighters
+type: loadout
+  id: N14LoadoutItemLighter
   category: Items
   cost: 1
-  customColorTint: true
+  requirements:
+    - !type 
+      group: N14LoadoutLighters
   items:
     - Lighter
+- type: loadout
+  id: N14LoadoutItemLighterCheap
+  category: Items
+  cost: 1
   requirements:
     - !type 
-      group: LoadoutLighters
-- type: loadout
-  id: LoadoutItemLighterCheap
-  category: Items
-  cost: 0
-  customColorTint: true
+      group: N14LoadoutLighters
   items:
     - CheapLighter
+- type: loadout
+  id: N14LoadoutItemMatches
+  category: Items
+  cost: 1
   requirements:
     - !type 
-      group: LoadoutLighters
+      group: N14LoadoutLighters
+  items:
+    - Matchbox
 - type: loadout
-  id: LoadoutItemLighterFlippo
+  id: N14LoadoutItemWallet
   category: Items
   cost: 2
-  customColorTint: true
   items:
-    - FlippoLighter
-  requirements:
-    - !type 
-      group: LoadoutLighters
+    - N14Wallet
 - type: loadout
-  id: LoadoutItemSmokingPipeFilledTobacco
+  id: d6Dice
   category: Items
-  cost: 0
+  cost: 2
   items:
-    - SmokingPipeFilledTobacco
-  requirements:
-    - !type 
-      group: LoadoutSmokes
+    - d6Dice
 - type: loadout
-  id: LoadoutItemBlunt
+  id: N14LoadoutItemCanteen
   category: Items
-  cost: 0
+  cost: 1
   items:
-    - Blunt
-  requirements:
-    - !type 
-      group: LoadoutSmokes
+    - N14JunkVaultCanteen
 - type: loadout
-  id: LoadoutItemJoint
+  id: N14LoadoutItemFlask
   category: Items
-  cost: 0
+  cost: 1
   items:
-    - Joint
-  requirements:
-    - !type 
-      group: LoadoutSmokes
-- # Instruments
+    - N14JunkCeramicFlask
+- type: loadout
+  id: N14LoadoutItemCig
+  category: Items
+  cost: 1
+  items:
+    - N14Cigarette
+- # Tools
 type: loadout
-  id: LoadoutItemMicrophoneInstrument
-  category: Items
-  cost: 2
-  items:
-    - MicrophoneInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemKalimbaInstrument
-  category: Items
-  cost: 2
-  items:
-    - KalimbaInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemTrumpetInstrument
-  category: Items
-  cost: 4
-  items:
-    - TrumpetInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemElectricGuitar
+  id: N14LoadoutBeltUtility
   category: Items
   cost: 5
-  items:
-    - ElectricGuitarInstrument
   requirements:
     - !type 
-      group: LoadoutInstrumentsAny
+      min: 3600
     - !type 
       inverted: true
       jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemBassGuitar
-  category: Items
-  cost: 5
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
   items:
-    - BassGuitarInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemRockGuitar
-  category: Items
-  cost: 5
-  items:
-    - RockGuitarInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemAcousticGuitar
-  category: Items
-  cost: 5
-  items:
-    - AcousticGuitarInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemViolin
-  category: Items
-  cost: 4
-  items:
-    - ViolinInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemHarmonica
-  category: Items
-  cost: 1
-  items:
-    - HarmonicaInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemAccordion
-  category: Items
-  cost: 4
-  items:
-    - AccordionInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemFlute
-  category: Items
-  cost: 2
-  items:
-    - FluteInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- type: loadout
-  id: LoadoutItemOcarina
-  category: Items
-  cost: 1
-  items:
-    - OcarinaInstrument
-  requirements:
-    - !type 
-      group: LoadoutInstrumentsAny
-    - !type 
-      inverted: true
-      jobs:
-        - Musician
-- # Survival Kit
+    - N14ClothingBeltUtilityFilled
+- # Food
 type: loadout
-  id: LoadoutItemsEmergencyOxygenTank
-  category: Items
-  cost: 0
-  items:
-    - EmergencyOxygenTankFilled
-  requirements:
-    - !type 
-      group: LoadoutAirTank
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- type: loadout
-  id: LoadoutItemsExtendedEmergencyOxygenTank
+  id: N14LoadoutFoodPorkBeans
   category: Items
   cost: 1
   items:
-    - ExtendedEmergencyOxygenTankFilled
-  requirements:
-    - !type 
-      group: LoadoutAirTank
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- type: loadout
-  id: LoadoutItemsDoubleEmergencyOxygenTank
-  category: Items
-  cost: 2
-  items:
-    - DoubleEmergencyOxygenTankFilled
-  requirements:
-    - !type 
-      group: LoadoutAirTank
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- type: loadout
-  id: LoadoutItemClothingMaskBreath
-  category: Items
-  cost: 0
-  items:
-    - ClothingMaskBreath
-- type: loadout
-  id: LoadoutItemsEmergencyCrowbar
-  category: Items
-  cost: 3
-  canBeHeirloom: true
-  items:
-    - CrowbarRed
-- type: loadout
-  id: LoadoutItemFireExtinguisher
-  category: Items
-  cost: 3
-  items:
-    - FireExtinguisher
-- type: loadout
-  id: LoadoutItemFlashlightLantern
-  category: Items
-  cost: 2
-  items:
-    - FlashlightLantern
-- type: loadout
-  id: LoadoutItemFlare
-  category: Items
-  cost: 1
-  items:
-    - Flare
-- type: loadout
-  id: LoadoutEmergencyMedipen
-  category: Items
-  cost: 1
-  items:
-    - EmergencyMedipen
-- type: loadout
-  id: LoadoutSpaceMedipen
-  category: Items
-  cost: 1
-  items:
-    - SpaceMedipen
-- # Paperwork
-type: loadout
-  id: LoadoutItemPapers
-  category: Items
-  cost: 0
-  items:
-    - Paper
-    - Paper
-    - Paper
-    - Paper
-  requirements:
-    - !type 
-      group: LoadoutWritables
-- type: loadout
-  id: LoadoutItemBoxFolderGrey
-  category: Items
-  cost: 0
-  items:
-    - BoxFolderGrey
-  requirements:
-    - !type 
-      group: LoadoutWritables
-- type: loadout
-  id: LoadoutBookRandom
-  category: Items
-  cost: 1
-  items:
-    - BookRandom
-  requirements:
-    - !type 
-      group: LoadoutWritables
-- type: loadout
-  id: LoadoutPen
-  category: Items
-  cost: 0
-  items:
-    - Pen
-  requirements:
-    - !type 
-      group: LoadoutWritables
-- # Food and drink
-type: loadout
-  id: LoadoutDrinkWaterBottleFull
-  category: Items
-  cost: 1
-  items:
-    - DrinkWaterBottleFull
-  requirements:
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- type: loadout
-  id: LoadoutItemLunchboxGenericFilledRandom
-  category: Items
-  cost: 3
-  items:
-    - LunchboxGenericFilledRandom
-  requirements:
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- type: loadout
-  id: LoadoutItemDrinkMREFlask
-  category: Items
-  cost: 2
-  items:
-    - DrinkMREFlask
-  requirements:
-    - !type 
-      inverted: true
-      species:
-        - Plasmaman
-- # Survival boxes
-type: loadout
-  id: LoadoutItemBoxSurvival
-  category: Items
-  cost: 0
-  items:
-    - BoxSurvival
-  requirements:
-    - !type 
-       inverted: true
-       departments:
-         - Security
-         - Medical
-         - Engineering
-    - !type 
-       inverted: true
-       jobs:
-         - Clown
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutItemBoxSurvivalEngineering
-  category: Items
-  cost: 0
-  items:
-    - BoxSurvivalEngineering
-  requirements:
-    - !type 
-       departments:
-         - Engineering
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutItemBoxSurvivalSecurity
-  category: Items
-  cost: 0
-  items:
-    - BoxSurvivalSecurity
-  requirements:
-    - !type 
-       departments:
-         - Security
-    - !type 
-       inverted: true
-       jobs:
-         - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutItemBoxSurvivalBrigmedic
-  category: Items
-  cost: 0
-  items:
-    - BoxSurvivalBrigmedic
-  requirements:
-    - !type 
-       jobs:
-         - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutItemBoxSurvivalMedical
-  category: Items
-  cost: 0
-  items:
-    - BoxSurvivalMedical
-  requirements:
-    - !type 
-       departments:
-         - Medical
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutItemBoxHug
-  category: Items
-  cost: 0
-  items:
-    - BoxHug
-  requirements:
-    - !type 
-       jobs:
-         - Clown
-    - !type 
-      group: LoadoutBoxKits
-- # Medkits
-type: loadout
-  id: LoadoutMedkitFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitFilled
-  requirements:
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitBruteFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitBruteFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitBurnFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitBurnFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitToxinFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitToxinFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitOxygenFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitOxygenFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitRadiationFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitRadiationFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitAdvancedFilled
-  category: Items
-  cost: 3
-  items:
-    - MedkitAdvancedFilled
-  requirements:
-    - !type 
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- type: loadout
-  id: LoadoutMedkitCombatFilled
-  category: Items
-  cost: 3
-  items:
-    - MedkitCombatFilled
-  requirements:
-    - !type 
-       jobs:
-         - ChiefMedicalOfficer
-         - Brigmedic
-    - !type 
-      group: LoadoutBoxKits
-- #Misc Items
-type: loadout
-  id: LoadoutItemFlash
-  category: Items
-  cost: 1
-  items:
-    - Flash
-  requirements:
-    - !type 
-       departments:
-         - Security
-    - !type 
-       jobs:
-         - Brigmedic
-- type: loadout
-  id: LoadoutItemPAI
-  category: Items
-  cost: 3
-  canBeHeirloom: true
-  items:
-    - PersonalAI
-- type: loadout
-  id: LoadoutItemCrayonBox
-  category: Items
-  cost: 4
-  items:
-    - CrayonBox
-- type: loadout
-  id: LoadoutItemBarberScissors
-  category: Items
-  cost: 4
-  items:
-    - BarberScissors
-- type: loadout
-  id: LoadoutSolCommonTranslator
-  category: Items
-  cost: 3
-  items:
-    - SolCommonTranslator
-- type: loadout
-  id: LoadoutHandLabeler
-  category: Items
-  cost: 3
-  items:
-    - HandLabeler
-- type: loadout
-  id: LoadoutItemHandheldStationMap
-  category: Items
-  cost: 2
-  items:
-    - HandheldStationMap
-- type: loadout
-  id: LoadoutItemLantern
-  category: Items
-  cost: 2
-  items:
-    - Lantern
-- type: loadout
-  id: LoadoutItemDrinkShinyFlask
-  category: Items
-  cost: 1
-  customColorTint: true
-  canBeHeirloom: true
-  items:
-    - DrinkShinyFlask
-- type: loadout
-  id: LoadoutItemDrinkLithiumFlask
-  category: Items
-  cost: 1
-  customColorTint: true
-  items:
-    - DrinkLithiumFlask
-- type: loadout
-  id: LoadoutItemDrinkVacuumFlask
-  category: Items
-  cost: 1
-  customColorTint: true
-  items:
-    - DrinkVacuumFlask
-- type: loadout
-  id: LoadoutItemCaneBlind
-  category: Items
-  cost: 0 # It shouldnt cost points to be able to function.
-  items:
-    - WhiteCane
-- # Pets
-type: loadout
-  id: LoadoutItemPetMouse
-  category: Items
-  cost: 2
-  canBeHeirloom: true
-  customColorTint: true # Unethical hair dyes!
-  items:
-    - MobMousePet
-  requirements:
-    - !type 
-      group: LoadoutPets
-  functions:
-    - !type :LoadoutMakeFollower
-- type: loadout
-  id: LoadoutItemPetHamster
-  category: Items
-  cost: 2
-  canBeHeirloom: true
-  customColorTint: true
-  items:
-    - MobHamsterPet
-  requirements:
-    - !type 
-      group: LoadoutPets
-  functions:
-    - !type :LoadoutMakeFollower
-- type: loadout
-  id: LoadoutItemPetMothroach
-  category: Items
-  cost: 2
-  canBeHeirloom: true
-  customColorTint: true
-  items:
-    - MobMothroachPet
-  requirements:
-    - !type 
-      group: LoadoutPets
-  functions:
-    - !type :LoadoutMakeFollower
-- type: loadout
-  id: LoadoutItemPetCockroach
-  category: Items
-  cost: 2
-  canBeHeirloom: true
-  customColorTint: true
-  items:
-    - MobCockroachPet
-  requirements:
-    - !type 
-      group: LoadoutPets
-  functions:
-    - !type :LoadoutMakeFollower
-- type: loadout
-  id: LoadoutItemBlackDeck
-  category: Items
-  cost: 3
-  canBeHeirloom: false
-  items:
-    - CardBoxBlack
-  requirements:
-    - !type 
-      group: LoadoutCards
-- type: loadout
-  id: LoadoutItemNTDeck
-  category: Items
-  cost: 3
-  canBeHeirloom: false
-  items:
-    - CardBoxNanotrasen
-  requirements:
-    - !type 
-      group: LoadoutCards
-    - !type 
-       departments:
-         - Command
+    - N14FoodPorkBeans
+# Misc
+# Misfits Change: Removed bottlecap (N14CurrencyCap100) loadout entry — caps are no longer granted to players at round start via loadouts.
+#- type: loadout
+#  id: N14CurrencyCap100
+#  category: Items
+#  cost: 5
+#  requirements:
+#  - !type:CharacterJobRequirement # Forge-Change
+#      inverted: true
+#      jobs:
+#      - BoSMidSerf
+#      - CaesarLegionSlave
+#      - NCRPisoner
+#  items:
+#    - N14CurrencyCap100
