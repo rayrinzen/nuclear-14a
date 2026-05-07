@@ -1,165 +1,177 @@
-- type: species
-  id: Chitinid
-  name: species-name-chitinid
-  roundStart: false
-  prototype: MobChitinid
-  sprites: MobChitinidSprites
-  defaultSkinTone: "#ffda93"
-  markingLimits: MobChitinidMarkingLimits
-  dollPrototype: MobChitinidDummy
-  skinColoration: Hues
-  maleFirstNames: NamesChitinidFirstMale
-  femaleFirstNames: NamesChitinidFirstFemale
-  naming: First
-
-- type: speciesBaseSprites
-  id: MobChitinidSprites
-  sprites:
-    Head: MobChitinidHead
-    Snout: MobHumanoidAnyMarking
-    Chest: MobChitinidTorso
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    Eyes: MobChitinidEyes
-    LArm: MobChitinidLArm
-    RArm: MobChitinidRArm
-    LHand: MobChitinidLHand
-    RHand: MobChitinidRHand
-    LLeg: MobChitinidLLeg
-    RLeg: MobChitinidRLeg
-    LFoot: MobChitinidLFoot
-    RFoot: MobChitinidRFoot
-
-- type: humanoidBaseSprite
-  id: MobChitinidEyes
-  baseSprite:
+- type: entity
+  save: false
+  name: Urist McAnt
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobChitinid
+  abstract: true
+  components:
+  - type: HumanoidAppearance
+    species: Chitinid
+    hideLayersOnEquip:
+    - HeadTop
+  - type: Hunger
+    baseDecayRate: 0.0467 #needs to eat more to survive
+  - type: Thirst
+  - type: Carriable
+  - type: Icon
     sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: eyes
-
-- type: markingPoints
-  id: MobChitinidMarkingLimits
-  onlyWhitelisted: true
-  points:
-    Hair:
-      points: 0
-      required: false
-    FacialHair:
-      points: 0
-      required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ ChitinidWingsDefault ]
-    Snout:
-      points: 1
-      required: false
-    HeadTop:
-      points: 1
-      required: true
-      defaultMarkings: [ ChitinidAntennasDefault ]
-    HeadSide:
-      points: 1
-      required: false
-    Head:
-      points: 1
-      required: false
-    Chest:
-      points: 1
-      required: false
-    LeftLeg:
-      points: 2
-      required: false
-    RightLeg:
-      points: 2
-      required: false
-    LeftArm:
-      points: 2
-      required: false
-    RightArm:
-      points: 2
-      required: false
-
-- type: humanoidBaseSprite
-  id: MobChitinidHead
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobChitinidHeadMale
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobChitinidHeadFemale
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: head_f
-
-- type: humanoidBaseSprite
-  id: MobChitinidTorso
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobChitinidTorsoMale
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobChitinidTorsoFemale
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobChitinidLLeg
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: l_leg
-
-- type: humanoidBaseSprite
-  id: MobChitinidLHand
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: l_hand
-
-- type: humanoidBaseSprite
-  id: MobChitinidLArm
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: l_arm
-
-- type: humanoidBaseSprite
-  id: MobChitinidLFoot
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: l_foot
-
-- type: humanoidBaseSprite
-  id: MobChitinidRLeg
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobChitinidRHand
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: r_hand
-
-- type: humanoidBaseSprite
-  id: MobChitinidRArm
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: r_arm
-
-- type: humanoidBaseSprite
-  id: MobChitinidRFoot
-  baseSprite:
-    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
-    state: r_foot
+    state: full
+  - type: Body
+    prototype: Chitinid
+    requiredLegs: 2
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Chitinid
+  - type: Speech
+    speechVerb: Chitinid
+    allowedEmotes:
+    - 'Chitter'
+    - 'Click'
+    - 'Hiss'
+  - type: MeleeWeapon
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 5
+  - type: TypingIndicator
+    proto: Chitinid
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#808A51"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Vocal
+    sounds:
+      Male: UnisexChitinid
+      Female: UnisexChitinid
+      Unsexed: UnisexChitinid
+  - type: Fixtures
+    fixtures:  # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.42'
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Temperature # Ants hate the cold
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold: 1.25 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 1.0 #per second, scales with temperature & other constants
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.6
+      275: 0.4
+      250: 0.3
+  - type: Sprite # sprite again because we want different layer ordering
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map:
+      - "enum.HumanoidVisualLayers.Chest"
+      - map:
+      - "enum.HumanoidVisualLayers.Head"
+      - map:
+      - "enum.HumanoidVisualLayers.Snout"
+      - map:
+      - "enum.HumanoidVisualLayers.Eyes"
+      - map:
+      - "enum.HumanoidVisualLayers.RArm"
+      - map:
+      - "enum.HumanoidVisualLayers.LArm"
+      - map:
+      - "enum.HumanoidVisualLayers.RLeg"
+      - map:
+      - "enum.HumanoidVisualLayers.LLeg"
+      - map:
+      - "jumpsuit"
+      - map:
+      - "enum.HumanoidVisualLayers.LHand"
+      - map:
+      - "enum.HumanoidVisualLayers.RHand"
+      - map:
+      - "enum.HumanoidVisualLayers.LFoot"
+      - map:
+      - "enum.HumanoidVisualLayers.RFoot"
+      - map:
+      - "enum.HumanoidVisualLayers.Handcuffs"
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map:
+      - "gloves"
+      - map:
+      - "shoes"
+      - map:
+      - "ears"
+      - map:
+      - "outerClothing"
+      - map:
+      - "eyes"
+      - map:
+      - "belt"
+      - map:
+      - "id"
+      - map:
+      - "back"
+      - map:
+      - "neck"
+      - map:
+      - "enum.HumanoidVisualLayers.Tail"
+      - map:
+      - "enum.HumanoidVisualLayers.Hair"
+      - map:
+      - "enum.HumanoidVisualLayers.HeadSide"
+      - map:
+      - "enum.HumanoidVisualLayers.HeadTop"
+      - map:
+      - "mask"
+      - map:
+      - "head"
+      - map:
+      - "pocket1"
+      - map:
+      - "pocket2"
+      - map:  # Dynamically generated
+      - "clownedon"
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_moth"
+        visible: false
+  - type: Chitinid
+  - type: BlockInjection
+    blockReason: chitinid
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Chittin
+    understands:
+    - TauCetiBasic
+    - Chittin
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobChitinidDummy
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: HumanoidAppearance
+    species: Chitinid
