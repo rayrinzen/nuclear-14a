@@ -1,75 +1,86 @@
 - type: entity
-  parent: ParticleAcceleratorFinishedPart
-  id: ParticleAcceleratorEmitterPort
-  name: PA port containment emitter
-  description: This launchs the Alpha particles, might not want to stand near this end.
+  id: Emitter
+  name: emitter
+  parent: SmallConstructibleMachine
+  description: A heavy duty industrial laser. Shoots non-stop when turned on.
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_port.rsi
-    - type: ParticleAcceleratorEmitter
-      emitterType: Port
-    - type: Construction
-      graph: ParticleAcceleratorEmitterPort
-
-- type: entity
-  parent: ParticleAcceleratorFinishedPart
-  id: ParticleAcceleratorEmitterFore
-  name: PA fore containment emitter
-  description: This launchs the Alpha particles, might not want to stand near this end.
-  components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_fore.rsi
-    - type: ParticleAcceleratorEmitter
-      emitterType: Fore
-    - type: Construction
-      graph: ParticleAcceleratorEmitterFore
-
-- type: entity
-  parent: ParticleAcceleratorFinishedPart
-  id: ParticleAcceleratorEmitterStarboard
-  name: PA starboard containment emitter
-  description: This launchs the Alpha particles, might not want to stand near this end.
-  components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
-    - type: ParticleAcceleratorEmitter
-      emitterType: Starboard
-    - type: Construction
-      graph: ParticleAcceleratorEmitterStarboard
-
-# Unfinished
-- type: entity
-  parent: ParticleAcceleratorUnfinishedBase
-  id: ParticleAcceleratorEmitterPortUnfinished
-  name: PA port containment emitter
-  suffix: Unfinished, Port
-  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
-  components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_port.rsi
-    - type: Construction
-      graph: ParticleAcceleratorEmitterPort
-
-- type: entity
-  parent: ParticleAcceleratorUnfinishedBase
-  id: ParticleAcceleratorEmitterForeUnfinished
-  name: PA fore containment emitter
-  suffix: Unfinished, Fore
-  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
-  components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_fore.rsi
-    - type: Construction
-      graph: ParticleAcceleratorEmitterFore
-
-- type: entity
-  parent: ParticleAcceleratorUnfinishedBase
-  id: ParticleAcceleratorEmitterStarboardUnfinished
-  name: PA starboard containment emitter
-  suffix: Unfinished, Starboard
-  description: This launchs the Alpha particles, might not want to stand near this end. It looks unfinished.
-  components:
-    - type: Sprite
-      sprite: Structures/Power/Generation/PA/emitter_starboard.rsi
-    - type: Construction
-      graph: ParticleAcceleratorEmitterStarboard
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.25,-0.25,0.25,0.25"'
+        density: 400
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/emitter.rsi
+    layers:
+    - state: emitter2
+    - state: beam
+      shader: unshaded
+      visible: false
+      map:
+      - "enum.EmitterVisualLayers.Lights"
+    - state: locked
+      shader: unshaded
+      visible: false
+      map:
+      - "enum.LockVisualLayers.Lock"
+  - type: Emitter
+  - type: Gun
+    showExamineText: false
+    fireRate: 10 #just has to be fast enough to keep up with upgrades
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/emitter.ogg
+  - type: PowerConsumer
+    voltage: Medium
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input: '!type:CableDeviceNode nodeGroupID: MVPower'
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 400 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+      - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 5 max: 5 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Anchorable
+  - type: Pullable
+  - type: Rotatable
+  - type: Appearance
+  - type: Lock
+    locked: false
+  - type: LockVisuals
+  - type: LockedAnchorable
+  - type: LockedWiresPanel
+  - type: AccessReader
+    access:
+    - 
+      - "Engineering"
+  - type: Machine
+    board: EmitterCircuitboard
+  -   # - type: GuideHelp
+  # guides: [ Singularity, Power ]
+type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+      - true
+      - false
+      - Toggle
