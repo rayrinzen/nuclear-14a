@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: LightFixture
+  id: N14Lightbulb
   start: start
   graph:
     - node: start
@@ -9,38 +9,33 @@
             - material: Steel
               amount: 1
               doAfter: 2
-        - to: tubeLight
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 2
-        - to: groundLight
-          steps:
-            - material: Steel
-              amount: 5
-              doAfter: 2
-        - to: strobeLight
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 2
-    - node: tubeLight
-      entity: PoweredlightEmpty
-      edges:
-        - to: start
-          conditions:
-            - !type 
-              container: "light_bulb"
-          steps:
-            - tool: Screwing
-              doAfter: 2
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-            - !type ':DeleteEntity {}'
-    - node: bulbLight
-      entity: PoweredSmallLightEmpty
+    -     # - to: tubeLight
+    # steps:
+    # - material: Steel
+    # amount: 2
+    # doAfter: 2
+    # - to: groundLight
+    # steps:
+    # - material: Steel
+    # amount: 5
+    # doAfter: 2
+    # - node: tubeLight
+    # entity: PoweredlightEmpty
+    # edges:
+    # - to: start
+    # conditions:
+    # - !type:ContainerEmpty
+    # container: "light_bulb"
+    # steps:
+    # - tool: Screwing
+    # doAfter: 2
+    # completed:
+    # - !type:SpawnPrototype
+    # prototype: SheetSteel1
+    # amount: 2
+    # - !type:DeleteEntity {}
+node: bulbLight
+      entity: N14LightSmallEmptyNormie
       edges:
         - to: start
           conditions:
@@ -54,33 +49,42 @@
               prototype: SheetSteel1
               amount: 1
             - !type ':DeleteEntity {}'
-    - node: groundLight
-      entity: PoweredLightPostSmallEmpty
+- # - node: groundLight
+# entity: PoweredLightPostSmallEmpty
+# edges:
+# - to: start
+# conditions:
+# - !type:ContainerEmpty
+# container: "light_bulb"
+# steps:
+# - tool: Screwing
+# doAfter: 4
+# completed:
+# - !type:SpawnPrototype
+# prototype: SheetSteel1
+# amount: 5
+# - !type:DeleteEntity {}
+# Torches
+type: constructionGraph
+  id: WallTorch
+  start: start
+  graph:
+    - node: start
       edges:
-        - to: start
-          conditions:
-            - !type 
-              container: "light_bulb"
+        - to: WallTorch
           steps:
-            - tool: Screwing
-              doAfter: 4
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 5
-            - !type ':DeleteEntity {}'
-    - node: strobeLight
-      entity: PoweredStrobeLightEmpty
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+    - node: WallTorch
+      entity: N14TorchWall
       edges:
         - to: start
-          conditions:
-            - !type 
-              container: "light_bulb"
           steps:
             - tool: Screwing
               doAfter: 2
           completed:
             - !type 
-              prototype: SheetSteel1
+              prototype: MaterialWoodPlank1
               amount: 1
             - !type ':DeleteEntity {}'
