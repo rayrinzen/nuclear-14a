@@ -1,14 +1,14 @@
-- type: messagePack
-  id: MagiVendAds
-  messages:
-    - advertisement-magivend-1
-    - advertisement-magivend-2
-    - advertisement-magivend-3
-    - advertisement-magivend-4
-    - advertisement-magivend-5
-    - advertisement-magivend-6
-    - advertisement-magivend-7
-    - advertisement-magivend-8
-    - advertisement-magivend-9
-    - advertisement-magivend-10
-    - advertisement-magivend-11
+- type: vendingMachineInventory
+  id: MagiVendInventory
+  startingInventory:
+    ClothingHeadHatWizard: 3
+    ClothingOuterWizard: 3
+    ClothingHeadHatWizardFake: 3
+    ClothingHeadHatRedwizard: 3
+    ClothingOuterWizardRed: 3
+    ClothingHeadHatVioletwizard: 3
+    ClothingOuterWizardViolet: 3
+    ClothingShoesWizard: 9
+    #TO DO:
+    #only missing staff
+    #and if wizarditis reagent when hacked if we want this.
