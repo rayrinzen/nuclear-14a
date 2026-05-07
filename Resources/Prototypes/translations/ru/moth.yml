@@ -1,145 +1,179 @@
-- type: entity
-  save: false
-  name: Urist McFluff
-  parent: BaseMobSpeciesOrganic
-  id: BaseMobMoth
-  abstract: true
-  components:
-    - type: HumanoidAppearance
-      species: Moth
-    - type: Hunger
-    - type: Thirst
-    - type: Carriable # Carrying system from nyanotrasen.
-    - type: Icon
-      sprite: Mobs/Species/Moth/parts.rsi
-      state: full
-    - type: Body
-      prototype: Moth
-      requiredLegs: 2
-    - type: Damageable
-      damageContainer: Biological
-      damageModifierSet: Moth
-    - type: ZombieAccentOverride
-      accent: zombieMoth
-    - type: Speech
-      speechVerb: Moth
-      allowedEmotes: [ 'Chitter', 'Squeak' ]
-    - type: LanguageKnowledge
-      speaks:
-        - TauCetiBasic
-        - Moffic
-      understands:
-        - TauCetiBasic
-        - Moffic
-    - type: TypingIndicator
-      proto: moth
-    - type: Butcherable
-      butcheringType: Spike
-      spawned:
-        - id: FoodMeat
-          amount: 5
-    - type: Bloodstream
-      bloodReagent: InsectBlood
-    - type: DamageVisuals
-      damageOverlayGroups:
-        Brute:
-          sprite: Mobs/Effects/brute_damage.rsi
-          color: "#808A51"
-    - type: MothAccent
-    - type: Vocal
-      sounds:
-        Male: UnisexMoth
-        Female: UnisexMoth
-        Unsexed: UnisexMoth
-    - type: MovementSpeedModifier
-      weightlessAcceleration: 2.5 # Move around more easily in space.
-    - type: Flammable
-      damage:
-        types:
-          Heat: 4 # DV - Reduced by .5
-    - type: Temperature # Moths hate the heat and thrive in the cold.
-      heatDamageThreshold: 320
-      coldDamageThreshold: 230
-      currentTemperature: 310.15
-      specificHeat: 46
-      coldDamage:
-        types:
-          Cold: 0.05 #per second, scales with temperature & other constants
-      heatDamage:
-        types:
-          Heat: 3 #per second, scales with temperature & other constants
-    - type: TemperatureSpeed
-      thresholds:
-        289: 0.8
-        275: 0.6
-        250: 0.4
-    - type: Sprite # sprite again because we want different layer ordering
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        - map: [ "enum.HumanoidVisualLayers.Face" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
-          # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
-          # sprite refactor when
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: unisex_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "innerBelt" ]
-        - map: [ "innerNeck" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "id" ]
-        - map:
-            [ "enum.HumanoidVisualLayers.Tail" ]
-            #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        - map: [ "enum.HumanoidVisualLayers.Hair" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-        - map:
-            [ "clownedon" ]
-            # Dynamically generated
-          sprite: "Effects/creampie.rsi"
-          state: "creampie_moth"
-          visible: false
-    - type: FootPrints
+- type: species
+  id: Moth
+  name: species-name-moth
+  roundStart: false
+  prototype: MobMoth
+  sprites: MobMothSprites
+  defaultSkinTone: "#ffda93"
+  markingLimits: MobMothMarkingLimits
+  dollPrototype: MobMothDummy
+  skinColoration: Hues
+  maleFirstNames: names_moth_first_male
+  femaleFirstNames: names_moth_first_female
+  maleLastNames: names_moth_last
+  femaleLastNames: names_moth_last
 
-- type: entity
-  parent: BaseSpeciesDummy
-  id: MobMothDummy
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: Moth
+- type: speciesBaseSprites
+  id: MobMothSprites
+  sprites:
+    Head: MobMothHead
+    Face: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobMothTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobMothEyes
+    LArm: MobMothLArm
+    RArm: MobMothRArm
+    LHand: MobMothLHand
+    RHand: MobMothRHand
+    LLeg: MobMothLLeg
+    RLeg: MobMothRLeg
+    LFoot: MobMothLFoot
+    RFoot: MobMothRFoot
+
+- type: humanoidBaseSprite
+  id: MobMothEyes
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobMothMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ MothWingsDefault ]
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ MothAntennasDefault ]
+    HeadSide:
+      points: 1
+      required: false
+    Head:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobMothHead
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMothHeadMale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMothHeadFemale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobMothTorso
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMothTorsoMale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMothTorsoFemale
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobMothLLeg
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobMothLHand
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobMothLArm
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobMothLFoot
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobMothRLeg
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobMothRHand
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobMothRArm
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobMothRFoot
+  baseSprite:
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: r_foot
