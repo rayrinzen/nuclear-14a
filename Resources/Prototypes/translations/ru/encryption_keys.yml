@@ -1,187 +1,74 @@
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: EncryptionKey
-  name: encryption key
-  description: A small cypher chip for headsets.
-  components:
-    - type: EncryptionKey
-    - type: Item
-      sprite: Objects/Devices/encryption_keys.rsi
-    - type: Sprite
-      sprite: Objects/Devices/encryption_keys.rsi
-
+# #Misfits Change - Uncommented to fix missing prototype reference in Wendover map
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyCommon
-  name: common encryption key
-  description: An encryption key used by anyone.
+  id: EncryptionKeyBrotherhoodMidwest
+  name: BoS Encryption Key
+  description: An encryption key used by the Brotherhood of Steel.
   components:
     - type: EncryptionKey
       channels:
-        - Common
-      defaultChannel: Common
+        - BrotherhoodOfSteel
+      defaultChannel: BrotherhoodOfSteel
     - type: Sprite
       layers:
-        - state: crypt_gray
+        - state: crypt_silver
+        - state: common_label
+
+# - type: entity
+#   parent: EncryptionKey
+#   id: EncryptionKeyBrotherhoodWashington
+#   name: Washington BoS Encryption Key
+#   description: An encryption key used by the Washington Brotherhood of Steel.
+#   components:
+#   - type: EncryptionKey
+#     channels:
+#     - BrotherhoodWashington
+#     defaultChannel: BrotherhoodWashington
+#   - type: Sprite
+#     layers:
+#     - state: crypt_silver
+#     - state: common_label
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyBrotherhoodOfSteel
+  name: Brotherhood encryption key
+  description: An encryption key used by the Brotherhood of Steel.
+  components:
+    - type: EncryptionKey
+      channels:
+        - BrotherhoodOfSteel
+      defaultChannel: BrotherhoodOfSteel
+    - type: Sprite
+      layers:
+        - state: crypt_silver
         - state: common_label
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyCargo
-  name: logistics encryption key # DeltaV - Logistics Department replacing Cargo
-  description: An encryption key used by supply employees.
+  id: EncryptionKeyEnclave
+  name: Enclave encryption key
+  description: An encryption key used by the Enclave.
+  categories: [ HideSpawnMenu ]
   components:
     - type: EncryptionKey
       channels:
-        - Supply
-      defaultChannel: Supply
+        - Enclave
+      defaultChannel: Enclave
     - type: Sprite
       layers:
-        - state: crypt_gray
-        - state: cargo_label
+        - state: crypt_red
+        - state: synd_label
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyCentCom
-  name: central command encryption key
-  description: An encryption key used by captain's bosses.
+  id: EncryptionKeyNCR
+  name: NCR encryption key
+  description: An encryption key used by the NCR.
   components:
     - type: EncryptionKey
       channels:
-        - CentCom
-      defaultChannel: CentCom
-    - type: Sprite
-      layers:
-        - state: crypt_blue
-        - state: nano_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyStationMaster
-  name: station master encryption key
-  description: An encryption key used by station's bosses.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Common
-        - Command
-        - Engineering
-        - Justice # Delta V- adds Justice department
-        - Medical
-        - Science
-        - Security
-        - Service
-        - Supply
-        - Prison #DeltaV
-      defaultChannel: Command
-    - type: Sprite
-      layers:
-        - state: crypt_gold
-        - state: cap_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyCommand
-  name: command encryption key
-  description: An encryption key used by crew's bosses.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Command
-      defaultChannel: Command
-    - type: Sprite
-      layers:
-        - state: crypt_silver
-        - state: com_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyEngineering
-  name: engineering encryption key
-  description: An encryption key used by the engineers.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Engineering
-      defaultChannel: Engineering
-    - type: Sprite
-      layers:
-        - state: crypt_gray
-        - state: eng_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyMedical
-  name: medical encryption key
-  description: An encryption key used by those who save lives.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Medical
-      defaultChannel: Medical
-    - type: Sprite
-      layers:
-        - state: crypt_gray
-        - state: med_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyMedicalScience
-  name: med-epi encryption key # DeltaV - Epistemics Department replacing Science
-  description: An encryption key used by someone who hasn't decided which side to take.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Medical
-        - Science
-      defaultChannel: Science
-    - type: Sprite
-      layers:
-        - state: crypt_gray
-        - state: medsci_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyScience
-  name: epistemics encryption key # DeltaV - Epistemics Department replacing Science
-  description: An encryption key used by scientists. Maybe it is plasmaproof?
-  components:
-    - type: EncryptionKey
-      channels:
-        - Science
-      defaultChannel: Science
-    - type: Sprite
-      layers:
-        - state: crypt_gray
-        - state: sci_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeyRobo
-  name: robotech encryption key
-  description: An encryption key used by robototech engineers. Maybe it has a LAH-6000 on it?
-  components:
-    - type: EncryptionKey
-      channels:
-        - Science
-      defaultChannel: Science
-    - type: Sprite
-      layers:
-        - state: crypt_gray
-        - state: robotics_label
-
-- type: entity
-  parent: EncryptionKey
-  id: EncryptionKeySecurity
-  name: security encryption key
-  description: An encryption key used by security.
-  components:
-    - type: EncryptionKey
-      channels:
-        - Security
-        - Prison #deltaV
-      defaultChannel: Security
+        - NCR
+      defaultChannel: NCR
     - type: Sprite
       layers:
         - state: crypt_gray
@@ -189,64 +76,78 @@
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyService
-  name: service encryption key
-  description: An encryption key used by the service staff, tasked with keeping the station full, happy and clean.
+  id: EncryptionKeyVault
+  name: Vault encryption key
+  description: An encryption key used by the local Vault.
   components:
     - type: EncryptionKey
       channels:
-        - Service
-      defaultChannel: Service
+        - VaultCommon
+      defaultChannel: VaultCommon
     - type: Sprite
       layers:
         - state: crypt_gray
-        - state: service_label
+        - state: com_label
 
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeySyndie
-  name: blood-red encryption key
-  description: An encryption key used by... wait... Who is the owner of this chip?
+  id: EncryptionKeyPBS
+  name: PBS encryption key
+  description: An encryption key used by the local broadcast messages.
   components:
     - type: EncryptionKey
       channels:
-        - Syndicate
-      defaultChannel: Syndicate
+        - PBS
+      defaultChannel: PBS
+    - type: Sprite
+      layers:
+        - state: crypt_gray
+        - state: com_label
+
+# #Misfits Change - Legion encryption key
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyLegion
+  name: Legion encryption key
+  description: An encryption key used by Caesar's Legion.
+  components:
+    - type: EncryptionKey
+      channels:
+        - Legion
+      defaultChannel: Legion
     - type: Sprite
       layers:
         - state: crypt_red
         - state: synd_label
-    - type: ReverseEngineering # Nyano
-      difficulty: 5
-      recipes:
-        - EncryptionKeySyndie
 
+# #Misfits Change - Global wasteland radio key, included in all headsets
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyBinary
-  name: binary translator key
-  description: An encryption key that translates binary signals used by silicons.
+  id: EncryptionKeyWastelandGlobal
+  name: wasteland radio encryption key
+  description: A common encryption key used across the wasteland.
   components:
     - type: EncryptionKey
       channels:
-        - Binary
-      defaultChannel: Binary
+        - WastelandGlobal
+      defaultChannel: WastelandGlobal
     - type: Sprite
       layers:
-        - state: crypt_silver
-        - state: rd_label
+        - state: crypt_gray
+        - state: common_label
 
+# #Misfits Add — Followers of the Apocalypse private encryption key
 - type: entity
   parent: EncryptionKey
-  id: EncryptionKeyFreelance
-  name: freelancer encryption key
-  description: An encryption key used by freelancers, who may or may not have an affiliation. It looks like its worn out.
+  id: EncryptionKeyFollowers
+  name: Followers encryption key
+  description: An encryption key used by the Followers of the Apocalypse.
   components:
     - type: EncryptionKey
       channels:
-        - Freelance
-      defaultChannel: Freelance
+        - FollowersOfApocalypse
+      defaultChannel: FollowersOfApocalypse
     - type: Sprite
       layers:
-        - state: crypt_rusted
-        - state: pirate_label
+        - state: crypt_gray
+        - state: med_label
