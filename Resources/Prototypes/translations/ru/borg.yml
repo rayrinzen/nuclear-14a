@@ -1,41 +1,66 @@
-# only used roundstart, names can be changed after
-- type: dataset
-  id: names_borg
-  values:
-    - Bob
-    - Joe
-    - Beep
-    - Beep II
-    - Boombox
-    - Tour Guide-Tron
-    - Taffy
-    - Boop
-    - Boop II
-    - Buzz
-    - Buzz II
-    - Toaster
-    - Robot Chief
-    - EVE 1
-    - Mister Robist
-    - Tinman
-    - R2-PO
-    - C-3-D2
-    - Robby
-    - Robobot
-    - Chinila
-    - Sonny
-    - Autobot
-    - Wheatley
-    - Keller
-    - Xenos
-    - Echo
-    - Vector
-    - B-0-RG
-    - Megabyte
-    - Rear-Bot
-    - Deceptiborg
-    - Le Borg
-    - Bippers
-    - Milaha-Bot
-    - Selfmadekin
-    - Twinnybean
+- type: inventoryTemplate
+  id: borg
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,0
+      strippingWindowPos: 0,0
+      displayName: Head
+      offset: 0, -0.09375
+
+- type: inventoryTemplate
+  id: borgShort
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,0
+      strippingWindowPos: 0,0
+      displayName: Head
+      offset: 0, -0.1875
+
+- type: inventoryTemplate
+  id: borgTall
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      slotGroup: MainHotbar
+      uiWindowPos: 0,0
+      strippingWindowPos: 0,0
+      displayName: Head
+
+# taller than tall
+- type: inventoryTemplate
+  id: borgDutch
+  slots:
+    - name: head
+      slotTexture: head
+      slotFlags: HEAD
+      uiWindowPos: 1,0
+      strippingWindowPos: 0,0
+      displayName: Head
+      offset: 0, 0.09375
+
+# #Misfits Change: player-controlled robots - ears slot for headset radio, locked id slot for nav module
+- type: inventoryTemplate
+  id: borgRobot
+  slots:
+    - name: ears
+      slotTexture: ears
+      slotFlags: EARS
+      stripTime: 3
+      uiWindowPos: 0,0
+      strippingWindowPos: 0,0
+      displayName: Ears
+    - name: id
+      slotTexture: id
+      fullTextureName: template_small
+      slotFlags: IDCARD
+      slotGroup: SecondHotbar
+      stripTime: 999
+      stripHidden: true
+      uiWindowPos: 1,0
+      strippingWindowPos: 1,0
+      displayName: Nav-Module
