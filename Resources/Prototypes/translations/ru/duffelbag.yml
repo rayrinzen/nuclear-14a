@@ -1,28 +1,17 @@
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: ClothingBackpackDuffelMedical
-  id: ClothingBackpackDuffelParamedicFilledDV
+  parent: ClothingBackpackDuffelSalvage
+  id: ClothingBackpackDuffelSalvageConscription
+  name: mining conscription kit
+  description: A duffel bag containing everything a crewmember needs to support a shaft miner in the field.
   components:
     - type: StorageFill
       contents:
-        - id: EmergencyRollerBedSpawnFolded
-        - id: BodyBagFolded
-        - id: Portafib
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: ClothingBackpackDuffelMedical
-  id: ClothingBackpackDuffelPsychologistFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: RubberStampPsychologist
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: ClothingBackpackDuffel
-  id: ClothingBackpackDuffelLawyerFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: RubberStampLawyer
+        - id: ClothingEyesGlassesMeson
+        - id: OreBag
+        - id: ClothingUniformJumpsuitSalvageSpecialist
+        - id: EncryptionKeyCargo
+        - id: ClothingMaskGasExplorer
+        - id: SalvageIDCard
+        - id: WeaponProtoKineticAccelerator
+        - id: SurvivalKnife
+        - id: FlashlightSeclite
