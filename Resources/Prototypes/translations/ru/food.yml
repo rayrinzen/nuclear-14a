@@ -1,6 +1,25 @@
-- type: soundCollection
-  id: eating
-  files:
-    - /Audio/Items/eating_1.ogg
-    - /Audio/Items/eating_2.ogg
-    - /Audio/Items/eating_3.ogg
+- type: reagent
+  id: Nausium
+  name: reagent-name-nausium
+  group: Foods
+  desc: reagent-desc-nausium
+  physicalDesc: reagent-physical-desc-sickly
+  color: brown
+  metabolisms:
+    Food:
+      effects:
+      - !type 
+        probability: 0.9
+        conditions:
+        - !type 
+          reagent: Nausium
+          min: 5
+      - !type 
+        type: Local
+        messages:
+        - "disease-sick-stomach"
+        probability: 0.25
+        conditions:
+        - !type 
+          reagent: Nausium
+          min: 2.5
