@@ -1,18 +1,19 @@
 - type: entity
-  id: MisfitsShellShotgun12Beanbag
-  name: beanbag shell (12 gauge)
-  parent: N14ShellShotgun12
+  id: PelletShotgun12Beanbag
+  name: beanbag (12 gauge)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - N14ShellShotgun12
     - type: Sprite
-      sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
-      layers:
-        - state: beanbag
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: CartridgeAmmo
-      proto: PelletShotgun12Beanbag
-    - type: SpentAmmoVisuals
-      state: beanbag
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 12
+    - type: StaminaDamageOnCollide
+      damage: 45 # 3 hits to stun
+    - type: BallisticDamageFalloff
+      falloffStartTiles: 3.0
+      maxFalloffTiles: 8.0
+      minDamageMultiplier: 0.3
