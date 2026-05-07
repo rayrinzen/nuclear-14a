@@ -1,67 +1,44 @@
 - type: job
-  id: Chaplain
+  id: WastelandChaplain
+  setPreference: true
+  weight: 20
+  overrideConsoleVisibility: false
+  canBeAntag: false
   name: job-name-chaplain
   description: job-description-chaplain
-  playTimeTracker: JobChaplain
+  playTimeTracker: WastelandChaplain
   requirements:
     - !type 
-      department: Epistemics #Chaplain is now one of the station's "Crew-Aligned Wizards"
-      min: 14400 # 4 hours
-    - !type 
-      requirements:
-        - !type 
-          inverted: true
-          species:
-            - IPC
-  # - !type:CharacterTraitRequirement
-  # traits:
-  # - AnomalousPositronics
-  # - !type:CharacterLogicOrRequirement
-  # requirements:
-  # - !type:CharacterSpeciesRequirement
-  # species:
-  # - Shadowkin
-  # - !type:CharacterTraitRequirement
-  # inverted: true
-  # traits:
-  # - ShadowkinBlackeye
-  startingGear: ChaplainGear
-  icon: "JobIconChaplain"
-  supervisors: job-supervisors-rd
+      species:
+      - Human
+      - Ghoul
+  startingGear: WastelandChaplainGear
+  icon: "JobIconWastelandChaplain" # Forge-Change
+  supervisors: job-supervisors-townsfolk
   access:
-  - Chapel
-  - Research
-  - Maintenance
+  - WastelandChaplain
+  - TownsPerson
   special:
   - !type 
     components:
-    - type: BibleUser
-    - type: Psionic
-      powerRollMultiplier: 3
-    - type: InnatePsionicPowers
-      powersToAdd:
-        - TelepathyPower
-        - HealingWordPower
-        - SummonRemiliaPower
-  setPreference: false
+    - type: BibleUser #Lets them heal with bibles
+    - type: NpcFactionMember # Forge-Add
+      factions:
+        - Townsfolk
 - type: startingGear
-  id: ChaplainGear
-  subGear:
-  - ChaplainPlasmamanGear
+  id: WastelandChaplainGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitChaplain
-    back: ClothingBackpack
-    shoes: ClothingShoesColorBlack
-    id: ChaplainPDA
-    ears: ClothingHeadsetScience
-    pocket1: BookPsionicsGuidebook
-  innerClothingSkirt: ClothingUniformJumpskirtChaplain
-  satchel: ClothingBackpackSatchelChaplainFilled
-  duffelbag: ClothingBackpackDuffelChaplainFilled
-- type: startingGear
-  id: ChaplainPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitChaplain
-    head: ClothingHeadEnvirohelmChaplain
-    gloves: ClothingHandsGlovesEnviroglovesBlack
+    jumpsuit: N14ClothingUniformJumpsuitFollowers
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackTrekker # Forge-Change
+    shoes: N14ClothingBootsBlack
+    id: N14IDPassportWasteChaplain
+  innerClothingSkirt: N14ClothingUniformJumpsuitFollowers
+  satchel: N14ClothingBackpackSatchelChaplainFilled
+  duffelbag: N14ClothingBackpackDuffelChaplainFilled
+  storage:  # Forge-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+    - Bible
+- type: playTimeTracker
+  id: WastelandChaplain
