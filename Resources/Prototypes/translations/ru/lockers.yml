@@ -1,26 +1,19 @@
 - type: entity
-  id: UniqueLockerNanorepFilled
-  suffix: MAP THIS, Unique, Filled
-  parent: LockerNanorepFilled
+  id: LockerForensicMantis
+  parent: LockerDetective
+  suffix: Empty
+  name: mantis' cabinet
+  description: You'll never know what's inside until you collapse the quantum superposition of all possible mysteries.
   components:
-    - type: ConditionalSpawner
-      prototypes:
-        - UniqueMarkerNanorepLocker
-
-- type: entity
-  id: UniqueLockerBlueshieldOfficerFilled
-  suffix: MAP THIS, Unique, Filled
-  parent: LockerBlueshieldOfficerFilled
-  components:
-    - type: ConditionalSpawner
-      prototypes:
-        - UniqueMarkerBlueshieldLocker
-
-- type: entity
-  id: UniqueLockerMagistrateFilled
-  suffix: MAP THIS, Unique, Filled
-  parent: LockerMagistrateFilled
-  components:
-    - type: ConditionalSpawner
-      prototypes:
-        - UniqueMarkerMagistrateLocker
+  -   # Because it holds a traitor objective, StrongMetallic,
+  # but not as much HP as LockerBaseSecure, because it's not a Head's locker.
+type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: StrongMetallic
+  - type: AccessReader
+    access:
+    - 
+      - "Mantis"
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 1 max: 2 MaterialWoodPlank1: min: 1 max: 2'
