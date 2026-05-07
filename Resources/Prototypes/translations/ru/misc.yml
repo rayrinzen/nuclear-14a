@@ -1,51 +1,12 @@
-- type: accessLevel
-  id: DV-SpareSafe
-  name: id-card-access-level-unused
-
-- type: accessGroup
-  id: AllAccessBorg
-  tags:
-    #    - EmergencyShuttleRepealAll
-    #    - Captain
-    #    - HeadOfPersonnel
-    #    - ChiefEngineer
-    #    - ChiefMedicalOfficer
-    #    - HeadOfSecurity
-    #    - ResearchDirector
-    - Command
-    - Security
-    - Detective
-    - Corpsman
-    #    - Armory
-    - Lawyer
-    - Engineering
-    - Medical
-    #    - Quartermaster
-    - Salvage
-    - Cargo
-    - Research
-    - Service
-    - Maintenance
-    - External
-    - Janitor
-    - Theatre
-    - Bar
-    - Chemistry
-    - Kitchen
-    - Chapel
-    - Hydroponics
-    - Atmospherics
-    - Mail
-    #   - Orders
-    - Mantis
-    - Paramedic
-    - Psychologist
-    - Boxer
-    - Clown
-    - Library
-    - Mime
-    - Musician
-    - Reporter
-    - Zookeeper
-    - Justice
-    - Prosecutor
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckProsecutorbadge
+  name: prosecutor badge
+  description: A badge to show that the owner is a 'legitimate' prosecutor who passed the NT bar exam required to practice law.
+  components:
+    - type: Sprite
+      sprite: DeltaV/Clothing/Neck/Misc/prosecutorbadge.rsi
+    - type: Clothing
+      sprite: DeltaV/Clothing/Neck/Misc/prosecutorbadge.rsi
+    - type: TypingIndicatorClothing
+      proto: lawyer
