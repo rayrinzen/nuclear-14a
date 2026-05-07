@@ -1,124 +1,216 @@
 - type: reagent
-  parent: Absinthe
-  id: N14Absinthe
-  group: N14Alcohol
-  name: reagent-name-absinthe
-  desc: reagent-desc-absinthe
-
+  id: Sake
+  name: reagent-name-sake
+  parent: BaseAlcohol
+  desc: reagent-desc-sake
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: sake
+  color: "#DDDDDD"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/sakeglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.15
 - type: reagent
-  parent: Ale
-  id: N14Ale
-  group: N14Alcohol
-  name: reagent-name-ale
-  desc: reagent-desc-ale
-
+  id: Soju
+  name: reagent-name-soju
+  parent: BaseAlcohol
+  desc: reagent-desc-soju
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: soju
+  color: "#DDDDDD"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/sojuglass.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.2
 - type: reagent
-  parent: Beer
-  id: N14BeantownBrownBeer
-  group: N14Alcohol
-  name: reagent-name-beantownbrownbeer
-  desc: reagent-desc-beantownbrownbeer
-
+  id: OrangeCreamice
+  name: reagent-name-orange-creamcicle
+  parent: BaseAlcohol
+  desc: reagent-desc-orange-creamcicle
+  physicalDesc: reagent-physical-desc-creamy
+  flavor: orangecreamcicle
+  color: "#efaa16"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/orangecreamcicle.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.1
 - type: reagent
-  parent: Whiskey
-  id: N14Bourbon
-  group: N14Alcohol
-  name: reagent-name-bourbon
-  desc: reagent-desc-bourbon
-
+  id: Silverjack
+  name: reagent-name-silverjack
+  parent: BaseAlcohol
+  desc: reagent-desc-silverjack
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: silverjack
+  color: "#978647"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.1375
 - type: reagent
-  parent: Beer
-  id: N14GammaGulpBeer
-  group: N14Alcohol
-  name: reagent-name-gammagulpbeer
-  desc: reagent-desc-gammagulpbeer
-
+  id: Brainbomb
+  name: reagent-name-brainbomb
+  parent: BaseAlcohol
+  desc: reagent-desc-brainbomb
+  physicalDesc: reagent-physical-desc-abrasive
+  flavor: brainbomb
+  color: "#6f7a2c"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/brainbomb.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          min: 5
+        damage:
+          types:
+            Caustic: 0.25
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.13
+      - !type 
+        reagent: THC
+        amount: 0.33
+      - !type 
+        reagent: SpaceDrugs
+        amount: 0.33
 - type: reagent
-  parent: Beer
-  id: N14GwinnetStout
-  group: N14Alcohol
-  name: reagent-name-gwinnetstout
-  desc: reagent-desc-gwinnetstout
-  flavor: rum #N14TODO Change
-  color: "#664300" #N14TODO Change
-
+  id: ClownBlood
+  name: reagent-name-clownblood
+  parent: BaseAlcohol
+  desc: reagent-desc-clownblood
+  physicalDesc: reagent-physical-desc-cloudy
+  flavor: funny
+  color: "#94001c"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/clownblood.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.08
 - type: reagent
-  parent: Beer
-  id: N14Lager
-  group: N14Alcohol
-  name: reagent-name-lager
-  desc: reagent-desc-lager
-  flavor: rum #N14TODO Change
-  color: "#664300" #N14TODO Change
-
+  id: CircusJuice
+  name: reagent-name-circusjuice
+  parent: BaseAlcohol
+  desc: reagent-desc-circusjuice
+  physicalDesc: reagent-physical-desc-glittery
+  flavor: circusjuice
+  color: "#c47872"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/circusjuice.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.12
+      - !type 
+        emote: Laugh
+        probability: 0.15
 - type: reagent
-  parent: Moonshine
-  id: N14Moonshine
-  group: N14Alcohol
-  name: reagent-name-moonshine
-  desc: reagent-desc-moonshine
-
+  id: SapoPicante
+  name: reagent-name-sapopicante
+  parent: BaseAlcohol
+  desc: reagent-desc-sapopicante
+  physicalDesc: reagent-physical-desc-oily
+  flavor: sapopicante
+  color: "#c0501a"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.1125
+      - !type 
+        amount: 75 # thermal energy, not temperature!
 - type: reagent
-  parent: N14Lager
-  id: N14Pilsner
-  group: N14Alcohol
-  name: reagent-name-pilsner
-  desc: reagent-desc-pilsner
-
-- type: reagent
-  parent: Rum
-  id: N14RoentgenRum
-  group: N14Alcohol
-  name: reagent-name-roentgenrum
-  desc: reagent-desc-roentgenrum
-
-- type: reagent
-  parent: Rum
-  id: N14Rotgut
-  group: N14Alcohol
-  name: reagent-name-rotgut
-  desc: reagent-desc-rotgut
-  flavor: rum #N14TODO Change
-  color: "#664300" #N14TODO Change
-
-- type: reagent
-  parent: Whiskey
-  id: N14Scotch
-  group: N14Alcohol
-  name: reagent-name-scotch
-  desc: reagent-desc-scotch
-  flavor: rum #N14TODO Change
-  color: "#664300" #N14TODO Change
-
-- type: reagent
-  parent: Vodka
-  id: N14Vodka
-  group: N14Alcohol
-  name: reagent-name-vodka
-  desc: reagent-desc-vodka
-
-- type: reagent
-  parent: Whiskey
-  id: N14Whiskey
-  group: N14Alcohol
-  name: reagent-name-scotch
-  desc: reagent-desc-scotch
-
-- type: reagent
-  parent: Whiskey
-  id: N14WhiskeyRare
-  group: N14Alcohol
-  name: reagent-name-scotch
-  desc: reagent-desc-scotch
-  flavor: rum #N14TODO Change
-  color: "#664300" #N14TODO Change
-
-- type: reagent
-  parent: Wine
-  id: N14Wine
-  group: N14Alcohol
-  name: reagent-name-wine
-  desc: reagent-desc-wine
-
-# Mixtures
-## N14RumNuka
+  id: Graveyard
+  name: reagent-name-graveyard
+  parent: BaseAlcohol
+  desc: reagent-desc-graveyard
+  physicalDesc: reagent-physical-desc-dark-red
+  flavor: graveyard
+  color: "#4f1b1b"
+  metamorphicSprite:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/graveyard.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.12
