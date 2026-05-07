@@ -1,97 +1,51 @@
-- # Just copypasta of some human basic body parts for interaction,
-# only differences for now is that limbs work in pairs,
-# they are unextractable and can't be spawned (no surgery on Animals!?).
-type: entity
-  id: PartAnimal
-  parent: BaseItem
-  name: "animal body part"
-  abstract: true
-  components:
-  -   # yes these sprites dont make sense i dont care its better than them being invisible
-type: Sprite
-    sprite: Mobs/Species/Reptilian/parts.rsi
-  - type: Damageable
-    damageContainer: OrganicPart # Shitmed
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type
-        ents: [ ]
-  - type: StaticPrice
-    price: 50
-  - type: Tag
-    tags:
-      - Trash
-  - type: Gibbable
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 3
-      - ReagentId: Blood
-        Quantity: 10
-- type: entity
-  id: HandsAnimal
-  name: animal hands
-  parent: PartAnimal
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    layers:
-    - state: l_hand
-    - state: r_hand
-  - type: BodyPart
-    partType: Hand
-    #symmetry: Left
-    slotId: hands # Shitmed
-- type: entity
-  id: LegsAnimal
-  name: animal legs
-  parent: PartAnimal
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    layers:
-    - state: l_leg
-    - state: r_leg
-  - type: BodyPart
-    partType: Leg
-    slotId: legs # Shitmed
-  - type: MovementBodyPart
-- type: entity
-  id: FeetAnimal
-  name: animal feet
-  parent: PartAnimal
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    layers:
-    - state: r_foot
-    - state: l_foot
-  - type: BodyPart
-    partType: Foot
-    slotId: feet # Shitmed
-- type: entity
-  id: TorsoAnimal
-  name: animal torso
-  parent: PartAnimal
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: Sprite
-    layers:
-    - state: torso_m
-  - type: BodyPart
-    partType: Torso
-  - type: Damageable
-    damageContainer: Biological
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fat
-        Quantity: 10
-      - ReagentId: Blood
-        Quantity: 20
+- # Languages spoken by various critters.
+type: language
+  id: Cat
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 2 replacement: - murr - meow - purr - mrow'
+- type: language # Corvax-Change
+  id: Dog
+  speech:
+    color: "#927117"
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 2 replacement: - Woof-Woof! - Arf! - Woof-Woof! - Woof. - Grrrrrrr...'
+- type: language
+  id: Fox
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 2 replacement: - ruff - raff - garr - yip - yap - myah'
+- type: language
+  id: Xeno
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 8 replacement: - s - S' # I was crazy once
+- type: language
+  id: Monkey
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 8 replacement: - o - k' # They locked me in a room...
+- type: language
+  id: Mouse
+  obfuscation: '!type:SyllableObfuscation minSyllables: 2 maxSyllables: 3 replacement: - squ - eak - pi - ep - chuu - ee - fwi - he'
+- type: language
+  id: Chicken
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - co - coo - ot'
+- type: language
+  id: Duck
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - qu - ack - quack'
+- type: language
+  id: Cow
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - moo - mooo'
+- type: language
+  id: Sheep
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - ba - baa - aa'
+- type: language
+  id: Kangaroo
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - shre - ack - chuu - choo'
+- type: language
+  id: Pig
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - oink' # Please someone come up with something better
+- type: language
+  id: Crab
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 3 replacement: - click - clack - ti - pi - tap - cli - ick'
+- type: language
+  id: Kobold
+  obfuscation: '!type:SyllableObfuscation minSyllables: 2 maxSyllables: 4 replacement: - yip - yap - gar - grr - ar - scre - et - gronk - hiss - ss - ee'
+- type: language
+  id: Hissing
+  obfuscation: '!type:SyllableObfuscation minSyllables: 2 maxSyllables: 4 replacement: - hss - iss - ss - is'
+- type: language
+  id: Penguin
+  obfuscation: '!type:SyllableObfuscation minSyllables: 2 maxSyllables: 3 replacement:' #I'm out of ideas - pen - peng - won - wonk - wong
