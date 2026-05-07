@@ -1,18 +1,31 @@
-# Alphabetically Ordered
-- type: moodCategory
-  id: Health
+- type: latheCategory
+  id: Ammo
+  name: lathe-category-ammo
 
-- type: moodCategory
-  id: Heirloom
+- type: latheCategory
+  id: Circuitry
+  name: lathe-category-circuitry
 
-- type: moodCategory
-  id: Hunger
+- type: latheCategory
+  id: Lights
+  name: lathe-category-lights
 
-- type: moodCategory
-  id: LotophagoiAddiction
+- type: latheCategory
+  id: Parts
+  name: lathe-category-parts
 
-- type: moodCategory
-  id: NicotineAddiction
+- type: latheCategory
+  id: Robotics
+  name: lathe-category-robotics
 
-- type: moodCategory
-  id: Thirst
+- type: latheCategory
+  id: Tacsuits
+  name: lathe-category-tacsuits
+
+- type: latheCategory
+  id: Tools
+  name: lathe-category-tools
+
+- type: latheCategory
+  id: Weapons
+  name: lathe-category-weapons
