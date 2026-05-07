@@ -1,23 +1,26 @@
 - type: entity
-  id: ShellSoulbreaker
-  name: shell (.50 soulbreaker)
-  parent: BaseShellShotgun
+  id: PelletShotgunSoulbreaker
+  name: pellet (.50 soulbreaker)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletPractice
   components:
     - type: Sprite
-      layers:
-        - state: practice
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: CartridgeAmmo
-      proto: PelletShotgunSoulbreaker
-    - type: ChemicalAmmo
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+      state: buckshot
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 1
     - type: SolutionContainerManager
       solutions:
         ammo:
-          reagents:
-            - ReagentId: SoulbreakerToxin
-              Quantity: 15
-    - type: SolutionTransfer
-      maxTransferAmount: 15
-    - type: SpentAmmoVisuals
-      state: "practice"
-    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Mindbreaking)
+          maxVol: 15
+    - type: RefillableSolution
+      solution: ammo
+    - type: DrainableSolution
+      solution: ammo
+    - type: SolutionInjectOnProjectileHit
+      transferAmount: 15
+      solution: ammo
+    - type: InjectableSolution
+      solution: ammo
