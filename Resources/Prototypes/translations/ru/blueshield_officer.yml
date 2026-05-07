@@ -1,49 +1,83 @@
-- type: characterItemGroup
-  id: LoadoutBlueshieldOfficerBackpacks
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutClothingBackpackBlueshield
-    - type: loadout
-      id: LoadoutClothingSatchelBlueshield
-    - type: loadout
-      id: LoadoutClothingDuffelBlueshield
-
-- type: characterItemGroup
-  id: LoadoutBlueshieldOfficerVests
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredJacket
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredCowboyJacket
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmorVest
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredMarine
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredVest
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredKimono
-    - type: loadout
-      id: LoadoutClothingBlueshieldArmoredCoat
-
-- type: characterItemGroup
-  id: LoadoutBlueshieldOfficerUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutClothingUniformJumpskirtBlueshieldOfficer
-    - type: loadout
-      id: LoadoutClothingUniformJumpsuitBlueshieldOfficer
-
-- type: characterItemGroup
-  id: LoadoutBlueshieldOfficerHats
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutClothingBlueshieldBeretNavy
-    - type: loadout
-      id: LoadoutClothingBlueshieldBeretOfficer
-    - type: loadout
-      id: LoadoutClothingBlueshieldCowboyHat
+- type: job
+  id: BlueshieldOfficer
+  name: Blueshield Officer
+  description: "Act as a bodyguard and advisor for Command and CentCom VIPs."
+  playTimeTracker: JobBlueshieldOfficer
+  requirements:
+    - !type 
+      department: Command
+      min: 54000 # 15 hours
+    - !type 
+      department: Medical
+      min: 54000 # 15 hours
+    - !type 
+      department: Security
+      min: 54000 # 15 hours
+  # - !type:CharacterTraitRequirement
+  # inverted: true
+  # traits:
+  # - Foreigner
+  # - ForeignerLight
+  # - Muted
+  # - Blindness
+  # - Pacifist
+  # - BrittleBoneDisease
+  weight: 20
+  startingGear: BlueshieldOfficerGear
+  icon: "JobIconBlueshield"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Cargo
+  - Command
+  - CentralCommand
+  - BlueshieldOfficer
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  - !type 
+    components:
+      - type: CommandStaff
+      - type: CPRTraining
+  afterLoadoutSpecial:
+  - !type 
+    charges: 8
+  - !type 
+    powerCell: PowerCellHigh
+  setPreference: false
+- type: startingGear
+  id: BlueshieldOfficerGear
+  subGear:
+  - BlueshieldPlasmamanGear
+  equipment:
+    back: ClothingBackpackBlueshield
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesMedSec
+    ears: ClothingHeadsetCentCom
+    gloves: ClothingHandsGlovesCombat
+    id: BlueshieldPDA
+    pocket1: UniqueBlueshieldOfficerLockerTeleporter
+- #outerClothing: ClothingBlueshieldArmourVest
+#ears: ClothingHeadsetAltCommand
+#belt: ClothingBeltSecurityFilled
+#pocket1: WeaponPistolMk58
+#pocket2: DeathAcidifierImplanter
+type: startingGear
+  id: BlueshieldPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitBlueshield
+    head: ClothingHeadEnvirohelmBlueshield
+    gloves: ClothingHandsGlovesEnviroglovesBlack
