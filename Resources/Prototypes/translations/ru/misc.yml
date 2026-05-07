@@ -1,17 +1,10 @@
 - type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterApronChemist
-  name: chemical resistant apron
-  suffix: Chemistry
-  description: Made out of thick rubber, the color of this apron still leaves you perplexed.
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesMiscWhite
+  name: white leather shoes
+  description: Impeccably shined white leather shoes. Don't tread on these tootsies.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/OuterClothing/Misc/chemapron.rsi
+      sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/OuterClothing/Misc/chemapron.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Caustic: 0.25
-    - type: TemperatureProtection
-      coefficient: 1
+      sprite: DeltaV/Clothing/Shoes/Misc/whiteleather.rsi
