@@ -1,146 +1,51 @@
-- type: entity
-  id: BaseSpeedLoaderSpecial
-  name: "speed loader (.38 special)"
-  parent: BaseItem
-  abstract: true
+- # Devices which are not portable but don't link up to anything
+type: entity
+  id: AtmosDeviceFanTiny
+  name: tiny fan
+  description: A tiny fan, releasing a thin gust of air.
+  placement:
+    mode: SnapgridCenter
   components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    sprite: Structures/Piping/Atmospherics/tinyfan.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.5,-0.5,0.5,0.5"'
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: Clickable
   - type: Tag
     tags:
-      - SpeedLoaderSpecial
-  - type: SpeedLoader
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeSpecial
-    capacity: 6
-  - type: Sprite
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type
-        ents: [ ]
+      - SpreaderIgnore
 - type: entity
-  id: SpeedLoaderSpecial
-  name: "speed loader (.38 special)"
-  parent: BaseSpeedLoaderSpecial
+  id: AtmosDeviceFanDirectional
+  name: directional fan
+  description: A thin fan, stopping the movement of gases across it.
+  placement:
+    mode: SnapgridCenter
   components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecial
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: base-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: base
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
-- type: entity
-  id: SpeedLoaderSpecialPractice
-  name: "speed loader (.38 special practice)"
-  parent: BaseSpeedLoaderSpecial
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialPractice
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: practice-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: practice
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
-- type: entity
-  id: SpeedLoaderSpecialRubber
-  name: "speed loader (.38 special rubber)"
-  parent: BaseSpeedLoaderSpecial
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialRubber
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: rubber-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: rubber
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
-- type: entity
-  id: SpeedLoaderSpecialUranium
-  name: "speed loader (.38 special uranium)"
-  parent: BaseSpeedLoaderSpecial
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialUranium
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: uranium-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: uranium
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
-- type: entity
-  id: SpeedLoaderSpecialMindbreaker
-  name: "speed loader (.38 special mindbreaker)"
-  parent: BaseSpeedLoaderSpecial
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialMindbreaker
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: mindbreaker-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: mindbreaker
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
-- type: entity
-  id: SpeedLoaderSpecialHoly
-  name: "speed loader (.38 special holy)"
-  parent: BaseSpeedLoaderSpecial
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialHoly
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: holy-6
-        map:
-        - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: holy
-    steps: 7
-    zeroVisible: false
-  - type: Appearance
+    sprite: Structures/Piping/Atmospherics/directionalfan.rsi
+    state: icon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.48,-0.48,0.48,-0.40"'
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+      - South
+  - type: Clickable
+  - type: Tag
+    tags:
+      - SpreaderIgnore
