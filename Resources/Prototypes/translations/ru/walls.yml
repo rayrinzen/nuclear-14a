@@ -1,62 +1,16 @@
-- type: entity
-  parent: WallSolid #basically non-Reinforced Wall (shuttle variant)
-  id: WallShuttleInterior
-  name: shuttle wall
-  suffix: Interior
+﻿- type: entity
+  id: CultGirder
+  parent: Girder
+  name: runed girder
+  description: Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts
   components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
-  - type: Icon
-    sprite: Nyanotrasen/Structures/Walls/shuttleinterior.rsi
   - type: Construction
-    graph: Girder
-    node: shuttleInteriorWall
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Reflect
-    reflectProb: 1
-- type: entity
-  parent: BaseWall
-  id: WallPaper
-  name: paper wall
-  description: Helps to contain the repeated screams of martial artists.
-  components:
+    graph: CultGirder
+    node: girder
   - type: Sprite
-    sprite: Nyanotrasen/Structures/Walls/paper.rsi
-  - type: Icon
-    sprite: Nyanotrasen/Structures/Walls/paper.rsi
-  - type: Construction
-    graph: Girder
-    node: paperWall
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_girder.rsi
+    state: icon
   - type: Destructible
     thresholds:
-    - trigger: '!type:DamageTrigger damage: 300 behaviors: - !type:DoActsBehavior acts: ["Destruction"]' # #excess damage (nuke?). avoid computational cost of spawning entities.
-    - trigger: '!type:DamageTrigger damage: 150 behaviors: - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:ChangeConstructionNodeBehavior node: girder - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: IconSmooth
-    key: walls
-    base: paperwall
-- # TODO: construction graph, material, better sounds
-type: entity
-  parent: BaseWall
-  id: WallDrywall
-  name: drywall
-  description: It looks sturdy enough.
-  components:
-  - type: Sprite
-    sprite: Nyanotrasen/Structures/Walls/drywall.rsi
-  - type: Icon
-    sprite: Nyanotrasen/Structures/Walls/drywall.rsi
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"]'
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: IconSmooth
-    key: walls
-    base: drywall
-  - type: Tag
-    tags:
-      - Wall
+    - trigger: '!type:DamageTrigger damage: 200 behaviors:'
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ] - !type:PlaySoundBehavior sound: collection: MetalBreak'
