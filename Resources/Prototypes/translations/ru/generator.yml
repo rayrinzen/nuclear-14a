@@ -1,18 +1,16 @@
 - type: entity
-  id: SingularityGenerator
-  name: gravitational singularity generator
-  description: An Odd Device which produces a Gravitational Singularity when set up.
-  placement:
-    mode: SnapgridCenter
+  id: TeslaGenerator
+  name: tesla generator
+  parent: BaseStructureDynamic
+  description: An Odd Device which produces a powerful Tesla ball when set up.
   components:
   - type: Sprite
-    sprite: Structures/Power/Generation/Singularity/generator.rsi
+    noRot: true
+    sprite: Structures/Power/Generation/Tesla/generator.rsi
     state: icon
-  - type: SingularityGenerator
+  - type: SingularityGenerator #To do: rename the generator
+    spawnId: TeslaEnergyBall
   - type: InteractionOutline
-  - type: Clickable
-  - type: Physics
-    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -23,10 +21,5 @@
         - MachineMask
         layer:
         - Opaque
-  - type: Transform
-    anchored: true
-    noRot: true
   - type: Anchorable
-  - type: Pullable
-    # - type: GuideHelp
-    # guides: [ Singularity, Power ]
+#- type: GuideHelp #   To Do - add Tesla Guide
