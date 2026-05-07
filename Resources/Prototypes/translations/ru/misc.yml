@@ -1,17 +1,29 @@
 - type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckCrucifix
-  name: crucifix
-  description: Damn, it feels good to be so pious.
+  id: N14ClothingBootsLeatherFilled
+  parent: N14ClothingBootsLeather
+  suffix: Filled
   components:
-    - type: Item
-      size: Small
-    - type: Sprite
-      sprite: _NF/Clothing/Neck/Misc/crucifix.rsi
-    - type: Clothing
-      sprite: _NF/Clothing/Neck/Misc/crucifix.rsi
-    - type: ReactionMixer # I'm assuming that this is used to make holy water
-      mixMessage: "bible-mixing-success"
-      reactionTypes:
-        - Holy
-    - type: Tag
+    - type: ContainerFill
+      containers:
+        item:
+          - N14CombatKnife
+
+- type: entity
+  id: N14ClothingBootsCombatFilled
+  parent: N14ClothingBootsCombat
+  suffix: Filled
+  components:
+    - type: ContainerFill
+      containers:
+        item:
+          - N14CombatKnife
+
+- type: entity
+  id: N14ClothingBootsCombatMK2Filled
+  parent: N14ClothingBootsCombatMK2
+  suffix: Filled
+  components:
+    - type: ContainerFill
+      containers:
+        item:
+          - KukriKnife
