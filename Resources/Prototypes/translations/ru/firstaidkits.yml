@@ -1,110 +1,69 @@
-#Entities found at entities/objects/specific/medical
 - type: entity
-  id: MedkitFilled
-  suffix: Filled
+  id: N14MedkitFilled
+  suffix: N14
   parent: Medkit
   components:
     - type: StorageFill
       contents:
-        - id: Brutepack
-        - id: Ointment
-        - id: Gauze
-        - id: PillCanisterTricordrazine
-        # see https://github.com/tgstation/blob/master/code/game/objects/items/storage/firstaid.dm for example contents
-- type: entity
-  id: MedkitBurnFilled
-  suffix: Filled
-  parent: MedkitBurn
-  components:
-    - type: StorageFill
-      contents:
-        - id: Ointment
-          amount: 2
-        - id: PillCanisterKelotane
-        - id: PillCanisterDermaline
+        - id: N14CleanGauze10
+        - id: N14Ointment10
+        - id: N14CleanGauze10
+        - id: N14Stimpak
 
 - type: entity
-  id: MedkitBruteFilled
-  suffix: Filled
+  id: N14MedkitBruteFilled
+  suffix: N14
   parent: MedkitBrute
   components:
     - type: StorageFill
       contents:
-        - id: Brutepack
-        - id: Gauze
+        - id: N14CleanGauze10
+        - id: N14CleanGauze10
+        - id: Bloodpack
         - id: PillCanisterIron
-        - id: PillCanisterCopper
 
 - type: entity
-  id: MedkitToxinFilled
-  suffix: Filled
+  id: N14MedkitToxinFilled
+  suffix: Filled, N14
   parent: MedkitToxin
   components:
     - type: StorageFill
       contents:
-        - id: SyringeIpecac
-        - id: SyringeEthylredoxrazine
-        - id: AntiPoisonMedipen
-        - id: PillCanisterDylovene
+        - id: N14ChemicalSyringeAntidote
+          amount: 3
         - id: PillCanisterCharcoal
-
-- type: entity
-  id: MedkitOxygenFilled
-  suffix: Filled
-  parent: MedkitO2
-  components:
-    - type: StorageFill
-      contents:
-        - id: ClothingMaskBreathMedical
-        - id: EmergencyOxygenTankFilled
-        - id: EmergencyMedipen
-        - id: SyringeInaprovaline
-        - id: PillCanisterDexalin
-
-- type: entity
-  id: MedkitRadiationFilled
-  suffix: Filled
-  parent: MedkitRadiation
-  components:
-    - type: StorageFill
-      contents:
-        - id: SyringePhalanximine
-        - id: RadAutoInjector
-        - id: PillCanisterPotassiumIodide
-        - id: PillCanisterHyronalin
-
-- type: entity
-  id: MedkitAdvancedFilled
-  suffix: Filled
-  parent: MedkitAdvanced
-  components:
-    - type: StorageFill
-      contents:
-        - id: MedicatedSuture
-        - id: RegenerativeMesh
-        - id: Bloodpack
           amount: 2
 
 - type: entity
-  id: MedkitCombatFilled
-  suffix: Filled
+  id: N14MedkitCombatFilled
+  suffix: N14
   parent: MedkitCombat
   components:
     - type: StorageFill
       contents:
         - id: MedicatedSuture
+        - id: N14Stimpak
+        - id: N14ChemicalSyringeAntidote
         - id: RegenerativeMesh
-        - id: SyringeEphedrine
-        - id: BruteAutoInjector
-        - id: BurnAutoInjector
-        - id: EmergencyMedipen
 
 - type: entity
-  id: StimkitFilled
-  suffix: Stimkit, Filled
+  id: N14MedkitRadiationFilled
+  suffix: Filled, N14
+  parent: MedkitRadiation
+  components:
+    - type: StorageFill
+      contents:
+        - id: N14RadAwayBloodbag
+          amount: 2
+        - id: N14RadXCanisterFilled
+
+- type: entity
+  id: N14MedkitStimkitFilled
+  suffix: Stimkit, N14
   parent: Medkit
   components:
     - type: StorageFill
       contents:
-        - id: StimpackMini
-          amount: 6
+        - id: N14Stimpak
+          amount: 3
+        - id: N14SuperStimpak
