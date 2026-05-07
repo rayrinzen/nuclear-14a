@@ -1,413 +1,443 @@
-- type: entity
-  id: BorgChassisGeneric
-  parent: BaseBorgChassisNT
-  components:
-    - type: Sprite
-      layers:
-        - state: robot
-        - state: robot_e_r
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: robot_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: BorgChassis
-      maxModules: 6
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-      hasMindState: robot_e
-      noMindState: robot_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: robot
-      name: cyborg
-    - type: Construction
-      node: cyborg
-    - type: Speech
-      speechVerb: Robotic
+# this is how you give it modules and a cell, need variants for each that are empty and filled
+# - type: ContainerFill
+# containers:
+# borg_brain:
+# - PositronicBrain
+# borg_module:
+# - BorgModuleOperative
+# - BorgModuleL6C
+# - BorgModuleEsword
+# - type: ItemSlots
+# slots:
+# cell_slot:
+# name: power-cell-slot-component-slot-name-default
+# startingItem: PowerCellHyper
 
+# Protectrons
 - type: entity
-  id: BorgChassisMining
-  parent: BaseBorgChassisNT
-  name: salvage cyborg
+  parent: N14BaseRobotChassis
+  id: N14RobotProtectron
+  name: protectron
   components:
+    - type: IdleSound # #Misfits Change: give protectrons their ambient voice lines again
+    - type: SpamEmitSound # #Misfits Change: periodic idle chatter from the Protectron sound set
+      minInterval: 12
+      maxInterval: 45
+      sound:
+        collection: N14ProtectronIdle
+        params:
+          volume: -7
+          maxDistance: 6
     - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/protectron.rsi
       layers:
-        - state: miner
+        - state: icon
           map: [ "movement" ]
-        - state: miner_e_r
+        - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
           map: [ "enum.BorgVisualLayers.Light" ]
           shader: unshaded
           visible: false
-        - state: miner_l
+        - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
           shader: unshaded
           map: [ "light" ]
           visible: false
     - type: SpriteMovement
       movementLayers:
         movement:
-          state: miner_moving
+          state: walking
       noMovementLayers:
         movement:
-          state: miner
+          state: icon
+      # - type: Construction
+      # node: cyborg
+    - type: Tag # #Misfits Change: Protectron walks, so it should have footstep sounds
+      tags:
+        - DoorBumpOpener
+        - CanPilot
+        - FootstepSound
+    - type: Speech
+      speechVerb: Robotic
+    - type: Inventory
+      templateId: borgShort
+    - type: ActivatableUI
+      key: enum.BorgUiKey.Key
+    - type: WiresPanel
+    - type: ActivatableUIRequiresPanel
+    - type: Lock
+      locked: true
+    - type: ActivatableUIRequiresLock
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      name: Friendly Protectron
+      description: |
+        Do as your masters say with a literal but reasonable level of logic.
+
+- type: entity
+  parent: N14RobotProtectron
+  id: N14RobotProtectronBuilder
+  name: protectron builder
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/protectron-builder.rsi
+      layers:
+        - state: icon
+          map: [ "movement" ]
+        - state: icon
+          map: [ "enum.BorgVisualLayers.Light" ]
+          shader: unshaded
+          visible: false
+        - state: icon
+          shader: unshaded
+          map: [ "light" ]
+          visible: false
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: walking
+      noMovementLayers:
+        movement:
+          state: icon
     - type: BorgChassis
       maxModules: 4
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
           - BorgModuleCargo
-      hasMindState: miner_e
-      noMindState: miner_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: miner
-      name: salvage cyborg
-    - type: Construction
-      node: mining
-    - type: IntrinsicRadioTransmitter
-      channels:
-        - Supply
-        - Binary
-        - Common
-        - Science
-    - type: ActiveRadio
-      channels:
-        - Supply
-        - Binary
-        - Common
-        - Science
-    - type: AccessReader
-      access:
-        [
-          [ "Cargo" ],
-          [ "Salvage" ],
-          [ "Command" ],
-          [ "Research" ]
-        ]
+          - BorgModuleEngineering
+      hasMindState: on
+      noMindState: off
+      # - type: Construction
+      # node: mining
     - type: Inventory
       templateId: borgTall
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      name: Friendly Protectron Builder
+      description: |
+        Do as your masters say with a literal but reasonable level of logic.
 
 - type: entity
-  id: BorgChassisEngineer
-  parent: BaseBorgChassisNT
-  name: engineer cyborg
+  parent: N14RobotProtectron
+  id: N14RobotProtectronFire
+  name: protectron firefighter
   components:
     - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/protectron-fire.rsi
       layers:
-        - state: engineer
-        - state: engineer_e_r
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: engineer_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: BorgChassis
-      maxModules: 4
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleEngineering
-      hasMindState: engineer_e
-      noMindState: engineer_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: engineer
-      name: engineer cyborg
-    - type: Construction
-      node: engineer
-    - type: IntrinsicRadioTransmitter
-      channels:
-        - Engineering
-        - Binary
-        - Common
-        - Science
-    - type: ActiveRadio
-      channels:
-        - Engineering
-        - Binary
-        - Common
-        - Science
-    - type: AccessReader
-      access: [ [ "Engineering" ], [ "Command" ], [ "Research" ] ]
-    - type: Inventory
-      templateId: borgShort
-    - type: SiliconLawProvider # Delta-V - Adds custom lawset for Engineering Cyborg
-      laws: Engineer
-
-- type: entity
-  id: BorgChassisJanitor
-  parent: BaseBorgChassisNT
-  name: janitor cyborg
-  components:
-    - type: Sprite
-      layers:
-        - state: janitor
+        - state: icon
           map: [ "movement" ]
-        - state: janitor_e_r
+        - state: icon
           map: [ "enum.BorgVisualLayers.Light" ]
           shader: unshaded
           visible: false
-        - state: janitor_l
+        - state: icon
           shader: unshaded
           map: [ "light" ]
           visible: false
     - type: SpriteMovement
       movementLayers:
         movement:
-          state: janitor_moving
+          state: walking
       noMovementLayers:
         movement:
-          state: janitor
-    - type: BorgChassis
-      maxModules: 4
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleJanitor
-      hasMindState: janitor_e
-      noMindState: janitor_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: janitor
-      name: janitor cyborg
-    - type: Construction
-      node: janitor
-    - type: IntrinsicRadioTransmitter
-      channels:
-        - Service
-        - Binary
-        - Common
-        - Science
-    - type: ActiveRadio
-      channels:
-        - Service
-        - Binary
-        - Common
-        - Science
-    - type: AccessReader
-      access: [ [ "Service" ], [ "Command" ], [ "Research" ] ]
-    - type: Inventory
-      templateId: borgShort
-    - type: SiliconLawProvider # Delta-V Adds custom lawset for Janitor Cyborg
-      laws: Janitor
+          state: icon
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      name: Friendly Protectron Firefighter
+      description: |
+        Do as your masters say with a literal but reasonable level of logic.
 
 - type: entity
-  id: BorgChassisMedical
-  parent: BaseBorgChassisNT
-  name: medical cyborg
+  parent: N14RobotProtectron
+  id: N14RobotProtectronPolice
+  name: protectron police officer
   components:
     - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/protectron-police.rsi
       layers:
-        - state: medical
+        - state: icon
           map: [ "movement" ]
-        - state: medical_e_r
+        - state: icon
           map: [ "enum.BorgVisualLayers.Light" ]
           shader: unshaded
           visible: false
-        - state: medical_l
+        - state: icon
           shader: unshaded
           map: [ "light" ]
           visible: false
     - type: SpriteMovement
       movementLayers:
         movement:
-          state: medical_moving
+          state: walking
       noMovementLayers:
         movement:
-          state: medical
+          state: icon
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      name: Friendly Protectron Police
+      description: |
+        Do as your masters say with a literal but reasonable level of logic.
+
+# Handy Gutsy
+- type: entity
+  parent: N14BaseRobotChassis
+  id: N14RobotMrHandy
+  name: mr handy
+  components:
+    - type: IdleSound # #Misfits Change: give Mr. Handy chassis their ambient voice lines again
+    - type: SpamEmitSound # #Misfits Change: periodic idle chatter from the Mr. Handy sound set
+      minInterval: 12
+      maxInterval: 45
+      sound:
+        collection: N14HandyIdle
+        params:
+          volume: -7
+          maxDistance: 6
+    - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/mrhandyclaw.rsi
+      layers:
+        - state: icon
+          map: [ "movement" ]
+        - state: on # #Misfits Fix: lit indicator; BorgSystem overrides at runtime
+          map: [ "enum.BorgVisualLayers.Light" ]
+          shader: unshaded
+          visible: false
+        - state: on # #Misfits Fix: 'on' RSI state is the lit variant used as the flashlight glow overlay
+          shader: unshaded
+          map: [ "light" ]
+          visible: false
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: walking
+      noMovementLayers:
+        movement:
+          state: icon
+      # - type: Construction
+      # node: cyborg
+    - type: Speech
+      speechVerb: Robotic
+    - type: Inventory
+      templateId: borgShort
+    - type: ActivatableUI
+      key: enum.BorgUiKey.Key
+    - type: WiresPanel
+    - type: ActivatableUIRequiresPanel
+    - type: Lock
+      locked: true
+    - type: ActivatableUIRequiresLock
+    - type: GhostRole
+      prob: 1
+      makeSentient: true
+      name: Friendly Mr Handy
+      description: |
+        Do as your masters say with a good amount of logic.
+    - type: StepTriggerImmune
+
+- type: entity
+  parent: N14RobotMrHandy
+  id: N14RobotMrHandySaw
+  name: mr handy
+  suffix: saw
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/mrhandysaw.rsi
+
+- type: entity
+  parent: N14RobotMrHandy
+  id: N14RobotMrHandyGun
+  name: mr handy
+  suffix: gun
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/mrhandygun.rsi
+
+- type: entity
+  parent: N14RobotMrHandy
+  id: N14RobotMrGutsy
+  name: mr gutsy
+  components:
+    - type: IdleSound # #Misfits Change: give Mr. Gutsy chassis their ambient voice lines again
+    - type: SpamEmitSound # #Misfits Change: periodic idle chatter from the Mr. Gutsy sound set
+      minInterval: 12
+      maxInterval: 45
+      sound:
+        collection: N14GutsyIdle
+        params:
+          volume: -7
+          maxDistance: 6
+    - type: Sprite
+      sprite: _Nuclear14/Mobs/Robots/mrhandygutsy.rsi
     - type: BorgChassis
-      maxModules: 4
+      maxModules: 6
       moduleWhitelist:
         tags:
           - BorgModuleGeneric
-          - BorgModuleMedical
-      hasMindState: medical_e
-      noMindState: medical_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: medical
-      name: medical cyborg
-    - type: Construction
-      node: medical
+      hasMindState: on
+      noMindState: off
+
+# Faction Specific Robots
+## Vault
+- type: entity
+  parent: N14RobotMrHandy
+  id: N14RobotMrHandyVault
+  suffix: player, vault
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Vault
     - type: IntrinsicRadioTransmitter
       channels:
-        - Medical
-        - Binary
-        - Common
-        - Science
+        - VaultCommon
+        - VaultCommand
+        - VaultEngineering
+        - VaultMedical
+        - VaultScience
+        - VaultSecurity
     - type: ActiveRadio
       channels:
-        - Medical
-        - Binary
-        - Common
-        - Science
-    - type: AccessReader
-      access: [ [ "Medical" ], [ "Command" ], [ "Research" ] ]
-    - type: Inventory
-      templateId: borgDutch
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepHoverBorg
-    - type: FabricateActions
-      actions:
-        - ActionFabricateLollipop
-        - ActionFabricateGumball
-    - type: SiliconLawProvider
-      laws: Medical
-    - type: SurgeryTarget # Shitmed
-    - type: Sanitized # Shitmed
-    - type: SolutionScanner
-    - type: InteractionPopup
-      interactSuccessString: petting-success-medical-cyborg
-      interactFailureString: petting-failure-medical-cyborg
-      interactSuccessSound:
-        path: /Audio/Ambience/Objects/periodic_beep.ogg
-    - type: TTS # Corvax-TTS
-      voice: TrainingRobot
+        - VaultCommon
+        - VaultCommand
+        - VaultEngineering
+        - VaultMedical
+        - VaultScience
+        - VaultSecurity
+        # - type: AccessReader
+        # access: [["VaultOverseer"]
+    - type: Access
+      enabled: false
+      groups:
+        - VaultOverseer
 
 - type: entity
-  id: BorgChassisService
-  parent: BaseBorgChassisNT
-  name: service cyborg
+  parent: N14RobotMrHandySaw
+  id: N14RobotMrHandySawVault
+  suffix: player, vault, saw
   components:
-    - type: Sprite
-      layers:
-        - state: service
-        - state: service_e_r
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: service_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: BorgChassis
-      maxModules: 4
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleService
-      hasMindState: service_e
-      noMindState: service_e_r
-    - type: BorgTransponder
-      sprite:
-        sprite: Mobs/Silicon/chassis.rsi
-        state: service
-      name: service cyborg
-    - type: Construction
-      node: service
+    - type: NpcFactionMember
+      factions:
+        - Vault
+      # - type: IntrinsicRadioTransmitter
+      # channels:
+      # - VaultCommon
+      # - VaultCommand
+      # - VaultEngineering
+      # - VaultMedical
+      # - VaultScience
+      # - VaultSecurity
+      # - type: ActiveRadio
+      # channels:
+      # - VaultCommon
+      # - VaultCommand
+      # - VaultEngineering
+      # - VaultMedical
+      # - VaultScience
+      # - VaultSecurity
+      # - type: AccessReader
+      # access: [["VaultOverseer"]
+    - type: Access
+      enabled: false
+      groups:
+        - VaultOverseer
+
+## BOS Midwest
+- type: entity
+  id: N14RobotBOSMidwestBase # for inheritance only
+  abstract: true
+  components:
+    - type: NpcFactionMember
+      factions:
+        - BrotherhoodOfSteel
     - type: IntrinsicRadioTransmitter
       channels:
-        - Service
-        - Binary
-        - Common
-        - Science
+        - BrotherhoodOfSteel
     - type: ActiveRadio
       channels:
-        - Service
-        - Binary
-        - Common
-        - Science
-    - type: AccessReader
-      access: [ [ "Service" ], [ "Command" ], [ "Research" ] ]
-    - type: Inventory
-      templateId: borgTall
+        - BrotherhoodOfSteel
+        # - type: AccessReader
+        # access: [["BOSMidwest"]
+        # - type: ContainerFill
+        # containers:
+        # borg_brain:
+        # - PositronicBrain
+        # borg_module:
+        # - BorgModuleService
+        # - BorgModuleMusique
+        # - BorgModuleGardening
+        # - BorgModuleHarvesting
+        # - BorgModuleFireExtinguisher
+        # - BorgModuleRadiationDetection
+        # - BorgModuleTool
+        # - BorgModuleSyndicateWeapon
+    - type: Access
+      enabled: false
+      groups:
+        - BOS
 
 - type: entity
-  id: BorgChassisSyndicateAssault
-  parent: BaseBorgChassisSyndicate
-  name: syndicate assault cyborg
-  description: A lean, mean killing machine with access to a variety of deadly modules.
-  components:
-    - type: Sprite
-      layers:
-        - state: synd_sec
-        - state: synd_sec_e
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: synd_sec_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: PointLight
-      color: "#dd200b"
-    - type: BorgChassis
-      maxModules: 3
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleSyndicate
-          - BorgModuleSyndicateAssault
-      hasMindState: synd_sec_e
-      noMindState: synd_sec
-    - type: Construction
-      node: syndicateassault
+  parent: [ N14RobotMrHandy, N14RobotBOSMidwestBase ]
+  id: N14RobotMrHandyBOSMidwest
+  suffix: player, BOS Midwest
 
 - type: entity
-  id: BorgChassisSyndicateMedical
-  parent: BaseBorgChassisSyndicate
-  name: syndicate medical cyborg
-  description: A combat medical cyborg. Has limited offensive potential, but makes more than up for it with its support capabilities.
-  components:
-    - type: Sprite
-      layers:
-        - state: synd_medical
-        - state: synd_medical_e
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: synd_medical_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: BorgChassis
-      maxModules: 3
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleMedical
-          - BorgModuleSyndicate
-      hasMindState: synd_medical_e
-      noMindState: synd_medical
-    - type: Construction
-      node: syndicatemedical
+  parent: [ N14RobotMrHandySaw, N14RobotBOSMidwestBase ]
+  id: N14RobotMrHandySawBOSMidwest
+  suffix: player, BOS Midwest, saw
 
 - type: entity
-  id: BorgChassisSyndicateSaboteur
-  parent: BaseBorgChassisSyndicate
-  name: syndicate saboteur cyborg
-  description: A streamlined engineering cyborg, equipped with covert modules. Its chameleon projector lets it disguise itself as a Nanotrasen cyborg.
+  parent: [ N14RobotMrGutsy, N14RobotBOSMidwestBase ]
+  id: N14RobotMrGutsyBOSMidwest
+  suffix: player, BOS Midwest, gutsy
+
+## BOS Washington
+- type: entity
+  id: N14RobotBOSWashingtonBase # for inheritance only
+  abstract: true
   components:
-    - type: Sprite
-      layers:
-        - state: synd_engi
-        - state: synd_engi_e
-          map: [ "enum.BorgVisualLayers.Light" ]
-          shader: unshaded
-          visible: false
-        - state: synd_engi_l
-          shader: unshaded
-          map: [ "light" ]
-          visible: false
-    - type: BorgChassis
-      maxModules: 3
-      moduleWhitelist:
-        tags:
-          - BorgModuleGeneric
-          - BorgModuleEngineering
-          - BorgModuleSyndicate
-      hasMindState: synd_engi_e
-      noMindState: synd_engi
-    - type: Construction
-      node: syndicatesaboteur
+    - type: NpcFactionMember
+      factions:
+        - BrotherhoodOfSteel
+    - type: IntrinsicRadioTransmitter
+      channels:
+        - BrotherhoodOfSteel
+    - type: ActiveRadio
+      channels:
+        - BrotherhoodOfSteel
+        # - type: AccessReader
+        # access: [["BOSWashington"]
+        # - type: ContainerFill
+        # containers:
+        # borg_brain:
+        # - PositronicBrain
+        # borg_module:
+        # - BorgModuleService
+        # - BorgModuleMusique
+        # - BorgModuleGardening
+        # - BorgModuleHarvesting
+        # - BorgModuleFireExtinguisher
+        # - BorgModuleRadiationDetection
+        # - BorgModuleTool
+        # - BorgModuleSyndicateWeapon
+    - type: Access
+      enabled: false
+      groups:
+        - BOS
+
+- type: entity
+  parent: [ N14RobotMrHandy, N14RobotBOSWashingtonBase ]
+  id: N14RobotMrHandyBOSWashington
+  suffix: player, BOS Washington
+
+- type: entity
+  parent: [ N14RobotMrHandySaw, N14RobotBOSWashingtonBase ]
+  id: N14RobotMrHandySawBOSWashington
+  suffix: player, BOS Washington, saw
+
+- type: entity
+  parent: [ N14RobotMrGutsy, N14RobotBOSWashingtonBase ]
+  id: N14RobotMrGutsyBOSWashington
+  suffix: player, BOS Washington, gutsy
