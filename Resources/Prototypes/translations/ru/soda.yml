@@ -1,13 +1,32 @@
-- type: vendingMachineInventory
-  id: SodaInventory
-  startingInventory:
-    DrinkColaCan: 3
-    DrinkGrapeCan: 3
-    DrinkRootBeerCan: 3
-    DrinkIcedTeaCan: 3
-    DrinkSolDryCan: 3
-    DrinkLemonLimeCan: 3
-    DrinkFourteenLokoCan: 3
-  emaggedInventory:
-    DrinkNukieCan: 3
-    DrinkChangelingStingCan: 3
+- type: entity
+  parent: ReagentDispenserBase
+  id: SodaDispenser
+  name: soda dispenser
+  description: A beverage dispenser with a selection of soda and several other common beverages. Has a single fill slot for containers.
+  suffix: Filled
+  components:
+    - type: Rotatable
+    - type: Sprite
+      sprite: Structures/smalldispensers.rsi
+      drawdepth: SmallObjects
+      state: soda
+    - type: ReagentDispenser
+      storageWhitelist:
+        tags:
+          - DrinkBottle
+      pack: SodaDispenserInventory
+    - type: Transform
+      noRot: false
+    - type: Machine
+      board: SodaDispenserMachineCircuitboard
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Bartender)
+- type: entity
+  parent: SodaDispenser
+  id: SodaDispenserEmpty
+  suffix: Empty
+  components:
+    - type: ReagentDispenser
+      storageWhitelist:
+        tags:
+          - DrinkBottle
+      pack: EmptyInventory
