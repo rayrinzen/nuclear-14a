@@ -1,0 +1,51 @@
+- type: job
+  id: Prisoner
+  name: job-name-prisoner
+  description: job-description-prisoner
+  playTimeTracker: JobPrisoner
+  startingGear: PrisonerGear
+  alwaysUseSpawner: true
+  canBeAntag: false
+  #  whitelistRequired: true
+  icon: "JobIconPrisoner"
+  supervisors: job-supervisors-security
+  requirements:
+    - !type 
+      department: Security
+      min: 21600
+    - !type 
+      requirements:
+        - !type 
+          inverted: true
+          species:
+            - Shadowkin
+  # - !type:CharacterTraitRequirement
+  # traits:
+  # - ShadowkinBlackeye
+  special:
+  - !type 
+    components:
+      - type: Pacified
+  afterLoadoutSpecial:
+  - !type 
+    charges: 3 # Poor prisoners with not a lot of self-extinguishes.
+  - !type 
+    powerCell: PowerCellPotato
+  setPreference: false
+- type: startingGear
+  id: PrisonerGear
+  subGear:
+  - PrisonerPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack
+    id: PrisonerPDA
+    ears: ClothingHeadsetPrison #deltaV
+  innerClothingSkirt: ClothingUniformJumpsuitPrisoner
+- type: startingGear
+  id: PrisonerPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitPrisoner
+    head: ClothingHeadEnvirohelmPrisoner
+    gloves: ClothingHandsGlovesEnviroglovesBlack

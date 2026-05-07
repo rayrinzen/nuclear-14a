@@ -1,0 +1,39 @@
+- type: htnCompound
+  id: CleanbotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: BufferNearbyPuddlesCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- # Picks a random puddle in range to move to and idle
+type: htnCompound
+  id: BufferNearbyPuddlesCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            proto: NearbyPuddles
+        - !type 
+          operator: !type
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type 
+          preconditions:
+            - !type 
+              targetKey: Target
+              rangeKey: InteractRange
+          operator: !type
+            targetKey: Target
+          services:
+            - !type 
+              id: PuddleService
+              proto: NearbyPuddles
+              key: Target

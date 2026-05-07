@@ -1,0 +1,18 @@
+﻿- type: playerConnectionWhitelist
+  id: basicWhitelist
+  conditions:
+  - !type 
+    minimumPlayers: 0
+    maximumPlayers: 100
+    action: Allow
+  - !type 
+    action: Deny # Deny connection if matched
+- type: playerConnectionWhitelist
+  id: PlayerConnectionConfigurationCorvax
+  conditions:
+  - !type 
+    minimumPlayers: 0
+    maximumPlayers: 100
+    action: Allow
+  - !type 
+    action: Allow

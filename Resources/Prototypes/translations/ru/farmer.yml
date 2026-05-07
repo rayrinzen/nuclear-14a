@@ -1,0 +1,50 @@
+- type: job
+  id: WastelandFarmer
+  setPreference: true
+  weight: 30
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-farmer
+  description: job-description-farmer
+  playTimeTracker: Farmer
+  startingGear: FarmerGear
+  icon: "JobIconWastelandFarmer" # Corvax-Change
+  supervisors: job-supervisors-wastelander
+  requirements:  # #Misfits Change - robots and supermutants cannot be Farmers
+    - !type 
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotProtectronPolice
+      - RobotProtectronBuilder
+      - RobotProtectronFire
+      - RobotMrGutsy
+      - RobotAssaultron
+      - RobotAssaultronTesla
+      - RobotSentryBot
+      - RobotSentryBotLaser
+      - RobotRobobrain
+      - RobotRobobrainLaser
+      - SuperMutant
+  access:
+  - WastelandFarmer
+  - TownsPerson
+- type: startingGear
+  id: FarmerGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitBrahminFarmer
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackExplorer # Corvax-Change
+    shoes: N14ClothingBootsLeather
+    outerClothing: ClothingOuterApronBotanist
+    belt: ClothingBeltFarmerFilled
+    id: N14IDPassportWasteFarmer
+  innerClothingSkirt: N14ClothingUniformJumpsuitBrahminFarmer #placeholder
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+- type: playTimeTracker
+  id: Farmer

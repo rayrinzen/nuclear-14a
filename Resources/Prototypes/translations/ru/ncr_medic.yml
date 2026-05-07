@@ -1,0 +1,52 @@
+- #Misfits Change /Tweak/: NCR Medic role consolidated into NCR Specialist (NCRWS).
+#  Medic loadout kits (Surgeon, Doctor, Combat Medic) are now available in the Specialist's undecided loadout.
+#  NCRMedic access has been added to the Specialist job.
+#  Job kept defined but hidden so existing spawner/entity references don't break.
+type: job
+  id: NCRMedic
+  setPreference: false # #Misfits Tweak - hidden from character creation, role consolidated into Specialist
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-ncr-medic
+  description: job-description-ncr-medic
+  playTimeTracker: NCRMedic
+  requirements:
+    - !type 
+      species:
+      - Human
+      - Ghoul
+  startingGear: NCRMedicGear
+  icon: "JobIconNcrMedic" # Corvax-Change
+  supervisors: job-supervisors-ncr-sergeant
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRMedic
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+      - type: CPRTraining
+- type: startingGear
+  id: NCRMedicGear
+  equipment:
+    jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
+    outerClothing: N14ClothingOuterNCRPouchedVestDesert # Forge-Change
+    back: N14ClothingBackpackNCR # Corvax-Change
+    shoes: N14ClothingBootsLeatherFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
+    neck: ClothingNeckPinNCRDoctor
+    belt: ClothingBeltNCR
+    id: N14IDNCRDogtagDoctor
+    pocket2: NCRmedicloadoutkits
+  innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+- type: playTimeTracker
+  id: NCRMedic

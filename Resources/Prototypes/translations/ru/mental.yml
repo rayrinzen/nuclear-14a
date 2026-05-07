@@ -1,0 +1,348 @@
+- type: trait
+  id: N14CarefulSteps
+  category: Mental
+  points: -4
+  functions:
+    - !type 
+      components:
+        - type: StepTriggerImmune
+          whitelist:
+            types:
+              - Shard
+              - Landmine
+              - Mousetrap
+              - SlipEntity
+- type: trait
+  id: N14Pickpocket
+  category: Mental
+  points: -6
+  functions:
+    - !type 
+      components:
+        - type: Thieving
+          ignoreStripHidden: true
+          stealth: Subtle
+          stripTimeReduction: 0
+          stripTimeMultiplier: 0.667
+- type: trait
+  id: N14Pacifist
+  category: Mental
+  points: 8
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - TownSheriff
+        - TownDeputy
+        - NCRCaptain
+        - NCRLT
+        - NCRVeteranRanger
+        - NCRFieldRanger
+        - NCRPatrolRanger
+        - NCRDoctor
+        - NCRFirstSergeant
+        - NCRStaffSergeant
+        - NCRSGT
+        - NCRWS
+        - NCRPrivateFirstClass
+        - NCRSoldier
+        - NCRCadet
+        - BoSMidPaladinCommander
+        - BoSMidPaladin
+        - BoSMidKnight
+        - BoSMidSquire
+        - NCRMPinvestigator
+        - BoSWestElderCommander
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionFrumentarii
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVexillarius
+        - CaesarLegionExplorer
+        - CaesarLegionOrator
+        - CaesarLegionDean
+        - CaesarLegionLegionnaireVeteran
+        - CaesarLegionLegionnaireWarrior
+        - CaesarLegionLegionnaireRecruit
+        - CaesarLegionHoundmaster
+        - CaesarLegionAuxilia
+        - VaultSecurity
+  functions:
+    - !type 
+      components:
+        - type: Pacified
+- type: trait
+  id: N14Narcolepsy
+  category: Mental
+  points: 2
+  functions:
+    - !type 
+      components:
+      - type: Narcolepsy
+        timeBetweenIncidents: 300, 600
+        durationOfIncident: 10, 30
+- type: trait
+  id: N14CPRTraining
+  category: Mental
+  points: -8 # #Misfits Tweak - raised from -4; CPR is a strong revival tool, cost should reflect that
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - TribalShaman
+        - TownDoctor
+        - NCRDoctor
+        - BoSMidScribe
+        - VaultDoctor
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+  functions:
+    - !type 
+      components:
+        - type: CPRTraining
+- type: trait
+  id: N14SelfAware
+  category: Mental
+  points: -4
+  functions:
+    - !type 
+      components:
+        - type: SelfAware
+          analyzableTypes:
+            - Blunt
+            - Slash
+            - Piercing
+            - Heat
+            - Shock
+            - Cold
+            - Caustic
+          detectableGroups:
+            - Airloss
+            - Toxin
+- type: trait
+  id: N14Liar
+  category: Mental
+  points: 1
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14FrontalLisp
+        - N14ScottishAccent
+        - N14Stutter
+  functions:
+    - !type 
+      components:
+        - type: ReplacementAccent
+          replacementChance: 0.2
+          accent: liar
+- # The flood of various & mixed pet traits shall begin here
+type: trait
+  id: N14PetRoach
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -3
+  requirements:
+    - !type 
+      departments:
+        - Wastelander
+        - Tribe
+        - Townsfolk
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerRoach
+- type: trait
+  id: N14PetPigrat
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -4
+  requirements:
+    - !type 
+      departments:
+        - Wastelander
+        - Tribe
+        - Townsfolk
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerPigrat
+- #- type: trait
+#  id: N14PetAnt
+#  category: Mental
+#  points: -5
+#  requirements:
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - CaravanCompany
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14PetDogCC
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: GhostRole
+#          name: ghost-role-information-n14pet-ant-name
+#          description: ghost-role-information-n14pet-hauler-description
+#          rules: ghost-role-component-default-rules
+#        - type: GhostRoleMobSpawner
+#          prototype: N14MobPetAnt
+# All the eyebots shall be here.
+type: trait
+  id: N14PetEyebot
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -6
+  requirements:
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerEyebot
+- type: trait
+  id: N14PetEyebotMBoS
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -6
+  requirements:
+    - !type 
+      departments:
+        - BrotherhoodOfSteel
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerEyebotMBoS
+- #Misfits Change /Comment-out/: Washington BoS eyebot pet trait removed — locale commented out.
+#- type: trait
+#  id: N14PetEyebotWBoS
+#  category: Mental
+#  points: -6
+#  requirements:
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - BrotherhoodOfSteel
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14PetDogWBoS
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: GhostRole
+#          name: ghost-role-information-n14pet-eyebot-wbos-name
+#          description: ghost-role-information-n14pet-eyebot-description
+#          rules: ghost-role-component-default-rules
+#        - type: GhostRoleMobSpawner
+#          prototype: N14MobPetEyebotWBoS
+# All the dog pet traits because every faction that has turrets needs their own variant
+type: trait
+  id: N14PetDog
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -6
+  requirements:
+    - !type 
+      min: 72000
+    - !type 
+      departments:
+        - Wastelander
+        - Tribe
+        - Townsfolk
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerDogGeneric
+- type: trait
+  id: N14PetDogMBoS
+  category: Pets # #Misfits Change - moved from Mental to Pets tab; removed inter-pet exclusion to allow stacking
+  points: -6
+  requirements:
+    - !type 
+      min: 72000
+    - !type 
+      departments:
+        - BrotherhoodOfSteel
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerDogMBoS
+- #Misfits Change /Comment-out/: Washington BoS dog pet trait removed — locale commented out.
+#- type: trait
+#  id: N14PetDogWBoS
+#  category: Mental
+#  points: -6
+#  requirements:
+#    - !type:CharacterOverallTimeRequirement
+#      min: 72000
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - BrotherhoodOfSteel
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14PetEyebotWBoS
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: GhostRole
+#          name: ghost-role-information-n14pet-dog-wbos-name
+#          description: ghost-role-information-n14pet-generic-description
+#          rules: ghost-role-component-default-rules
+#        - type: GhostRoleMobSpawner
+#          prototype: N14MobPetDogWBoS
+# - type: trait
+#   id: N14PetDogCC
+#   category: Mental
+#   points: -5
+#   requirements:
+#     - !type:CharacterOverallTimeRequirement
+#       min: 72000
+#     - !type:CharacterDepartmentRequirement
+#       departments:
+#         - CaravanCompany
+#     - !type:CharacterTraitRequirement
+#       inverted: true
+#       traits:
+#         - N14PetAnt
+#   functions:
+#     - !type:TraitAddComponent
+#       components:
+#         - type: GhostRole
+#           name: ghost-role-information-n14pet-dog-cc-name
+#           description: ghost-role-information-n14pet-generic-description
+#           rules: ghost-role-component-default-rules
+#         - type: GhostRoleMobSpawner
+#           prototype: N14MobPetDogCC
+type: trait
+  id: N14PetDogNCR
+  category: Pets # #Misfits Change - moved from Mental to Pets tab
+  points: -6
+  requirements:
+    - !type 
+      min: 72000
+    - !type 
+      departments:
+        - NCR
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerDogNCR
+- type: trait
+  id: N14PetDogNCRK9Medical
+  category: Pets # #Misfits Change - moved from Mental to Pets tab
+  points: -6
+  requirements:
+    - !type 
+      min: 72000
+    - !type 
+      departments:
+        - NCR
+    - !type 
+      inverted: true
+      jobs:
+      - NCRPisoner
+  functions:
+    - !type 
+      prototypes:
+        - MisfitsPetSpawnerDogNCRK9Medical

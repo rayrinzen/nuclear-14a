@@ -1,0 +1,59 @@
+- type: job
+  id: CaesarLegionExplorer
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 100
+  name: job-name-caesar-legion-explorer
+  description: job-description-caesar-legion-explorer
+  playTimeTracker: CaesarLegionExplorer
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 57600 # 16 hours
+    - !type 
+      species:
+      - Human
+  # #Misfits Change: Explorer is now open to Female characters.
+  startingGear: CaesarLegionExplorerGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerVenator"
+  supervisors: job-name-caesar-legion-supervisors
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionExplorer
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionExplorerGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: N14ClothingNeckCloakLegionBlack
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    head: N14ClothingHeadHatTribalOutcastHood #Misfits Change /Tweak/: Explorer wears a tribal outcast hood for scouting
+    outerClothing: N14ClothingLegionReconArmor
+    gloves: N14ClothingHandsGlovesTribal
+    belt: N14Gladius
+    suitstorage: N14PilumSpear
+    pocket1: LegionExplorerloadoutkits
+    id: N14IDLegionaryMedalExplorer
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+    - N14Binoculars
+- type: playTimeTracker
+  id: CaesarLegionExplorer

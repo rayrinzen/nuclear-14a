@@ -1,0 +1,44 @@
+- # Scrapped the entire system with the gun dropping because half of the time it didn't work anyways.
+# They will not pick up guns either, only use what is given to them
+type: htnCompound
+  id: N14RangedCombatCompound
+  branches:
+    - 
+    preconditions:
+        - !type 
+          minPercent: 0.001
+      tasks:
+        - !type 
+          task: N14GunCombatCompound
+- type: htnCompound
+  id: N14GunCombatCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            jukeType: Away
+            retreatDistance: 2.5
+        - !type 
+          operator: !type
+            proto: NearbyGunTargets
+        - !type 
+          operator: !type
+            shutdownState: PlanFinished
+            pathfindInPlanning: false
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            stopOnLineOfSight: true
+            rangeKey: MeleeRange
+        - !type 
+          preconditions:
+            - !type 
+              key: Target
+          operator: !type
+            targetKey: Target
+          services:
+            - !type 
+              id: RangedService
+              proto: NearbyGunTargets
+              key: Target

@@ -1,0 +1,80 @@
+- type: htnCompound
+  id: DebugCounterCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          amount: 1
+      - !type 
+        operator: !type
+          key: Count
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+- type: htnCompound
+  id: DebugRandomCounterCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          minAmount: 0
+          maxAmount: 100
+      - !type 
+        operator: !type
+          key: Count
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+- type: htnCompound
+  id: DebugRandomLessCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          minAmount: 0
+          maxAmount: 100
+      - !type 
+        operator: !type
+          key: Count
+        preconditions:
+          - !type 
+            key: Count
+            value: 50
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          speech: "fuck!"

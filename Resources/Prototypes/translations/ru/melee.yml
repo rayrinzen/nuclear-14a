@@ -1,0 +1,46 @@
+- # It shouldn't pick up objects or anything similar, merely charge and hit you with whatever he got.
+type: htnCompound
+  id: N14MeleeCombatCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            proto: NearbyMeleeTargets
+        - !type 
+          task: N14MeleeAttackTargetCompound
+- type: htnCompound
+  id: N14MeleeAttackTargetCompound
+  branches:
+    - 
+    preconditions:
+      - !type 
+        key: Target
+      tasks:
+        - !type 
+          operator: !type
+            shutdownState: PlanFinished
+            # #Misfits Change /Fix:/ Plan the route up front so melee NPCs commit to
+            # obstacle-aware movement instead of steering blind into doors before combat jukes run.
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type 
+          operator: !type
+            jukeType: AdjacentTile
+        - !type 
+          operator: !type
+            targetKey: Target
+          preconditions:
+            - !type 
+              key: Target
+            - !type 
+              targetKey: Target
+              rangeKey: MeleeRange
+          services:
+            - !type 
+              id: MeleeService
+              proto: NearbyMeleeTargets
+              key: Target

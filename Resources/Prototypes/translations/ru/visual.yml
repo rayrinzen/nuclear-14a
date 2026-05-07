@@ -1,0 +1,109 @@
+- type: trait
+  id: N14Blindness
+  category: Visual
+  points: 5 # Forge-Change
+  requirements:
+  - !type 
+      inverted: true
+      departments:
+        - BrotherhoodOfSteel
+  - !type 
+    inverted: true
+    jobs:
+    - WastelandReporter
+    - TribalElder
+    - TownMayor
+    - TownSheriff
+    - NCRCaptain
+    - NCRLT
+    - NCRDoctor
+    - NCRVeteranRanger
+    - NCRFieldRanger
+    - NCRPatrolRanger
+    - NCRFirstSergeant
+    - NCRStaffSergeant
+    - NCRSGT
+    - NCRMPinvestigator
+    - NCRWS
+    - NCRPrivateFirstClass
+    - NCRSoldier
+    - NCRCadet
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - BoSMidScribe
+    - BoSMidKnight
+    - BoSMidSquire
+    - CaesarLegionCenturion
+    - CaesarLegionLegate
+    - CaesarLegionVeteranDecanus
+    - CaesarLegionFrumentarii
+    - CaesarLegionPrimeDecanus
+    - CaesarLegionVexillarius
+    - CaesarLegionExplorer
+    - CaesarLegionOrator
+    - CaesarLegionDean
+    - CaesarLegionLegionnaireVeteran
+    - CaesarLegionLegionnaireWarrior
+    - CaesarLegionLegionnaireRecruit
+    - CaesarLegionHoundmaster
+    - CaesarLegionAuxilia
+    - Overseer
+    - VaultSecurity
+  - !type 
+    inverted: true
+    traits:
+    - N14Photophobia
+    - N14Nearsighted
+    - N14GooglyEyes
+  functions:
+  - !type 
+    components:
+    - type: PermanentBlindness
+- type: trait
+  id: N14Nearsighted
+  category: Visual
+  points: 1
+  requirements:
+  - !type 
+    inverted: true
+    traits:
+    - N14Blindness
+    - N14GooglyEyes
+  functions:
+  - !type 
+    components:
+    - type: PermanentBlindness
+      blindness: 4
+- type: trait
+  id: N14GooglyEyes #It's technically an augmentation and should be in the physical file & category, but effects sight and gotta put something in this category.
+  category: Visual
+  points: -5
+  # Misfits Fix: requirements block removed — all referenced N14ExtremeAug* traits are commented out
+  #requirements:
+  #- !type:CharacterTraitRequirement
+  #  inverted: true
+  #  traits:
+  #  - N14ExtremeAugScribe
+  #  - N14ExtremeAugPaladin
+  functions:
+  - !type 
+    components:
+    - type: FlashImmunity
+    - type: EyeProtection
+- type: trait
+  id: N14Photophobia
+  category: Visual
+  points: 1
+  requirements:
+  - !type 
+    inverted: true
+    traits:
+    - N14GooglyEyes
+    - N14Blindness
+  functions:
+  - !type 
+    components:
+    - type: Flashable
+      eyeDamageChance: 0.3
+      eyeDamage: 1
+      durationMultiplier: 1.5

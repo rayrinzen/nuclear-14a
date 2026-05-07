@@ -1,0 +1,44 @@
+- type: job
+  id: Townsperson
+  setPreference: true
+  weight: 10
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-townsperson
+  description: job-description-townsperson
+  playTimeTracker: Townsperson
+  requirements:
+    - !type 
+      species:
+      - Human
+      - Ghoul
+  #- !type:CharacterOverallTimeRequirement # TEMP REMOVED
+  #  min: 0 # 1 hour
+  startingGear: TownspersonGear
+  icon: "JobIconTownPerson" # Corvax-Change
+  supervisors: job-supervisors-townsfolk
+  access:
+  - TownsPerson
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Townsfolk
+- type: startingGear
+  id: TownspersonGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitSettlerRags
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackExplorer # Corvax-Change
+    shoes: N14ClothingShoesBlack
+    id: N14IDPassportTownsfolk
+  innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+- type: playTimeTracker
+  id: Townsperson

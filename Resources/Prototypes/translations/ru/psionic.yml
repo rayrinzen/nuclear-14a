@@ -1,0 +1,104 @@
+- type: reagent
+  id: PsionicRegenerationEssence
+  name: reagent-name-prometheum
+  group: Biological
+  desc: reagent-desc-prometheum
+  flavor: metallic
+  color: "#700055"
+  physicalDesc: reagent-physical-desc-viscous
+  metabolisms:
+    Medicine:
+      effects:
+      - !type 
+        factor: -3
+      - !type 
+        factor: -3
+      - !type 
+        amount: -1
+      - !type 
+        amount: 2
+      - !type 
+        damage:
+          groups:
+            Burn: -5
+            Brute: -4
+          types:
+            Caustic: -3
+            Poison: -3
+            Bloodloss: -3
+- type: reagent
+  id: SoulbreakerToxin
+  name: reagent-name-soulbreaker-toxin
+  group: Toxins
+  desc: reagent-desc-soulbreaker-toxin
+  flavor: bitter
+  color: "#FFFFF0"
+  physicalDesc: reagent-physical-desc-cloudy
+  plantMetabolism:
+  - !type 
+    amount: 40
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        probability: 0.4
+        damage:
+          groups:
+            Toxin: 2
+      - !type 
+        conditions:
+        - !type 
+          reagent: SoulbreakerToxin
+          min: 5
+- type: reagent
+  id: LotophagoiOil
+  name: reagent-name-lotophagoi-oil
+  group: Narcotics
+  desc: reagent-desc-lotophagoi-oil
+  flavor: enthralling
+  color: "#FFBF00"
+  physicalDesc: reagent-physical-desc-overpowering
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.2
+      effects:
+      - !type 
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 5
+        refresh: false
+      - !type 
+        bonusMultiplier: 4
+        conditions:
+        - !type 
+          reagent: LotophagoiOil
+          min: 20
+      - !type 
+        key: Stutter
+        component: ScrambledAccent
+      - !type 
+        key: SlurredSpeech
+        component: TelepathicRepeater
+      - !type 
+        moodPrototype: LotoTranscendence
+        conditions:
+        - !type 
+          reagent: LotophagoiOil
+          min: 5
+- type: reagent
+  id: Ectoplasm
+  name: reagent-name-ectoplasm
+  group: Toxins
+  desc: reagent-desc-ectoplasm
+  flavor: sublime
+  color: "#61a79d"
+  physicalDesc: reagent-physical-desc-ethereal
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        probability: 0.4
+        damage:
+          groups:
+            Toxin: 2

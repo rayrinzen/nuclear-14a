@@ -1,0 +1,83 @@
+- type: job
+  id: CaesarLegionVeteranDecanus
+  setPreference: true
+  hideWithoutJobWhitelist: false # #Misfits Tweak - accessible up to Vet Decanus, no whitelist
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 150
+  showBorder: true
+  name: job-name-caesar-legion-veteran-decanus
+  description: job-description-caesar-legion-veteran-decanus
+  playTimeTracker: CaesarLegionVeteranDecanus
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 72000 # 20 hours
+    - !type 
+      species:
+      - Human
+    - !type 
+      sex: Male
+    - !type 
+      gender: Male
+  startingGear: CaesarLegionVeteranDecanusGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerDean"
+  supervisors: job-name-caesar-legion-supervisors
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionVeteranDecanus
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+      - type: Warcry
+        action: ActionLegionWarcry
+        targetDepartment: CaesarLegion
+        range: 6
+        speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+        duration: 10
+        overlayColor: "#D64545"
+        speechVerb: MisfitsLegionWarcry
+        warcryMessage: warcry-message-legion
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-legion
+        cautionPopup: true
+        activatorJobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionOrator
+        - CaesarLegionPriestessOfMars
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionVeteranDecanusGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: ClothingNeckRedScarf
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatDeanVeteranHelmet
+    gloves: N14ClothingHandsGlovesTribal
+    outerClothing: MisfitsLegionVeteranDecanusArmor # #Misfits Tweak: T7 armor (0.60/0.55) — Veteran Decanus, top Legion enlisted
+    belt: N14Gladius
+    pocket1: LegionVeteranDecanusloadoutkits
+    pocket2: N14WeaponPistol10mmPipe
+    id: N14IDLegionaryMedalVeteranDecanus
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+- type: playTimeTracker
+  id: CaesarLegionVeteranDecanus

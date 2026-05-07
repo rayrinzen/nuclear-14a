@@ -1,0 +1,57 @@
+- type: htnCompound
+  id: FoodCompound
+  branches:
+    - 
+    # Picks a nearby food, moves into range, then eats it and waits the idle time.
+    tasks:
+        - !type 
+          preconditions:
+            - !type 
+              minHungerState: Starving # See HungerThreshold enum
+          operator: !type
+            proto: NearbyFood
+        - !type 
+          operator: !type
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type 
+          preconditions:
+            - !type 
+              key: Target
+          operator: !type :AltInteractOperator
+        - !type 
+          preconditions:
+            - !type 
+              key: IdleTime
+          operator: !type
+            key: IdleTime
+    - 
+    # Picks nearby drink then consumes it and waits idle time
+    tasks:
+        - !type 
+          preconditions:
+            - !type 
+              minThirstState: Parched # See ThirstThreshold enum
+          operator: !type
+            proto: NearbyDrink
+        - !type 
+          operator: !type
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type 
+          preconditions:
+            - !type 
+              key: Target
+          operator: !type :AltInteractOperator
+        - !type 
+          preconditions:
+            - !type 
+              key: IdleTime
+          operator: !type
+            key: IdleTime

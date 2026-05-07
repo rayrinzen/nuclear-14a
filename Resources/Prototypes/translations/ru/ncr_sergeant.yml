@@ -1,0 +1,57 @@
+- type: job
+  id: NCRSGT
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 50
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-ncr-sergeant
+  description: job-description-ncr-sergeant
+  playTimeTracker: NCRNCO
+  requirements:
+    - !type 
+      species:
+      - Human
+      - Ghoul
+    - !type 
+      department: NCR
+      min: 57600 # 16 hours
+  #- !type:CharacterPlaytimeRequirement # TEMP REMOVED
+  #  tracker: NCRWS
+  #  min: 18000 # 5 hours
+  startingGear: NCRSGTGear
+  icon: "JobIconNcrSerg" # Corvax-Change
+  supervisors: job-supervisors-ncr-staff-sergeant
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  - NCRSGT
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+- type: startingGear
+  id: NCRSGTGear
+  equipment:
+    back: N14ClothingBackpackNCR # Corvax-Change
+    hands: N14ClothingHandsGlovesCombat
+    jumpsuit: N14ClothingOfficerUniformNCRDesert # Corvax-Change
+    shoes: N14ClothingBootsCombatFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
+    neck: ClothingNeckPinNCRSergeant # #Misfits Change - rank pin instead of generic mantle
+    belt: ClothingBeltNCR
+    outerClothing: MisfitsNCRHeavyCombatArmor # #Misfits Tweak: T5 armor (0.70/0.65) — Sergeant tier
+    pocket1: NCRSGTloadoutkits
+    pocket2: RadioHandheld
+    id: N14IDNCRDogtagNCO
+  innerClothingSkirt: N14ClothingOfficerUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+- type: playTimeTracker
+  id: NCRNCO

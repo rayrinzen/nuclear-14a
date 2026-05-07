@@ -1,0 +1,8 @@
+- type: htnCompound
+  id: N14HostileCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: N14MeleeCombatCompound
+# Same as the base version, but without idle walking around & about

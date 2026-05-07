@@ -1,0 +1,11 @@
+- type: htnCompound
+  id: DisablerbotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: InnateRangedCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound

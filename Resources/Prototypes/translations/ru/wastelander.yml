@@ -1,0 +1,50 @@
+- type: job
+  id: Wastelander
+  setPreference: true
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-wastelander
+  description: job-description-wastelander
+  playTimeTracker: Wastelander
+  startingGear: WastelanderGear
+  icon: "JobIconWastelander" # Corvax-Change
+  supervisors: job-supervisors-wastelander
+  requirements:  # Misfits Change: block non-human species
+  - !type 
+    inverted: true
+    species:
+    - RobotMrHandy
+    - RobotMrGutsy
+    - RobotProtectron
+    - RobotProtectronPolice
+    - RobotProtectronBuilder
+    - RobotProtectronFire
+    - RobotAssaultron
+    - RobotAssaultronTesla
+    - RobotSentryBot
+    - RobotSentryBotLaser
+    - RobotRobobrain
+    - RobotRobobrainLaser
+    - SuperMutant
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+- type: startingGear
+  id: WastelanderGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitRags
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackExplorer # Corvax-Change
+    shoes: N14ClothingShoesRags
+    id: N14ClothingNeckDogtags # #Misfits Change - wastelanders get dogtags as ID, no Pip-Boy
+  innerClothingSkirt: N14ClothingUniformJumpskirtFalloutBlack
+  satchel: N14ClothingBackpackSatchelWastelanderFilled
+  duffelbag: N14ClothingBackpackDuffelFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+- type: playTimeTracker
+  id: Wastelander

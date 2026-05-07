@@ -1,0 +1,86 @@
+- type: constructionGraph
+  id: Railing
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: railing
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingCorner
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 3
+        - to: railingCornerSmall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 1
+              doAfter: 2
+        - to: railingRound
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+    - node: railing
+      entity: Railing
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: PartRodMetal1
+              amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: railingCorner
+      entity: RailingCorner
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: PartRodMetal1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: railingCornerSmall
+      entity: RailingCornerSmall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: PartRodMetal1
+              amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: railingRound
+      entity: RailingRound
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: PartRodMetal1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 1

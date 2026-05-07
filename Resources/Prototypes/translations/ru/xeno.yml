@@ -1,0 +1,11 @@
+- type: htnCompound
+  id: XenoCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound

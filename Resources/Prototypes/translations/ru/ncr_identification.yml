@@ -1,0 +1,81 @@
+#Misfits Change /Add/: Rank-specific NCR dogtags for active Misfits NCR jobs.
+
+- type: entity
+  parent: N14IDNCRDogtag
+  id: N14IDNCRDogtagSoldier
+  name: private's dogtags
+  description: An ID dogtag worn by NCR privates.
+  suffix: Soldier
+  components:
+    - type: PresetIdCard
+      job: NCRSoldier
+
+- type: entity
+  parent: N14IDNCRDogtag
+  id: N14IDNCRDogtagPrivateFirstClass
+  name: private first class dogtags
+  description: An ID dogtag worn by NCR privates first class.
+  suffix: Private First Class
+  components:
+    - type: PresetIdCard
+      job: NCRPrivateFirstClass
+
+- type: entity
+  parent: N14IDNCRDogtagNCO
+  id: N14IDNCRDogtagStaffSergeant
+  name: staff sergeant's dogtags
+  description: An ID dogtag worn by NCR staff sergeants.
+  suffix: Staff Sergeant
+  components:
+    - type: PresetIdCard
+      job: NCRStaffSergeant
+
+- type: entity
+  parent: N14IDNCRDogtagNCO
+  id: N14IDNCRDogtagFirstSergeant
+  name: sergeant first class's dogtags
+  description: An ID dogtag worn by NCR sergeants first class.
+  suffix: Sergeant First Class
+  components:
+    - type: PresetIdCard
+      job: NCRFirstSergeant
+
+- type: entity
+  parent: N14IDNCRDogtagNCO
+  id: N14IDNCRDogtagMPInvestigator
+  name: MP investigator's dogtags
+  description: An ID dogtag worn by NCR military police investigators.
+  suffix: MP Investigator
+  components:
+    - type: PresetIdCard
+      job: NCRMPinvestigator
+
+- type: entity
+  parent: N14IDNCRDogtagDoctor
+  id: N14IDNCRDogtagDoctorSenior
+  name: senior doctor's dogtags
+  description: An ID dogtag worn by NCR doctors.
+  suffix: Doctor
+  components:
+    - type: PresetIdCard
+      job: NCRDoctor
+
+- type: entity
+  parent: N14IDNCRDogtagOfficer
+  id: N14IDNCRDogtagCaptain
+  name: captain's dogtags
+  description: An ID dogtag worn by NCR captains.
+  suffix: Captain
+  components:
+    - type: PresetIdCard
+      job: NCRCaptain
+
+- type: entity
+  parent: N14IDNCRDogtagCaptain
+  id: N14IDNCRDogtagMajor
+  name: major's dogtags
+  description: An ID dogtag worn by NCR majors.
+  suffix: Major
+  components:
+    - type: PresetIdCard
+      job: NCRMajor

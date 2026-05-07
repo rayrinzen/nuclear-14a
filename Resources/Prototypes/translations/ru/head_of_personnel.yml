@@ -1,0 +1,72 @@
+- type: job
+  id: HeadOfPersonnel
+  name: job-name-hop
+  description: job-description-hop
+  playTimeTracker: JobHeadOfPersonnel
+  antagAdvantage: 6 # DeltaV - Reduced TC: Head of Staff
+  setPreference: false
+  # requirements:
+  # - !type:CharacterTraitRequirement
+  # inverted: true
+  # traits:
+  # - Foreigner
+  # - ForeignerLight
+  weight: 10 # DeltaV - Changed HoP weight from 20 to 10 due to them not being more important than other Heads
+  startingGear: HoPGear
+  icon: "JobIconHeadOfPersonnel"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - Command
+  - HeadOfPersonnel
+  - Bar
+  - Service
+  - Maintenance
+  - Janitor
+  - Theatre
+  - Kitchen
+  - Hydroponics
+  - External
+  - Cryogenics
+  - Lawyer
+  - Cargo
+  - Boxer
+  - Clown
+  - Library
+  - Mime
+  - Musician
+  - Reporter
+  - Zookeeper
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  - !type 
+    components:
+      - type: CommandStaff
+  afterLoadoutSpecial:
+  - !type 
+    charges: 8
+  - !type 
+    powerCell: PowerCellHigh
+- type: startingGear
+  id: HoPGear
+  subGear:
+  - HoPPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoP
+    back: ClothingBackpackHOPFilled
+    shoes: ClothingShoesLeather # DeltaV - HoP needs something better than plebe shoes.
+    id: HoPPDA
+    ears: ClothingHeadsetHoP # DeltaV - HoP is now a service role, replaces their all channels headset.
+  innerClothingSkirt: ClothingUniformJumpskirtHoP
+  satchel: ClothingBackpackSatchelHOPFilled
+  duffelbag: ClothingBackpackDuffelHOPFilled
+- type: startingGear
+  id: HoPPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHoP
+    head: ClothingHeadEnvirohelmHoP
+    gloves: ClothingHandsGlovesEnviroglovesHoP

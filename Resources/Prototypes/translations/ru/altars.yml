@@ -1,0 +1,26 @@
+﻿- type: constructionGraph
+  id: BananiumAltarGraph
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bananiumAltar
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: Bananium
+              amount: 6
+              doAfter: 5
+    - node: bananiumAltar
+      entity: AltarBananium
+      edges:
+        - to: start
+          completed:
+          - !type 
+                prototype: MaterialBananium1
+                amount: 6
+          - !type ':DeleteEntity {}'
+          steps:
+            - tool: Welding
+              doAfter: 5

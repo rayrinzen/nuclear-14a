@@ -1,0 +1,74 @@
+- type: job
+  id: NCRVeteranRanger
+  setPreference: true
+  alwaysUseSpawner: true
+  jobWhitelistBypassesRoleTimers: true
+  name: job-name-ranger-veteran-n14
+  description: job-description-ranger-veteran-n14
+  playTimeTracker: NCRVeteranRanger
+  weight: 10
+  showBorder: true
+  startingGear: NCRVeteranRangerGear
+  icon: "JobIconHeadOfSecurity"
+  supervisors: job-supervisors-ranger-veteran
+  requireAdminNotify: true
+  canBeAntag: false
+  accessGroups:
+  - NCRRanger
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Rangers
+  # #Misfits Removed - Disabled auto-grant pending testing; use training manuals instead
+  #- !type:AddComponentSpecial
+  #  components:
+  #    - type: GrantRangerCombat
+  requirements:
+    - !type 
+      department: Rangers
+      min: 144000 # 40 hours
+    - !type 
+      inverted: true
+      species:
+      - RobotMrHandy
+      - RobotProtectron
+      - RobotProtectronPolice
+      - RobotProtectronBuilder
+      - RobotProtectronFire
+      - RobotMrGutsy
+      - RobotAssaultron
+      - RobotAssaultronTesla
+      - RobotSentryBot
+      - RobotSentryBotLaser
+      - RobotRobobrain
+      - RobotRobobrainLaser
+      - SuperMutant
+      - GhoulGlowing
+- type: startingGear
+  id: NCRVeteranRangerGear
+  equipment:
+    head: N14ClothingHeadHatRangerHelmetDesert
+    back: N14ClothingBackpackMilitary # Corvax-Change
+    jumpsuit: N14ClothingUniformRangerV3
+    ears: N14ClothingHeadsetNCR
+    shoes: N14ClothingBootsCombatFilled
+    gloves: N14ClothingHandsGlovesCombat
+    belt: ClothingBeltRevolvervetfilled
+    mask: ClothingMaskGasRangerElite
+    pocket1: MagazineBox45-70
+    pocket2: NCRveteranrangerloadoutkits
+    eyes: ClothingEyesGlassesSunglasses
+    outerClothing: N14ClothingOuterRangerCombatDesert
+    id: N14NCRVeteranRangerPipboy
+  innerClothingSkirt: N14ClothingUniformRangerV3 #placeholder
+  satchel: N14ClothingBackpackSatchelMilitaryFilled
+  duffelbag: N14ClothingBackpackDuffelMilitaryFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitary
+    - FlashlightSeclite
+    - N14Binoculars
+- type: playTimeTracker
+  id: NCRVeteranRanger

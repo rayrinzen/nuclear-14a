@@ -1,0 +1,14 @@
+- type: htnCompound
+  id: GladiabotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            proto: NearbyMeleeTargets
+        - !type 
+          task: MeleeAttackTargetCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound

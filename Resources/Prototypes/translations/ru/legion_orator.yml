@@ -1,0 +1,82 @@
+- type: job
+  id: CaesarLegionOrator
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 180
+  showBorder: true #Starts the "Support Officers" tier block below Centurion/Legate
+  name: job-name-caesar-legion-orator
+  description: job-description-caesar-legion-orator
+  playTimeTracker: CaesarLegionOrator
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 43200 # 12 hours
+    - !type 
+      species:
+      - Human
+    - !type 
+      sex: Male
+    - !type 
+      gender: Male
+  startingGear: CaesarLegionOratorGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerVenator"
+  supervisors: job-name-caesar-legion-other
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionOrator
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+      - type: Warcry
+        action: ActionLegionWarcry
+        targetDepartment: CaesarLegion
+        range: 6
+        speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+        duration: 10
+        overlayColor: "#D64545"
+        speechVerb: MisfitsLegionWarcry
+        warcryMessage: warcry-message-legion
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-legion
+        cautionPopup: true
+        activatorJobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionOrator
+        - CaesarLegionPriestessOfMars
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionOratorGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: N14ClothingNeckCloakLegionRed
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    head: N14ClothingHeadHatLegionHood
+    outerClothing: N14ClothingOuterLegionnaireOratorArmor
+    gloves: N14ClothingHandsGlovesTribal
+    belt: N14Gladius
+    suitstorage: N14PilumSpear
+    pocket1: LegionOratorloadoutkits
+    id: N14IDLegionaryMedalOrator
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+- type: playTimeTracker
+  id: CaesarLegionOrator

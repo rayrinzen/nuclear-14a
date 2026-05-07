@@ -1,0 +1,574 @@
+- type: entityTable
+  id: MaintFluffTable
+  table: !type
+    children:
+    - !type 
+      weight: 75
+      children:
+      - !type 
+        children:
+        - !type 
+          id: Lighter
+        - !type 
+          id: CigCartonBlue
+      - !type 
+        children:
+        - !type 
+          id: ClothingEyesGlassesGar
+        - !type 
+          id: ClothingEyesGlassesGarOrange
+        - !type 
+          id: ClothingEyesGlassesGarGiga
+      - !type 
+        id: ClothingHeadHatCake
+      - !type 
+        id: ClothingHeadHatSkub
+      - !type 
+        id: ClothingHeadHatCone
+      - !type 
+        id: ClothingNeckBling
+      - !type 
+        id: ClothingHeadHelmetCosmonaut
+      - !type 
+        id: ClothingHeadHelmetBasic
+      - !type 
+        id: ClothingShoeSlippersDuck
+      - !type 
+        id: ClothingUnderSocksBee
+      - !type 
+        id: ClothingUnderSocksCoder
+      - !type 
+        id: ClothingHeadHatSquid
+      - !type 
+        children:
+        - !type 
+          id: ClothingMaskRat
+        - !type 
+          id: ClothingMaskFox
+        - !type 
+          id: ClothingMaskBee
+        - !type 
+          id: ClothingMaskBear
+        - !type 
+          id: ClothingMaskRaven
+        - !type 
+          id: ClothingMaskJackal
+        - !type 
+          id: ClothingMaskBat
+      - !type 
+        id: ClothingBeltSuspenders
+      - !type 
+        id: ClothingEyesEyepatch
+      - !type 
+        id: ClothingEyesGlasses
+      - !type 
+        id: ClothingHandsGlovesLatex
+      - !type 
+        id: ClothingHandsGlovesFingerless
+      - !type 
+        id: ClothingHandsGlovesColorBlack
+      - !type 
+        id: ClothingHeadHatBeret
+      - !type 
+        id: ClothingHeadHatBowlerHat
+      - !type 
+        id: ClothingHeadHatFedoraBrown
+        weight: 0.5
+      - !type 
+        id: ClothingHeadHatFedoraGrey
+        weight: 0.5
+      - !type 
+        id: ClothingHeadHatFez
+      - !type 
+        id: ClothingHeadHatPaper
+      - !type 
+        id: ClothingHeadHatPirate
+      - !type 
+        id: ClothingMaskSterile
+      - !type 
+        id: ClothingNeckHeadphones
+      - !type 
+        id: ClothingNeckTieRed
+      - !type 
+        id: ClothingOuterCoatGentle
+      - !type 
+        children:
+        - !type 
+          id: ClothingOuterCoatJensen
+        - !type 
+          id: ClothingEyesGlassesJensen
+      - !type 
+        id: ClothingOuterCoatLab
+      - !type 
+        children:
+        - !type 
+          id: ClothingOuterCoatPirate
+        - !type 
+          id: ClothingHeadHatPirateTricord
+      - !type 
+        id: ClothingHeadHatTophat
+      - !type 
+        id: ClothingOuterHoodieBlack
+        weight: 0.5
+      - !type 
+        id: ClothingOuterHoodieGrey
+        weight: 0.5
+      - !type 
+        children:
+        - !type 
+          id: ClothingOuterFlannelRed
+        - !type 
+          id: ClothingOuterFlannelBlue
+        - !type 
+          id: ClothingOuterFlannelGreen
+      - !type 
+        id: ClothingOuterVestHazard
+      - !type 
+        id: ClothingShoesBootsJack
+      - !type 
+        id: ClothingShoesBootsJackFake
+      - !type 
+        id: ClothingShoesHighheelBoots
+      - !type 
+        id: ClothingShoesBootsLaceup
+      - !type 
+        id: ClothingShoesLeather
+      - !type 
+        id: ClothingShoesBootsSalvage
+      - !type 
+        id: ClothingShoesBootsWork
+      - !type 
+        id: ClothingShoesTourist
+      - !type 
+        id: ClothingUniformJumpsuitLoungewear
+      - !type 
+        id: ClothingHeadHatCowboyRed
+    - !type 
+      weight: 23
+      children:
+      - !type 
+        id: ClothingNeckCloakHerald
+      - !type 
+        id: ClothingHeadHelmetTemplar
+      - !type 
+        children:
+        - !type 
+          id: ClothingNeckCloakTrans
+        - !type 
+          id: ClothingNeckCloakAdmin
+        - !type 
+          id: ClothingNeckCloakMoth
+        - !type 
+          id: ClothingNeckCloakVoid
+        - !type 
+          id: ClothingNeckCloakGoliathCloak
+        - !type 
+          id: ClothingNeckCloakAce
+        - !type 
+          id: ClothingNeckCloakAro
+        - !type 
+          id: ClothingNeckCloakBi
+        - !type 
+          id: ClothingNeckCloakIntersex
+        - !type 
+          id: ClothingNeckCloakLesbian
+        - !type 
+          id: ClothingNeckCloakGay
+        - !type 
+          id: ClothingNeckCloakEnby
+        - !type 
+          id: ClothingNeckCloakPan
+      - !type 
+        id: ToySkeleton
+      - !type 
+        id: Basketball
+      - !type 
+        id: Football
+      - !type 
+        id: BalloonNT
+      - !type 
+        id: BalloonCorgi
+      - !type 
+        id: MysteryFigureBox
+      - !type 
+        children:
+        - !type 
+          id: ClothingOuterRobesCult
+        - !type 
+          id: ClothingShoesCult
+      - !type 
+        id: ClothingHandsGlovesMercFingerless
+      - !type 
+        id: ClothingHandsGlovesNitrile
+      - !type 
+        id: ClothingHandsGlovesPowerglove
+      - !type 
+        id: ClothingHeadHatAnimalHeadslime
+      - !type 
+        id: ClothingHeadHatBeretMerc
+      - !type 
+        id: ClothingHeadHatOutlawHat
+      - !type 
+        id: ClothingHeadHatUshanka
+      - !type 
+        id: ClothingHeadHatBunny
+      - !type 
+        id: ClothingMaskNeckGaiter
+      - !type 
+        id: ClothingNeckScarfStripedZebra
+      - !type 
+        id: ClothingOuterGhostSheet
+      - !type 
+        id: ClothingUniformJumpsuitAncient
+      - !type 
+        id: ClothingUniformJumpsuitPirate
+      - !type 
+        id: ClothingShoesBootsCowboyFancy
+      - !type 
+        id: ClothingHeadHatCowboyBountyHunter
+      - !type 
+        children:
+        - !type 
+          id: ClothingNeckLGBTPin
+        - !type 
+          id: ClothingNeckAromanticPin
+        - !type 
+          id: ClothingNeckAsexualPin
+        - !type 
+          id: ClothingNeckBisexualPin
+        - !type 
+          id: ClothingNeckGayPin
+        - !type 
+          id: ClothingNeckIntersexPin
+        - !type 
+          id: ClothingNeckLesbianPin
+        - !type 
+          id: ClothingNeckNonBinaryPin
+        - !type 
+          id: ClothingNeckPansexualPin
+        - !type 
+          id: ClothingNeckTransPin
+        - !type 
+          id: ClothingNeckAutismPin
+        - !type 
+          id: ClothingNeckGoldAutismPin
+    - !type 
+      weight: 2
+      children:
+      - !type 
+        id: Skub
+      - !type 
+        id: PonderingOrb
+      - !type 
+        id: CluwneHorn
+      - !type 
+        id: ClothingShoesSkates
+      - !type 
+        id: DrinkMugDog
+      - !type 
+        id: CigarGold
+      - !type 
+        id: ClothingUniformJumpsuitFamilyGuy
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Fluff+Clothes
+  id: MaintenanceFluffSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Clothing/Eyes/Glasses/gar.rsi
+        state: icon-super
+  - type: EntityTableSpawner
+    table: !type
+      tableId: MaintFluffTable
+      prob: 0.6
+- type: entityTable
+  id: MaintToolsTable
+  table: !type
+    children:
+    - !type 
+      weight: 75
+      children:
+      - !type 
+        id: FlashlightLantern
+      - !type 
+        id: ToolboxEmergencyFilled
+      - !type 
+        children:
+        - !type 
+          id: OxygenTankFilled
+        - !type 
+          id: DoubleEmergencyOxygenTankFilled
+      - !type 
+        children:
+        - !type 
+          id: NitrogenTankFilled
+        - !type 
+          id: DoubleEmergencyNitrogenTankFilled
+      - !type 
+        children:
+        - !type 
+          id: PlasmaTankFilled
+        - !type 
+          id: DoubleEmergencyPlasmaTankFilled
+      - !type 
+        id: EmergencyFunnyOxygenTankFilled
+        weight: 0.5
+      - !type 
+        weight: 3
+        children:
+        - !type 
+          id: SheetSteel10
+        - !type 
+          id: SheetPlastic10
+        - !type 
+          id: SheetGlass10
+        - !type 
+          id: PartRodMetal10
+        - !type 
+          id: MaterialCardboard10
+          weight: 0.25
+        - !type 
+          id: MaterialCloth10
+          weight: 0.25
+        - !type 
+          id: MaterialWoodPlank10
+          weight: 0.25
+      - !type 
+        id: Plunger
+      - !type 
+        id: PowerCellMedium
+      - !type 
+        id: PowerCellSmall
+      - !type 
+        id: Soap
+      - !type 
+        id: Wirecutter
+      - !type 
+        id: Screwdriver
+      - !type 
+        id: Wrench
+      - !type 
+        id: Crowbar
+      - !type 
+        id: Multitool
+      - !type 
+        id: Shovel
+      - !type 
+        id: Welder
+      - !type 
+        id: GasAnalyzer
+      - !type 
+        id: SprayPainter
+      - !type 
+        id: Flare
+      - !type 
+        id: Beaker
+      - !type 
+        id: ClothingMaskGas
+      - !type 
+        id: ClothingMaskBreath
+      - !type 
+        id: DoorElectronics
+      - !type 
+        id: APCElectronics
+      - !type 
+        id: InflatableWallStack5
+      - !type 
+        id: CableHVStack10
+      - !type 
+        id: CableMVStack10
+      - !type 
+        id: CableApcStack10
+      - !type 
+        children:
+        - !type 
+          id: ClothingHandsGlovesColorYellowBudget
+          weight: 5
+        - !type 
+          id: ClothingHandsGlovesFingerlessInsulated
+          weight: 0.5
+        - !type 
+          id: ClothingHandsGlovesColorYellow
+          weight: 1
+    - !type 
+      weight: 23
+      children:
+      - !type 
+        id: ClothingHeadHatCone
+        weight: 2
+      - !type 
+        id: BookRandomStory
+        weight: 0.25
+      - !type 
+        id: ToolboxElectricalFilled
+      - !type 
+        id: ToolboxMechanicalFilled
+      - !type 
+        id: ClothingBeltUtility
+      - !type 
+        id: ToolboxArtisticFilled
+      - !type 
+        id: GeigerCounter
+      - !type 
+        id: trayScanner
+      - !type 
+        id: HandheldGPSBasic
+      - !type 
+        id: HandLabeler
+      - !type 
+        id: GlowstickBase
+      - !type 
+        id: Bucket
+      - !type 
+        id: RadioHandheld
+      - !type 
+        id: AppraisalTool
+      - !type 
+        id: ModularReceiver
+      - !type 
+        id: WeaponFlareGun
+      - !type 
+        id: BarberScissors
+      - !type 
+        children:
+        - !type 
+          id: DrinkSpaceGlue
+        - !type 
+          id: DrinkSpaceLube
+    - !type 
+      weight: 2
+      children:
+      - !type 
+        id: LanternFlash
+      - !type 
+        id: PowerCellHigh
+      - !type 
+        id: NetProbeCartridge
+      - !type 
+        id: WelderIndustrial
+      - !type 
+        id: SheetPlasteel10
+      - !type 
+        id: ClothingMaskGasExplorer
+      - !type 
+        id: TechnologyDisk
+      - !type 
+        id: ResearchDisk5000
+      - !type 
+        id: PetCarrier
+      - !type 
+        id: DrinkMopwataBottleRandom
+      - !type 
+        id: LidSalami
+        weight: 0.05
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Tools+Cells+Mats
+  id: MaintenanceToolSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Power/power_cells.rsi
+        state: high
+  - type: EntityTableSpawner
+    table: !type
+      tableId: MaintToolsTable
+      prob: 0.6
+- type: entityTable
+  id: MaintWeaponTable
+  table: !type
+    children:
+    - !type 
+      weight: 95
+      children:
+      - !type 
+        id: Machete
+      - !type 
+        id: BaseBallBat
+      - !type 
+        id: CombatKnife
+      - !type 
+        id: Spear
+      - !type 
+        id: RifleStock
+      - !type 
+        id: ModularReceiver
+      - !type 
+        id: HydroponicsToolScythe
+    - !type 
+      weight: 5
+      children:
+      - !type 
+        id: Lighter
+      - !type 
+        id: Matchbox
+      - !type 
+        id: ClothingEyesBlindfold
+      - !type 
+        id: ClothingMaskMuzzle
+      - !type 
+        id: ClothingMaskGasSecurity
+      - !type 
+        id: ShardGlass
+        weight: 2
+      - !type 
+        id: Syringe
+      - !type 
+        id: Mousetrap
+      - !type 
+        weight: 2
+        children:
+        - !type 
+          id: Brutepack1
+        - !type 
+          id: Ointment1
+        - !type 
+          id: Gauze1
+      - !type 
+        id: Bola
+      - !type 
+        id: SurvivalKnife
+      - !type 
+        id: ScalpelShiv
+      - !type 
+        id: Shiv
+      - !type 
+        id: SawImprov
+      - !type 
+        id: HydroponicsToolMiniHoe
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Scrap+Weapons
+  id: MaintenanceWeaponSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Objects/Weapons/Melee/machete.rsi
+        state: icon
+  - type: EntityTableSpawner
+    table: !type
+      tableId: MaintWeaponTable
+      prob: 0.6
+- type: entity
+  name: Maint Loot Spawner
+  suffix: Plants
+  id: MaintenancePlantSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Misc/spaceshroom.rsi
+          state: structure
+    - type: RandomSpawner
+      prototypes:
+        - Spaceshroom
+      chance: 0.6
+      offset: 0.0

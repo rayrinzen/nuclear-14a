@@ -1,0 +1,7 @@
+- type: htnCompound
+  id: HonkbotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound

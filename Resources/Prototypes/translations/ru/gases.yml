@@ -1,0 +1,418 @@
+- type: reagent
+  id: Oxygen
+  name: reagent-name-oxygen
+  desc: reagent-desc-oxygen
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#c4f5ff"
+  boilingPoint: '-183.0'
+  meltingPoint: '-218.4'
+  metabolisms:
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Human
+      - !type 
+        conditions:
+        - !type 
+          type: Animal
+      - !type 
+        conditions:
+        - !type 
+          type: Rat
+      - !type 
+        conditions:
+        - !type 
+          type: Plant
+      - !type 
+        conditions:
+        - !type 
+          type: SuperMutant
+      - !type 
+        conditions:
+        - !type 
+          type: Vox
+          shouldHave: false
+        - !type 
+          type: Plasmaman
+          shouldHave: false
+        ratios:
+          CarbonDioxide: 1.0
+          Oxygen: '-1.0'
+      - !type 
+        conditions:
+        - !type 
+          type: Vox
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 7
+      - !type 
+        alertType: HighOxygen
+        conditions:
+          - !type 
+            min: 0.5
+          - !type 
+            type: Vox
+        clear: true
+        time: 5
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 7
+      - !type 
+        alertType: HighOxygen
+        conditions:
+          - !type 
+            min: 0.5
+          - !type 
+            type: Plasmaman
+        clear: true
+        time: 5
+- type: reagent
+  id: Plasma
+  name: reagent-name-plasma
+  desc: reagent-desc-plasma
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#7e009e"
+  recognizable: true
+  boilingPoint: '-127.3' # Random values picked between the actual values for CO2 and O2
+  meltingPoint: '-186.4'
+  tileReactions:
+  - !type 
+    temperatureMultiplier: 1.5
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+          shouldHave: false
+        damage:
+          types:
+            Poison: 3
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+          shouldHave: false
+        reagent: Inaprovaline
+        amount: '-2.0'
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+          shouldHave: false
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 1 # We need a metabolism effect on reagent removal
+      - !type 
+        alertType: Toxins
+        conditions:
+          - !type 
+            type: Plasmaman
+            shouldHave: false
+          - !type 
+            min: 1.5
+        clear: True
+        time: 5
+      - !type 
+        factor: 4
+        conditions:
+        - !type 
+          type: Plasmaman
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+        ratios:
+          Nitrogen: 1.0 # Interesting exhale for plasmamen
+          Plasma: '-1.0'
+    Medicine:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+        damage:
+          groups:
+            Brute: -2
+          types:
+            Heat: '-0.66'
+            Shock: '-0.66'
+            Caustic: '-0.66'
+            Asphyxiation: '-0.66'
+            Poison: '-0.66'
+      - !type 
+        conditions:
+        - !type 
+          type: Plasmaman
+        - !type 
+          reagent: Plasma
+          min: 4
+        moodPrototype: PlasmamanIngestPlasma
+  reactiveEffects:
+    Flammable:
+      methods:
+      - Touch
+      effects:
+      - !type :FlammableReaction
+- type: reagent
+  id: Tritium
+  name: reagent-name-tritium
+  desc: reagent-desc-tritium
+  physicalDesc: reagent-physical-desc-ionizing
+  flavor: bitter
+  color: "#66ff33"
+  tileReactions:
+  - !type 
+    temperatureMultiplier: 2.0
+  reactiveEffects:
+    Flammable:
+      methods:
+      - Touch
+      effects:
+      - !type 
+        multiplier: 0.8
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Radiation: 3
+    Gas:
+      effects:
+      - !type 
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Radiation: 1 # We need a metabolism effect on reagent removal
+      - !type 
+        alertType: Toxins
+        conditions:
+          - !type 
+            min: 1.5
+        clear: True
+        time: 5
+- type: reagent
+  id: CarbonDioxide
+  name: reagent-name-carbon-dioxide
+  desc: reagent-desc-carbon-dioxide
+  physicalDesc: reagent-physical-desc-odorless
+  flavor: bitter
+  color: "#66ff33"
+  metabolisms:
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Plant
+      - !type 
+        conditions:
+        - !type 
+          type: Plant
+          shouldHave: false
+        - !type 
+          type: Vox
+          shouldHave: false
+        - !type 
+          min: 0.5
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 0.8
+      - !type 
+        conditions:
+        - !type 
+          type: Plant
+          shouldHave: false
+        factor: -4
+- # We need a metabolism effect on reagent removal
+#- !type:AdjustAlert
+#  alertType: CarbonDioxide
+type: reagent
+  id: Nitrogen
+  name: reagent-name-nitrogen
+  desc: reagent-desc-nitrogen
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#a1e1ff"
+  boilingPoint: '-195.8'
+  meltingPoint: '-210.0'
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Cold: 1 # liquid nitrogen is cold
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          type: Vox
+      - !type 
+        conditions:
+        - !type 
+          type: Slime
+      - !type 
+        conditions:
+        - !type 
+          type: Vox
+        ratios:
+          Ammonia: 1.0
+          Nitrogen: '-1.0'
+      - !type 
+        conditions:
+        - !type 
+          type: Slime
+        ratios:
+          NitrousOxide: 1.0
+          Nitrogen: '-1.0'
+- type: reagent
+  id: NitrousOxide
+  name: reagent-name-nitrous-oxide
+  desc: reagent-desc-nitrous-oxide
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#5d88c9"
+  boilingPoint: -88
+  meltingPoint: -90
+  metabolisms:
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          reagent: NitrousOxide
+          min: 0.2
+          max: 0.5
+        - !type 
+          type: Slime
+          shouldHave: false
+        emote: Laugh
+        showInChat: true
+        probability: 0.1
+      - !type 
+        conditions:
+        - !type 
+          reagent: NitrousOxide
+          min: 0.5
+        - !type 
+          type: Slime
+          shouldHave: false
+        type: Local
+        visualType: Medium
+        messages:
+        - "effect-sleepy"
+        probability: 0.1
+      - !type 
+        conditions:
+        - !type 
+          reagent: NitrousOxide
+          min: 1
+        - !type 
+          type: Slime
+          shouldHave: false
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+      - !type 
+        conditions:
+        - !type 
+          reagent: NitrousOxide
+          min: 1
+        - !type 
+          type: Slime
+          shouldHave: false
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 200 # This reeks, but I guess it works LMAO
+        type: Add
+      - !type 
+        conditions:
+        - !type 
+          reagent: NitrousOxide
+          min: 3.5
+        - !type 
+          type: Slime
+          shouldHave: false
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 0.25
+- type: reagent
+  id: Frezon
+  name: reagent-name-frezon
+  desc: reagent-desc-frezon
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#3a758c"
+  boilingPoint: '-195.8'
+  meltingPoint: '-210.0'
+  metabolisms:
+    Gas:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          reagent: Frezon
+          min: 0.5
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Cellular: 0.5
+      - !type 
+        conditions:
+        - !type 
+          reagent: Frezon
+          min: 1
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 500
+        refresh: false
+      - !type 
+        boozePower: 500
+        conditions:
+        - !type 
+          reagent: Frezon
+          min: 1
+      - !type 
+        type: Local
+        messages:
+        - "frezon-lungs-cold"
+        probability: 0.1
+        conditions:
+        - !type 
+          reagent: Frezon
+          min: 0.5
+      - !type 
+        type: Local
+        visualType: Medium
+        messages:
+        - "frezon-euphoric"
+        probability: 0.1
+        conditions:
+        - !type 
+          reagent: Frezon
+          min: 1

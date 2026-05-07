@@ -1,0 +1,139 @@
+ - type: loadout
+   id: N14LoadoutNeckCloakLeather
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+       inverted: true
+       departments:
+       - Vault
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckCloakLeather
+ - type: loadout
+   id: N14LoadoutNeckMantleLeather
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+        inverted: true
+        departments:
+        - Vault
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckMantleLeather
+ - type: loadout
+   id: N14LoadoutNeckCloakDarkCloak
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckCloakDarkCloak
+ - type: loadout
+   id: ClothingNeckScarfStripedBlack
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - ClothingNeckScarfStripedBlack
+ - type: loadout
+   id: ClothingNeckTribalCloak
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+        inverted: true
+        departments:
+        - Vault
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckTribalCloak
+ - type: loadout
+   id: ClothingNeckTribalCloakBr
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+        inverted: true
+        departments:
+        - Vault
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckTribalCloakBr
+ - type: loadout
+   id: ClothingNeckShawl
+   category: Accessories
+   cost: 2
+   exclusive: true
+   customColorTint: true
+   requirements:
+     - !type 
+        inverted: true
+        departments:
+        - Vault
+     - !type 
+       group: N14LoadoutNeck
+     - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+   items:
+     - N14ClothingNeckShawl
