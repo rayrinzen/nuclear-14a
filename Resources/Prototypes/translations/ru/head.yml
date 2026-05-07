@@ -1,47 +1,167 @@
 - type: loadout
-  id: ClothingHeadHatFlatBlack
+  id: N14LoadoutHeadHatBaseball
   category: Head
   cost: 2
-  exclusive: true
   requirements:
     - !type 
       group: N14LoadoutHead
     - !type 
+      inverted: true
       jobs:
-      - VaultDweller
-      - Overseer
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
   items:
-    - ClothingHeadHatFlatBlack
+    - N14ClothingHeadHatBaseball
 - type: loadout
-  id: ClothingHeadHatFlatBrown
+  id: N14LoadoutHeadHatTrucker
   category: Head
   cost: 2
-  exclusive: true
   requirements:
     - !type 
       group: N14LoadoutHead
     - !type 
+      inverted: true
       jobs:
-      - VaultDweller
-      - Overseer
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
   items:
-    - ClothingHeadHatFlatBrown
+    - N14ClothingHeadHatTrucker
 - type: loadout
-  id: ClothingHeadHatFedoraBlack
+  id: N14LoadoutHeadHatBeanie
   category: Head
   cost: 2
-  exclusive: true
   requirements:
     - !type 
       group: N14LoadoutHead
     - !type 
+      inverted: true
       jobs:
-      - VaultDweller
-      - Overseer
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
   items:
-    - ClothingHeadHatFedoraBlack
+    - N14ClothingHeadHatBeanie
 - type: loadout
-  id: ClothingHeadHatFedoraChoc
+  id: N14LoadoutHeadHatHeadscarf
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHeadHatHeadscarf
+- type: loadout
+  id: N14LoadoutHeadHatBandit
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHeadHatBandit
+- type: loadout
+  id: N14LoadoutHeadHatTribalOutcastHood
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingHeadHatTribalOutcastHood
+- type: loadout
+  id: N14LoadoutHeadHatArmyCap
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHeadHatArmyCap
+- type: loadout
+  id: N14ClothingHeadHatCowboyGrey
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHeadHatCowboyGrey
+- type: loadout
+  id: N14ClothingHeadHatCowboyGreyBanded
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHeadHatCowboyGreyBanded
+- type: loadout
+  id: N14ClothingHeadHatCowboyBrown
+  category: Head
+  cost: 2
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+  items:
+    - N14ClothingHeadHatCowboyBrown
+- type: loadout
+  id: N14ClothingTribalMuffaloskull
   category: Head
   cost: 2
   exclusive: true
@@ -49,8 +169,34 @@
     - !type 
       group: N14LoadoutHead
     - !type 
+      inverted: true
       jobs:
-      - VaultDweller
-      - Overseer
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
   items:
-    - ClothingHeadHatFedoraChoc
+    - N14ClothingTribalMuffaloskull
+- type: loadout
+  id: N14ClothingTribalRadstagSkull
+  category: Head
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type 
+      group: N14LoadoutHead
+    - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+    - !type 
+       inverted: true
+       departments:
+       - Vault
+  items:
+    - N14ClothingTribalRadstagSkull
