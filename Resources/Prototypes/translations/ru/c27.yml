@@ -1,267 +1,254 @@
-# C-27 humanoid robot player mob entity. #Misfits Add
-# Player-controlled synthetic humanoid. Inherits BaseMobSpecies (NOT Organic) so we
-# skip Bloodstream/Respirator/AtmosStandard/Flammable — C-27 units don't breathe, bleed,
-# or burn from atmosphere. Phase F will layer in EMP handling, weld/cable healing,
-# auto-revive, sprint disable, and the rest of the spec stat package.
+# C-27 Humanoid Robot species. #Misfits Add
+# A whitelist-only synthetic humanoid race built around the SS13 Hail-Mary "Humanoid Robot" concept.
+# Same humanoid silhouette as humans (uses the same equipment slots) but with a metallic chassis
+# and species-locked outer armor (see _Misfits/InventoryTemplates/c27_inventory_template.yml).
 
-- type: entity
-  save: false
-  name: c-27 humanoid robot
-  id: N14BaseMobC27
-  parent: BaseMobSpecies
-  abstract: true
-  components:
-    - type: HumanoidAppearance
-      species: C27
-    # #Misfits Fix - Override BaseMobSpecies' default NanoTrasen faction with Wastelander
-    # (same as MobHuman / SuperMutant). Raiders, ghouls (Feral), wastelandanimal, etc. only
-    # target Wastelander — without this C-27 players are invisible to all hostile wasteland NPCs.
-    - type: NpcFactionMember
-      factions:
-        - Wastelander
-    - type: Inventory
-      templateId: c27
-      speciesId: c27
-    - type: Body
-      prototype: C27
-      requiredLegs: 2
-    - type: Damageable
-      # #Misfits Tweak (Phase F) - Switched from Inorganic to Silicon so the existing welder
-      # WeldingHealing whitelist (Silicon) and CableStack Healing whitelist (Silicon) work out
-      # of the box: welder heals Brute, cable coils heal Heat/Shock. Both containers are
-      # functionally identical (Brute group + Heat + Shock types); body-part containers stay
-      # Inorganic since they're checked separately and don't gate mob-level healing.
-      damageContainer: Silicon
-      damageModifierSet: MisfitsC27Silicon # #Misfits Tweak - custom set: identical to Metallic + Radiation 0.0 (sealed chassis)
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        200: Critical # #Misfits Tweak - buffed base HP from 100 to 200 (robot chassis is tanky without passive healing)
-        400: Dead
-      allowRevives: true # #Misfits Add (Phase F) - auto-revive when healed below crit per spec
-    - type: MovementSpeedModifier
-      baseWalkSpeed: 2.5 # #Misfits Tweak - no innate slowdown on bare chassis; armor tiers apply their own penalties
-      baseSprintSpeed: 2.5 # sprint disabled (matches walk = no sprint acceleration)
-    # #Misfits Tweak - chassis innate Armor removed; physical DR now comes entirely from
-    # armor tier clothing. Bare chassis = 400 eHP (raw HP pool). Modset handles only
-    # Shock weakness and Radiation immunity.
-    - type: Reflect # #Misfits Add - 10% bare chassis ricochet; sealed metal hull deflects small/medium rounds. .50 bypasses via ignoreResistances:true
-      reflects:
-        - SmallCaliber
-        - MediumCaliber
-      reflectProb: 0.10
-      innate: true # always active; not tied to held item
-      spread: 90
-    - type: Stamina
-      critThreshold: 120
-    - type: Speech
-      speechVerb: Robotic
-      speechSounds: Pai
-    - type: Vocal
-      sounds:
-        Unsexed: MaleHuman
-    - type: TypingIndicator
-      proto: robot
-    - type: LanguageKnowledge # #Misfits Fix - use N14 language IDs (TauCetiBasic/RobotTalk are SS14 upstream only)
-      speaks:
-        - English # default spoken language; language system uses first entry
-        - N14Robot # binary 0/1 obfuscation; player can switch via language menu
-      understands:
-        - English
-        - N14Robot
-    - type: Icon
-      sprite: _Misfits/Mobs/Species/C27/parts.rsi
-      state: full
-    - type: Sprite
-      sprite: _Misfits/Mobs/Species/C27/parts.rsi
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: _Misfits/Mobs/Species/C27/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: unisex_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-    # === Phase F stat package ===
-    # #Misfits Add (Phase F) - C-27 marker. EMP handler reads tunables from this component.
-    - type: MisfitsC27
-    # #Misfits Add (Phase F) - Built-in flash protection (spec).
-    - type: FlashImmunity
-    # #Misfits Add (Phase F) - Glass-shard immunity. C-27 frames don't have proper shoes; spec
-    # explicitly waives the broken-glass stun penalty for them.
-    - type: StepTriggerImmune
-      whitelist:
-        types:
-          - Shard
-    # #Misfits Add (Phase F) - Welders restore Brute (uses upstream WeldingHealing on welders).
-    - type: WeldingHealable
-    # #Misfits Add (Phase F) - Sleep self-repair / passive maintenance protocols. Heals all
-    # supported damage groups slowly while alive or in crit. Combined with allowRevives this
-    # also drives the auto-revive pull-out-of-crit loop the spec describes.
-    - type: PassiveDamage
-      allowedStates:
-        - Alive
-        - Critical
-      damage:
-        groups:
-          Brute: -0.3
-        types:
-          Heat: -0.3
-          Shock: -0.3
-    # #Misfits Add (Phase F) - Innate melee buff: chassis fist hits noticeably harder than a
-    # human punch (spec calls for melee buff to make the slow speed worth it).
-    - type: MeleeWeapon
-      soundHit:
-        collection: MetalThud
-      angle: 0
-      animation: WeaponArcFist
-      range: 1.5
-      damage:
-        types:
-          Blunt: 10
+- type: species
+  id: C27
+  name: species-name-c27
+  roundStart: true
+  order: 4 # #Misfits Add - sort just after Super Mutant, before Robot variants
+  whitelistRequired: true # #Misfits Add - administrative whitelist gate
+  restrictedCustomization: true # #Misfits Add - keep marking choices controlled per faction skin
+  allowedLoadoutCategories: # #Misfits Add - show loadout tab despite restrictedCustomization (armor from kit; accessories/weapons still selectable)
+    - Weapons
+    - Accessories
+    - Bags
+    - Backpacks
+    - Duffel
+    - Satchel
+  jobWhitelistUnlock: C27 # #Misfits Add (Phase G) - C27 job whitelist also unlocks species visibility
+  restrictedJobs: # #Misfits Add (Phase G) - C-27 chassis can only take the C27 job
+    - C27
+  prototype: N14MobC27
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsGeneric # #Misfits Tweak - per-variant marking defaults so each species locks its own faction torso paint
+  dollPrototype: N14MobC27Dummy
+  skinColoration: Hues
+  defaultSkinTone: "#9a8a72"
+  # #Misfits Tweak - Scale C-27 to 1.25x so the chassis reads as visibly taller than a human
+  # but less imposing than a Super Mutant. SharedHumanoidAppearanceSystem.LoadProfile -> SetScale
+  # applies this to SpriteComponent.Scale, uniformly scaling body AND all equipment layers.
+  # Locked min=default=max so the silhouette stays consistent across all C-27 units.
+  minHeight: 1.25
+  defaultHeight: 1.25
+  maxHeight: 1.25
+  minWidth: 1.25
+  defaultWidth: 1.25
+  maxWidth: 1.25
+  sexes:
+    - Unsexed
+    # #Misfits Add - serial-style designations (Unit-Alpha … Unit-Zulu) so default names
+    # don't fall back to regular human first/last names. Mirrors the per-variant *First
+    # dataset pattern used by RobotMrHandy / RobotProtectron / etc.
+  maleFirstNames: C27FirstGeneric
+  femaleFirstNames: C27FirstGeneric
+  naming: First
 
-# Spawnable variant for live play.
-- type: entity
-  save: true
-  name: c-27 humanoid robot
-  id: N14MobC27
-  parent: N14BaseMobC27
-  description: A C-27 humanoid robot. Pre-war General Atomics workshop frame, retrofitted for Wasteland service.
-  categories: [ HideSpawnMenu ]
+# Body sprite layer mapping for the C-27 humanoid robot.
+# All limbs use the unified C-27 parts.rsi (no sex/feet split — DMI source has no foot frames).
+- type: speciesBaseSprites
+  id: MobC27Sprites
+  sprites:
+    Head: MobC27Head
+    Chest: MobC27Torso
+    LArm: MobC27LArm
+    RArm: MobC27RArm
+    LHand: MobC27LHand
+    RHand: MobC27RHand
+    LLeg: MobC27LLeg
+    RLeg: MobC27RLeg
 
-# Dummy variant used by the character editor preview.
-- type: entity
-  save: false
-  parent: MobHumanDummy
-  id: N14MobC27Dummy
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: C27
-    - type: Icon
-      sprite: _Misfits/Mobs/Species/C27/parts.rsi
-      state: full
-    - type: Sprite
-      drawdepth: Mobs
-      noRot: true
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: _Misfits/Mobs/Species/C27/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: unisex_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-    - type: Inventory
-      templateId: c27
-      speciesId: c27
+# Marking allotments. Chest is required so every C-27 picks a faction "Model" paint
+# (Generic / NCR / Brotherhood) — see _Misfits/Entities/Mobs/Customization/Markings/c27_model.yml.
+# #Misfits Tweak - Split into three per-variant markingPoints so each model species locks
+# in the matching faction torso paint as its forced default. Players pick the variant via
+# the "Robot Model" dropdown in the lobby (mirrors RobotProtectron family pattern).
+- type: markingPoints
+  id: MobC27MarkingLimitsGeneric
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true # #Misfits Add - force a Model selection on character creation
+      defaultMarkings: [ C27ModelGeneric ]
+    Head:
+      points: 1
+      required: false
 
-# #Misfits Add - NCR variant. Inherits the full Phase F stat package + sprite layers from
-# N14BaseMobC27; only HumanoidAppearance.species changes so the character editor can route
-# the lobby Robot Model picker between Generic / NCR / BoS chassis paint jobs.
-- type: entity
-  save: true
-  name: c-27 humanoid robot (ncr)
-  id: N14MobC27NCR
-  parent: N14BaseMobC27
-  description: A C-27 humanoid robot in NCR Republic livery - khaki and tan paint, two-bear shoulder stencil.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: C27NCR
+- type: markingPoints
+  id: MobC27MarkingLimitsNCR
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ C27ModelNCR ]
+    Head:
+      points: 1
+      required: false
 
-- type: entity
-  save: true
-  name: c-27 humanoid robot (brotherhood)
-  id: N14MobC27BoS
-  parent: N14BaseMobC27
-  description: A C-27 humanoid robot in Brotherhood of Steel livery - deep blue plating, gear-and-sword decals.
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: C27BoS
+- type: markingPoints
+  id: MobC27MarkingLimitsBoS
+  onlyWhitelisted: true
+  points:
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ C27ModelBoS ]
+    Head:
+      points: 1
+      required: false
 
-# #Misfits Add - Dummies for the character editor preview. Same sprite layout as the base
-# C-27 dummy; only the species reference changes so the preview picks up the matching Model paint.
-- type: entity
-  save: false
-  parent: N14MobC27Dummy
-  id: N14MobC27NCRDummy
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: C27NCR
+# #Misfits Add - Hidden NCR variant. Selected via the Robot Model picker in the lobby; not
+# shown directly in the species dropdown (UI hides it via IsHiddenProtectronVariantSpecies).
+- type: species
+  id: C27NCR
+  name: species-name-c27-ncr
+  roundStart: true
+  order: 5
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedLoadoutCategories: # #Misfits Add - show loadout tab for NCR variant
+    - Weapons
+    - Accessories
+    - Bags
+    - Backpacks
+    - Duffel
+    - Satchel
+  jobWhitelistUnlock: C27
+  restrictedJobs:
+    - C27
+  prototype: N14MobC27NCR
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsNCR
+  dollPrototype: N14MobC27NCRDummy
+  skinColoration: Hues
+  defaultSkinTone: "#b59548"
+  minHeight: 1.25
+  defaultHeight: 1.25
+  maxHeight: 1.25
+  minWidth: 1.25
+  defaultWidth: 1.25
+  maxWidth: 1.25
+  sexes:
+    - Unsexed
+    # #Misfits Add - NCR-flavored callsigns (Ranger-Alpha … Ranger-Zulu).
+  maleFirstNames: C27FirstNCR
+  femaleFirstNames: C27FirstNCR
+  naming: First
 
-- type: entity
-  save: false
-  parent: N14MobC27Dummy
-  id: N14MobC27BoSDummy
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: HumanoidAppearance
-      species: C27BoS
+# #Misfits Add - Hidden Brotherhood of Steel variant. Same access rules as the Generic chassis.
+- type: species
+  id: C27BoS
+  name: species-name-c27-bos
+  roundStart: true
+  order: 6
+  whitelistRequired: true
+  restrictedCustomization: true
+  allowedLoadoutCategories: # #Misfits Add - show loadout tab for BoS variant
+    - Weapons
+    - Accessories
+    - Bags
+    - Backpacks
+    - Duffel
+    - Satchel
+  jobWhitelistUnlock: C27
+  restrictedJobs:
+    - C27
+  prototype: N14MobC27BoS
+  sprites: MobC27Sprites
+  markingLimits: MobC27MarkingLimitsBoS
+  dollPrototype: N14MobC27BoSDummy
+  skinColoration: Hues
+  defaultSkinTone: "#2c4a6e"
+  minHeight: 1.25
+  defaultHeight: 1.25
+  maxHeight: 1.25
+  minWidth: 1.25
+  defaultWidth: 1.25
+  maxWidth: 1.25
+  sexes:
+    - Unsexed
+    # #Misfits Add - Brotherhood rank-flavored callsigns (Knight-Alpha … Knight-Zulu).
+  maleFirstNames: C27FirstBoS
+  femaleFirstNames: C27FirstBoS
+  naming: First
+
+# --- Per-bodypart sprite definitions ---
+# #Misfits Fix - Head + Chest are sex-morphed by HumanoidAppearanceSystem (UpdateLayers passes
+# sexMorph: true), and a profile carried over from another species can still hold Sex=Male or
+# Sex=Female even though C27 only declares Unsexed. Without these aliases the system throws
+# UnknownPrototypeException: MobC27HeadMale / MobC27TorsoFemale on lobby preview reload.
+# Aliasing all three sex variants to the same sprite is the standard SS14 pattern.
+- type: humanoidBaseSprite
+  id: MobC27Head
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobC27HeadMale
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobC27HeadFemale
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobC27Torso
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobC27TorsoMale
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobC27TorsoFemale
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobC27LArm
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobC27RArm
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobC27LHand
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobC27RHand
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobC27LLeg
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobC27RLeg
+  baseSprite:
+    sprite: _Misfits/Mobs/Species/C27/parts.rsi
+    state: r_leg
