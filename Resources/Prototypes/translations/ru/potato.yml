@@ -1,74 +1,32 @@
-- type: constructionGraph
+- type: construction
+  name: potato battery
   id: PowerCellPotato
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: potatobattery
-          steps:
-            - tag: Potato
-              name: a potato
-              icon:
-                sprite: Objects/Specific/Hydroponics/potato.rsi
-                state: produce
-              doAfter: 1
-            - material: MetalRod
-              amount: 2
-              doAfter: 1
-            - material: Cable
-              amount: 1
-              doAfter: 1
-    - node: potatobattery
-      entity: PowerCellPotato
+  graph: PowerCellPotato
+  startNode: start
+  targetNode: potatobattery
+  category: construction-category-misc
+  description: A truly ingenious source of power.
+  icon: { sprite: Objects/Power/power_cells.rsi, state: potato }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: potato artificial intelligence
   id: PotatoAI
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: potatoai
-          steps:
-            - tag: PotatoBattery
-              name: a potato battery
-              icon:
-                sprite: Objects/Power/power_cells.rsi
-                state: potato
-              doAfter: 1
-            - tag: SmallAIChip
-              name: a super-compact AI chip
-              icon:
-                sprite: Objects/Misc/potatoai_chip.rsi
-                state: icon
-    - node: potatoai
-      entity: PotatoAI
+  graph: PotatoAI
+  startNode: start
+  targetNode: potatoai
+  category: construction-category-misc
+  description: The potato happens to be the perfect power source for this chip.
+  icon: { sprite: Objects/Fun/pai.rsi, state: icon-potato-off }
+  objectType: Item
 
-- type: constructionGraph
+- type: construction
+  name: supercompact AI chip
   id: PotatoAIChip
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: potatoaichip
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-            - material: Glass
-              amount: 1
-              doAfter: 1
-            - material: Cable
-              amount: 2
-              doAfter: 1
-            - tag: CapacitorStockPart
-              name: capacitor
-              icon:
-                sprite: Objects/Misc/stock_parts.rsi
-                state: capacitor
-            - tag: CapacitorStockPart
-              name: capacitor
-              icon:
-                sprite: Objects/Misc/stock_parts.rsi
-                state: capacitor
-    - node: potatoaichip
-      entity: PotatoAIChip
+  graph: PotatoAIChip
+  startNode: start
+  targetNode: potatoaichip
+  category: construction-category-misc
+  description: A masterfully(?) crafted AI chip, requiring a similarly improvised power source.
+  icon: { sprite: Objects/Misc/potatoai_chip.rsi, state: icon }
+  objectType: Item
