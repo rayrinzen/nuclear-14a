@@ -1,10 +1,17 @@
 - type: entity
-  parent: ClothingShoesBase
-  id: N14ClothingShoesKaligi
-  name: kaligi
-  description: Spacious... Sandals?
+  parent: BaseItem
+  id: LegionnaireStandard
+  name: legionary banner
+  description: Honor, greatness, the heritage of the Legion.
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Shoes/Specific/romanshoes.rsi
-    - type: Clothing
-      sprite: Corvax/Clothing/Shoes/Specific/romanshoes.rsi
+      sprite: Corvax/Objects/Specific/romanstandard.rsi
+      state: icon
+    - type: Item
+      size: Ginormous
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 25
+      soundHit:
+        collection: MetalThud
