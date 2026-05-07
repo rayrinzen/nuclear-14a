@@ -1,13 +1,46 @@
-﻿- type: entity
-  id: FirelockFrame
-  parent: BaseStructureDynamic
-  name: firelock frame
-  description: That is a firelock frame.
+- type: entity
+  id: BaseStructureComputer
+  parent: BaseStructure
+  abstract: true
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.25,-0.35,0.25,0.35"'
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Anchorable
+  - type: Construction
+    graph: Computer
+    node: frameUnsecured
+  - type: Sprite
+    drawdepth: Objects
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak - !type:ChangeConstructionNodeBehavior node: monitorBroken - !type:DoActsBehavior acts: ["Destruction"]'
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+- type: entity
+  id: ComputerFrame
+  parent: BaseStructureComputer
+  name: computer frame
+  description: A computer under construction.
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    sprite: Structures/Machines/parts.rsi
     layers:
-    - state: frame1
+    - state: 0
       map:
       - "enum.ConstructionVisuals.Layer"
   - type: Appearance
@@ -15,40 +48,30 @@
     visuals:
       enum.ConstructionVisuals.Key:
         enum.ConstructionVisuals.Layer:
-          frame1:
-          state: frame1
-          frame2:
-          state: frame2
-          frame3:
-          state: frame3
-          frame4:
-          state: frame4
+          frameUnsecured:
+          state: 0
+          boardUnsecured:
+          state: 1
+          missingWires:
+          state: 2
+          monitorMissing:
+          state: 3
+          monitorUnsecured:
+          state: 4
+- type: entity
+  parent: BaseStructureComputer
+  id: ComputerBroken
+  name: broken computer
+  description: This computer has seen better days.
+  components:
   - type: Construction
-    graph: Firelock
-    node: frame1
-  - type: InteractionOutline
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
-  - type: RCDDeconstructable
-    cost: 4
-    delay: 6
-    fx: EffectRCDDeconstruct6
+    graph: Computer
+    node: monitorBroken
+  - type: Sprite
+    sprite: Structures/Machines/computers.rsi
+    drawdepth: Objects
+    state: broken
   - type: Destructible
     thresholds:
-    - trigger: '!type:DamageTrigger damage: 500 behaviors: - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: Physics
-    bodyType: Dynamic
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.45,-0.45,0.45,0.45"'
-        density: 55
-        mask:
-        - Impassable
-        - HighImpassable
-        layer:
-        - HighImpassable
-        - MidImpassable
-  - type: Transform
-    noRot: true
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:PlaySoundBehavior sound: collection: MetalGlassBreak params: volume: -6 - !type:SpawnEntitiesBehavior spawn: SheetSteel1: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
