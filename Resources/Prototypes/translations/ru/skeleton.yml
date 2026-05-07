@@ -1,191 +1,133 @@
-- # TODO BODY: Part damage
-type: entity
-  id: PartSkeleton
-  parent: BaseItem
-  name: "skeleton body part"
+- type: entity
+  save: false
+  name: Urist McSkelly
+  parent:
+  - MobFlammable
+  - BaseMobSpecies
+  id: BaseMobSkeletonPerson
   abstract: true
   components:
+  - type: HumanoidAppearance
+    species: Skeleton
+  - type: Carriable # Carrying system from nyanotrasen.
+  - type: Icon
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: full
+  - type: Body
+    prototype: Skeleton
+    requiredLegs: 2
+    gibSound: /Audio/Effects/bone_rattle.ogg
   - type: Damageable
-    damageContainer: OrganicPart # Shitmed Change
-  - type: BodyPart
-  - type: ContainerContainer
-    containers:
-      bodypart: !type
-        ents: [ ]
-  - type: StaticPrice
-    price: 20
-  - type: Gibbable
-  - type: Tag
-    tags:
-      - Trash
+    damageContainer: Biological
+    damageModifierSet: Skeleton
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#555555AA"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      150: Dead
+  - type: TransferMindOnGib
   - type: Destructible
     thresholds:
-    - trigger: '!type:DamageTypeTrigger damageType: Blunt damage: 50 behaviors: - !type:GibPartBehavior { }'
-    - trigger: '!type:DamageTypeTrigger damageType: Slash damage: 100 behaviors: - !type:GibPartBehavior { }'
-    - trigger: '!type:DamageTypeTrigger damageType: Heat damage: 200 behaviors: - !type:SpawnEntitiesBehavior spawnInContainer: true spawn: Ash: min: 1 max: 1 - !type:BurnBodyBehavior { } - !type:PlaySoundBehavior sound: collection: MeatLaserImpact'
+    - trigger: '!type:DamageTrigger damage: 150 behaviors: - !type:GibBehavior gibContents: Skip'
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.9
+      80: 0.7
+  - type: Speech
+    speechVerb: Skeleton
+  - type: PersistentCurrency # Misfits - Currency wallet
+  - type: PersistentPlayerData # Misfits Add - SPECIAL stats, kill/death/round tracking, character history
+  - type: ZombieImmune
+  - type: Vocal
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+  - type: SkeletonAccent
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.35'
+        density: 130
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+  - type: Reactive
+    groups:
+      Flammable:
+      - Touch
+      Extinguish:
+      - Touch
+    reactions:
+    - reagents:
+    - Water
+    - SpaceCleaner
+      methods:
+      - Touch
+      effects:
+      - !type :WashCreamPieReaction
+    - reagents:
+    - Milk
+    - MilkGoat
+    - MilkSoy
+    - MilkSpoiled
+      # add new types of milk to reagents as they appear, oat milk isn't on the list
+      # because turns out oat milk has 1/30th the amount of calcium in it compared to the rest
+      # even if it's a meme - I did research
+      methods:
+      - Touch
+      effects:  # TODO: when magic is around - make a milk transformation to a skeleton monster
+      - !type 
+        scaleByQuantity: true
+        damage:
+          groups:
+            Burn: -2 # healing obviously up to discussion
+            Brute: '-1.5' # these groups are the only 2 possible ways to damage a skeleton
+      - !type 
+        type: Local
+        visualType: Large
+        messages:
+        - "skeleton-healed-by-milk-popup"
+        probability: 0.25
+    - reagents:
+    - MilkOat
+      methods:
+      - Touch
+      effects:
+        - !type 
+          type: Local
+          visualType: Large
+          messages:
+          - "skeleton-sprayed-by-oat-milk-popup"
+          probability: 0.5
+  - type: FireVisuals
+    alternateState: Standing
+  - type: TypingIndicator
+    proto: skeleton
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Calcic
+    understands:
+    - TauCetiBasic
+    - Calcic
+  - type: FootPrints
+  - type: LayingDown
 - type: entity
-  id: TorsoSkeleton
-  name: "skeleton torso"
-  parent: PartSkeleton
+  parent: BaseSpeciesDummy
+  id: MobSkeletonPersonDummy
+  categories:
+  - HideSpawnMenu
   components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "torso_m"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "torso_m"
-    - type: BodyPart
-      partType: Torso
-- type: entity
-  id: HeadSkeleton
-  name: "skull"
-  description: Alas poor Yorick...
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "skull_icon"
-      scale: 0.5, 0.5 # DeltaV - Scale down sprite because it looks too big
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "skull_icon"
-    - type: BodyPart
-      partType: Head
-    - type: Input
-      context: "human"
-    - type: Speech
-      speechVerb: Skeleton
-    - type: SkeletonAccent
-    - type: Actions
-    - type: Vocal
-      sounds:
-        Male: Skeleton
-        Female: Skeleton
-        Unsexed: Skeleton
-    - type: Emoting
-    - type: Grammar
-      attributes:
-        proper: true
-    - type: Examiner
-    - type: DoAfter
-    - type: MobState
-      allowedStates:
-        - Alive
-    - type: Tag
-      tags:
-        - MindTransferTarget
-        - Head
-- type: entity
-  id: LeftArmSkeleton
-  name: "left skeleton arm"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_arm"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Left
-- type: entity
-  id: RightArmSkeleton
-  name: "right skeleton arm"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_arm"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_arm"
-    - type: BodyPart
-      partType: Arm
-      symmetry: Right
-- type: entity
-  id: LeftHandSkeleton
-  name: "left skeleton hand"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_hand"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Left
-- type: entity
-  id: RightHandSkeleton
-  name: "right skeleton hand"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_hand"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_hand"
-    - type: BodyPart
-      partType: Hand
-      symmetry: Right
-- type: entity
-  id: LeftLegSkeleton
-  name: "left skeleton leg"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_leg"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_leg"
-    - type: BodyPart
-      partType: Leg
-      symmetry: Left
-    - type: MovementBodyPart
-- type: entity
-  id: RightLegSkeleton
-  name: "right skeleton leg"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_leg"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_leg"
-    - type: BodyPart
-      partType: Leg
-      symmetry: Right
-    - type: MovementBodyPart
-- type: entity
-  id: LeftFootSkeleton
-  name: "left skeleton foot"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_foot"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "l_foot"
-    - type: BodyPart
-      partType: Foot
-      symmetry: Left
-- type: entity
-  id: RightFootSkeleton
-  name: "right skeleton foot"
-  parent: PartSkeleton
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_foot"
-    - type: Icon
-      sprite: Mobs/Species/Skeleton/parts.rsi
-      state: "r_foot"
-    - type: BodyPart
-      partType: Foot
-      symmetry: Right
+    - type: HumanoidAppearance
+      species: Skeleton
