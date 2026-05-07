@@ -1,199 +1,166 @@
 - type: entity
-  parent: SimpleMobBase
-  id: N14MobBrahdo
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
+  name: arctic fox
+  parent: MobFox
+  id: MobArcticFox
+  description: Wears a regal coat of snowy elegance, belying its cold and resourceful nature.
   components:
   - type: Sprite
     drawdepth: Mobs
+    sprite: DeltaV/Mobs/Pets/arcticfox.rsi
     layers:
     - map:
     - "enum.DamageStateVisualLayers.Base"
-      state: base
-      sprite: _Corvax/Mobs/Animals/brahdo.rsi
+      state: arcticfox
+  - type: Physics
   - type: Fixtures
     fixtures:
       fix1:
-        hard: true
-        shape: '!type:PhysShapeCircle radius: 0.75'
-        density: 50
+        shape: '!type:PhysShapeCircle radius: 0.35'
+        density: 50 #They actually are pretty light, I looked it up
         mask:
         - MobMask
         layer:
         - MobLayer
+  - type: Appearance
+  - type: Inventory
+    speciesId: arcticfox
+    templateId: pet
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: base
+        Base: arcticfox
+      Critical:
+        Base: arcticfox_crit
       Dead:
-        Base: base-dead
-  - type: Stamina
-    critThreshold: 200
-  - type: Strap
-    # #Misfits Change - brahdo riding now requires the shared riding perk instead of any humanoid.
-    whitelist:
-      requireAll: true
-      components:
-      - HumanoidAppearance
-      - RidingPerk
-    buckleSound:
-      path: /Audio/_NC/Effects/lift-saddle.ogg
-      params:
-        volume: 20 #It's normal
-    unbuckleSound:
-      path: /Audio/_NC/Effects/dismount-saddle.ogg
-      params:
-        volume: 20 #It's normal
-  - type: Mountable
-  - type: Tag
-    tags:
-    - FootstepSound
-    - Brahdo
-  - type: Butcherable
-    spawned:
-    - id: N14FoodMeatRadRaw
-      amount: 4
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: WastelandAnimal
+        Base: arcticfox_dead
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: Temperature
+    coldDamageThreshold: 210
+    coldDamage:
+      types:
+        Cold: 0.1
+- type: entity
+  name: security dog
+  parent: MobCorgi #There isn't a base dog mob, surprisingly.
+  id: MobSecDog
+  description: Funnily enough, this pig is actually a dog.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: "sentient security dog"
+    description: "Help out the security team by biting the baddies and barking at everything that moves."
+  - type: GhostTakeoverAvailable
+  - type: CombatMode
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 4.5
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: Horsestep
-  - type: TimedSpawner
-    prototypes:
-      - N14Dung
-    chance: 0.4
-    intervalSeconds: 300
-    minimumEntitiesSpawned: 1
-    maximumEntitiesSpawned: 1
-    ignoreSpawnBlock: true # Forge-Change
-  - type: Reproductive
-    breedChance: 0.005 # Low
-    birthPopup: reproductive-birth-popup
-    makeOffspringInfant: false
-    partnerWhitelist:
-      tags:
-      - Brahdo
-    offspring:
-    - id: N14MobBrahdo
-      maxAmount: 1
-  - type: ReproductivePartner
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5.0
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: DeltaV/Mobs/Pets/secdog.rsi
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: secdog
   - type: HTN
     rootTask:
-      task: RuminantCompound
-  - type: Body
-    prototype: AnimalRuminant
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type ':Bool true'
+  - type: Speech
+    speechVerb: Canine
+    speechSounds: Vulpkanin
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.35'
+        density: 120 # BIG DOG :3
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:  # BIG DOG. STRONG DOG
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: StaminaDamageOnHit
+    damage: 22
+  - type: MeleeWeapon
+    hidden: true
+    altDisarm: false
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    attackRate: 1
+    damage:
+      types:
+        Slash: 10
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      40: 0.70
+      80: 0.30
+  - type: Appearance
+  - type: Inventory
+    speciesId: secdog
+    templateId: secdog
+  - type: InventorySlots
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: secdog
+      Critical:
+        Base: secdog_crit
+      Dead:
+        Base: secdog_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-dog
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark2.ogg
+  - type: Grammar
+    attributes:
+      gender: epicene
+  - type: Bloodstream
+    bloodMaxVolume: 300 # BIG DOG. MUCH BLOOD :3
+  - type: Puller
+    needsHands: false
   - type: MobPrice
-    price: 300
-- type: entity
-  parent: N14MobBrahdo
-  id: N14MobBrahdoLight
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
-  suffix: Light
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: light
-      sprite: _Corvax/Mobs/Animals/brahdo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: light
-      Dead:
-        Base: light-dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 5.5
-    baseSprintSpeed: 5.5
-- type: entity
-  parent: N14MobBrahdo
-  id: N14MobBrahdoArmor
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
-  suffix: Armor
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: armor
-      sprite: _Corvax/Mobs/Animals/brahdo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: armor
-      Dead:
-        Base: armor-dead
-  - type: MovementSpeedModifier
-    baseWalkSpeed: 4
-    baseSprintSpeed: 4
-  - type: Damageable
-    damageContainer: Biological
-    damageModifierSet: WastelandArmoredAnimal
-- type: entity
-  parent: N14MobBrahdoArmor
-  id: N14MobBrahdoArmorNCR
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
-  suffix: NCR
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: ncr
-      sprite: _Corvax/Mobs/Animals/brahdo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: ncr
-      Dead:
-        Base: ncr-dead
-- type: entity
-  parent: N14MobBrahdoLight
-  id: N14MobBrahdoLightLegion
-  name: brahdo
-  description: "Neigh? That thing has too many legs... Think it bites? Might ride it. Might eat it."
-  suffix: Legion
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: legion
-      sprite: _Corvax/Mobs/Animals/brahdo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: legion
-      Dead:
-        Base: legion-dead
-- type: entity
-  parent: N14MobBrahdoLight
-  id: N14MobBrahdoLighttribal
-  name: brahdo
-  description: "ehhoh cowboy! Jump on the brado and let's go chase the Brahmins"
-  suffix: tribal
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: tribal
-      sprite: Corvax/Mobs/Animals/tribaldrahdo.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: tribal
-      Dead:
-        Base: tribal-dead
+    price: 400
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: LanguageKnowledge
+    speaks:
+    - Dog
+    understands:
+    - Dog
+    - TauCetiBasic
