@@ -1,130 +1,59 @@
+# #Misfits Change - Tags used by the Pip-Boy shared faction map system.
+# When a player inserts a faction ID/holotag into a Pip-Boy, WastelandMapCartridgeSystem
+# inspects these tags to select the correct shared tactical feed (BOS MAP / VAULT MAP / NCR MAP).
+# The WastelandMapTacticalFeedKind enum in WastelandMapComponent.cs must have a matching entry.
+# Tracked blips and annotations are isolated per feed - adding a new faction requires:
+#   1. Adding the tag here
+#   2. Adding a Tag component with this tag to the faction's base ID entity
+#   3. Adding the tag to N14BasePipboy idSlot whitelist in pda.yml
+#   4. Adding a new enum value in WastelandMapTacticalFeedKind (WastelandMapComponent.cs)
+#   5. Handling the new enum in WastelandMapCartridgeSystem.GetLoaderFeed()
+#   6. Handling the new enum in WastelandMapSystem.GetTrackedBlips()
 - type: Tag
-  id: MagazineMagnumLeverRifle
-
-# Mechs
-- type: Tag
-  id: ClarkeCentralControlModule
-
-- type: Tag
-  id: ClarkePeripheralsControlModule
-
-- type: Tag
-  id: ClarkeHead
-
-- type: Tag
-  id: ClarkeLArm
+  id: IdCardBrotherhood
 
 - type: Tag
-  id: ClarkeRArm
+  id: IdCardNCR
 
 - type: Tag
-  id: ClarkeTreads
+  id: IdCardEnclave # #Misfits Change
+
+# #Misfits Add - Tag for Legion faction map blip tracking.
+# Applied to every Legion ID card / medallion / badge so the
+# Centurion tactical computer (N14LegionTacticalComputer) can
+# display ALL active Legion members on the map.
+# Checklist for adding new faction maps:
+#   1. Add tag here
+#   2. Add tag to each faction ID entity (Tag component, preserve DoorBumpOpener via parent)
+#   3. Add enum value in WastelandMapTacticalFeedKind (WastelandMapComponent.cs)
+#   4. Handle in WastelandMapSystem.GetTrackedBlips()
+#   5. Handle in WastelandMapCartridgeSystem.GetLoaderFeed() if Pip-Boy support is wanted
+- type: Tag
+  id: IdCardLegion # #Misfits Add - used by Legion tactical feed
+
+# #Misfits Add - Tag for wastelander dogtags to allow insertion into Pip-Boy idSlot.
+# Without a faction-specific tag, wastelander dogtags would be rejected by the PDA whitelist.
+- type: Tag
+  id: IdCardWastelander
+
+# #Misfits Change - Tag for Super Mutant species-specific clothing.
+# Used by the supermutant inventory template whitelist to restrict body-worn slots.
+- type: Tag
+  id: SuperMutantWearable
+
+# #Misfits Add - Tag for C-27 humanoid robot species-specific armor/chassis clothing.
+# Used by the c27 inventory template to restrict the outerClothing slot to C-27 plating only,
+# and (combined with MisfitsC27ArmorComponent in Phase D) to enforce species-locked equipment.
+- type: Tag
+  id: C27Wearable
+
+# #Misfits Add - Tags for construction materials (cement/concrete/brick building system).
+# Referenced by TagComponent on N14MaterialCement, N14MaterialConcrete, and N14MaterialBrick.
+- type: Tag
+  id: Cement
 
 - type: Tag
-  id: DurandArmor
+  id: Concrete
 
 - type: Tag
-  id: DurandCentralControlModule
-
-- type: Tag
-  id: DurandPeripheralsControlModule
-
-- type: Tag
-  id: DurandTargetingControlModule
-
-- type: Tag
-  id: DurandHead
-
-- type: Tag
-  id: DurandLArm
-
-- type: Tag
-  id: DurandLLeg
-
-- type: Tag
-  id: DurandRArm
-
-- type: Tag
-  id: DurandRLeg
-
-- type: Tag
-  id: GygaxArmor
-
-- type: Tag
-  id: GygaxCentralControlModule
-
-- type: Tag
-  id: GygaxPeripheralsControlModule
-
-- type: Tag
-  id: GygaxTargetingControlModule
-
-- type: Tag
-  id: GygaxHead
-
-- type: Tag
-  id: GygaxLArm
-
-- type: Tag
-  id: GygaxLLeg
-
-- type: Tag
-  id: GygaxRArm
-
-- type: Tag
-  id: GygaxRLeg
-
-- type: Tag
-  id: MechAirTank
-
-- type: Tag
-  id: MechThruster
-
-- type: Tag
-  id: RipleyMKIIUpgradeKit
-
-- type: Tag
-  id: IndustrialMech
-
-- type: Tag
-  id: CombatMech
-# TODO: Make medical mech, I will.
-- type: Tag
-  id: SpecialMech
-
-- type: Tag
-  id: RipleyMkII
-
-- type: Tag
-  id: Clarke
-
-- type: Tag
-  id: Durand
-
-- type: Tag
-  id: Gygax
-  # MODsuits
-
-- type: Tag
-  id: ModsuitPart
-
-- type: Tag
-  id: ModsuitShell
-
-- type: Tag
-  id: ModsuitGauntlets
-
-- type: Tag
-  id: ModsuitHelmet
-
-- type: Tag
-  id: ModsuitBoots
-
-- type: Tag
-  id: ModsuitChestplate
-
-- type: Tag
-  id: ModsuitCore
-
-- type: Tag
-  id: ModsuitPlatingExternal
+  id: Brick
