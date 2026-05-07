@@ -1,85 +1,78 @@
-# Clown
-- type: characterItemGroup
-  id: LoadoutClownBackpacks
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutBackpackClown
-    - type: loadout
-      id: LoadoutBackpackSatchelClown
-    - type: loadout
-      id: LoadoutBackpackDuffelClown
-
-#- type: characterItemGroup
-#  id: LoadoutClownBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownEquipment
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownGloves
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutClownId
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutClownNeck
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceClownBedsheetClown
-
-- type: characterItemGroup
-  id: LoadoutClownMask
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceClownMaskSexy
-
-- type: characterItemGroup
-  id: LoadoutClownOuter
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceClownOuterWinter
-    - type: loadout
-      id: LoadoutServiceClownOuterClownPriest
-
-- type: characterItemGroup
-  id: LoadoutClownShoes
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceClownBootsWinter
-
-- type: characterItemGroup
-  id: LoadoutClownUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceClownOutfitJester
-    - type: loadout
-      id: LoadoutServiceClownOutfitJesterAlt
+- type: dataset
+  id: names_clown
+  values:
+    - Jokester
+    - Honkel III
+    - Goose McSunny
+    - Tuddles Sharperton
+    - Dinky Doodle
+    - Honkerbell
+    - Bobo Sassy
+    - Little Tortik
+    - Honks Ladybug
+    - Ziggy Yoyo
+    - Razzle Dazzle
+    - Buster Frown
+    - Pepinpop
+    - Silly Willie
+    - Jo Jo Bobo Bo
+    - Pocketeer
+    - Patch
+    - Checkers
+    - Pawn
+    - Freckles
+    - Honker
+    - Bonker
+    - Skiddle
+    - Sprinklinkle
+    - Ronnie Pace
+    - Miss Stockings
+    - Slippery Joe
+    - McBeet Red Shirt
+    - Flop O'Honker
+    - Spotty
+    - Bubbles
+    - Buttons
+    - Sparkles
+    - Giggler
+    - Tinkles
+    - Candy
+    - Shaggy Diggintons
+    - Hingle McKringlberry
+    - Palliacci
+    - Coco
+    - Blinko
+    - Aunt Scutalu
+    - Bozo
+    - Doinky
+    - Mr. Noodle
+    - Yuko
+    - Buggy
+    - Giggles
+    - Yorick
+    - Cutter
+    - Sweettooth
+    - Pogo
+    - Papa Honk
+    - Bam Bam
+    - Sloppy Jester
+    - Trinket
+    - Nick Nack
+    - Puddles
+    - Puddle
+    - Giblets
+    - Donky Donk
+    - Bonk
+    - Sour Puss
+    - Grumpkin
+    - Pickles
+    - Cucumber
+    - Smokey
+    - Smokekin
+    - Bibbly Bobbly
+    - Miss Happy
+    - Wet Pantyhose
+    - Mac Chocker
+    - Chicky Chops
+    - Stinko
+    - Stinker
