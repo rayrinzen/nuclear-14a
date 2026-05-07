@@ -1,25 +1,12 @@
-- type: entity
-  id: CrateFunBBGun
-  parent: CrateGenericSteel
-  components:
-    - type: StorageFill
-      contents:
-        - id: WeaponRifleBB
-          amount: 1
-        - id: BoxCartridgeBB
-          amount: 2
-
-- type: entity
-  name: cap gun box set
-  description: A box filled with fun, harmless cap guns that are sure to keep security entertained and the air smelling of sulfur.
-  id: CrateCapGunSet
-  parent: CratePlastic
-  components:
-    - type: StorageFill
-      contents:
-        - id: RevolverCapGun
-          amount: 1
-        - id: SpeedLoaderCap
-          amount: 2
-        - id: BoxCartridgeCap
-          amount: 2
+- type: construction
+  name: moth plushie
+  id: mothplushie
+  graph: MothPlushie
+  startNode: start
+  targetNode: plush
+  category: construction-category-misc
+  description: A cute little moth plushie.
+  icon:
+    sprite: Objects/Fun/toys.rsi
+    state: plushie_moth
+  objectType: Item
