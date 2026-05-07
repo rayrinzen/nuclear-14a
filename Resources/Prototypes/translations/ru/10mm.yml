@@ -1,19 +1,39 @@
 - type: entity
-  id: N14Bullet10mm
-  name: bullet (10mm)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox10mm
   components:
-    - type: Reflective # #Misfits Change Add: 10mm pistol round is sub-5.56mm class; ricochets off power armor.
-      reflective:
-        - SmallCaliber
-        - NonEnergy
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 14
-    # Misfits Add - 10mm hot pistol round; slightly better range retention than 9mm
-    - type: BallisticDamageFalloff
-      falloffStartTiles: 4.0
-      maxFalloffTiles: 13.0
-      minDamageMultiplier: 0.50
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14CartridgePistol10
+    proto: N14CartridgePistol10
+    capacity: 80
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/10mm.rsi
+    netsync: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
+- type: entity
+  parent: BaseMagazineBox10mm
+  id: MagazineBox10mm
+  name: ammunition box (10mm)
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol10
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
