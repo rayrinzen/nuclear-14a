@@ -1,199 +1,198 @@
 - type: entity
-  save: false
-  name: ghoul
-  id: N14BaseMobGhoul
-  parent: BaseMobSpeciesOrganic
-  categories: [ HideSpawnMenu ]
+  name: Feral Ghoul
+  id: N14MobGhoulFeral
+  parent: N14MobBaseHostileFeral
+  description: A mean looking ghoul.
   components:
-    - type: HumanoidAppearance
-      species: Ghoul
-    - type: Body
-      prototype: Ghoul
-      requiredLegs: 2
-    - type: Icon
-      sprite: _Nuclear14/Mobs/Species/Ghoul/parts.rsi
-      state: full
-    - type: Sprite
-      sprite: _Nuclear14/Mobs/Species/Ghoul/parts.rsi
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: _Nuclear14/Mobs/Species/Ghoul/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: female_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        - map: [ "enum.HumanoidVisualLayers.Hair" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-    - type: Perishable
-      rotAfter: 3600 # An entire in-game day.
-    - type: Hunger
-      starvationDamage:
-        types:
-          Cold: 0.15 # Misfits Change - use Cold damage for Malnutrition instead of custom Starvation type (no brute/bleed from hunger)
-      starvingSlowdownModifier: 0.5
-    - type: Thirst
-      dehydrationDamage:
-        types:
-          Cold: 0.15 # Misfits Change - use Cold damage for Dehydration instead of custom Dehydration type (no brute/bleed from thirst)
-    - type: Damageable
-      damageContainer: Biological
-      damageModifierSet: Ghoul
-    - type: RadiationReceiver
-    - type: RadiationHealing
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        100: Critical
-        150: Dead
-    #  - type: FeralGhoulify # Forge-Change
-    # - type: Special
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: N14GhoulAttack #Misfits Change
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Slash: 7
+    range: 1
+  - type: IdleSound #Misfits Change
+  - type: SpamEmitSound #Misfits Change
+    minInterval: 10
+    maxInterval: 60
+    sound:
+      collection: N14GhoulIdle
+      params:
+        volume: -15
+        maxDistance: 5
+  - type: AggroSound #Misfits Change
+    sound:
+      collection: N14GhoulAggro
+      params:
+        volume: -12
+        maxDistance: 10
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: alive
+      sprite: _Nuclear14/Mobs/Ghouls/ghoul-feral.rsi
 - type: entity
-  save: false
-  parent: MobHumanDummy
-  id: N14MobGhoulDummy
-  categories: [ HideSpawnMenu ]
+  parent: N14MobBaseHostileFeral
+  id: N14MobGhoulFeralReaver
+  name: Feral Ghoul Reaver
+  description: A mean looking ghoul clad in the remnants of metal armor.
   components:
-    - type: HumanoidAppearance
-      species: Ghoul
-
-# Glowing
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: N14GhoulAttack #Misfits Change
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Slash: 7
+    range: 1
+  - type: IdleSound #Misfits Change
+  - type: SpamEmitSound #Misfits Change
+    minInterval: 10
+    maxInterval: 60
+    sound:
+      collection: N14GhoulIdle
+      params:
+        volume: -15
+        maxDistance: 5
+  - type: AggroSound #Misfits Change
+    sound:
+      collection: N14GhoulAggro
+      params:
+        volume: -12
+        maxDistance: 10
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: alive
+      sprite: _Nuclear14/Mobs/Ghouls/ghoul-reaver.rsi
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
 - type: entity
-  save: false
-  name: ghoul
-  id: N14BaseMobGhoulGlowing
-  parent: BaseMobSpeciesOrganic
-  categories: [ HideSpawnMenu ]
+  parent: N14MobBaseHostileFeral
+  id: N14MobGhoulFeralRotter
+  name: Feral Ghoul Rotter
+  description: A rotten looking ghoul barely holding itself together.
   components:
-    - type: HumanoidAppearance
-      species: GhoulGlowing
-    - type: Body
-      prototype: GhoulGlowing
-      requiredLegs: 2
-    - type: Icon
-      sprite: _Nuclear14/Mobs/Species/GhoulGlowing/parts.rsi
-      state: full
-    - type: Sprite
-      sprite: _Nuclear14/Mobs/Species/GhoulGlowing/parts.rsi
-      netsync: false
-      noRot: true
-      drawdepth: Mobs
-      layers:
-        - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        - map: [ "enum.HumanoidVisualLayers.Head" ]
-        - map: [ "enum.HumanoidVisualLayers.Snout" ]
-        - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-        - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-        - shader: StencilClear
-          sprite: _Nuclear14/Mobs/Species/GhoulGlowing/parts.rsi
-          state: l_leg
-        - shader: StencilMask
-          map: [ "enum.HumanoidVisualLayers.StencilMask" ]
-          sprite: Mobs/Customization/masking_helpers.rsi
-          state: female_full
-          visible: false
-        - map: [ "jumpsuit" ]
-        - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.RFoot" ]
-        - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
-          color: "#ffffff"
-          sprite: Objects/Misc/handcuffs.rsi
-          state: body-overlay-2
-          visible: false
-        - map: [ "id" ]
-        - map: [ "gloves" ]
-        - map: [ "shoes" ]
-        - map: [ "ears" ]
-        - map: [ "outerClothing" ]
-        - map: [ "eyes" ]
-        - map: [ "belt" ]
-        - map: [ "neck" ]
-        - map: [ "back" ]
-        - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-        - map: [ "enum.HumanoidVisualLayers.Hair" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-        - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-        - map: [ "enum.HumanoidVisualLayers.Tail" ]
-        - map: [ "mask" ]
-        - map: [ "head" ]
-        - map: [ "pocket1" ]
-        - map: [ "pocket2" ]
-    - type: Perishable
-      rotAfter: 3600 # An entire in-game day.
-    - type: Hunger
-      starvationDamage:
-        types:
-          Cold: 0.5 # Misfits Change - use Cold damage instead of Starvation+Bloodloss (no brute/bleed from hunger)
-    - type: Thirst
-      dehydrationDamage:
-        types:
-          Cold: 0.25 # Misfits Change - use Cold damage for Dehydration instead of custom Dehydration type (glowing ghouls dehydrate faster)
-    - type: Damageable
-      damageContainer: Biological
-      damageModifierSet: GhoulGlowing
-    - type: RadiationReceiver
-    - type: RadiationHealing
-    - type: MobThresholds
-      thresholds:
-        0: Alive
-        90: Critical
-        130: Dead
-    - type: PointLight
-      radius: 2
-      energy: 0.5
-      color: "#4CBB17FF"
-    - type: RadiationSource
-      intensity: 0.5
-      slope: 0.25
-
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: N14GhoulAttack #Misfits Change
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Slash: 7
+    range: 1
+  - type: IdleSound #Misfits Change
+  - type: SpamEmitSound #Misfits Change
+    minInterval: 10
+    maxInterval: 60
+    sound:
+      collection: N14GhoulIdle
+      params:
+        volume: -15
+        maxDistance: 5
+  - type: AggroSound #Misfits Change
+    sound:
+      collection: N14GhoulAggro
+      params:
+        volume: -12
+        maxDistance: 10
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: alive
+      sprite: _Nuclear14/Mobs/Ghouls/ghoul-rotter.rsi
 - type: entity
-  save: false
-  parent: MobHumanDummy
-  id: N14MobGhoulGlowingDummy
-  categories: [ HideSpawnMenu ]
+  parent: N14MobBaseHostileFeral
+  id: N14MobGhoulMaypole
+  name: Maypole
+  description: A special looking ghoul towering over most everything.
   components:
-    - type: HumanoidAppearance
-      species: GhoulGlowing
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: N14ToughAnimal
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: N14GhoulAttack #Misfits Change
+    angle: 0
+    animation: WeaponArcFist
+    damage:
+      types:
+        Brute: 30
+        Slash: 10
+    range: 2.5
+  - type: MeleeThrowOnHit
+    speed: 15
+    lifetime: 0.025
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.925
+        Slash: 0.925
+        Piercing: 0.95
+        Heat: 0.95
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: alive
+      sprite: _Nuclear14/Mobs/Ghouls/maypole.rsi
+  -   # layers:
+  # - state: alive
+  # map: ["movement"]
+  # - type: SpriteMovement
+  # movementLayers:
+  # movement:
+  # state: alive
+  # noMovementLayers:
+  # movement:
+  # state: sleeping
+type: PointLight
+    radius: 2
+    energy: 0.5
+    color: "#4CBB17FF"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.7'
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: StaminaDamageResistance
+    coefficient: 0
+  - type: NoPull #Misfits Add - Maypole is too large to be grabbed
+  - type: AggroSound #Misfits Change
+    sound:
+      collection: N14GhoulAggro
+      params:
+        volume: -12
+        maxDistance: 10
