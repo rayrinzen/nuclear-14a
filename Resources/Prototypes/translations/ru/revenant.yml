@@ -1,31 +1,55 @@
-- type: alert
-  id: Essence
-  category: Health #it's like ghostie health
-  icons:
-    - sprite: /Textures/Interface/Alerts/essence_counter.rsi
-      state: essence0
-  alertViewEntity: AlertEssenceSpriteView
-  name: alerts-revenant-essence-name
-  description: alerts-revenant-essence-desc
+- type: dataset
+  id: RevenantType
+  values:
+    - essence
+    - ghost
+    - phantom
+    - poltergeist
+    - revenant
+    - soul
+    - shadow
+    - spirit
 
-- type: alert
-  id: Corporeal
-  icons: # DeltaV - Custom revenant sprite
-    - sprite: /Textures/DeltaV/Mobs/Ghosts/revenant.rsi
-      state: icon
-  name: alerts-revenant-corporeal-name
-  description: alerts-revenant-corporeal-desc
+- type: dataset
+  id: RevenantAdjective
+  values:
+    - hellish
+    - bottomless
+    - cruel
+    - dark
+    - endless
+    - eternal
+    - fiery
+    - hateful
+    - vile
+    - merry
+    - indifferent
+    - malicious
+    - peaceful
+    - searing
+    - quiet
+    - spiteful
 
-- type: entity
-  id: AlertEssenceSpriteView
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      sprite: /Textures/Interface/Alerts/essence_counter.rsi
-      layers:
-        - map: [ "enum.AlertVisualLayers.Base" ]
-        - map: [ "enum.RevenantVisualLayers.Digit1" ]
-        - map: [ "enum.RevenantVisualLayers.Digit2" ]
-          offset: 0.125, 0
-        - map: [ "enum.RevenantVisualLayers.Digit3" ]
-          offset: 0.25, 0
+- type: dataset
+  id: RevenantTheme
+  values:
+    - agony
+    - rage
+    - death
+    - disease
+    - sorrow
+    - hatred
+    - pity
+    - corruption
+    - toxicity
+    - vengeance
+    - torment
+    - longing
+    - pain
+    #- despair
+    #- desperation
+    #- destruction
+    #- hellfire
+    #- laughter
+    #- screams
+    #- suffering
