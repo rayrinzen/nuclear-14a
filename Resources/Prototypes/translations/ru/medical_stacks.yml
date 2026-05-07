@@ -1,83 +1,59 @@
 - type: stack
-  id: Ointment
-  name: ointment
+  id: N14Traumapack
+  name: traumapack
   icon:
     {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
-      state: ointment
+      sprite: "_Nuclear14/Objects/Specific/Medical/drugs.rsi",
+      state: traumapack
     }
-  spawn: Ointment
+  spawn: N14Traumapack
   maxCount: 10
   itemSize: 1
 
 - type: stack
-  id: AloeCream
-  name: aloe cream
+  id: N14AloeSalve
+  name: aloe salve
   icon:
     {
-      sprite: "/Textures/Objects/Specific/Hydroponics/aloe.rsi",
-      state: cream
+      sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical_new.rsi",
+      state: aloe1
     }
-  spawn: AloeCream
-  maxCount: 10 #Changed all the 15 stacks back to 10 for N14
+  spawn: N14AloeSalve1
+  maxCount: 10 # Forge-Change
   itemSize: 1
 
 - type: stack
-  id: Gauze
-  name: gauze
+  id: N14DirtyGauze10
+  name: roll of gauze
   icon:
     {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
+      sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi",
+      state: gauze_diy1
+    }
+  spawn: N14DirtyGauze1
+  maxCount: 10
+  itemSize: 1
+
+- type: stack
+  id: N14CleanGauze10
+  name: roll of gauze
+  icon:
+    {
+      sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi",
       state: gauze
     }
-  spawn: Gauze
+  spawn: N14CleanGauze1
   maxCount: 10
   itemSize: 1
 
 - type: stack
-  id: Brutepack
-  name: brutepack
+  id: N14Ointment10
+  name: oitnment
   icon:
     {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
-      state: gauze
+      sprite: "_Nuclear14/Objects/Specific/Medical/ms13_medical.rsi",
+      state: tube1
     }
-  spawn: Brutepack
-  maxCount: 10
-  itemSize: 1
-
-- type: stack
-  id: Bloodpack
-  name: bloodpack
-  icon:
-    {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
-      state: bloodpack
-    }
-  spawn: Bloodpack
-  maxCount: 10
-  itemSize: 1
-
-- type: stack
-  id: MedicatedSuture
-  name: medicated-suture
-  icon:
-    {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
-      state: medicated-suture
-    }
-  spawn: MedicatedSuture
-  maxCount: 10
-  itemSize: 1
-
-- type: stack
-  id: RegenerativeMesh
-  name: regenerative-mesh
-  icon:
-    {
-      sprite: "/Textures/Objects/Specific/Medical/medical.rsi",
-      state: regenerative-mesh
-    }
-  spawn: RegenerativeMesh
+  spawn: N14Ointment1
   maxCount: 10
   itemSize: 1
