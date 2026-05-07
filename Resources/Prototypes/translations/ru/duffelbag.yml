@@ -1,16 +1,12 @@
 - type: entity
-  parent: ClothingBackpackDuffelBrigmedic
-  id: ClothingBackpackDuffelBrigmedicDeltaVFilled
   categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackDuffelScience
+  id: ClothingBackpackDuffelMantisFilled
   components:
     - type: StorageFill
       contents:
-        - id: BoxSurvivalSecurity
-        - id: EmergencyRollerBedSpawnFolded
-        - id: BodyBagFolded
-        - id: Portafib
-        #  - id: Flash
-        - id: BruteAutoInjector
-          amount: 2
-        - id: BurnAutoInjector
-          amount: 2
+        # - id: BoxForensicPad # DeltaV - Mantis is no longer a Detective
+        - id: HandLabeler
+        - id: PillMindbreakerToxin
+        - id: BoxFolderGrey
+        - id: RubberStampMantis
