@@ -1,75 +1,96 @@
+# TODO BODY: Part damage
 - type: entity
-  id: SentientSlimeCore
-  parent: [ BaseItem, OrganHumanBrain ]
-  name: sentient slime core
-  description: "The source of incredible, unending gooeyness."
-  components:
-    - type: Sprite
-      sprite: Mobs/Species/Slime/organs.rsi
-      state: brain-slime
-    - type: Stomach
-    - type: Organ
-      slotId: core
-    - type: Metabolizer
-      maxReagents: 6
-      metabolizerTypes: [ Slime ]
-      removeEmpty: true
-      groups:
-        - id: Food
-        - id: Drink
-        - id: Medicine
-        - id: Poison
-        - id: Narcotic
-        - id: Alcohol
-          rateModifier: 0.25
-    - type: SolutionContainerManager
-      solutions:
-        stomach:
-          maxVol: 50.0
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: GreyMatter
-              Quantity: 5
-        organ:
-          reagents:
-            - ReagentId: Slime
-              Quantity: 10
+  id: PartSlime
+  parent: [ BaseItem, BasePart ]
+  name: "slime body part"
+  abstract: true
 
 - type: entity
-  id: OrganSlimeLungs
-  parent: BaseHumanOrgan
-  name: slime gas sacs
-  description: "Collects nitrogen, which slime cells use for maintenance."
+  id: TorsoSlime
+  name: "slime torso"
+  parent: [ PartSlime, BaseTorso ]
   components:
     - type: Sprite
-      sprite: Mobs/Species/Slime/organs.rsi
-      layers:
-        - state: lung-l-slime
-        - state: lung-r-slime
-    - type: Organ # Shitmed
-      slotId: lungs
-    - type: Lung
-      alert: LowNitrogen
-    - type: Metabolizer
-      removeEmpty: true
-      solutionOnBody: false
-      solution: "Lung"
-      metabolizerTypes: [ Slime ]
-      groups:
-        - id: Gas
-          rateModifier: 100.0
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Slime
-              Quantity: 10
-        Lung:
-          maxVol: 100.0
-          canReact: false
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: UncookedAnimalProteins
-              Quantity: 5
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "torso_m"
+
+- type: entity
+  id: HeadSlime
+  name: "slime head"
+  parent: [ PartSlime, BaseHead ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "head_m"
+
+- type: entity
+  id: LeftArmSlime
+  name: "left slime arm"
+  parent: [ PartSlime, BaseLeftArm ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "l_arm"
+
+- type: entity
+  id: RightArmSlime
+  name: "right slime arm"
+  parent: [ PartSlime, BaseRightArm ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "r_arm"
+
+- type: entity
+  id: LeftHandSlime
+  name: "left slime hand"
+  parent: [ PartSlime, BaseLeftHand ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "l_hand"
+
+- type: entity
+  id: RightHandSlime
+  name: "right slime hand"
+  parent: [ PartSlime, BaseRightHand ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "r_hand"
+
+- type: entity
+  id: LeftLegSlime
+  name: "left slime leg"
+  parent: [ PartSlime, BaseLeftLeg ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "l_leg"
+
+- type: entity
+  id: RightLegSlime
+  name: "right slime leg"
+  parent: [ PartSlime, BaseRightLeg ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "r_leg"
+
+- type: entity
+  id: LeftFootSlime
+  name: "left slime foot"
+  parent: [ PartSlime, BaseLeftFoot ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "l_foot"
+
+- type: entity
+  id: RightFootSlime
+  name: "right slime foot"
+  parent: [ PartSlime, BaseRightFoot ]
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Slime/parts.rsi
+      state: "r_foot"
