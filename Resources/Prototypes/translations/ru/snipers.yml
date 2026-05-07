@@ -1,49 +1,31 @@
+# Frontier
 - type: entity
-  name: mark 1 rifle
+  name: N2524 Pattern Repeater
   parent: BaseWeaponSniper
-  id: WeaponSniperGrand
-  description: A heavy and reliable self-loading rifle, utilising a modified version of a centuries-old design. Uses .30 rifle ammo.
+  id: WeaponSniperRepeater
+  description: A civilian grade lever action firearm, favored by space cowboys across the Frontier for its reliability and stopping power. Uses .45 magnum ammo.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
+      sprite: _NF/Objects/Weapons/Guns/Snipers/repeater.rsi
     - type: Clothing
-      sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
-    - type: Gun
-      fireRate: 2
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+      sprite: _NF/Objects/Weapons/Guns/Snipers/repeater.rsi
+    - type: StaticPrice
+      price: 500
     - type: BallisticAmmoProvider
-      #    autoCycle: true
-      capacity: 5
-      proto: CartridgeLightRifle
       whitelist:
         tags:
-          - CartridgeLightRifle
+          - CartridgeMagnum
+      capacity: 7
+      proto: CartridgeMagnum
 
 - type: entity
-  name: ceremonial rifle
-  parent: BaseWeaponSniper
-  id: WeaponSniperCeremonial
-  description: A ceremonial variant of the Mark 1 Rifle, in tasteful blue and white. Uses .30 rifle ammo.
+  parent: WeaponSniperRepeater
+  id: WeaponSniperRepeaterNonlethal
+  suffix: Non-lethal
   components:
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/ceremonial_grand.rsi
-    - type: Clothing
-      sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/ceremonial_grand.rsi
-    - type: Gun
-      fireRate: 2
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
     - type: BallisticAmmoProvider
-      #    autoCycle: true
-      capacity: 5
-      proto: CartridgeLightRifle
       whitelist:
         tags:
-          - CartridgeLightRifle
+          - CartridgeMagnum
+      capacity: 7
+      proto: CartridgeMagnumRubber
