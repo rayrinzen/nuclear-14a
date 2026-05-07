@@ -1,34 +1,50 @@
-- type: marking
-  id: FelinidFluffyTailRings
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction:
-    [ Felinid, Tajaran ]
-    # Einstein Engines - Tajaran
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
-      state: Felinid_fluffy_tail_full
-    - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
-      state: felinid_fluffy_tail_rings
-
-- type: marking
-  id: FelinidFluffyTail
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction:
-    [ Felinid, Tajaran ]
-    # Einstein Engines - Tajaran
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
-      state: Felinid_fluffy_tail_full
-
-- type: marking
-  id: FelinidAlternativeTail
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction:
-    [ Felinid, Tajaran ]
-    # Einstein Engines - Tajaran
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/Felinid/alternative_tail.rsi
-      state: m_waggingtail_cat_FRONT
+- type: body
+  id: Felinid
+  name: "felinid"
+  root: torso
+  slots:
+    head:
+      part: HeadHuman
+      connections:
+        - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHuman
+      connections:
+        - right arm
+        - left arm
+        - right leg
+        - left leg
+        - head # Shitmed Change
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganVulpkaninStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmHuman
+      connections:
+        - right hand
+    left arm:
+      part: LeftArmHuman
+      connections:
+        - left hand
+    right hand:
+      part: RightHandHuman
+    left hand:
+      part: LeftHandHuman
+    right leg:
+      part: RightLegHuman
+      connections:
+        - right foot
+    left leg:
+      part: LeftLegHuman
+      connections:
+        - left foot
+    right foot:
+      part: RightFootHuman
+    left foot:
+      part: LeftFootHuman
