@@ -1,0 +1,53 @@
+- type: job
+  id: BoSMidPaladin
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 80
+  showBorder: true
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  name: job-name-bos-mid-paladin
+  description: job-description-bos-mid-paladin
+  playTimeTracker: BoSMidPaladin
+  requirements:
+    - !type 
+      species:
+      - Human
+    - !type 
+      department: BrotherhoodOfSteel
+      min: 72000 # 20 hours
+    - !type 
+      tracker: BoSPaladin
+      min: 28800 # 8 hours as Paladin
+  startingGear: BoSMidPaladinGear
+  alwaysUseSpawner: true
+  icon: "JobIconBosMPaladin" # Corvax-Change
+  supervisors: job-supervisors-bos-mid
+  accessGroups:
+  - BOSSeniorPaladin
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+      - type: PowerArmorProficiency # #Misfits Add: Senior Paladins can equip power armor.
+- type: startingGear
+  id: BoSMidPaladinGear
+  equipment:
+    jumpsuit: N14ClothingUniformBosRecon #Misfits Change /Tweak/: New consolidated BoS gear
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeatherFilled
+    head: N14ClothingHeadHatCapkhighBoS
+    outerClothing: N14ClothingOuterPowerArmorT60BOS # #Misfits Change - Senior Paladin now wears BOS T60 with Brotherhood tactical HUD helmet
+    pocket1: BoSBrotherhoodSeniorPaladinKits
+    hands: N14ClothingHandsGlovesCombat
+    id: N14IDBrotherhoodOfSteelHolotagSeniorPaladin
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    belt: N14ClothingBeltBoSWebbing
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+- type: playTimeTracker
+  id: BoSMidPaladin
