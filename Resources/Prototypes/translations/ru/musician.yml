@@ -1,37 +1,40 @@
 - type: job
-  id: Musician
-  name: job-name-musician
-  description: job-description-musician
-  playTimeTracker: JobMusician
-  startingGear: MusicianGear
+  id: WastelandMusician
+  setPreference: false # Disabled, use loadouts
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-waste-musician
+  description: job-description-waste-musician
+  playTimeTracker: WastelandMusician
+  requirements:
+    - !type 
+      min: 999999
+  startingGear: WastelandMusicianGear
   icon: "JobIconMusician"
   supervisors: job-supervisors-hire
-  access:
-  - Maintenance
-  - Theatre
-  - Musician
   special:
   - !type 
     holiday: MikuDay
     prototype: BoxPerformer
-  setPreference: false
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
 - type: startingGear
-  id: MusicianGear
-  subGear:
-  - MusicianPlasmamanGear
+  id: WastelandMusicianGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMusician
-    back: ClothingBackpackMusicianFilled
+    jumpsuit: N14ClothingUniformJumpsuitManagerSuit
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackTrekker # Corvax-Change
     eyes: ClothingEyesGlassesSunglasses
-    shoes: ClothingShoesBootsLaceup
-    id: MusicianPDA
-    ears: ClothingHeadsetService
-  satchel: ClothingBackpackSatchelMusicianFilled
-  duffelbag: ClothingBackpackDuffelMusicianFilled
-- type: startingGear
-  id: MusicianPlasmamanGear
-  parent: BasePlasmamanGear
-  equipment:
-    jumpsuit: ClothingUniformEnvirosuitMusician
-    head: ClothingHeadEnvirohelmMusician
-    gloves: ClothingHandsGlovesEnviroglovesWhite
+    shoes: N14ClothingShoesBrown
+  satchel: N14ClothingBackpackSatchelMusicianFilled
+  duffelbag: N14ClothingBackpackDuffelMusicianFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+    - AcousticGuitarInstrument
+    - SaxophoneInstrument
+- type: playTimeTracker
+  id: WastelandMusician
