@@ -1,11 +1,45 @@
 - type: entity
   categories: [ HideSpawnMenu ]
   parent: BaseGameRule
-  id: ParadoxAnomaly
+  id: Thief
   components:
-    - type: GenericAntagRule
-      agentName: paradox-anomaly-round-end-agent-name
+    - type: ThiefRule
+    - type: AntagObjectives
       objectives:
-        - ParadoxAnomalyKillObjective
-        - ParadoxAnomalyFriendObjective
-        - ParadoxAnomalyEscapeObjective
+        - EscapeThiefShuttleObjective
+    - type: AntagRandomObjectives
+      sets:
+        - groups: ThiefBigObjectiveGroups
+          prob: 0.7
+          maxPicks: 1
+        - groups: ThiefObjectiveGroups
+          maxPicks: 10
+      maxDifficulty: 2.5
+    - type: AntagSelection
+      agentName: thief-round-end-agent-name
+      definitions:
+        - prefRoles: [ Thief ]
+          max: 3
+          playerRatio: 15
+          lateJoinAdditional: true
+          allowNonHumans: true
+          multiAntagSetting: All
+          startingGear: ThiefGear
+          components:
+            - type: Pacified
+          mindComponents:
+            - type: ThiefRole
+              prototype: Thief
+          briefing:
+            sound: "/Audio/Misc/thief_greeting.ogg"
+
+#- type: entity
+#  categories: [ HideSpawnMenu ]
+#  parent: BaseGameRule
+#  id: Exterminator
+#  components:
+#  - type: GenericAntagRule
+#    agentName: terminator-round-end-agent-name
+#    objectives:
+#    - TerminateObjective
+#    - ShutDownObjective
