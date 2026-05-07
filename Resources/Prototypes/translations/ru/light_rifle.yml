@@ -1,56 +1,126 @@
 - type: entity
-  id: BulletLightRifle
-  name: bullet (.20 rifle)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  abstract: true
+  parent: BaseMagazineBox
+  id: BaseMagazineBoxLightRifle
+  name: ammunition box (.30 rifle)
   components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 19
-
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+- # Boxes
+type: entity
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleBig
+  name: ammunition box (.30 rifle)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 200
+    proto: CartridgeLightRifle
+  - type: Sprite
+    layers:
+    - state: base-b
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: magb-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: magb
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  id: BulletLightRiflePractice
-  name: bullet (.20 rifle practice)
-  parent: BaseBulletPractice
-  categories: [ HideSpawnMenu ]
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifle
+  name: ammunition box (.30 rifle)
   components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 2
-
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
 - type: entity
-  id: BulletLightRifleRubber
-  name: bullet (.20 rifle rubber)
-  parent: BaseBulletRubber
-  categories: [ HideSpawnMenu ]
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRiflePractice
+  name: ammunition box (.30 rifle practice)
   components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 3
-
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRiflePractice
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: practice
 - type: entity
-  id: BulletLightRifleIncendiary
-  parent: BaseBulletIncendiary
-  name: bullet (.20 rifle incendiary)
-  categories: [ HideSpawnMenu ]
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleRubber
+  name: ammunition box (.30 rifle rubber)
   components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 3
-          Heat: 16
-
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: rubber
 - type: entity
-  id: BulletLightRifleUranium
-  parent: BaseBulletUranium
-  name: bullet (.20 rifle uranium)
-  categories: [ HideSpawnMenu ]
+  id: MagazineBoxLightRifleIncendiary
+  parent: BaseMagazineBoxLightRifle
+  name: ammunition box (.30 rifle incendiary)
   components:
-    - type: Projectile
-      damage:
-        types:
-          Radiation: 9
-          Piercing: 10
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: incendiary
+- type: entity
+  parent: BaseMagazineBoxLightRifle
+  id: MagazineBoxLightRifleUranium
+  name: ammunition box (.30 rifle uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: uranium
