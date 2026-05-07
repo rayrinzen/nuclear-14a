@@ -1,7 +1,7 @@
-- type: entity
-  id: NoticeBoard2
+﻿- type: entity
+  id: NoticeBoard
   name: notice board
-  description: Something important to post?
+  description: Is there a job for a witcher?
   placement:
     mode: SnapgridCenter
   components:
