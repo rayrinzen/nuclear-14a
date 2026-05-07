@@ -1,250 +1,127 @@
-- type: constructionGraph
-  id: DecorationFlagEmpty
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagEmpty
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagEmpty
-      entity: N14DecorationFlagBearerEmpty
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagNCR
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagNCR
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagNCR
-      entity: N14DecorationFlagNCR
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagYuma
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagYuma
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagYuma
-      entity: N14DecorationFlagYuma
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagBrotherhoodMidwest
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagBrotherhoodMidwest
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagBrotherhoodMidwest
-      entity: N14DecorationFlagBrotherhoodMidwest
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagLocust
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagLocust
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagLocust
-      entity: N14DecorationFlagLocust
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagGunner
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagGunner
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagGunner
-      entity: N14DecorationFlagGunner
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagFollowers
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagFollowers
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagFollowers
-      entity: N14DecorationFlagFollowers
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
-- type: constructionGraph
-  id: DecorationFlagLegion
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: FlagLegion
-          steps:
-            - material: WoodPlank
-              amount: 5
-              doAfter: 3
-            - material: Cloth
-              amount: 5
-              doAfter: 3
-          completed:
-            - !type 
-              southRotation: true
-    - node: FlagLegion
-      entity: N14DecorationFlagLegion
-      edges:
-        - to: start
-          steps:
-            - tool: Prying
-              doAfter: 3
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 5
-            - !type 
-              prototype: MaterialCloth1
-              amount: 5
-            - !type :DeleteEntity
+- type: construction
+  id: N14DecorationFlagBearerEmpty # Empty
+  graph: DecorationFlagEmpty
+  startNode: start
+  targetNode: FlagEmpty
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: emptyflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  name: NCR Flag
+  id: N14DecorationFlagNCR # NCR
+  graph: DecorationFlagNCR
+  startNode: start
+  targetNode: FlagNCR
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: ncrflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagYuma # Yuma Tribe
+  name: Yuma Tribe Flag
+  graph: DecorationFlagYuma
+  startNode: start
+  targetNode: FlagYuma
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: cornflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagBrotherhoodMidwest # MW Brotherhood
+  name: Brotherhood of Steel Flag
+  graph: DecorationFlagBrotherhoodMidwest
+  startNode: start
+  targetNode: FlagBrotherhoodMidwest
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags2.rsi
+    state: mbosflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagLocust # Raiders / Locust
+  name: Raider Flag
+  graph: DecorationFlagLocust
+  startNode: start
+  targetNode: FlagLocust
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: locustflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagGunner # Gunners
+  name: Gunner Flag
+  graph: DecorationFlagGunner
+  startNode: start
+  targetNode: FlagGunner
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: gunnerflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagFollowers # Followers
+  name: Followers Flag
+  graph: DecorationFlagFollowers
+  startNode: start
+  targetNode: FlagFollowers
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: followersflag
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  id: N14DecorationFlagLegion # Legion
+  name: Legion Flag
+  graph: DecorationFlagLegion
+  startNode: start
+  targetNode: FlagLegion
+  category: construction-category-furniture
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  hide: false
+  icon:
+    sprite: _Nuclear14/Structures/Decoration/flags.rsi
+    state: legionflag
+  conditions:
+    - !type :TileNotBlocked
