@@ -1,175 +1,164 @@
-- type: construction
-  name: metal rod
-  id: MetalRod
-  graph: MetalRod
-  startNode: start
-  targetNode: MetalRod
-  category: construction-category-materials
-  description: A sturdy metal rod that can be used for various purposes.
-  icon: { sprite: Objects/Materials/parts.rsi, state: rods }
-  objectType: Item
-
-- type: construction
-  name: reinforced glass
-  description: A reinforced sheet of glass.
-  id: SheetRGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetRGlass
-  category: construction-category-materials
+- type: stack
+  id: Biomass
+  name: biomass
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: rglass
+      sprite: /Textures/Objects/Misc/monkeycube.rsi,
+      state: cube
     }
-  objectType: Item
+  spawn: MaterialBiomass1
+  maxCount: 100
+  itemSize: 1
 
-- type: construction
-  name: clockwork glass
-  description: A brass-reinforced sheet of glass.
-  id: SheetClockworkGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetClockworkGlass
-  category: construction-category-materials
+- type: stack
+  id: WoodPlank
+  name: wood plank
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: cglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: wood
     }
-  objectType: Item
+  spawn: MaterialWoodPlank1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: plasma glass
-  description: A sheet of translucent plasma.
-  id: SheetPGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetPGlass
-  category: construction-category-materials
+- type: stack
+  id: Cardboard
+  name: cardboard
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: pglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: cardboard
     }
-  objectType: Item
+  spawn: MaterialCardboard1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
-  id: SheetRPGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetRPGlass
-  category: construction-category-materials
+- type: stack
+  id: Cloth
+  name: cloth
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: rpglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: cloth
     }
-  objectType: Item
+  spawn: MaterialCloth1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
-  id: SheetRPGlass0
-  graph: Glass
-  startNode: start
-  targetNode: SheetRPGlass0
-  category: construction-category-materials
-  icon:
-    {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: rpglass
-    }
-  objectType: Item
-
-- type: construction
-  name: reinforced plasma glass
-  description: A reinforced sheet of translucent plasma.
-  id: SheetRPGlass1
-  graph: Glass
-  startNode: start
-  targetNode: SheetRPGlass1
-  category: construction-category-materials
-  icon:
-    {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: rpglass
-    }
-  objectType: Item
-
-- type: construction
+- type: stack
+  id: Durathread
   name: durathread
-  id: MaterialDurathread
-  graph: Durathread
-  startNode: start
-  targetNode: MaterialDurathread
-  category: construction-category-materials
-  description: A high-quality thread used to make durable clothes.
   icon:
     {
-      sprite: Objects/Materials/materials.rsi,
+      sprite: /Textures/Objects/Materials/materials.rsi,
       state: durathread
     }
-  objectType: Item
+  spawn: MaterialDurathread1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: uranium glass
-  description: A sheet of uranium glass.
-  id: SheetUGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetUGlass
-  category: construction-category-materials
+- type: stack
+  id: Diamond
+  name: diamond
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: uglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: diamond
     }
-  objectType: Item
+  spawn: MaterialDiamond1
+  maxCount: 30
+  itemSize: 2
 
-- type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
-  id: SheetRUGlass
-  graph: Glass
-  startNode: start
-  targetNode: SheetRUGlass
-  category: construction-category-materials
+- type: stack
+  id: Cotton
+  name: cotton
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: ruglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: cotton
     }
-  objectType: Item
+  spawn: MaterialCotton1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
-  id: SheetRUGlass0
-  graph: Glass
-  startNode: start
-  targetNode: SheetRUGlass0
-  category: construction-category-materials
+- type: stack
+  id: Pyrotton
+  name: pyrotton
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: ruglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: pyrotton
     }
-  objectType: Item
+  spawn: MaterialPyrotton1
+  maxCount: 30
+  itemSize: 1
 
-- type: construction
-  name: reinforced uranium glass
-  description: A reinforced sheet of uranium glass.
-  id: SheetRUGlass1
-  graph: Glass
-  startNode: start
-  targetNode: SheetRUGlass1
-  category: construction-category-materials
+- type: stack
+  id: Bananium
+  name: bananium
   icon:
     {
-      sprite: Objects/Materials/Sheets/glass.rsi,
-      state: ruglass
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: bananium
     }
-  objectType: Item
+  spawn: MaterialBananium1
+  maxCount: 10
+  itemSize: 2
+
+- type: stack
+  id: MeatSheets
+  name: meat sheet
+  icon:
+    {
+      sprite: /Textures/Objects/Materials/Sheets/meaterial.rsi,
+      state: meat
+    }
+  spawn: MaterialSheetMeat1
+  maxCount: 30
+  itemSize: 1
+
+- type: stack
+  id: WebSilk
+  name: silk
+  icon:
+    {
+      sprite: /Textures/Objects/Materials/silk.rsi,
+      state: icon
+    }
+  spawn: MaterialWebSilk1
+  maxCount: 50
+  itemSize: 1
+
+- type: stack
+  id: Bones
+  name: bones
+  icon:
+    {
+      sprite: /Textures/Objects/Materials/materials.rsi,
+      state: bones
+    }
+  spawn: MaterialBones1
+  maxCount: 30
+
+- type: stack
+  id: MaterialGunpowder # Corvax-Change
+  name: gunpowder
+  icon:
+    {
+      sprite: /Textures/Objects/Misc/reagent_fillings.rsi,
+      state: powderpile
+    }
+  spawn: MaterialGunpowder
+  maxCount: 60
+
+- type: stack
+  id: GoliathHide
+  name: goliath hide
+  icon:
+    {
+      sprite: /Textures/Objects/Materials/hide.rsi,
+      state: goliath_hide
+    }
+  spawn: MaterialGoliathHide1
+  maxCount: 30
