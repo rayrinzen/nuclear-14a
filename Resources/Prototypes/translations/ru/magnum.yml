@@ -1,70 +1,87 @@
 - type: entity
-  id: BulletMagnum
-  name: bullet (.45 magnum)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  id: BaseMagazineUniversalMagnum
+  name: "Universal magazine (.45 magnum)"
+  parent: BaseMagazinePistol
+  abstract: true
   components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 35
+    - type: Tag
+      tags:
+        - MagazineUniversalMagnum
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - CartridgeMagnum
+      proto: CartridgeMagnum
+      capacity: 12
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/universal_mag.rsi
+      layers:
+        - state: base
+          map: [ "enum.GunVisualLayers.Base" ]
+        - state: mag-1
+          map: [ "enum.GunVisualLayers.Mag" ]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 12
+      zeroVisible: false
+    - type: Appearance
+
+# Magazines for the Universal Pistol
+- type: entity
+  id: MagazineUniversalMagnum
+  name: "Universal magazine (.45 magnum)"
+  parent: BaseMagazineUniversalMagnum
+  components:
+    - type: BallisticAmmoProvider
+      proto: CartridgeMagnum
+      capacity: 12
+    - type: Sprite
+      layers:
+        - state: red
+          map: [ "enum.GunVisualLayers.Base" ]
+        - state: mag-1
+          map: [ "enum.GunVisualLayers.Mag" ]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 12
+      zeroVisible: false
 
 - type: entity
-  id: BulletMagnumPractice
-  name: bullet (.45 magnum practice)
-  parent: BaseBulletPractice
-  categories: [ HideSpawnMenu ]
+  id: MagazineUniversalMagnumPractice
+  name: "Universal magazine (.45 magnum practice)"
+  parent: BaseMagazineUniversalMagnum
   components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 1
+    - type: BallisticAmmoProvider
+      proto: CartridgeMagnumPractice
+      capacity: 12
+    - type: Sprite
+      layers:
+        - state: practice
+          map: [ "enum.GunVisualLayers.Base" ]
+        - state: mag-1
+          map: [ "enum.GunVisualLayers.Mag" ]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 12
+      zeroVisible: false
 
 - type: entity
-  id: BulletMagnumRubber
-  name: bullet (.45 magnum rubber)
-  parent: BaseBulletRubber
-  categories: [ HideSpawnMenu ]
+  id: MagazineUniversalMagnumRubber
+  name: "Universal magazine (.45 magnum rubber)"
+  parent: BaseMagazineUniversalMagnum
   components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 3
-    - type: StaminaDamageOnCollide
-      damage: 35 # 3 hits to stun cuz revolver
-
-- type: entity
-  id: BulletMagnumIncendiary
-  parent: BaseBulletIncendiary
-  name: bullet (.45 magnum incendiary)
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Projectile
-      damage:
-        types:
-          Blunt: 3
-          Heat: 32
-
-- type: entity
-  id: BulletMagnumAP
-  name: bullet (.45 magnum armor-piercing)
-  parent: BaseBulletAP
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 26 # 20% decrease
-      ignoreResistances: true
-
-- type: entity
-  id: BulletMagnumUranium
-  name: bullet (.45 magnum uranium)
-  parent: BaseBulletUranium
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Projectile
-      damage:
-        types:
-          Radiation: 15
-          Piercing: 20
+    - type: BallisticAmmoProvider
+      proto: CartridgeMagnumRubber
+      capacity: 12
+    - type: Sprite
+      layers:
+        - state: rubber
+          map: [ "enum.GunVisualLayers.Base" ]
+        - state: mag-1
+          map: [ "enum.GunVisualLayers.Mag" ]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 12
+      zeroVisible: false
