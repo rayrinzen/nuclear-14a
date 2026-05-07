@@ -1,5 +1,50 @@
-- type: loadout # This is for Vault Security players that want to act like an detective of sort.
-  id: N14LoadoutUniformJumpsuitDetectiveAltVault
+- #vault jumpsuits
+type: loadout
+  id: N14LoadoutUniformJumpsuitVault14
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitVault14
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Vault
+- #Misfits Remove: Entity commented out — Corvax vault14dress.rsi removed (All Rights Reserved)
+#- type: loadout #Forge-Add-Start
+#  id: N14LoadoutUniformJumpskirtVault14
+#  category: Uniform
+#  cost: 2
+#  exclusive: true
+#  items:
+#    - N14ClothingUniformJumpskirtVault14
+#  requirements:
+#    - !type:CharacterItemGroupRequirement
+#      group: N14LoadoutUniform
+#    - !type:CharacterDepartmentRequirement
+#      departments:
+#        - Vault #Forge-Add-End
+# wastelander and townfolk jumpsuits
+type: loadout
+  id: N14LoadoutUniformJumpsuitAsylumDress
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtAsylumDress
+  requirements:
+   - !type 
+      group: N14LoadoutUniform
+   - !type 
+      inverted: true
+      jobs:
+      - BoSMidSerf
+      - CaesarLegionSlave
+      - NCRPisoner
+- type: loadout
+  id: N14LoadoutUniformJumpsuitDetectiveAlt
   category: Uniform
   cost: 2
   exclusive: true
@@ -7,15 +52,55 @@
     - N14ClothingUniformJumpsuitDetectiveAlt
   requirements:
     - !type 
-      tracker: VaultSecurity
-      min: 1200 # 20 hours
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitBartenderAlt
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitBartenderAlt
+  requirements:
     - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-      - VaultSecurity
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitCheckeredVault
+  id: N14LoadoutUniformJumpsuitRags
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitRags
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitSettlerRags
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitSettlerRags
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitCheckered
   category: Uniform
   cost: 2
   exclusive: true
@@ -23,31 +108,114 @@
     - N14ClothingUniformJumpsuitCheckered
   requirements:
     - !type 
-      department: Vault
-      min: 1200 # 20 hours
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitWastelandDoc
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitWastelandDoc
+  requirements:
     - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-        - VaultDweller
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitPreWarRelaxedVault
+  id: N14LoadoutUniformJumpsuitMerc
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitMerc
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitMerchant
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitMerchant
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- #        - CaravanCompany
+type: loadout
+  id: N14LoadoutUniformJumpsuitTrader
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitTrader
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- # - CaravanCompany
+type: loadout
+  id: N14LoadoutUniformJumpsuitCaravan
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitCaravan
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- # - CaravanCompany
+type: loadout
+  id: N14LoadoutUniformJumpsuitMechanic
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitMechanic
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitPreWarRelaxed
   category: Uniform
   cost: 2
   exclusive: true
   items:
     - N14ClothingUniformJumpsuitPreWarRelaxed
   requirements:
-   - !type 
-      tracker: VaultDweller
-      min: 1500 # 25 hours
-   - !type 
+    - !type 
       group: N14LoadoutUniform
-   - !type 
-     jobs:
-       - VaultDweller
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitPreWarCasualVault
+  id: N14LoadoutUniformJumpsuitPreWarCasual
   category: Uniform
   cost: 2
   exclusive: true
@@ -55,15 +223,27 @@
     - N14ClothingUniformJumpsuitPreWarCasual
   requirements:
     - !type 
-      tracker: VaultDweller
-      min: 1500 # 25 hours
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitManagerSuit
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitManagerSuit
+  requirements:
     - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-        - VaultDweller
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitPreWarManagerVault
+  id: N14LoadoutUniformJumpsuitPreWarManager
   category: Uniform
   cost: 2
   exclusive: true
@@ -71,16 +251,13 @@
     - N14ClothingUniformJumpsuitPreWarManager
   requirements:
     - !type 
-      department: Vault
-      min: 1800 # 30 hours
-    - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-        - VaultDweller
-        - Overseer
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitBlueSuitVault
+  id: N14LoadoutUniformJumpsuitBlueSuit
   category: Uniform
   cost: 2
   exclusive: true
@@ -88,26 +265,392 @@
     - N14ClothingUniformJumpsuitBlueSuit
   requirements:
     - !type 
-      tracker: Overseer
-      min: 3000 # 50 hours
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitPreWarLumberjack
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitPreWarLumberjack
+  requirements:
     - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-        - Overseer
+      departments:
+        - Wastelander
+        - Townsfolk
 - type: loadout
-  id: N14LoadoutUniformJumpsuitPreWarLumberjackVault
+  id: N14LoadoutUniformJumpsuitCombat
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitCombat
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitBrahminFarmer
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitBrahminFarmer
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitFollowers
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitFollowers
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- # - Followers
+type: loadout
+  id: N14LoadoutUniformJumpsuitCowboyBrown
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitCowboyBrown
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpsuitCowboyGrey
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitCowboyGrey
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- #tribe jumpsuits
+type: loadout
+  id: N14LoadoutUniformJumpsuitTribal
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitTribal
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- type: loadout
+  id: N14LoadoutUniformJumpsuitWarriorTribal
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitWarriorTribal
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- type: loadout
+  id: N14ClothingUniformJumpsuittribalpantsm
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuittribalpantsm
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- type: loadout
+  id: N14ClothingUniformJumpsuittribalpantsf
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuittribalpantsf
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- type: loadout
+  id: N14ClothingUniformJumpsuittribalpantsnecklace
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuittribalpantsnecklace
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- type: loadout
+  id: N14ClothingUniformJumpsuitdrylanderTribal
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitdrylanderTribal
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Tribe
+        - Wastelander
+- #jumpskirts
+type: loadout
+  id: N14LoadoutUniformJumpskirtFalloutBlack
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtFalloutBlack
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtFalloutBlue
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtFalloutBlue
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressBlack
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtDressBlack
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressBlue
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtDressBlue
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtSundress
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtSundress
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtWastelandDoc
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtWastelandDoc
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtMerc
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtMerc
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+- type: loadout
+  id: N14LoadoutUniformJumpskirtTribal
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpskirtTribal
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Tribe
+- type: loadout
+  id: N14LoadoutUniformDressAsymmetric
   category: Uniform
   cost: 2
   exclusive: true
   requirements:
     - !type 
-      department: Vault
-      min: 1500 # 25 hours
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - ClothingUniformJumpskirtDressAsymmetric
+- type: loadout
+  id: N14LoadoutUniformJumpsuitChinese
+  category: Uniform
+  cost: 2
+  exclusive: true
+  items:
+    - N14ClothingUniformJumpsuitChinese
+  requirements:
     - !type 
       group: N14LoadoutUniform
     - !type 
-      jobs:
-        - VaultDweller
+      departments:
+        - Wastelander
+        - Townsfolk
+- #Corvax-Add Start
+type: loadout
+  id: N14LoadoutUniformJumpskirtDressLongSleeve
+  category: Uniform
+  cost: 2
+  exclusive: true
+  customColorTint: true
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
   items:
-  - N14ClothingUniformJumpsuitPreWarLumberjack
+    - ClothingUniformJumpskirtDressLongSleeve
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressVictorianRed
+  category: Uniform
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - ClothingUniformJumpskirtDressVictorianRed
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressBlackTango
+  category: Uniform
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - ClothingUniformJumpskirtDressBlackTango
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressBlackTangoAlt
+  category: Uniform
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - ClothingUniformJumpskirtDressBlackTangoAlt
+- type: loadout
+  id: N14LoadoutUniformJumpskirtDressFormalRed
+  category: Uniform
+  cost: 2
+  exclusive: true
+  requirements:
+    - !type 
+      group: N14LoadoutUniform
+    - !type 
+      departments:
+        - Wastelander
+        - Townsfolk
+  items:
+    - ClothingUniformJumpskirtDressFormalRed
+#Corvax-Add End
