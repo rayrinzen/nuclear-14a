@@ -1,0 +1,81 @@
+- type: job
+  id: CaesarLegionPrimeDecanus
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 140
+  name: job-name-caesar-legion-prime-decanus
+  description: job-description-caesar-legion-prime-decanus
+  playTimeTracker: CaesarLegionPrimeDecanus
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 72000 # 20 hours
+    - !type 
+      species:
+      - Human
+    - !type 
+      sex: Male
+    - !type 
+      gender: Male
+  startingGear: CaesarLegionPrimeDecanusGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerDean"
+  supervisors: job-name-caesar-legion-supervisors
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionDean
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+      - type: Warcry
+        action: ActionLegionWarcry
+        targetDepartment: CaesarLegion
+        range: 6
+        speedBonus: 0.30 # #Misfits Tweak - reduced from 0.50, was too strong
+        duration: 10
+        overlayColor: "#D64545"
+        speechVerb: MisfitsLegionWarcry
+        warcryMessage: warcry-message-legion
+        warcryMessageCount: 6
+        buffPopup: warcry-popup-buffed-legion
+        cautionPopup: true
+        activatorJobs:
+        - CaesarLegionDean
+        - CaesarLegionPrimeDecanus
+        - CaesarLegionVeteranDecanus
+        - CaesarLegionCenturion
+        - CaesarLegionLegate
+        - CaesarLegionOrator
+        - CaesarLegionPriestessOfMars
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionPrimeDecanusGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: ClothingNeckRedScarf
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsBlack
+    head: N14ClothingHeadHatDeanPrimeHelmet
+    gloves: N14ClothingHandsGlovesTribal
+    outerClothing: MisfitsLegionPrimeDecanusArmor # #Misfits Tweak: T6 armor (0.65/0.60) — Prime Decanus tier
+    belt: N14Gladius
+    pocket1: LegionDeanloadoutkits
+    pocket2: N14WeaponPistol10mmPipe
+    id: N14IDLegionaryMedalPrimeDecanus
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+- type: playTimeTracker
+  id: CaesarLegionPrimeDecanus
