@@ -1,0 +1,145 @@
+- type: loadout
+  id: LoadoutClothingOuterNCRPouchedVestDesert
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type 
+    jobs:
+    - NCRSoldier
+    - NCRWS
+    - NCRCadet
+    - NCRPrivateFirstClass
+    - NCRMedic
+    - NCREngineer
+    - NCRDoctor
+    - NCRSGT
+    - NCRStaffSergeant
+    - NCRFirstSergeant
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+    - NCRMPinvestigator
+    - NCRFieldRanger
+    - NCRVeteranRanger
+  - !type 
+    tracker: NCRSoldier
+    min: 12000 # 5 hours veterancy unlock
+  items:
+  - N14ClothingOuterNCRPouchedVestDesert
+- type: loadout
+  id: LoadoutClothingOuterNCRVestpaddedWebDesert
+  category: Outer
+  cost: 3
+  exclusive: true
+  requirements:
+  - !type 
+    jobs:
+    - NCRSoldier
+    - NCRWS
+    - NCRCadet
+    - NCRPrivateFirstClass
+    - NCRMedic
+    - NCREngineer
+    - NCRDoctor
+    - NCRSGT
+    - NCRStaffSergeant
+    - NCRFirstSergeant
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+    - NCRMPinvestigator
+    - NCRFieldRanger
+    - NCRVeteranRanger
+  - !type 
+    tracker: NCRSoldier
+    min: 36000 # 10 hours veterancy unlock
+  items:
+  - N14ClothingOuterNCRVestpaddedWebDesert
+- type: loadout
+  id: LoadoutClothingOuterNCRVeteranArmorDesert
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type 
+    jobs:
+    - NCRSoldier
+    - NCRWS
+    - NCRCadet
+    - NCRPrivateFirstClass
+    - NCRMedic
+    - NCREngineer
+    - NCRDoctor
+    - NCRSGT
+    - NCRStaffSergeant
+    - NCRFirstSergeant
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+    - NCRMPinvestigator
+    - NCRFieldRanger
+    - NCRVeteranRanger
+  - !type 
+    tracker: NCRSoldier
+    min: 72000 # 20 hours veterancy unlock
+  items:
+  - N14ClothingOuterNCRVeteranArmorDesert
+- type: loadout
+  id: LoadoutClothingOuterNCRCombatVeteranArmorDesert
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type 
+    inverted: true
+    jobs:
+    - SuperMutant
+    - Nightkin
+    - SuperMutantGladiator
+    - SuperMutantRanger
+    - SuperMutantTrooper
+    - SuperMutantTribal
+  - !type 
+    jobs:
+    - NCRSGT
+    - NCRStaffSergeant
+    - NCRFirstSergeant
+    - NCRLT
+    - NCRCaptain
+    - NCRMajor
+  - !type 
+    tracker: NCRNCO
+    min: 72000 # 20 hours veterancy unlock
+  # Misfits Note: Only NCRSGT accumulates NCRNCO time; StaffSgt/FirstSgt/NCRLT/Captain/Major use their own trackers.
+  # TODO: Split into per-tracker entries so each senior role can unlock via their own playtime.
+  items:
+  - N14ClothingOuterNCRCombatVeteranArmorDesert
+- type: loadout
+  id: LoadoutClothingNeckNCRMPCoat
+  category: Outer
+  cost: 4
+  exclusive: true
+  requirements:
+  - !type 
+    jobs:
+    - NCRMPinvestigator
+  - !type 
+    tracker: NCRMPinvestigator
+    min: 72000 # 20 hours veterancy unlock
+  items:
+  - N14ClothingNeckNCRMPCoat
+- type: loadout
+  id: LoadoutClothingNeckNCRMPBeret
+  category: Outer
+  cost: 2
+  exclusive: true
+  requirements:
+  - !type 
+    jobs:
+    - NCRMPinvestigator
+  - !type 
+    tracker: NCRMPinvestigator
+    min: 72000 # 20 hours veterancy unlock
+  items:
+  - N14ClothingHeadHatNCRMPBeret
