@@ -1,180 +1,195 @@
-# Buckets
-# Milk
+# Water Purification
+- type: reaction
+  id: WaterClean
+  minTemp: 373 # Corvax-Change
+  reactants:
+    WaterFiltered:
+      amount: 1
+  products:
+    Water: 1
 
-# Tea
-## Other Teas
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaFireantNectar
-  name: fireant nectar tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaFireantNectar
-              Quantity: 20
-      # - type: entity
-      # parent: [ DrinkJar, N14DrinkTeaFireantNectar ]
-      # id: N14DrinkTeaFireantNectarJar
-      # suffix: fire ant nectar
-      # description: A jar of liquid.
-      # components:
-      # - type: Sprite
-      # sprite: Objects/Consumable/Drinks/jar.rsi
-## Plant Teas
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaAgave
-  name: agave tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaAgave
-              Quantity: 20
+- type: reaction
+  id: WaterFiltered
+  reactants:
+    Charcoal:
+      amount: 1
+    WaterDirty:
+      amount: 1
+  products:
+    WaterFiltered: 1
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaBlackberry
-  name: blackberry tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaBlackberry
-              Quantity: 20
+- type: reaction
+  id: WaterDirty
+  reactants:
+    Abraxocleaner:
+      amount: 1
+    WaterIrradiated:
+      amount: 1
+  products:
+    WaterDirty: 1
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaBarrelCactus
-  name: barrel cactus tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaBarrelCactus
-              Quantity: 20
+- type: reaction
+  id: WaterSalt
+  minTemp: 374 # 100 degrees Celcius.
+  reactants:
+    WaterSalt:
+      amount: 2 # Corvax-Change
+  products:
+    Water: 1
+    TableSalt: 1
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaBroc
-  name: brocflower tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaBroc
-              Quantity: 20
+# Plant Teas
+- type: reaction
+  id: TeaAgave
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractAgaveNectar:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaAgave: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaDatura
-  name: datura tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaDatura
-              Quantity: 20
+- type: reaction
+  id: TeaBlackberry
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractBlackberries:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaBlackberry: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaHoneyMesquite
-  name: honey mesquite tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaHoneyMesquite
-              Quantity: 20
+- type: reaction
+  id: TeaBarrelCactus
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractCactusWater:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaBarrelCactus: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaMutrfruit
-  name: mutfruit tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaMutfruit
-              Quantity: 20
+- type: reaction
+  id: TeaBroc
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractBroc:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaBroc: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaNettle
-  name: nettle tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaNettle
-              Quantity: 20
+- type: reaction
+  id: TeaDatura
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractDatura:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaDatura: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaPricklypear
-  name: prickly pear tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaPricklypear
-              Quantity: 20
+- type: reaction
+  id: TeaHoneyMesquite
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractHoneyMesquitePod:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaHoneyMesquite: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaStarlightberry
-  name: starlightberry tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaStarlightberry
-              Quantity: 20
+- type: reaction
+  id: TeaMutfruit
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractMutfruit:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaMutfruit: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaTarberry
-  name: tarberry tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaTarberry
-              Quantity: 20
+- type: reaction
+  id: TeaNettle
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractNettle:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaNettle: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaWhiteHorsenettle
-  name: white horsenettle tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaWhiteHorsenettle
-              Quantity: 20
+- type: reaction
+  id: TeaPricklyPear
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractPricklyPearFruit:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaPricklypear: 2
 
-- type: entity
-  parent: DrinkGreenTea
-  id: N14DrinkTeaXander
-  name: xander root tea
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          reagents:
-            - ReagentId: TeaXander
-              Quantity: 20
+- type: reaction
+  id: TeaStarlightberry
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractStarlightBerries:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaStarlightberry: 2
+
+- type: reaction
+  id: TeaTarberry
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractTarberries:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaTarberry: 2
+
+- type: reaction
+  id: TeaWhiteHorsenettle
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractWhiteHorsenettle:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaWhiteHorsenettle: 2
+
+- type: reaction
+  id: TeaXander
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    ExtractXander:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaXander: 2
+
+# Other Teas
+- type: reaction
+  id: TeaFireantNectar
+  minTemp: 354 # 80 degrees Celcius.
+  reactants:
+    N14FireAntNectar:
+      amount: 1
+    Water:
+      amount: 1
+  products:
+    TeaFireantNectar: 2
