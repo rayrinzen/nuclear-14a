@@ -1,69 +1,63 @@
-# Detective
-#- type: characterItemGroup
-#  id: LoadoutDetectiveBackpacks
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveEquipment
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveGloves
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveMask
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutDetectiveOuter
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutClothingOuterCoatDetective
-    - type: loadout
-      id: LoadoutOuterVestDetective
-
-#- type: characterItemGroup
-#  id: LoadoutDetectiveShoes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutDetectiveUniforms
-#  maxItems: 1
-#  items:
+- type: job
+  id: Detective
+  name: job-name-detective
+  description: job-description-detective
+  playTimeTracker: JobDetective
+  requirements:
+  - !type 
+    department: Security
+    min: 36000 # DeltaV - 10 hours
+  # - !type:CharacterTraitRequirement
+  # inverted: true
+  # traits:
+  # - Foreigner
+  # - ForeignerLight
+  # - Muted
+  # - Blindness
+  # - Pacifist
+  # - BrittleBoneDisease
+  startingGear: DetectiveGear
+  icon: "JobIconDetective"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Maintenance
+  - Service
+  - Detective
+  - External
+  - Cryogenics
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  afterLoadoutSpecial:
+  - !type 
+    charges: 6
+  - !type 
+    powerCell: PowerCellHigh
+  setPreference: false
+- type: startingGear
+  id: DetectiveGear
+  subGear:
+  - DetectivePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitDetective
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSunglasses
+    head: ClothingHeadHatFedoraBrown
+    outerClothing: ClothingOuterVestDetective
+    id: DetectivePDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltHolsterFilled
+  innerClothingSkirt: ClothingUniformJumpskirtDetective
+  satchel: ClothingBackpackSatchelSecurity
+  duffelbag: ClothingBackpackDuffelSecurity
+- type: startingGear
+  id: DetectivePlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitDetective
+    head: ClothingHeadEnvirohelmDetective
+    gloves: ClothingHandsGlovesEnviroglovesWhite
