@@ -1,8 +1,8 @@
 - type: messagePack
-  id: DonutAds
+  id: DonutGoodbyes
   messages:
-    - advertisement-donut-1
-    - advertisement-donut-2
-    - advertisement-donut-3
-    - advertisement-donut-4
-    - advertisement-donut-5
+    - vending-machine-thanks
+    - thankyou-donut-1
+    - thankyou-donut-2
+    - thankyou-donut-3
+    - thankyou-donut-4
