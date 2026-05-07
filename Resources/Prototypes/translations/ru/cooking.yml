@@ -1,33 +1,137 @@
-- type: entity
-  parent: BaseItem
-  id: N14RollingPin
-  name: rolling pin
-  description: A versatile tool that can be used to prepare bread or squish radroaches.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Weapons/Melee/rolling_pin.rsi
-      state: icon
-    - type: Item
-      sprite: _Nuclear14/Objects/Weapons/Melee/rolling_pin.rsi
-      size: Small
-    - type: Clothing
-      sprite: _Nuclear14/Objects/Weapons/Melee/rolling_pin.rsi
-      quickEquip: false
-      slots:
-        - Belt
-    - type: MeleeWeapon
-      wideAnimationRotation: -135
-      damage:
-        types:
-          Blunt: 10
-      soundHit:
-        collection: N14SmallSwing
-    - type: Tool
-      qualities:
-        - Rolling #N14TODO: change to N14Rolling when pizza.yml situation is solved
-    - type: PhysicalComposition
-      materialComposition:
-        Wood: 100
-    - type: Tag
-      tags:
-        - RollingPin
+- type: latheRecipe
+  id: N14ButchersCleaver
+  result: N14ButchersCleaver
+  completetime: 2
+  category: N14Kitchen
+  materials:
+    Steel: 300
+    Plastic: 50
+
+- type: latheRecipe
+  id: N14KitchenKnife
+  result: N14KitchenKnife
+  completetime: 2
+  category: N14Kitchen
+  materials:
+    Steel: 200
+    Plastic: 50
+
+- type: latheRecipe
+  id: N14DrinkMug
+  result: DrinkMug
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14DrinkMugMetal
+  result: DrinkMugMetal
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14DrinkGlass
+  result: DrinkGlass
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14DrinkShotGlass
+  result: DrinkShotGlass
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14DrinkGlassCoupeShaped
+  result: DrinkGlassCoupeShaped
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14FoodPlate
+  result: FoodPlate
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14FoodPlateSmall
+  result: FoodPlateSmall
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 50
+
+- type: latheRecipe
+  id: N14FoodPlatePlastic
+  result: FoodPlatePlastic
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: N14FoodPlateSmallPlastic
+  result: FoodPlateSmallPlastic
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
+  id: N14FoodBowlBig
+  result: FoodBowlBig
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14FoodPlateTin
+  result: FoodPlateTin
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14FoodKebabSkewer
+  result: FoodKebabSkewer
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14JunkCookpot
+  result: N14JunkCookpot
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14JunkCoffeepot
+  result: N14JunkCoffeepot
+  completetime: 1
+  category: N14Kitchen
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: PlantBag
+  result: PlantBag
+  category: N14Kitchen
+  completetime: 5
+  materials:
+    Cloth: 300
