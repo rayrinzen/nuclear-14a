@@ -1,0 +1,52 @@
+- type: job
+  id: TownDeputy #Renamed to "Guard", don't touch the prototype ID
+  setPreference: true
+  jobWhitelistBypassesRoleTimers: true
+  weight: 70
+  overrideConsoleVisibility: true
+  canBeAntag: false
+  name: job-name-towndeputy
+  description: job-description-towndeputy
+  playTimeTracker: TownDeputy
+  requirements:
+    - !type 
+      species:
+      - Human
+      - Ghoul
+    - !type 
+      department: Townsfolk
+      min: 18000 # 5 hours
+  startingGear: TownDeputyGear
+  icon: "JobIconTownDeputy" # Forge-Change
+  supervisors: job-supervisors-townsfolk
+  access:
+  - TownieLaw
+  - TownieMechanic
+  - TownsPerson
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - Townsfolk
+- type: startingGear
+  id: TownDeputyGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitTownGuard
+    ears: MisfitsClothingHeadsetWastelandScrap
+    back: N14ClothingBackpackSatchelMilitary # Forge-Change
+    shoes: N14ClothingBootsLeatherFilled
+    id: N14IDBadgeTownDeputy
+    belt: ClothingBeltRevolverfilled # Forge-Change
+    pocket1: TownGuardKits
+    pocket2: Handcuffs
+  storage:  # Forge-Change
+    back:
+    - N14BoxPlasticFilledWastelander
+    - N14CombatKnife
+    - MagazineBox10mm
+    - MagazineBox44
+    - N14Binoculars
+- type: playTimeTracker
+  id: TownDeputy
