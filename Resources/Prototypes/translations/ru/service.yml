@@ -1,27 +1,19 @@
-- type: accessLevel
-  id: Boxer
-  name: id-card-access-level-boxer
+- type: entity
+  id: CrateServiceReplacementColoredLights
+  name: Colored Lights Crate
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxColoredLighttube
+          amount: 2
 
-- type: accessLevel
-  id: Clown
-  name: id-card-access-level-clown
-
-- type: accessLevel
-  id: Library
-  name: id-card-access-level-library
-
-- type: accessLevel
-  id: Mime
-  name: id-card-access-level-mime
-
-- type: accessLevel
-  id: Musician
-  name: id-card-access-level-musician
-
-- type: accessLevel
-  id: Reporter
-  name: id-card-access-level-reporter
-
-- type: accessLevel
-  id: Zookeeper
-  name: id-card-access-level-zookeeper
+- type: entity
+  id: CrateServiceReplacementMaintenanceLights
+  name: Maintenance Lights Crate
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxMaintenanceLightbulb
+          amount: 2
