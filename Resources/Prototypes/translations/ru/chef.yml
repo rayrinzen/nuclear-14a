@@ -1,80 +1,48 @@
-# Chef
-#- type: characterItemGroup
-#  id: LoadoutChefBackpacks
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefEquipment
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefGloves
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChefHead
-  items:
-    - type: loadout
-      id: LoadoutServiceHeadChefNt
-    - type: loadout
-      id: LoadoutServiceHeadChefIdris
-    - type: loadout
-      id: LoadoutServiceHeadChefOrion
-
-#- type: characterItemGroup
-#  id: LoadoutChefId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutChefMask
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChefOuter
-  items:
-    - type: loadout
-      id: LoadoutServiceOuterChefNt
-    - type: loadout
-      id: LoadoutServiceOuterChefIdris
-    - type: loadout
-      id: LoadoutServiceOuterChefOrion
-
-#- type: characterItemGroup
-#  id: LoadoutChefShoes
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutChefUniforms
-  items:
-    - type: loadout
-      id: LoadoutServiceJumpsuitChefNt
-    - type: loadout
-      id: LoadoutServiceJumpsuitChefIdris
-    - type: loadout
-      id: LoadoutServiceJumpsuitChefOrion
+- type: job
+  id: Chef
+  name: job-name-chef
+  description: job-description-chef
+  playTimeTracker: JobChef
+  setPreference: false
+  requirements:
+    - !type 
+      department: Civilian
+      min: 3600 #DeltaV 1 hour
+  startingGear: ChefGear
+  icon: "JobIconChef"
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+  - Kitchen
+  extendedAccess:
+  - Hydroponics
+  - Bar
+  special:
+  - !type 
+    components:
+    - type: ProfessionalChef #Nyano - End Summary.
+- type: startingGear
+  id: ChefGear
+  subGear:
+  - ChefPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChef
+    head: ClothingHeadHatChef
+    back: ClothingBackpackFilled
+    mask: ClothingMaskItalianMoustache
+    shoes: ClothingShoesColorBlack
+    id: ChefPDA
+    ears: ClothingHeadsetService
+    outerClothing: ClothingOuterApronChef
+    belt: ClothingBeltChefFilled
+  innerClothingSkirt: ClothingUniformJumpskirtChef
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled
+- type: startingGear
+  id: ChefPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChef
+    head: ClothingHeadEnvirohelmColorWhite
+    gloves: ClothingHandsGlovesEnviroglovesWhite
