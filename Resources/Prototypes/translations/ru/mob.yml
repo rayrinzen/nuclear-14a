@@ -1,0 +1,101 @@
+- # Really you should write your own
+type: htnCompound
+  id: SimpleHostileCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: SimpleDumbHostileCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound # MeleeDumbCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: RatServantTargetAttackCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: RatServantCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: MouseCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: FoodCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: GlockroachCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: InnateRangedCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: FoodCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: RuminantCompound
+  branches:
+    - 
+  tasks:
+    - !type 
+      task: FoodCompound
+    - 
+  tasks:
+    - !type 
+      task: IdleCompound
+- type: htnCompound
+  id: RuminantHostileCompound
+  branches:
+    - 
+  tasks:
+    - !type 
+      task: MeleeCombatCompound
+    - 
+  tasks:
+    - !type 
+      task: FoodCompound
+    - 
+  tasks:
+    - !type 
+      task: IdleCompound
+- type: htnCompound
+  id: DragonCarpCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: FollowCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
