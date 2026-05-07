@@ -1,0 +1,63 @@
+- type: job
+  id: CaesarLegionVexillarius
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 100
+  showBorder: true
+  name: job-name-caesar-legion-vexillarius
+  description: job-description-caesar-legion-vexillarius
+  playTimeTracker: CaesarLegionVexillarius
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 57600 # 16 hours
+    - !type 
+      species:
+      - Human
+    - !type 
+      sex: Male
+    - !type 
+      gender: Male
+  startingGear: CaesarLegionVexillariusGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerVenator"
+  supervisors: job-name-caesar-legion-other
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionVexillarius
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionVexillariusGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: N14ClothingNeckCloakLegionWhite
+    mask: N14ClothingMaskBrownMask
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    head: N14ClothingHeadHatLegionHood #Misfits Change /Tweak/: Uses the renamed vexillarius helmet (LegionHood ID)
+    outerClothing: N14ClothingOuterLegionnaireVexillariusArmor
+    gloves: N14ClothingHandsGlovesTribal
+    belt: N14Gladius
+    suitstorage: N14PilumSpear
+    pocket1: LegionVexillariusloadoutkits
+    id: N14IDLegionaryMedalVexillarius
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+    - WarhornCornus
+- type: playTimeTracker
+  id: CaesarLegionVexillarius
