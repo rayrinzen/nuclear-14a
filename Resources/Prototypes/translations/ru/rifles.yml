@@ -1,11 +1,87 @@
 - type: entity
-  name: Vulcan
-  parent: BaseWeaponRifle
-  id: WeaponRifleVulcan
-  description: One of the first firearms modified for space usage, this rifle was purpose-designed to punch holes in Cargonian "combat mechs." Uses .30 rifle ammo.
+  name: BaseWeaponRifle
+  parent:
+  - BaseItem
+  - BaseGunWieldable
+  id: BaseWeaponRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/vulcan.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Wieldable
+    wieldedSpeedModifier: 0.85
+  - type: GunRequiresWield
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type :ContainerSlot
+      gun_chamber: !type :ContainerSlot
+  - type: StaticPrice
+    price: 500
+  - type: Execution
+  - type: MeleeWeapon
+    attackRate: 1.3333
+    damage:
+      types:
+        Blunt: 8.5
+    bluntStaminaDamageFactor: 1.25
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 180
+    soundHit:
+      collection: MetalThud
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 2.5
+  - type: DamageOtherOnHit
+    staminaCost: 7.5
+  - type: FarGunshot # #Misfits Add - distant gunshot audio for players at range
+- type: entity
+  name: AKMS
+  parent: BaseWeaponRifle
+  id: WeaponRifleAk
+  description: An iconic weapon of war. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     layers:
       - state: base
         map:
@@ -14,11 +90,13 @@
         map:
         - "enum.GunVisualLayers.Mag"
   - type: Gun
-    fireRate: 2
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
+    fireRate: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+    fireOnDropChance: 0.5
   - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -46,19 +124,14 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/vulcan.rsi
 - type: entity
-  name: CAWS-25 Jackdaw
+  name: M-90gl
   parent: BaseWeaponRifle
-  id: WeaponRifleJackdaw
-  description: The beginning of the end is heralded by the song of a Jackdaw. Uses .25 caseless ammo.
-  suffix: Deathsquad
+  id: WeaponRifleM90GrenadeLauncher
+  description: An older bullpup carbine model, with an attached underbarrel grenade launcher. Uses .20 rifle ammo.
   components:
-  - type: Item
-    size: Large
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
     layers:
       - state: base
         map:
@@ -66,37 +139,26 @@
       - state: mag-0
         map:
         - "enum.GunVisualLayers.Mag"
-  - type: Gun
-    minAngle: 2
-    maxAngle: 6
-    angleIncrease: 2
-    angleDecay: 8
-    fireRate: 8
-    selectedMode: FullAuto
-    availableModes:
-    - SemiAuto
-    - FullAuto
-    soundGunshot:
-      path: /Audio/DeltaV/Weapons/Guns/Gunshots/jackdaw.ogg
-  - type: ChamberMagazineAmmoProvider
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineCaselessRifle
+        startingItem: MagazineRifle
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineCaselessRifle
+            - MagazineRifle
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeCaselessRifle
+        startingItem: CartridgeRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeCaselessRifle
+            - CartridgeRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type :ContainerSlot
@@ -106,17 +168,14 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/jackdaw.rsi
 - type: entity
-  name: Tenebra
+  name: Lecter
   parent: BaseWeaponRifle
-  id: WeaponRifleTenebra
-  description: A mass-produced and minimalist rifle in bullpup design. Uses .20 rifle ammo.
-  suffix: Mercenary
+  id: WeaponRifleLecter
+  description: A high end military grade assault rifle. Uses .20 rifle ammo.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/tenebra.rsi
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
     layers:
       - state: base
         map:
@@ -124,19 +183,12 @@
       - state: mag-0
         map:
         - "enum.GunVisualLayers.Mag"
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
-    minAngle: 3
-    maxAngle: 12
-    angleIncrease: 3
-    angleDecay: 12
-    fireRate: 5
-    selectedMode: FullAuto
-    availableModes:
-    - SemiAuto
-    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
-  - type: ChamberMagazineAmmoProvider
+    fireOnDropChance: 0.2
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -164,15 +216,70 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/tenebra.rsi
 - type: entity
-  name: M-90
-  id: WeaponRifleM90
-  parent: WeaponRifleM90GrenadeLauncher
-  description: An older bullpup carbine model. Uses .20 rifle ammo.
+  name: Lecter
+  parent: WeaponRifleLecter
+  id: WeaponRifleLecterRubber
+  suffix: Non-lethal
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleRubber
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeRifleRubber
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeRifle
+- type: entity
+  name: Foam Force Astro Ace
+  parent:
+  - BaseWeaponShotgun
+  - BaseGunWieldable
+  id: WeaponRifleFoam
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Rifles/carbinenogl.rsi
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Rifles/foam_rifle_inhand_64x.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BulletFoam
+    capacity: 10
+    proto: BulletFoam
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0 # Krillions must bubble-wrap the foam rifle
+    soundHit:
+      collection: ToySqueak
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 0
+  - type: DamageOtherOnHit
+    staminaCost: 3.5
