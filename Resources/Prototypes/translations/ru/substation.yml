@@ -1,30 +1,19 @@
 - # Base substation
 type: entity
   abstract: true
-  id: BaseSubstation
-  parent:
-  - BaseMachine
-  - ConstructibleMachine
+  id: N14BaseSubstation
+  parent: BaseMachine
   name: substation
   description: Reduces the voltage of electricity put into it.
   placement:
     mode: SnapgridCenter
   components:
-  - type: Sprite # TODO: add sprite for maintenance panel open
-    sprite: Structures/Power/substation.rsi
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    drawdepth: Overdoors
+    offset: 0, 0.5
+    state: substation
     snapCardinals: true
-    layers:
-    - state: substation
-    - state: screen
-      shader: unshaded
-    - state: full
-      shader: unshaded
-  - type: UpgradeBattery
-    maxChargeMultiplier: 2
-    baseMaxCharge: 2500000
-  - type: UpgradePowerSupplyRamping
-    scaling: Linear
-    supplyRampingMultiplier: 1
   - type: Battery
     startingCharge: 0
   - type: ExaminableBattery
@@ -38,13 +27,6 @@ type: entity
     nodes:
       input: '!type:CableDeviceNode nodeGroupID: HVPower'
       output: '!type:CableDeviceNode nodeGroupID: MVPower'
-  - type: PowerMonitoringDevice
-    group: Substation
-    sourceNode: input
-    loadNode: output
-    collectionName: substation
-    sprite: Structures/Power/substation.rsi
-    state: substation_static
   - type: BatteryCharger
     voltage: High
   - type: BatteryDischarger
@@ -57,13 +39,13 @@ type: entity
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: StrongMetallic
-  - type: PacifismDangerousAttack
   - type: Destructible
     thresholds:
     - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalGlassBreak - !type:ExplodeBehavior - !type:SpawnEntitiesBehavior spawn: MachineFrameDestroyed: min: 1 max: 1 - !type:SpawnGasBehavior gasMixture: volume: 1000 moles: - 0 - 0 - 340.5701689 temperature: 373.15' # carbon dioxide
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:ExplodeBehavior - !type:SpawnEntitiesBehavior spawn: N14SubstationDestroyed: min: 1 max: 1 - !type:SpawnGasBehavior gasMixture: volume: 1000 moles: - 0 - 0 - 340.5701689 temperature: 373.15' # carbon dioxide
   - type: Explosive
-    explosionType: Default
+    #Misfits Change - use the structural-capable N14 explosion profile.
+    explosionType: N14DefaultStructural
     maxIntensity: 100
     intensitySlope: 2
     totalIntensity: 200
@@ -84,157 +66,92 @@ type: entity
     requirePower: true
     highVoltageNode: input
     mediumVoltageNode: output
-- # Compact Wall Substation Base
-type: entity
-  id: BaseSubstationWall
-  categories:
-  - HideSpawnMenu
-  name: wallmount substation
-  description: A substation designed for compact shuttles and spaces.
+- type: entity # Corvax-Change
+  parent: BaseMachine
+  id: N14BaseSubstationFrame
+  name: substation frame
+  description: Reduces the voltage of electricity put into it.
   placement:
     mode: SnapgridCenter
   components:
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -5
-    range: 2
-    sound:
-      path: /Audio/Ambience/Objects/buzzing.ogg
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#3db83b"
-    netsync: false
-    castShadows: false
   - type: Clickable
-  - type: AccessReader
-    access:
-    - 
-      - "Engineering"
-  - type: ContainerFill
-    containers:
-      board:
-      - WallmountSubstationElectronics
-  - type: ContainerContainer
-    containers:
-      board: !type :Container
   - type: InteractionOutline
-  - type: Physics
-    bodyType: Static
-    canCollide: false
-  - type: Fixtures
   - type: Transform
     anchored: true
-  - type: Sprite # TODO: add sprite for maintenance panel open
-    drawdepth: WallMountedItems
-    sprite: Structures/Power/substation.rsi
-    layers:
-    - state: substation_wall
-    - state: screen
-      shader: unshaded
-  - type: Battery
-    maxCharge: 2000000
-    startingCharge: 0
-  - type: ExaminableBattery
-  - type: NodeContainer
-    examinable: true
-    nodes:
-      input: '!type:CableDeviceNode nodeGroupID: HVPower'
-      output: '!type:CableDeviceNode nodeGroupID: MVPower'
-  - type: PowerMonitoringDevice
-    group: Substation
-    sourceNode: input
-    loadNode: output
-    sprite: Structures/Power/substation.rsi
-    state: substation_wall_static
-  - type: BatteryCharger
-    voltage: High
-  - type: BatteryDischarger
-    voltage: Medium
-  - type: PowerNetworkBattery
-    maxSupply: 150000
-    maxChargeRate: 5000
-    supplyRampTolerance: 5000
-    supplyRampRate: 1000
+  - type: Sprite
+    drawdepth: Overdoors
+    offset: 0, 0.5
+    snapCardinals: true
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: substation
+  - type: Construction
+    graph: N14Substation
+    node: substationFrame
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
-  - type: PacifismDangerousAttack
   - type: Destructible
     thresholds:
-    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:ExplodeBehavior - !type:PlaySoundBehavior sound: collection: MetalGlassBreak'
-  - type: Construction
-    graph: WallmountSubstation
-    node: substation
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 50
-    intensitySlope: 2
-    totalIntensity: 100
-  - type: StationInfiniteBatteryTarget
-  - type: WallMount
-- # Substations in use
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:SpawnEntitiesBehavior spawn: N14ScrapSteel1: min: 4 max: 7'
+- # In Use
 type: entity
-  parent: BaseSubstation
-  id: SubstationBasic
+  parent: N14BaseSubstation
+  id: N14SubstationBasic
   suffix: Basic, 2.5MJ
   components:
   - type: Battery
     maxCharge: 2500000
     startingCharge: 2500000
+  - type: Construction # Corvax-Change
+    graph: N14Substation
+    node: substation
 - type: entity
-  parent: SubstationBasic
-  id: SubstationBasicEmpty
+  parent: N14SubstationBasic
+  id: N14SubstationBasicEmpty
   suffix: Empty
   components:
   - type: Battery
     startingCharge: 0
+- # Rusty
+type: entity
+  parent: N14SubstationBasic
+  id: N14SubstationBasicRusty
+  suffix: Basic, 2.5MJ
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: substation_rust
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:ExplodeBehavior - !type:SpawnEntitiesBehavior spawn: N14SubstationRustyDestroyed: min: 1 max: 1 - !type:SpawnGasBehavior gasMixture: volume: 1000 moles: - 0 - 0 - 340.5701689 temperature: 373.15' # carbon dioxide
 - type: entity
-  parent: BaseSubstationWall
-  id: SubstationWallBasic
-  suffix: Basic, 2MJ
+  parent: N14SubstationBasicRusty
+  id: N14SubstationBasicRustyEmpty
+  suffix: Empty
   components:
   - type: Battery
-    maxCharge: 2000000
-    startingCharge: 2000000
-  - type: ContainerFill
-    containers:
-      board:
-      - WallmountSubstationElectronics
-      capacitor:
-      - CapacitorStockPart
-      powercell:
-      - PowerCellSmall
-  - type: ContainerContainer
-    containers:
-      board: !type :Container
-      capacitor: !type :Container
-      powercell: !type :Container
-- # Construction Frame
+    startingCharge: 0
+- # Destroyed
 type: entity
-  id: BaseSubstationWallFrame
-  categories:
-  - HideSpawnMenu
-  name: wallmount substation frame
-  description: A substation frame for construction
-  placement:
-    mode: SnapgridCenter
+  parent: MachineFrameDestroyed
+  id: N14SubstationDestroyed
+  name: destroyed substation
   components:
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Physics
-    bodyType: Static
-    canCollide: false
-  - type: Fixtures
-  - type: Transform
-    anchored: true
   - type: Sprite
-    drawdepth: WallMountedItems
-    sprite: Structures/Power/substation.rsi
-    layers:
-    - state: substation_wall
-  - type: Construction
-    graph: WallmountSubstation
-    node: frame
-  - type: WallMount
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    snapCardinals: true
+    state: substation_destroyed
+    drawdepth: Overdoors
+    offset: 0, 0.5
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak - !type:SpawnEntitiesBehavior spawn: N14ScrapGold1: min: 2 max: 5 N14ScrapElectronic1: min: 3 max: 6 N14ScrapSteel1: min: 4 max: 7'
+- type: entity
+  parent: N14SubstationDestroyed
+  id: N14SubstationRustyDestroyed
+  name: destroyed substation
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Power/32x48_machines.rsi
+    state: substation_rust_destroyed
