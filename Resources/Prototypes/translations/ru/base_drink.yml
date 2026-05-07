@@ -1,0 +1,78 @@
+- type: reagent
+  id: BaseDrink
+  group: Drinks
+  abstract: true
+  slippery: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 3
+  reactiveEffects:
+    Extinguish:
+      methods:
+      - Touch
+      effects:
+      - !type :ExtinguishReaction
+  plantMetabolism:
+  - !type 
+    amount: 1
+  tileReactions:
+  - !type ':ExtinguishTileReaction { }'
+  - !type ':SpillIfPuddlePresentTileReaction { }'
+- type: reagent
+  id: BaseSoda
+  parent: BaseDrink
+  abstract: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+  plantMetabolism:
+  - !type 
+    amount: 0.1
+  - !type 
+    amount: 0.1
+  - !type 
+    amount: '-0.1'
+  footstepSound:
+    collection: FootstepSticky
+    params:
+      volume: 6
+  fizziness: 0.5
+- type: reagent
+  id: BaseAlcohol
+  group: Drinks
+  abstract: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 2
+      - !type 
+        reagent: Ethanol
+        amount: 0.06
+  reactiveEffects:
+    Flammable:
+      methods:
+      - Touch
+      effects:
+      - !type :FlammableReaction
+  tileReactions:
+  - !type 
+    temperatureMultiplier: 1.35
+  plantMetabolism:
+  - !type 
+    amount: 0.25
+  - !type 
+    amount: 0.7
+- type: reagent
+  id: BaseJuice
+  parent: BaseDrink
+  abstract: true
+  flavor: sweet
+  footstepSound:
+    collection: FootstepSticky
+    params:
+      volume: 6
