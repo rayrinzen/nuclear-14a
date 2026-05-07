@@ -1,12 +1,29 @@
-﻿- type: entity
-  id: ActionConfigureMeleeSpeech
-  name: Set Battlecry
-  description: Set a custom battlecry for when you attack!
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: InstantAction
-    itemIconStyle: BigItem
-    priority: -20
-    useDelay: 1
-    event: !type :MeleeSpeechConfigureActionEvent
+- type: trait
+  id: LanguageLatin
+  category: Speech
+  points: -3
+  requirements:
+    - !type 
+      inverted: true
+      departments:
+        - CaesarLegion
+  functions:
+    - !type 
+      languagesSpoken:
+        - Latin
+      languagesUnderstood:
+        - Latin
+- type: trait
+  id: LanguageNerd # NerdCat
+  category: Speech
+  points: -6
+  functions:
+    - !type 
+      languagesSpoken:
+        - Spanish
+        - Tribal
+        - Latin
+      languagesUnderstood:
+        - Spanish
+        - Tribal
+        - Latin
