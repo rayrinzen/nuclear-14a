@@ -1,139 +1,79 @@
 - type: cargoProduct
-  id: MaterialGlass
+  id: SteelSheetCrate
   icon:
-    sprite: Objects/Materials/Sheets/glass.rsi
-    state: glass_3
-  product: CrateMaterialGlass
-  cost: 1000
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/Objects/Materials/Sheets/metal.rsi
+    state: steel
+  product: N14CrateBreakPlainFilledSteelSheet
+  cost: 120
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialSteel
+  id: PlasticSheetCrate
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
-    state: steel_3
-  product: CrateMaterialSteel
-  cost: 1000
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/Objects/Materials/Sheets/other.rsi
+    state: plastic
+  product: N14CrateBreakPlainFilledPlasticSheet
+  cost: 100
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialPlastic
+  id: GlassSheetCrate
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: plastic_3
-  product: CrateMaterialPlastic
-  cost: 1500
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/Objects/Materials/Sheets/glass.rsi
+    state: glass
+  product: N14CrateBreakPlainFilledGlassSheet
+  cost: 120
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialBrass
+  id: WoodPlankCrate
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
-    state: brass_3
-  product: CrateMaterialBrass
-  cost: 2500
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/Objects/Materials/materials.rsi
+    state: wood
+  product: N14CrateBreakPlainFilledWood
+  cost: 100
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialPlasteel
+  id: GunpowderCrate
   icon:
-    sprite: Objects/Materials/Sheets/metal.rsi
-    state: plasteel_3
-  product: CrateMaterialPlasteel
-  cost: 3000
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+    state: powder_lead
+  product: N14CrateBreakPlainFilledGunpowder
+  cost: 200 # Corvax-Change
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialTextiles
+  id: LeadBarCrate
   icon:
-    sprite: Objects/Materials/materials.rsi
-    state: cloth_3
-  product: CrateMaterialTextiles
-  cost: 1000
-  category: cargoproduct-category-name-materials
+    sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+    state: ingot_lead
+  product: N14CrateBreakPlainFilledLeadBar
+  cost: 175
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: MaterialPlasma
+  id: AdhesivesCrate
   icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: plasma_3
-  product: CrateMaterialPlasma
-  cost: 2000
-  category: cargoproduct-category-name-materials
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: duct_tape
+  product: N14CrateBreakPlainFilledAdhesive
+  cost: 40
+  category: Materials
   group: market
 
 - type: cargoProduct
-  id: CardboardMaterial
+  id: MechanicPartsCrate
   icon:
-    sprite: Objects/Materials/materials.rsi
-    state: cardboard_3
-  product: CrateMaterialCardboard
-  cost: 750
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: PaperMaterial
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: paper_3
-  product: CrateMaterialPaper
-  cost: 1000
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: MaterialFuelTank
-  icon:
-    sprite: Structures/Storage/tanks.rsi
-    state: fueltank
-  product: WeldingFuelTankFull
-  cost: 1500
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: MaterialWaterTank
-  icon:
-    sprite: Structures/Storage/tanks.rsi
-    state: watertank
-  product: WaterTankFull
-  cost: 1000
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: MaterialUranium
-  icon:
-    sprite: Objects/Materials/Sheets/other.rsi
-    state: uranium_3
-  product: CrateMaterialUranium
-  cost: 3000
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: MaterialGold
-  icon:
-    sprite: Objects/Materials/ingots.rsi
-    state: gold_3
-  product: CrateMaterialGold
-  cost: 3000
-  category: cargoproduct-category-name-materials
-  group: market
-
-- type: cargoProduct
-  id: MaterialSilver
-  icon:
-    sprite: Objects/Materials/ingots.rsi
-    state: silver_3
-  product: CrateMaterialSilver
-  cost: 3000
-  category: cargoproduct-category-name-materials
+    sprite: _Nuclear14/Objects/Misc/crafting_junk.rsi
+    state: gear_small
+  product: N14CrateBreakPlainFilledMechanicParts
+  cost: 60
+  category: Materials
   group: market
