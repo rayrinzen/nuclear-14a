@@ -1,35 +1,20 @@
-# class
-- type: vesselCategory
-  id: Civilian
+- type: entityCategory
+  id: Actions
+  name: entity-category-name-actions
+  hideSpawnMenu: true
 
-- type: vesselCategory
-  id: Military
-
-- type: vesselCategory
-  id: Experimental
-
-# size
-- type: vesselCategory
-  id: Small
-
-- type: vesselCategory
-  id: Medium
-
-- type: vesselCategory
-  id: Large
-
-# purpose
-- type: vesselCategory
-  id: Medical
-
-- type: vesselCategory
-  id: Mining
-
-- type: vesselCategory
-  id: Research
-
-- type: vesselCategory
-  id: Shipping
-
-- type: vesselCategory
-  id: Transport
+# Misfits Fix - HideSpawnMenu and Spawner are already defined by the engine in
+# RobustToolbox/Resources/EnginePrototypes/entityCategory.yml - removing duplicates.
+#- type: entityCategory
+#  id: HideSpawnMenu
+#  name: entity-category-name-hide-spawn-menu
+#  hideSpawnMenu: true
+#- type: entityCategory
+#  id: Spawner
+#  name: entity-category-name-spawner
+#  hideSpawnMenu: true
+# Misfits Add - DoNotMap category (not in engine prototypes, required by various _RMC and base YAML)
+- type: entityCategory
+  id: DoNotMap
+  name: entity-category-name-do-not-map
+  hideSpawnMenu: true
