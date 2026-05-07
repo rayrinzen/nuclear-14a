@@ -1,33 +1,28 @@
 - type: entity
-  name: random curtain spawner
-  id: CurtainSpawner
-  parent: MarkerBase
+  parent: HospitalCurtains
+  id: N14JunkCurtain
+  name: curtains
+  suffix: closed
+  description: No privacy guaranteed.
   components:
     - type: Sprite
+      sprite: _Nuclear14/Structures/Doors/Curtains/junkcurtain.rsi
       layers:
-        - state: red
-        - sprite: Structures/Decoration/Curtains/hospital.rsi
-          state: closed
-    - type: RandomSpawner
-      prototypes:
-        - HospitalCurtains
-        - CurtainsBlack
-        - CurtainsBlue
-        - CurtainsCyan
-        - CurtainsGreen
-        - CurtainsOrange
-        - CurtainsPink
-        - CurtainsPurple
-        - CurtainsRed
-        - CurtainsWhite
-        - CurtainsWhiteOpen
-        - CurtainsRedOpen
-        - CurtainsPurpleOpen
-        - CurtainsPinkOpen
-        - CurtainsOrangeOpen
-        - CurtainsGreenOpen
-        - CurtainsCyanOpen
-        - CurtainsBlueOpen
-        - CurtainsBlackOpen
-        - HospitalCurtainsOpen
-      offset: 0.0
+        - state: closed
+          map: [ "enum.DoorVisualLayers.Base" ]
+#  - type: Construction
+#    graph: CurtainJunk
+#    node: CurtainJunk
+- type: entity
+  parent: N14JunkCurtain
+  id: N14JunkCurtainOpen
+  name: curtains
+  suffix: open
+  description: No privacy guaranteed.
+  components:
+    - type: Door
+      state: open
+    - type: Occluder
+      enabled: false
+    - type: Physics
+      canCollide: false
