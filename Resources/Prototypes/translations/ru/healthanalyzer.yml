@@ -1,11 +1,13 @@
 - type: entity
-  id: HandheldHealthAnalyzerUnpowered
-  parent: BaseItem
+  id: N14HandheldHealthAnalyzerUnpowered
+  parent: HandheldHealthAnalyzerUnpowered
   name: health analyzer
   description: A hand-held body scanner capable of distinguishing vital signs of the subject.
+  categories: [ HideSpawnMenu ]
+  suffix: Do not map
   components:
     - type: Sprite
-      sprite: Objects/Specific/Medical/healthanalyzer.rsi
+      sprite: _Nuclear14/Objects/Specific/Medical/healthanalyzer.rsi
       state: icon
       layers:
         - state: icon
@@ -13,38 +15,14 @@
           shader: unshaded
           visible: true
           map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-    - type: Item
-      storedRotation: -90
-    - type: ActivatableUI
-      key: enum.HealthAnalyzerUiKey.Key
-    - type: UserInterface
-      interfaces:
-        enum.HealthAnalyzerUiKey.Key:
-          type: HealthAnalyzerBoundUserInterface
-    - type: ItemToggle
-      onUse: false
-    - type: HealthAnalyzer
-      scanningEndSound:
-        path: "/Audio/Items/Medical/healthscanner.ogg"
-    - type: Tag
-      tags:
-        - DiscreteHealthAnalyzer
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.PowerCellSlotVisuals.Enabled:
-          enum.PowerDeviceVisualLayers.Powered:
-            true: { visible: true }
-            false: { visible: false }
-    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (MedicalDoctor)
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Blunt: 5
 
 - type: entity
-  id: HandheldHealthAnalyzer
-  parent: [ HandheldHealthAnalyzerUnpowered, PowerCellSlotSmallItem ]
+  id: N14HandheldHealthAnalyzer
+  parent:
+    [
+      N14HandheldHealthAnalyzerUnpowered,
+      PowerCellSlotSmallItem
+    ]
   suffix: Powered
   components:
     - type: PowerCellDraw
@@ -53,11 +31,20 @@
     - type: ActivatableUIRequiresPowerCell
 
 - type: entity
-  id: HandheldHealthAnalyzerEmpty
-  parent: HandheldHealthAnalyzer
-  suffix: Empty
+  id: N14HandheldHealthAnalyzerAdmin
+  parent:
+    [
+      N14HandheldHealthAnalyzerUnpowered,
+      PowerCellSlotSmallItem
+    ]
+  suffix: Admin
   components:
-    - type: ItemSlots
-      slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
+    - type: PowerCellDraw
+      drawRate: 0.1 # No need for this
+    - type: ToggleCellDraw
+    - type: ActivatableUIRequiresPowerCell
+    - type: HealthAnalyzer
+      scanningEndSound:
+        path: "/Audio/Items/Medical/healthscanner.ogg"
+      maxScanRange: 999
+      silent: true
