@@ -1,207 +1,175 @@
-- type: material
-  id: Biomass
-  stackEntity: MaterialBiomass1
-  name: materials-biomass
-  unit: materials-unit-piece
-  icon:
-    {
-      sprite: /Textures/Objects/Misc/monkeycube.rsi,
-      state: cube
-    }
-  color: "#8A9A5B"
-  price: 0.1
+- type: construction
+  name: metal rod
+  id: MetalRod
+  graph: MetalRod
+  startNode: start
+  targetNode: MetalRod
+  category: construction-category-materials
+  description: A sturdy metal rod that can be used for various purposes.
+  icon: { sprite: Objects/Materials/parts.rsi, state: rods }
+  objectType: Item
 
-- type: material
-  id: Cardboard
-  stackEntity: MaterialCardboard1
-  name: materials-cardboard
-  unit: materials-unit-piece
+- type: construction
+  name: reinforced glass
+  description: A reinforced sheet of glass.
+  id: SheetRGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetRGlass
+  category: construction-category-materials
   icon:
     {
-      sprite: /Textures/Objects/Materials/materials.rsi,
-      state: cardboard
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: rglass
     }
-  color: "#70736c"
-  price: 0.005
+  objectType: Item
 
-- type: material
-  id: Cloth
-  stackEntity: MaterialCloth1
-  name: materials-cloth
-  unit: materials-unit-roll
+- type: construction
+  name: clockwork glass
+  description: A brass-reinforced sheet of glass.
+  id: SheetClockworkGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetClockworkGlass
+  category: construction-category-materials
   icon:
     {
-      sprite: /Textures/Objects/Materials/materials.rsi,
-      state: cloth
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: cglass
     }
-  color: "#e7e7de"
-  price: 0.02 # Corvax-Change
+  objectType: Item
 
-- type: material
-  id: Durathread
-  stackEntity: MaterialDurathread1
-  name: materials-durathread
-  # not exactly a sheet but its sprite suggests it cant be rolled like cloth
-  unit: materials-unit-sheet
+- type: construction
+  name: plasma glass
+  description: A sheet of translucent plasma.
+  id: SheetPGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetPGlass
+  category: construction-category-materials
   icon:
     {
-      sprite: /Textures/Objects/Materials/materials.rsi,
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: pglass
+    }
+  objectType: Item
+
+- type: construction
+  name: reinforced plasma glass
+  description: A reinforced sheet of translucent plasma.
+  id: SheetRPGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetRPGlass
+  category: construction-category-materials
+  icon:
+    {
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: rpglass
+    }
+  objectType: Item
+
+- type: construction
+  name: reinforced plasma glass
+  description: A reinforced sheet of translucent plasma.
+  id: SheetRPGlass0
+  graph: Glass
+  startNode: start
+  targetNode: SheetRPGlass0
+  category: construction-category-materials
+  icon:
+    {
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: rpglass
+    }
+  objectType: Item
+
+- type: construction
+  name: reinforced plasma glass
+  description: A reinforced sheet of translucent plasma.
+  id: SheetRPGlass1
+  graph: Glass
+  startNode: start
+  targetNode: SheetRPGlass1
+  category: construction-category-materials
+  icon:
+    {
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: rpglass
+    }
+  objectType: Item
+
+- type: construction
+  name: durathread
+  id: MaterialDurathread
+  graph: Durathread
+  startNode: start
+  targetNode: MaterialDurathread
+  category: construction-category-materials
+  description: A high-quality thread used to make durable clothes.
+  icon:
+    {
+      sprite: Objects/Materials/materials.rsi,
       state: durathread
     }
-  color: "#8291a1"
-  price: 0.15 # 1-1 mix of plastic and cloth.
+  objectType: Item
 
-- type: material
-  id: Paper
-  stackEntity: SheetPaper1
-  name: materials-paper
-  unit: materials-unit-piece
+- type: construction
+  name: uranium glass
+  description: A sheet of uranium glass.
+  id: SheetUGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetUGlass
+  category: construction-category-materials
   icon:
     {
-      sprite: Objects/Materials/Sheets/other.rsi,
-      state: paper
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: uglass
     }
-  color: "#d9d9d9"
-  price: 0.0003 # Corvax-Change
+  objectType: Item
 
-- type: material
-  id: Plasma
-  stackEntity: SheetPlasma1
-  name: materials-plasma
+- type: construction
+  name: reinforced uranium glass
+  description: A reinforced sheet of uranium glass.
+  id: SheetRUGlass
+  graph: Glass
+  startNode: start
+  targetNode: SheetRUGlass
+  category: construction-category-materials
   icon:
     {
-      sprite: Objects/Materials/Sheets/other.rsi,
-      state: plasma
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: ruglass
     }
-  color: "#7e009e"
-  price: 0.2
+  objectType: Item
 
-- type: material
-  id: Plastic
-  stackEntity: SheetPlastic1
-  name: materials-plastic
-  unit: materials-unit-sheet
+- type: construction
+  name: reinforced uranium glass
+  description: A reinforced sheet of uranium glass.
+  id: SheetRUGlass0
+  graph: Glass
+  startNode: start
+  targetNode: SheetRUGlass0
+  category: construction-category-materials
   icon:
     {
-      sprite: Objects/Materials/Sheets/other.rsi,
-      state: plastic
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: ruglass
     }
-  color: "#d9d9d9"
-  price: 0.01
+  objectType: Item
 
-- type: material
-  id: Wood
-  stackEntity: MaterialWoodPlank1
-  name: materials-wood
-  unit: materials-unit-plank
-  icon: { sprite: Objects/Materials/materials.rsi, state: wood }
-  color: "#966F33"
-  price: 0.0033
-
-- type: material
-  id: Uranium
-  stackEntity: SheetUranium1
-  name: materials-uranium
+- type: construction
+  name: reinforced uranium glass
+  description: A reinforced sheet of uranium glass.
+  id: SheetRUGlass1
+  graph: Glass
+  startNode: start
+  targetNode: SheetRUGlass1
+  category: construction-category-materials
   icon:
     {
-      sprite: Objects/Materials/Sheets/other.rsi,
-      state: uranium
+      sprite: Objects/Materials/Sheets/glass.rsi,
+      state: ruglass
     }
-  color: "#32a852"
-  price: 0.2
-
-- type: material
-  id: Bananium
-  stackEntity: MaterialBananium1
-  name: materials-bananium
-  unit: materials-unit-bunch
-  icon:
-    {
-      sprite: Objects/Materials/materials.rsi,
-      state: bananium
-    }
-  color: "#32a852"
-  price: 0.2
-
-- type: material
-  id: Meaterial # you can't take this pun from me
-  name: materials-meat
-  unit: materials-unit-slab
-  icon:
-    {
-      sprite: Objects/Materials/Sheets/meaterial.rsi,
-      state: meat
-    }
-  color: "#c53648"
-  price: 0.05
-
-- type: material
-  id: WebSilk
-  name: materials-web
-  unit: materials-unit-web
-  icon: { sprite: Objects/Materials/silk.rsi, state: icon }
-  color: "#eeeeee" #eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-  price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
-
-- type: material
-  id: Bones
-  name: materials-bones
-  unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/materials.rsi, state: bones }
-  color: "#896f5e"
-  price: 0
-
-- type: material
-  id: Coal
-  stackEntity: Coal1
-  name: materials-coal
-  unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/ore.rsi, state: coal }
-  color: "#404040"
-  price: 0
-
-- type: material
-  id: Bluespace
-  stackEntity: MaterialBluespace1
-  name: materials-bluespace
-  unit: materials-unit-piece
-  icon:
-    {
-      sprite: Objects/Materials/materials.rsi,
-      state: bluespace
-    }
-  color: "#53a9ff"
-  price: 7.5
-
-- type: material
-  id: Normality
-  stackEntity: MaterialNormality1
-  name: materials-normality
-  unit: materials-unit-piece
-  icon:
-    {
-      sprite: Objects/Materials/materials.rsi,
-      state: normality
-    }
-  color: "#53a9ff"
-  price: 7.5
-
-- type: material
-  id: Gunpowder
-  name: materials-gunpowder
-  unit: materials-unit-piece
-  icon:
-    {
-      sprite: Objects/Misc/reagent_fillings.rsi,
-      state: powderpile
-    }
-  color: "#A9A9A9"
-  price: 0
-
-- type: material
-  id: Diamond
-  name: materials-diamond
-  unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
-  color: "#80ffff"
-  price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
+  objectType: Item
