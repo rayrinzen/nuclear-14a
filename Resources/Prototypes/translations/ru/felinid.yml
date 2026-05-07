@@ -1,24 +1,55 @@
 - type: entity
-  id: OrganFelinidEars
-  parent: OrganHumanEars
-  name: cat ears
-  description: "Holding these might potentially be contagious."
+  save: false
+  name: Urist McFelinid
+  parent: MobFelinidBase
+  id: MobFelinid
   components:
-    - type: Sprite
-      sprite: Clothing/Head/Hats/catears.rsi
-      state: icon
-    - type: MarkingContainer
-      marking: FelinidEarsBasic
+  - type: CombatMode
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Input
+    context: "human"
+  - type: Speech
+    speechVerb: Felinid
+  - type: MobMover
+  - type: InputMover
+  - type: Reactive
+    groups:
+      Flammable:
+      - Touch
+      Extinguish:
+      - Touch
+    reactions:
+    - reagents:
+    - Water
+    - SpaceCleaner
+      methods:
+      - Touch
+      effects:
+      - !type :WashCreamPieReaction
+    - reagents:
+    - Water
+      methods:
+      - Touch
+      effects:
+      - !type 
+        emote: Scream
+        probability: 0.2
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 1.0
+    damageRecovery:
+      types:
+        Asphyxiation: '-1.0'
+  - type: Alerts
+  - type: Actions
+  - type: Eye
+  - type: CameraRecoil
+  - type: Examiner
+  - type: CanHostGuardian
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+    - Cat
 
-- type: entity
-  id: OrganFelinidTail
-  parent: BaseHumanOrgan
-  name: cat tail
-  description: "Should you really have this?"
-  components:
-    - type: Sprite
-      sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-      state: basic_tail_tip
-    - type: MarkingContainer
-      marking: FelinidTailBasic
-    - type: Tail
