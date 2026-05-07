@@ -1,23 +1,19 @@
 - type: entity
-  id: N14CartridgePistol5
-  name: cartridge (5mm)
-  parent: BaseCartridgePistol
+  id: N14Bullet5mm
+  name: bullet (5mm)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: N14Bullet5mm
-      soundEject:
-        collection: N14PistolCasingEject
-    - type: Tag
-      tags:
-        - Cartridge
-        - N14CartridgePistol5
-    - type: EmitSoundOnLand
-      sound:
-        collection: N14PistolCasingEject
-        params:
-          volume: -1
-    - type: EmitSoundOnCollide
-      sound:
-        collection: N14PistolCasingEject
-        params:
-          volume: -1
+    - type: Reflective # #Misfits Change Add: 5mm is sub-5.56mm; ricochets off power armor.
+      reflective:
+        - SmallCaliber
+        - NonEnergy
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 10 # Forge-Change
+    # Misfits Add - 5mm varmint/minigun round; small caliber with notable energy loss
+    - type: BallisticDamageFalloff
+      falloffStartTiles: 3.0
+      maxFalloffTiles: 10.0
+      minDamageMultiplier: 0.40
