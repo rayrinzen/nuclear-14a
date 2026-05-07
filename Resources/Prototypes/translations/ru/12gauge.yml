@@ -1,28 +1,36 @@
 - type: entity
-  id: PelletShotgun12
-  name: pellet (12 gauge)
-  categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBox12gauge
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      state: buckshot
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 10
-    # Misfits Add - Shotgun pellets lose velocity extremely rapidly; heaviest falloff
-    - type: BallisticDamageFalloff
-      falloffStartTiles: 3.0
-      maxFalloffTiles: 8.0
-      minDamageMultiplier: 0.30
-
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - N14ShellShotgun12
+    proto: N14ShellShotgun12
+    capacity: 30
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/12-gauge.rsi
+    netsync: false
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
 - type: entity
-  id: PelletShotgun12Spread
-  categories: [ HideSpawnMenu ]
-  parent: PelletShotgun12
+  parent: BaseMagazineBox12gauge
+  id: MagazineBox12gauge
+  name: ammunition box (12 gauge)
   components:
-    - type: ProjectileSpread
-      proto: PelletShotgun12
-      count: 6
-      spread: 15
+  - type: BallisticAmmoProvider
+    proto: N14ShellShotgun12
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
