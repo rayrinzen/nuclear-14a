@@ -1,41 +1,72 @@
-- type: entity
-  parent: ClothingBackpackDuffel
+- type: loadout
   id: N14ClothingBackpackDuffel
-  name: duffel bag
-  description: A large duffel bag for holding extra things.
-  components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/duffel.rsi
-      state: icon
-
-- type: entity
-  parent: N14ClothingBackpackDuffel
+  category: Duffel
+  cost: 2
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type 
+      inverted: true
+      departments:
+      - Vault
+    - !type 
+      group: N14LodaoutBags
+  items:
+    - N14ClothingBackpackDuffel
+  functions:
+  - !type :LoadoutFiledStorage
+- type: loadout
   id: N14ClothingBackpackDuffelSalvage
-  name: salvage duffel bag
-  description: A large duffel bag for holding extra exotic treasures.
-  components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/salvage.rsi
-
-- type: entity
-  parent: N14ClothingBackpackDuffel
+  category: Duffel
+  cost: 2
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type 
+      inverted: true
+      departments:
+      - Vault
+    - !type 
+      group: N14LodaoutBags
+  items:
+    - N14ClothingBackpackDuffelSalvage
+  functions:
+  - !type :LoadoutFiledStorage
+- type: loadout
   id: N14ClothingBackpackDuffelMilitary
-  name: military duffel bag
-  description: A large duffel bag for holding heavy equipment.
-  components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/syndicate.rsi
-
-- type: entity
-  parent: N14ClothingBackpackDuffelMilitary
+  category: Duffel
+  cost: 2
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type 
+      inverted: true
+      departments:
+      - Vault
+    - !type 
+      group: N14LodaoutBags
+  items:
+    - N14ClothingBackpackDuffelMilitary
+  functions:
+  - !type :LoadoutFiledStorage
+- type: loadout
   id: N14ClothingBackpackDuffelMilitaryMedical
-  name: military medical duffel bag
-  description: A large duffel bag for holding medical equipment.
-  components:
-    - type: Sprite
-      sprite: Clothing/Back/Duffels/syndicate.rsi
-      state: icon-med
-    - type: Item
-      heldPrefix: med
-    - type: Clothing
-      equippedPrefix: med
+  category: Duffel
+  cost: 2
+  exclusive: true
+  customName: false
+  customDescription: false
+  requirements:
+    - !type 
+      inverted: true
+      departments:
+      - Vault
+    - !type 
+      group: N14LodaoutBags
+  items:
+    - N14ClothingBackpackDuffelMilitaryMedical
+  functions:
+  - !type :LoadoutFiledStorage
