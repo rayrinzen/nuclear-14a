@@ -1,79 +1,146 @@
-# There may be some overlap with the Junk.yml so look there for other crafting components.
+- type: constructionGraph
+  id: N14Cardboard
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: cardboard
+          steps:
+            - material: N14Paper
+              amount: 2
+              doAfter: 2
+    - node: cardboard
+      entity: MaterialCardboard1
 
-- type: entity
-  parent: BaseItem
-  id: N14Dung
-  name: dung pile
-  description: Flip those cowpatties into free fertilizer!
-  components:
-    - type: Sprite
-      sprite: /Textures/_Nuclear14/Objects/Misc/crafting_material.rsi
-      noRot: true
-      layers:
-        - state: dung
-        - state: dung-flies
-    # N14:TODO: Add creampie ing but worse and it makes you throw up.
-    - type: SolutionContainerManager
-      solutions:
-        dung:
-          maxVol: 25
-          reagents:
-            - ReagentId: Dung
-              Quantity: 25
-    - type: DrainableSolution
-      solution: dung
-    - type: SolutionTransfer
-      canChangeTransferAmount: false
-    - type: DeleteOnSolutionEmpty
-      solution: dung
-    # #Misfits Fix: Re-applied the original cleanup timer so dung does not accumulate indefinitely.
-    - type: TimedDespawn
-      lifetime: 300
+- type: constructionGraph
+  id: N14Paper
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: paper
+          steps:
+            - material: WoodPlank
+              doAfter: 2
+    - node: paper
+      entity: N14Paper
 
-- type: entity
-  parent: N14Dung
-  id: N14BrahminDung
-  name: brahmin dung
-  description: A dung pile more acrid and vile than the rest, rancher's gold.
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        dung:
-          maxVol: 25
-          reagents:
-            - ReagentId: Dung
-              Quantity: 15
-            - ReagentId: Ammonia
-              Quantity: 10
+# Produces 1 gunpowder unit from 1 sulfur powder + 1 coal + 1 fertilizer ore
+- type: constructionGraph
+  id: N14GunpowderCraft
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: gunpowder
+          steps:
+            - material: Sulfur
+              amount: 1
+            - material: Coal
+              amount: 1
+            - material: FertilizerOre
+              amount: 1
+    - node: gunpowder
+      entity: N14Gunpowder1
 
-- type: entity
-  parent: BaseItem
-  id: N14CompostRotted
-  name: compost
-  description: Rotting remains, like compost. Good for fertilizing.
-  components:
-    - type: Sprite
-      sprite: /Textures/_Nuclear14/Objects/Misc/crafting_material.rsi
-      state: compost
-    - type: SolutionContainerManager
-      solutions:
-        compost:
-          maxVol: 25
-          reagents:
-            - ReagentId: Fertilizer
-              Quantity: 25
-    - type: DrainableSolution
-      solution: compost
-    - type: SolutionTransfer
-      canChangeTransferAmount: false
-    - type: DeleteOnSolutionEmpty
-      solution: compost
-    # Match the dung cleanup window so rotted compost does not accumulate on the map.
-    - type: TimedDespawn
-      lifetime: 300
-    # Pause the despawn timer while compost is stored in a crate so storage works as expected.
-    - type: PauseTimedDespawnInEntityStorage
-    - type: Material
-    - type: Stack
-      stackType: Compost
-      count: 1
+# #Misfits Add: Floor tile construction graphs
+# Wood Floor Tiles
+- type: constructionGraph
+  id: N14FloorTileWoodOak
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtileoak
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+    - node: woodtileoak
+      entity: FloorTileItemWoodOak
+
+- type: constructionGraph
+  id: N14FloorTileWoodHouse
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilehouse
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+    - node: woodtilehouse
+      entity: FloorTileItemWoodHouse
+
+- type: constructionGraph
+  id: N14FloorTileWoodMaple
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: woodtilemaple
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+    - node: woodtilemaple
+      entity: FloorTileItemWoodMaple
+
+# Metal Floor Tiles
+- type: constructionGraph
+  id: N14FloorTileMetalBlue
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: metaltileblue
+          steps:
+            - material: N14Iron
+              amount: 1
+              doAfter: 1
+    - node: metaltileblue
+      entity: FloorTileItemMetalBlue
+
+- type: constructionGraph
+  id: N14FloorTileMetalRed
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: metaltilered
+          steps:
+            - material: N14Iron
+              amount: 1
+              doAfter: 1
+    - node: metaltilered
+      entity: FloorTileItemMetalRed
+
+- type: constructionGraph
+  id: N14FloorTileMetalGreen
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: metaltilegreen
+          steps:
+            - material: N14Iron
+              amount: 1
+              doAfter: 1
+    - node: metaltilegreen
+      entity: FloorTileItemMetalGreen
+
+# Concrete Floor Tiles
+- type: constructionGraph
+  id: N14FloorTileConcreteOak
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: concretetileoak
+          steps:
+            - material: N14Concrete
+              amount: 1
+              doAfter: 2
+    - node: concretetileoak
+      entity: FloorTileItemWoodOak
