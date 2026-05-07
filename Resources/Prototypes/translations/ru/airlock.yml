@@ -1,395 +1,50 @@
-- type: constructionGraph
-  id: Airlock
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: assembly
-      completed:
-      - !type 
-        value: false
-      steps:
-      - material: Steel
-        amount: 4
-        doAfter: 2
-  - node: assembly
-    entity: AirlockAssembly
-    actions:
-    - !type ':SnapToGrid {}'
-    - !type ':SetAnchor {}'
-    edges:
-    - to: wired
-      conditions:
-      - !type ':EntityAnchored {}'
-      steps:
-      - material: Cable
-        amount: 5
-        doAfter: 3
-    - to: start
-      conditions:
-      - !type 
-        anchored: false
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 4
-      - !type ':DeleteEntity {}'
-      steps:
-      - tool: Welding
-        doAfter: 3
-  - node: wired
-    entity: AirlockAssembly
-    edges:
-    - to: electronics
-      conditions:
-      - !type ':EntityAnchored {}'
-      steps:
-      - component: DoorElectronics
-        store: board
-        name: "door electronics circuit board"
-        icon:
-          sprite: "Objects/Misc/module.rsi"
-          state: "door_electronics"
-        doAfter: 3
-    - to: assembly
-      completed:
-      - !type 
-        prototype: CableApcStack1
-        amount: 5
-      steps:
-      - tool: Cutting
-        doAfter: 3
-  - node: electronics
-    edges:
-    - to: airlock
-      conditions:
-      - !type ':EntityAnchored {}'
-      steps:
-      - tool: Screwing
-        doAfter: 3
-    - to: glassElectronics
-      conditions:
-      - !type ':EntityAnchored {}'
-      steps:
-      - material: ReinforcedGlass
-        amount: 1
-        doAfter: 2
-    - to: wired
-      conditions:
-      - !type ':EntityAnchored {}'
-      completed:
-      - !type 
-        pickup: true
-        emptyAtUser: true
-      steps:
-      - tool: Prying
-        doAfter: 5
-  - node: glassElectronics
-    entity: AirlockAssembly
-    edges:
-    - to: glassAirlock
-      conditions:
-      - !type ':EntityAnchored {}'
-      steps:
-      - material: ReinforcedGlass
-        amount: 1
-        doAfter: 2
-      - tool: Screwing
-        doAfter: 3
-    - to: wired
-      conditions:
-      - !type ':EntityAnchored {}'
-      completed:
-      - !type 
-        pickup: true
-        emptyAtUser: true
-      - !type 
-        prototype: SheetRGlass1
-        amount: 1
-      steps:
-      - tool: Prying
-        doAfter: 5
-  -   ## Glass airlock
-node: glassAirlock
-    entity: AirlockGlass
-    doNotReplaceInheritingEntities: true
-    actions:
-    - !type 
-      wiresAccessible: true
-    edges:
-    - to: glassElectronics
-      conditions:
-      - !type ':EntityAnchored {}'
-      - !type ':DoorWelded {}'
-      - !type 
-        value: false
-      - !type ':WirePanel {}'
-      - !type :AllWiresCut
-      completed:
-      - !type 
-        prototype: SheetRGlass1
-        amount: 1
-      steps:
-      - tool: Prying
-        doAfter: 2
-    - to: medSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 2
-    - to: highSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Plasteel
-        amount: 2
-        doAfter: 2
-  -   ## Standard airlock
-node: airlock
-    entity: Airlock
-    doNotReplaceInheritingEntities: true
-    actions:
-    - !type 
-      wiresAccessible: true
-    edges:
-    - to: wired
-      conditions:
-      - !type ':EntityAnchored {}'
-      - !type ':DoorWelded {}'
-      - !type 
-        value: false
-      - !type ':WirePanel {}'
-      - !type :AllWiresCut
-      completed:
-      - !type 
-        pickup: true
-        emptyAtUser: true
-      steps:
-      - tool: Prying
-        doAfter: 5
-    - to: medSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 2
-    - to: highSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Plasteel
-        amount: 2
-        doAfter: 2
-  -   ## High security door
-node: highSecDoor
-    actions:
-    - !type 
-      wiresAccessible: true
-    edges:
-    - to: medSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Steel
-        amount: 2
-        doAfter: 2
-    - to: highSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Plasteel
-        amount: 2
-        doAfter: 2
-  -   ## Medium security level door: a layer of steel plating protects the internal wiring
-node: medSecurityUnfinished
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level1
-      wiresAccessible: false
-    edges:
-    - to: glassAirlock
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: GlassAirlock
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: airlock
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: Airlock
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: highSecDoor
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: HighSecDoor
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: medSecurity
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 3
-  - node: medSecurity
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level2
-      wiresAccessible: false
-    edges:
-    - to: medSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 10
-  -   ## High security level door: a layer of plasteel plating protects the internal wiring
-node: highSecurityUnfinished
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level3
-      wiresAccessible: false
-    edges:
-    - to: glassAirlock
-      completed:
-      - !type 
-        prototype: SheetPlasteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: GlassAirlock
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: airlock
-      completed:
-      - !type 
-        prototype: SheetPlasteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: Airlock
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: highSecDoor
-      completed:
-      - !type 
-        prototype: SheetPlasteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      - !type 
-        tag: HighSecDoor
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: highSecurity
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 5
-  - node: highSecurity
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level4
-      wiresAccessible: false
-    edges:
-    - to: highSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 15
-    - to: maxSecurity
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: MetalRod
-        amount: 2
-        doAfter: 1
-  -   ## Max security level door: an electric grill is added
-node: maxSecurity
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level5
-      wiresAccessible: false
-    edges:
-    - to: highSecurity
-      completed:
-      - !type :AttemptElectrocute
-      - !type 
-        prototype: PartRodMetal1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Cutting
-        doAfter: 1
-    - to: superMaxSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - material: Plasteel
-        amount: 2
-        doAfter: 2
-  -   ## Super max security level door: an additional layer of plasteel is added
-node: superMaxSecurityUnfinished
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level6
-      wiresAccessible: false
-    edges:
-    - to: maxSecurity
-      completed:
-      - !type 
-        prototype: SheetPlasteel1
-        amount: 2
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Prying
-        doAfter: 4
-    - to: superMaxSecurity
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 5
-  - node: superMaxSecurity
-    actions:
-    - !type 
-      examine: wires-panel-component-on-examine-security-level7
-      wiresAccessible: false
-    edges:
-    - to: superMaxSecurityUnfinished
-      conditions:
-      - !type ':WirePanel {}'
-      steps:
-      - tool: Welding
-        doAfter: 15
-
+﻿- type: entity
+  id: CultDoor
+  parent: BaseMaterialDoor
+  name: runed door
+  description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Airtight
+    fixVacuum: true
+    noAirWhenFullyAirBlocked: false
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:DoActsBehavior acts: ["Destruction"]'
+  - type: Door
+    bumpOpen: true
+    occludes: false
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_airlock.rsi
+    layers:
+    - state: closed
+      map:
+      - "enum.DoorVisualLayers.Base"
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Physics
+    bodyType: Static
+  - type: Occluder
+    enabled: false
+  - type: RadiationBlocker
+    resistance: 2
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: RunedDoor
+  - type: Repulse
+  - type: RepulseOnTouch
+  - type: PlacementReplacement
+    key: walls
+  - type: Construction
+    graph: CultDoor
+    node: door
