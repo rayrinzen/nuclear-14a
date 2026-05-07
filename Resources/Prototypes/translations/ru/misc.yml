@@ -1,632 +1,636 @@
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterApron
-  name: apron
-  description: A fancy apron for a stylish person.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/apron.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/apron.rsi
+# When adding new food also add to the appropriate random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\
+# Base
 
 - type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterApronBar
-  suffix: Bartender
-  name: apron
-  description: A darker apron designed for bartenders.
+  parent: FoodInjectableBase
+  id: FoodBakedBase
+  abstract: true
+  components:
+    - type: Food
+    - type: Sprite
+      sprite: Objects/Consumable/Food/Baked/misc.rsi
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 6
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+    - type: Item
+      size: Tiny
+
+# Muffins/Buns
+- type: entity
+  name: muffin
+  parent: FoodBakedBase
+  id: FoodBakedMuffin
+  description: A delicious and spongy little cake.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/apronbar.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/apronbar.rsi
+      state: muffin
 
 - type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterApronBotanist
-  name: apron
-  suffix: Botanical
-  description: A thick blue-apron, perfect for insulating your soft flesh from spills, soil and thorns.
+  name: berry muffin
+  parent: FoodBakedBase
+  id: FoodBakedMuffinBerry
+  description: A delicious and spongy little cake, with berries.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterApronChef
-  name: apron
-  suffix: Chef
-  description: An apron-jacket used by a high class chef.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/apronchef.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/apronchef.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterJacketChef
-  name: chef jacket
-  description: An apron-jacket used by a high class chef.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/chef.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/chef.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterJacketChefNt
-  name: nanotrasen chef jacket
-  description: An apron-jacket used by a high class Nanotrasen Corporation chef.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/chef_nt.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/chef_nt.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterJacketChefIdris
-  name: idris chef jacket
-  description: An apron-jacket used by a high class Idris Incorporated chef.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/chef_idris.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/chef_idris.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterJacketChefOrion
-  name: orion chef jacket
-  description: An apron-jacket used by a high class Orion Expresschef.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/chef_orion.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/chef_orion.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterHoodieBlack
-  name: black hoodie
-  description: Oh my God, it's a black hoodie!
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/black_hoodie.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterHoodieGrey
-  name: grey hoodie
-  description: A grey hoodie.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/grey_hoodie.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterCardborg
-  name: cardborg costume
-  description: An ordinary cardboard box with holes cut in the sides.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cardborg.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cardborg.rsi
-    - type: TypingIndicatorClothing
-      proto: robot
+      state: muffin-berry
     - type: Tag
       tags:
-        - WhitelistChameleon
+        - Fruit
 
 - type: entity
-  parent: ClothingOuterBaseToggleable
-  id: ClothingOuterHoodieChaplain
-  name: chaplain's hoodie
-  description: Black and strict chaplain hoodie.
+  name: cherry muffin
+  parent: FoodBakedBase
+  id: FoodBakedMuffinCherry
+  description: A sweet muffin with cherry bits.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
-    - type: ToggleableClothing
-      clothingPrototype: ClothingHeadHatHoodChaplainHood
+      state: muffin-cherry
+    - type: Tag
+      tags:
+        - Fruit
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterPonchoClassic
-  name: classic poncho
-  description: A warm and comfy classic poncho.
+  name: bluecherry muffin
+  parent: FoodBakedBase
+  id: FoodBakedMuffinBluecherry
+  description: Blue cherries inside a delicious muffin.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/classicponcho.rsi
-    - type: AddAccentClothing
-      accent: SpanishAccent
+      state: muffin-bluecherry
+    - type: Tag
+      tags:
+        - Fruit
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterRobesCult
-  name: cult robes
-  description: There's no cult without classic red/crimson cult robes.
+  name: honey bun #TODO honey
+  parent: FoodBakedBase
+  id: FoodBakedBunHoney
+  description: A sticky pastry bun glazed with honey.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+      state: bun-honey
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterRobesJudge
-  name: judge robes
-  description: This robe commands authority.
+  name: hotcross bun
+  parent: FoodBakedBase
+  id: FoodBakedBunHotX
+  description: A sticky pastry bun glazed with a distinct white cross.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/judge.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/judge.rsi
+      state: bun-hotcross
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterPoncho
-  name: poncho
-  description: A warm and comfy poncho.
+  name: meat bun
+  parent: FoodBakedBase
+  id: FoodBakedBunMeat
+  description: Has the potential to not be dog.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/poncho.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/poncho.rsi
-    - type: AddAccentClothing
-      accent: SpanishAccent
+      state: bun-meat
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 10
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 6
+            - ReagentId: Vitamin
+              Quantity: 2
 
+# Cookies
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterSanta
-  name: santa suit
-  description: Ho ho ho!
+  name: cookie
+  parent: FoodBakedBase
+  id: FoodBakedCookie
+  description: COOKIE!!!
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/santa.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/santa.rsi
+      state: COOKIE!!!
 
 - type: entity
-  abstract: true
-  parent: ClothingOuterBase
-  id: ClothingOuterWizardBase
-  components:
-    - type: WizardClothes
-
-# Is this wizard wearing a fanny pack???
-- type: entity
-  parent: ClothingOuterWizardBase
-  id: ClothingOuterWizardViolet
-  name: violet wizard robes
-  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  name: oatmeal cookie
+  parent: FoodBakedBase
+  id: FoodBakedCookieOatmeal
+  description: The best of both cookie and oat.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/violetwizard.rsi
+      state: cookie-oatmeal
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 8
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Vitamin
+              Quantity: 1
 
 - type: entity
-  parent: ClothingOuterWizardBase
-  id: ClothingOuterWizard
-  name: wizard robes
-  description: A bizarre gem-encrusted blue robe that radiates magical energies.
+  name: raisin cookie
+  parent: FoodBakedBase
+  id: FoodBakedCookieRaisin
+  description: Why would you put raisins in a cookie?
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/wizard.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/wizard.rsi
+      state: cookie-raisin
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 8
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Vitamin
+              Quantity: 1
+    - type: Tag
+      tags:
+        - Fruit
 
 - type: entity
-  parent: ClothingOuterWizardBase
-  id: ClothingOuterWizardRed
-  name: red wizard robes
-  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  name: sugar cookie
+  parent: FoodBakedBase
+  id: FoodBakedCookieSugar
+  description: Just like your mom used to make.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/redwizard.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/redwizard.rsi
+      state: cookie-sugar
 
+# Nuggets
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterSkub
-  name: skub suit
-  description: 'Skub is crudely written on the outside of this cylindrical suit.'
+  name: chicken nugget
+  parent: FoodBakedBase
+  id: FoodBakedNugget
+  description: A "chicken" nugget vaguely shaped into an object. # Should change depending on name.
   components:
+    - type: Tag
+      tags:
+        - Nugget
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/skubbody.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterPlagueSuit
-  name: plague doctor suit
-  description: A bad omen.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/plaguedoctorsuit.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/plaguedoctorsuit.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterNunRobe
-  name: nun robe
-  description: Maximum piety in this star system.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/nunrobe.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterGhostSheet
-  name: ghost sheet
-  description: Spooky!!!
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/ghostsheet.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/ghostsheet.rsi
-    - type: Construction
-      graph: GhostSheet
-      node: ghost_sheet
-    - type: IdentityBlocker
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterHospitalGown
-  name: hospital gown
-  description: Made from the wool of slaughtered baby lambs.  The cruelty makes it softer.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/hospitalgown.rsi
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterFlannelRed
-  name: red flannel jacket
-  description: An old fashioned red flannel jacket for space autumn.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
+      sprite: Objects/Consumable/Food/Baked/nuggets.rsi
       layers:
-        - state: icon
-          color: "#670a09"
-        - state: icon-lines
-          color: "#000000"
-    - type: Item
-      inhandVisuals:
-        left:
-          - state: inhand-left
-            color: "#670a09"
-          - state: inhand-left-lines
-            color: "#000000"
-        right:
-          - state: inhand-right
-            color: "#670a09"
-          - state: inhand-right-lines
-            color: "#000000"
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
-      clothingVisuals:
-        outerClothing:
-          - state: equipped-OUTERCLOTHING
-            color: "#670a09"
-          - state: equipped-OUTERCLOTHING-lines
-            color: "#000000"
-    - type: TemperatureProtection
-      coefficient: 0.3
+        - state: tendie
+          map: [ "enum.DamageStateVisualLayers.Base" ]
+    - type: RandomSprite
+      available:
+        - enum.DamageStateVisualLayers.Base:
+            tendie: ""
+            lizard: ""
+            star: ""
+            corgi: ""
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 8
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 2
+            - ReagentId: Protein
+              Quantity: 2
+            - ReagentId: Vitamin
+              Quantity: 1
 
+# Waffles/Pancakes
+# Once StackVisuals is updated you should be able to mix/match stacks of pancakes.
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterFlannelBlue
-  name: blue flannel jacket
-  description: An old fashioned blue flannel jacket for space autumn.
+  name: pancake
+  parent: FoodBakedBase
+  id: FoodBakedPancake
+  description: A fluffy pancake. The softer, superior relative of the waffle.
   components:
+    - type: Stack
+      stackType: Pancake
+      count: 1
+      composite: true
+      layerStates:
+        - pancakes1
+        - pancakes2
+        - pancakes3
+        - pancakes4
+        - pancakes5
+        - pancakes6
+        - pancakes7
+        - pancakes8
+        - pancakes9
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
+      state: pancakes1
       layers:
-        - state: icon
-          color: "#3232a6"
-        - state: icon-lines
-          color: "#000000"
-    - type: Item
-      inhandVisuals:
-        left:
-          - state: inhand-left
-            color: "#3232a6"
-          - state: inhand-left-lines
-            color: "#000000"
-        right:
-          - state: inhand-right
-            color: "#3232a6"
-          - state: inhand-right-lines
-            color: "#000000"
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
-      clothingVisuals:
-        outerClothing:
-          - state: equipped-OUTERCLOTHING
-            color: "#3232a6"
-          - state: equipped-OUTERCLOTHING-lines
-            color: "#000000"
-    - type: TemperatureProtection
-      coefficient: 0.3
+        - state: pancakes1
+          map: [ "pancakes1" ]
+          visible: false
+        - state: pancakes2
+          map: [ "pancakes2" ]
+          visible: false
+        - state: pancakes3
+          map: [ "pancakes3" ]
+          visible: false
+        - state: pancakes4
+          map: [ "pancakes4" ]
+          visible: false
+        - state: pancakes5
+          map: [ "pancakes5" ]
+          visible: false
+        - state: pancakes6
+          map: [ "pancakes6" ]
+          visible: false
+        - state: pancakes7
+          map: [ "pancakes7" ]
+          visible: false
+        - state: pancakes8
+          map: [ "pancakes8" ]
+          visible: false
+        - state: pancakes9
+          map: [ "pancakes9" ]
+          visible: false
+    - type: Appearance
+    - type: Tag
+      tags:
+        - Pancake
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterFlannelGreen
-  name: green flannel jacket
-  description: An old fashioned green flannel jacket for space autumn.
+  name: blueberry pancake
+  parent: FoodBakedBase
+  id: FoodBakedPancakeBb
+  description: A fluffy and delicious blueberry pancake.
   components:
+    - type: Stack
+      stackType: Pancake
+      count: 1
+      composite: true
+      layerStates:
+        - pancakesbb1
+        - pancakesbb2
+        - pancakesbb3
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
+      state: pancakesbb1
       layers:
-        - state: icon
-          color: "#164d0f"
-        - state: icon-lines
-          color: "#000000"
-    - type: Item
-      inhandVisuals:
-        left:
-          - state: inhand-left
-            color: "#164d0f"
-          - state: inhand-left-lines
-            color: "#000000"
-        right:
-          - state: inhand-right
-            color: "#164d0f"
-          - state: inhand-right-lines
-            color: "#000000"
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/flannel_jacket.rsi
-      clothingVisuals:
-        outerClothing:
-          - state: equipped-OUTERCLOTHING
-            color: "#164d0f"
-          - state: equipped-OUTERCLOTHING-lines
-            color: "#000000"
-    - type: TemperatureProtection
-      coefficient: 0.3
+        - state: pancakesbb1
+          map: [ "pancakesbb1" ]
+          visible: false
+        - state: pancakesbb2
+          map: [ "pancakesbb2" ]
+          visible: false
+        - state: pancakesbb3
+          map: [ "pancakesbb3" ]
+          visible: false
+    - type: Appearance
+    - type: Tag
+      tags:
+        - Pancake
+        - Fruit
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterRedRacoon
-  name: red racoon suit
-  description: Fluffy suit of red racoon!
+  name: chocolate chip pancake
+  parent: FoodBakedBase
+  id: FoodBakedPancakeCc
+  description: A fluffy and delicious chocolate chip pancake.
+  components:
+    - type: Stack
+      stackType: Pancake
+      count: 1
+      composite: true
+      layerStates:
+        - pancakescc1
+        - pancakescc2
+        - pancakescc3
+    - type: Sprite
+      state: pancakescc1
+      layers:
+        - state: pancakescc1
+          map: [ "pancakescc1" ]
+          visible: false
+        - state: pancakescc2
+          map: [ "pancakescc2" ]
+          visible: false
+        - state: pancakescc3
+          map: [ "pancakescc3" ]
+          visible: false
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 6
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Theobromine
+              Quantity: 1
+    - type: Tag
+      tags:
+        - Pancake
+
+- type: entity
+  name: waffles
+  parent: FoodBakedBase
+  id: FoodBakedWaffle
+  description: Mmm, waffles.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/red_racoon.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/red_racoon.rsi
+      layers:
+        - state: tray
+        - state: waffles
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 8
+            - ReagentId: Vitamin
+              Quantity: 1
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterUnathiRobe
-  name: roughspun robes
-  description: A traditional Unathi garment.
+  name: soy waffles
+  parent: FoodBakedWaffle
+  id: FoodBakedWaffleSoy
+  description: You feel healthier and - more feminine?
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/unathirobe.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/unathirobe.rsi
+      layers:
+        - state: tray
+        - state: waffles-soy
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 10
+            - ReagentId: Vitamin
+              Quantity: 1
 
-# - type: entity # TODO: There no use for it now... but pehaps we could turn it into a Anti-Psionic Clothing like headcage?
-#   parent: ClothingOuterBase
-#   id: ClothingOuterShadowkinRestraints
-#   name: shadowkin restraints
-#   description: One of the first creations after finding Shadowkin, these were used to contain the Shadowkin during research so they didn't teleport away.
-#   components:
-#   - type: Sprite
-#     sprite: Clothing/OuterClothing/Misc/shadowkinrestraints.rsi
-#   - type: Clothing
-#     sprite: Clothing/OuterClothing/Misc/shadowkinrestraints.rsi
-#     equipDelay: 0.5
-#     unequipDelay: 10
-#   - type: GuideHelp
-#     guides:
-#     - Shadowkin
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterSuitJacket
-  name: suit jacket
-  description: A snappy dress jacket.
+  name: soylent waffles
+  parent: FoodBakedWaffle
+  id: FoodBakedWaffleSoylent
+  description: Not made of people. Honest. # Definitely people
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/suit_jacket.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/suit_jacket.rsi
+      layers:
+        - state: tray
+        - state: waffles-soylent
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 10
+            - ReagentId: Vitamin
+              Quantity: 1
 
 - type: entity
-  parent:
-    [
-      ClothingOuterStorageFoldableBaseOpened,
-      ClothingOuterSuitJacket
-    ]
-  id: ClothingOuterSuitJacketOpened
-  name: suit jacket
-
-- type: entity
-  parent: ClothingOuterFoldableBase
-  id: ClothingOuterCardigan
-  name: cardigan
-  description: Only slightly worse than a blanket.
+  name: roffle waffles
+  parent: FoodBakedWaffle
+  id: FoodBakedWaffleRoffle
+  description: Waffles from Roffle. Co.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cardigan.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cardigan.rsi
+      layers:
+        - state: tray
+        - state: waffles-roffle
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 8
+            - ReagentId: Vitamin
+              Quantity: 2
 
+# Misc
 - type: entity
-  parent: [ ClothingOuterFoldableBaseOpened, ClothingOuterCardigan ]
-  id: ClothingOuterCardiganOpened
-  name: cardigan
-
-- type: entity
-  parent: ClothingOuterFoldableBase
-  id: ClothingOuterCardiganSweater
-  name: sweater cardigan
-  description: Half as warm as a sweater, and half as fashionable as a cardigan. Not like it matters for coffee-house dwelling beatniks like yourself.
+  name: poppy pretzel
+  parent: FoodBakedBase
+  id: FoodBakedPretzel
+  description: It's all twisted up!
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cardigan_sweater.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cardigan_sweater.rsi
+      state: pretzel
 
 - type: entity
-  parent:
-    [
-      ClothingOuterFoldableBaseOpened,
-      ClothingOuterCardiganSweater
-    ]
-  id: ClothingOuterCardiganSweaterOpened
-  name: sweater cardigan
-
-- type: entity
-  parent: ClothingOuterFoldableBase
-  id: ClothingOuterCardiganArgyle
-  name: argyle cardigan
-  description: You'll never get dumped if you never get in a relationship in the first place. With this, you'll never have to worry again.
+  name: cannoli
+  parent: FoodBakedBase
+  id: FoodBakedCannoli
+  description: A Sicilian treat that makes you into a wise guy.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cardigan_argyle.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cardigan_argyle.rsi
+      state: cannoli
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Vitamin
+              Quantity: 1
 
 - type: entity
-  parent:
-    [
-      ClothingOuterFoldableBaseOpened,
-      ClothingOuterCardiganArgyle
-    ]
-  id: ClothingOuterCardiganArgyleOpened
-  name: argyle cardigan
-
-- type: entity
-  parent: ClothingOuterFoldableBase
-  id: ClothingOuterCardiganSlim
-  name: slim cardigan
-  description: A cozy sleek cardigan in a classic style.
+  name: dumplings
+  parent: FoodBakedBase
+  id: FoodBakedDumplings
+  description: Average recipe for meat in doughs.
   components:
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cardigan_slim.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cardigan_slim.rsi
+      state: dumplings
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 20
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 8
+            - ReagentId: Protein
+              Quantity: 2
 
 - type: entity
-  parent:
-    [
-      ClothingOuterFoldableBaseOpened,
-      ClothingOuterCardiganSlim
-    ]
-  id: ClothingOuterCardiganSlimOpened
-  name: slim cardigan
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterCowboyDuster
-  name: cowboy duster
-  description: A duster commonly seen on cowboys from Earth's late 1800's.
+  name: chèvre chaud
+  parent: FoodBakedBase
+  id: FoodBakedChevreChaud
+  description: A disk of slightly melted chèvre flopped on top of a crostini, and toasted all-round.
   components:
+    - type: FlavorProfile
+      flavors:
+        - bread
+        - nutty
+        - creamy
+        - smokey
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/cowboy_duster.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/cowboy_duster.rsi
+      state: chevrechaud
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 5
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 2
+            - ReagentId: Vitamin
+              Quantity: 0.5
 
 - type: entity
-  parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterBlazer
-  name: blazer
-  description: A charming jacket for when you want to play ball sports like an aristocrat.
+  name: brownies
+  parent: FoodBakedBase
+  id: FoodBakedBrownieBatch
+  description: A pan of brownies.
   components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - chocolate
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer.rsi
+      sprite: Objects/Consumable/Food/Baked/brownie.rsi
+      state: brownie-batch
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 78
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 30
+            - ReagentId: Theobromine
+              Quantity: 18
+    - type: SliceableFood
+      count: 6
+      slice: FoodBakedBrownie
 
 - type: entity
-  parent: [ ClothingOuterFoldableBaseOpened, ClothingOuterBlazer ]
-  id: ClothingOuterBlazerOpened
-  name: blazer
-
-- type: entity
-  parent: ClothingOuterStorageFoldableBase
-  id: ClothingOuterBlazerLong
-  name: long blazer
-  description: A charming long jacket that almost substitutes for a coat.
+  name: brownie
+  parent: FoodBakedBase
+  id: FoodBakedBrownie
+  suffix: Fresh
+  description: A fresh baked brownie.
   components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - chocolate
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer_long.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer_long.rsi
+      sprite: Objects/Consumable/Food/snacks.rsi
+      state: mre-brownie-open
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 13
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Theobromine
+              Quantity: 3
+    - type: Tag
+      tags:
+        - Slice
 
 - type: entity
-  parent:
-    [
-      ClothingOuterFoldableBaseOpened,
-      ClothingOuterBlazerLong
-    ]
-  id: ClothingOuterBlazerLongOpened
-  name: long blazer
-
-- type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterBlazerFormal
-  name: formal blazer
-  description: A slim-fit blazer suitable for both smart casual and formal outfits.
+  name: special brownies
+  parent: FoodBakedBase
+  id: FoodBakedCannabisBrownieBatch
+  description: A pan of "special" brownies.
   components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - magical
+        - chocolate
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer_formal.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer_formal.rsi
+      sprite: Objects/Consumable/Food/Baked/brownie.rsi
+      state: brownie-batch
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 228
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 30
+            - ReagentId: Theobromine
+              Quantity: 18
+            - ReagentId: THC
+              Quantity: 150
+    - type: SliceableFood
+      count: 6
+      slice: FoodBakedCannabisBrownie
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterBlazerLooseSleeve
-  name: loose sleeve blazer
-  description: One of those hippie-formal wannabe blazers.
+  name: special brownie
+  parent: FoodBakedBase
+  id: FoodBakedCannabisBrownie
+  description: A "special" brownie.
   components:
+    - type: FlavorProfile
+      flavors:
+        - sweet
+        - magical
+        - chocolate
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer_loose_sleeve.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer_loose_sleeve.rsi
+      sprite: Objects/Consumable/Food/snacks.rsi
+      state: mre-brownie-open
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 38
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 5
+            - ReagentId: Theobromine
+              Quantity: 3
+            - ReagentId: THC
+              Quantity: 25
+    - type: Tag
+      tags:
+        - Slice
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterBlazerFlatCollar
-  name: flat collar blazer
-  description: For those grown ups that didn't wanna.
+  name: onion rings
+  parent: FoodBakedBase
+  id: FoodOnionRings
+  description: You can eat it or propose to your loved ones.
   components:
+    - type: FlavorProfile
+      flavors:
+        - onion
+        - oily
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer_flat_collar.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer_flat_collar.rsi
+      state: onionrings
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 4
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 1
+            - ReagentId: Allicin
+              Quantity: 1
+            - ReagentId: Vitamin
+              Quantity: 1
 
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingOuterBlazerPosh
-  name: posh blazer
-  description: This is a bit fancy, like the new service worker in Saltern who is trying too hard to impress the heads.
+  name: croissant
+  parent: FoodBakedBase
+  id: FoodBakedCroissant
+  description: Buttery, flaky goodness.
   components:
+    - type: FlavorProfile
+      flavors:
+        - bread
+        - butter
     - type: Sprite
-      sprite: Clothing/OuterClothing/Misc/blazer_posh.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Misc/blazer_posh.rsi
+      state: croissant
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 7
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 3
+            - ReagentId: Butter
+              Quantity: 2
+            - ReagentId: Vitamin
+              Quantity: 1
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
