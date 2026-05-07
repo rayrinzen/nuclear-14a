@@ -1,157 +1,70 @@
 - type: entity
-  id: WoodenSign
-  name: wooden sign
-  description: He's pointing somewhere.
+  id: MiningWindow
+  name: mining window
+  parent: WindowRCDResistant
   components:
-  - type: Clickable
-  - type: InteractionOutline
   - type: Sprite
-    sprite: Objects/Decoration/mines.rsi
-    state: sign_left
-  - type: Construction #misfits change
-    graph: WoodenSign
-    node: sign_left
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.35,-0.4,0.35,0.4"'
-        density: 100
+    drawdepth: WallTops
+    sprite: Structures/Windows/mining.rsi
+  - type: Icon
+    sprite: Structures/Windows/mining.rsi
+  - type: Repairable
+    fuelCost: 15
+    doAfterDelay: 3
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: MeleeSound
-    soundGroups:
-      Brute:
-        path: /Audio/Effects/chop.ogg
-        params:
-          variation: 0.05
+    damageContainer: StructuralInorganic
+    damageModifierSet: RGlass
   - type: Destructible
     thresholds:
-    - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: Log: min: 1 max: 1'
+    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:PlaySoundBehavior sound: collection: WindowShatter - !type:SpawnEntitiesBehavior spawn: ShardGlassReinforced: min: 1 max: 2 PartRodMetal: min: 1 max: 2 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: IconSmooth
+    base: mwindow
+  - type: Appearance
+  - type: DamageVisuals
+    thresholds:
+    - 4
+    - 8
+    - 12
+    damageDivisor: 6
+    trackAllDamage: true
+    damageOverlay:
+      sprite: Structures/Windows/cracks.rsi
+  - type: StaticPrice
+    price: 100
 - type: entity
-  parent: WoodenSign
-  id: WoodenSignRight
-  components:
-  - type: Sprite
-    sprite: Objects/Decoration/mines.rsi
-    state: sign_right
-  - type: Construction #misfits change
-    graph: WoodenSign
-    node: sign_right
-- type: entity
-  id: WoodenSupport
-  parent: BaseStructure
-  name: wooden support
-  description: Increases your confidence that a rock won't fall on your head.
+  parent: ShuttleWindow
+  id: MiningWindowDiagonal
+  suffix: diagonal
   placement:
     mode: SnapgridCenter
+    snap:
+    - Window
   components:
-  - type: PlacementReplacement
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: Structures/Windows/mining_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
     key: walls
-  - type: Tag
-    tags:
-    - Wooden
-  - type: Sprite
-    noRot: true
-    sprite: Objects/Decoration/mines.rsi
-    state: support
-  - type: Construction #misfits change
-    graph: WoodenSupports
-    node: support
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Physics
-    bodyType: Static
+    base: state
+  - type: Icon
+    sprite: Structures/Windows/mining_diagonal.rsi
+    state: state0
   - type: Fixtures
     fixtures:
       fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.1,-0.5,0.1,0.5"'
+        shape: '!type:PolygonShape vertices: - "-0.5,-0.5" - "0.5,0.5" - "0.5,-0.5"'
         mask:
         - FullTileMask
         layer:
-        - WallLayer
-        density: 1000
-  - type: MeleeSound
-    soundGroups:
-      Brute:
-        path: /Audio/Effects/chop.ogg
-        params:
-          variation: 0.05
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: Log: min: 1 max: 3'
-- type: entity
-  id: WoodenSupportBeam
-  name: wooden support beam
-  parent: WoodenSupport
-  components:
-  - type: Sprite
-    sprite: Objects/Decoration/mines.rsi
-    state: support_beams
-  - type: Construction #misfits change
-    graph: WoodenSupports
-    node: support_beams
-  - type: Fixtures
-    fixtures:
-      fix1:
-        hard: false
-        shape: '!type:PhysShapeAabb bounds: "-0.5,-0.5,0.5,0.5"'
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 1000
-- type: entity
-  id: WoodenSupportWall
-  parent: BaseStructure
-  name: wooden support wall
-  description: An old, rotten wall.
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: PlacementReplacement
-    key: walls
-  - type: Tag
-    tags:
-    - Wall
-    - Wooden
-  - type: Sprite
-    noRot: true
-    sprite: Objects/Decoration/mines.rsi
-    state: support_wall
-  - type: Construction #misfits change
-    graph: WoodenSupports
-    node: support_wall
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.5,-0.5,0.5,0.5"'
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 1000
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 75 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: Log: min: 2 max: 5'
-- type: entity
-  id: WoodenSupportWallBroken
-  parent: WoodenSupportWall
-  components:
-  - type: Sprite
-    sprite: Objects/Decoration/mines.rsi
-    state: support_wall_broken
-  - type: Construction #misfits change
-    graph: WoodenSupports
-    node: support_wall_broken
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: Log: min: 1 max: 3'
+        - GlassLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
+  - type: DamageVisuals
+    damageOverlay:
+      sprite: Structures/Windows/cracks_diagonal.rsi
