@@ -1,46 +1,82 @@
-- type: body
-  id: Diona
-  name: diona
-  root: torso
-  slots:
-    head:
-      part: HeadDiona
-      connections:
-        - torso
-      organs:
-        brain: OrganDionaBrainNymph
-    torso:
-      part: TorsoDiona
-      connections:
-        - right arm
-        - left arm
-        - right leg
-        - left leg
-        - head # Shitmed
-      organs:
-        stomach: OrganDionaStomachNymph
-        lungs: OrganDionaLungsNymph
-    right arm:
-      part: RightArmDiona
-      connections:
-        - right hand
-    left arm:
-      part: LeftArmDiona
-      connections:
-        - left hand
-    right hand:
-      part: RightHandDiona
-    left hand:
-      part: LeftHandDiona
-    right leg:
-      part: RightLegDiona
-      connections:
-        - right foot
-    left leg:
-      part: LeftLegDiona
-      connections:
-        - left foot
-    right foot:
-      part: RightFootDiona
-    left foot:
-      part: LeftFootDiona
+- type: dataset
+  id: DionaFirst
+  values:
+    - Moss
+    - Mushroom
+    - Grass
+    - Ivy
+    - Stem
+    - Petal
+    - Thorn
+    - Rose
+    - Dandelion
+    - Birch
+    - Willow
+    - Bay
+    - Lake
+    - River
+    - Brook
+    - Meadow
+    - Canyon
+    - Mountain
+    - Peak
+    - Garden
+    - Soil
+    - Flower
+    - Buttercup
+    - Ray
+    - Light
+    - Sprout
+    - Shoot
+    - Beacon
+    - Forest
+    - Mycelium
+    - Servant
+    - Moon
+    - Tree
+    - Star
+    - Path
+    - Cloud
+
+- type: dataset
+  id: DionaLast
+  values:
+    - Peace
+    - Harmony
+    - Relaxation
+    - Calm
+    - Serenity
+    - Self-Observation
+    - Union
+    - Comfort
+    - Dream
+    - Silence
+    - Balance
+    - Gentleness
+    - Tranquility
+    - Rest
+    - Clarity
+    - Stillness
+    - Composure
+    - Lightness
+    - Equilibrium
+    - Self-Control
+    - Control
+    - Inner Balance
+    - Understanding
+    - Acceptance
+    - Self-Assertion
+    - Emotional Stability
+    - Openness
+    - Trust
+    - Mutual Understanding
+    - Empathy
+    - Self-Knowledge
+    - Mindfulness
+    - Growth
+    - Reflection
+    - Confidence
+    - Responsibility
+    - Resolve
+    - Patience
+    - Infinity
