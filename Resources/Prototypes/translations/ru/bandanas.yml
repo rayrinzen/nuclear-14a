@@ -1,132 +1,111 @@
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskRedMask
-  name: red mask
-  suffix: Generic
-  description: A short red scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/redscarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/redscarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: blackbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanablack
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanablack
+      entity: ClothingMaskBandBlack
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskDesertMask
-  name: desert mask
-  suffix: Generic
-  description: A short tan scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/desertmask.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/desertmask.rsi
-    - type: BreathMask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: bluebandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanablue
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanablue
+      entity: ClothingMaskBandBlue
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskBlueMask
-  name: blue mask
-  suffix: Generic
-  description: A short blue scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/bluescarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/bluescarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: brownbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanabrown
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanabrown
+      entity: ClothingMaskBandBrown
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskGreenMask
-  name: green mask
-  suffix: Generic
-  description: A short green scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/greenscarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/greenscarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: goldbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanagold
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanagold
+      entity: ClothingMaskBandGold
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskOrangeMask
-  name: orange mask
-  suffix: Generic
-  description: A short orange scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/orangescarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/orangescarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: greenbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanagreen
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanagreen
+      entity: ClothingMaskBandGreen
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskBrownMask
-  name: brown mask
-  suffix: Generic
-  description: A short brown scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/brownscarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/brownscarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: greybandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanagrey
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanagrey
+      entity: ClothingMaskBandGrey
 
-- type: entity
-  parent: ClothingMaskPullableBase
-  id: N14ClothingMaskPatriotMask
-  name: patriot mask
-  suffix: Generic
-  description: A short and very patriotic scarf for covering your mouth.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/patriotscarf.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Mask/Bandanas/patriotscarf.rsi
-    - type: Mask
-    - type: IngestionBlocker
-    # #Misfits Fix - Face coverings should block identification.
-    - type: IdentityBlocker
-    - type: Tag
-      tags:
-        - WhitelistChameleon
+- type: constructionGraph
+  id: redbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanared
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanared
+      entity: ClothingMaskBandRed
+
+- type: constructionGraph
+  id: skullbandana
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bandanaskull
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 5
+    - node: bandanaskull
+      entity: ClothingMaskBandSkull
