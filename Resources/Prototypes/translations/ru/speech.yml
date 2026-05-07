@@ -1,29 +1,171 @@
 - type: trait
-  id: LanguageLatin
+  id: LanguageChinese
+  category: Speech
+  points: -3
+  functions:
+  - !type 
+    languagesSpoken:
+    - Chinese
+    languagesUnderstood:
+    - Chinese
+- type: trait
+  id: LanguageSpanish
+  category: Speech
+  points: -3
+  functions:
+  - !type 
+    languagesSpoken:
+    - Spanish
+    languagesUnderstood:
+    - Spanish
+- type: trait
+  id: LanguageTribal
   category: Speech
   points: -3
   requirements:
-    - !type 
+  - !type 
+    inverted: true
+    departments:
+    - Tribe
+  - !type 
+    jobs:
+    - NCRFieldRanger
+    - NCRVeteranRanger
+    - FollowerHead
+    - FollowerDoctor
+    - FollowerVolunteer
+  functions:
+  - !type 
+    languagesSpoken:
+    - Tribal
+    languagesUnderstood:
+    - Tribal
+- type: trait
+  id: N14SignLanguage
+  category: Speech
+  points: -2
+  functions:
+  - !type 
+    languagesSpoken:
+    - Sign
+    languagesUnderstood:
+    - Sign
+- type: trait
+  id: N14BrotherBeep
+  category: Speech
+  points: -2
+  requirements:
+  - !type 
+    departments:
+    - BrotherhoodOfSteel
+  functions:
+  - !type 
+    languagesSpoken:
+    languagesUnderstood:
+    - N14BrotherBeep
+- type: trait
+  id: N14Muted
+  category: Speech
+  points: 2 # Forge-Change
+  requirements:
+  - !type 
       inverted: true
       departments:
-        - CaesarLegion
+        - BrotherhoodOfSteel
+  - !type 
+    inverted: true
+    jobs:
+    - WastelandReporter
+    - TribalElder
+    - TownMayor
+    - TownSheriff
+    - NCRCaptain
+    - NCRLT
+    - NCRVeteranRanger
+    - NCRFieldRanger
+    - NCRPatrolRanger
+    - NCRDoctor
+    - NCRFirstSergeant
+    - NCRStaffSergeant
+    - NCRSGT
+    - BoSMidPaladinCommander
+    - BoSMidPaladin
+    - NCRMPinvestigator
+    - NCRWS
+    - NCRPrivateFirstClass
+    - NCRSoldier
+    - NCRCadet
+    - BoSMidScribe
+    - BoSMidKnight
+    - BoSMidSquire
+    - CaesarLegionCenturion
+    - CaesarLegionLegate
+    - CaesarLegionVeteranDecanus
+    - CaesarLegionFrumentarii
+    - CaesarLegionPrimeDecanus
+    - CaesarLegionVexillarius
+    - CaesarLegionExplorer
+    - CaesarLegionOrator
+    - CaesarLegionDean
+    - CaesarLegionLegionnaireVeteran
+    - CaesarLegionLegionnaireWarrior
+    - CaesarLegionLegionnaireRecruit
+    - CaesarLegionHoundmaster
+    - CaesarLegionAuxilia
+    - Overseer
+    - VaultSecurity
+  - !type 
+    inverted: true
+    traits:
+    - N14Singer
   functions:
-    - !type 
-      languagesSpoken:
-        - Latin
-      languagesUnderstood:
-        - Latin
+  - !type 
+    components:
+    - type: Muted
 - type: trait
-  id: LanguageNerd # NerdCat
+  id: N14Stutter
   category: Speech
-  points: -6
+  requirements:
+  - !type 
+    inverted: true
+    traits:
+    - N14FrontalLisp
+    - N14ScottishAccent
+    - N14Liar
   functions:
-    - !type 
-      languagesSpoken:
-        - Spanish
-        - Tribal
-        - Latin
-      languagesUnderstood:
-        - Spanish
-        - Tribal
-        - Latin
+  - !type 
+    components:
+    - type: StutteringAccent
+      matchRandomProb: 0.1
+      fourRandomProb: 0
+      threeRandomProb: 0
+      cutRandomProb: 0
+- type: trait
+  id: N14FrontalLisp
+  category: Speech
+  requirements:
+  - !type 
+    inverted: true
+    traits:
+    - N14Stutter
+    - N14ScottishAccent
+    - N14Liar
+  functions:
+  - !type 
+    components:
+    - type: FrontalLisp
+- type: trait
+  id: N14ScottishAccent
+  category: Speech
+  points: -1
+  requirements:
+  - !type 
+    inverted: true
+    traits:
+    - N14Stutter
+    - N14FrontalLisp
+    - N14Liar
+  functions:
+  - !type 
+    components:
+    - type: ScottishAccent
