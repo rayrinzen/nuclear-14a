@@ -1,77 +1,120 @@
 - type: entity
-  id: BulletMagnumEnsnaring
-  name: bullet (.45 magnum ensnaring)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  abstract: true
+  parent: BaseMagazineBox
+  id: BaseMagazineBoxMagnum
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      layers:
-        - state: rubber
-    - type: Projectile
-      deleteOnCollide: false
-      damage:
-        types:
-          Piercing: 15 #Low damage, but ensnaring
-    - type: Ensnaring
-      canThrowTrigger: true
-      destroyOnRemove: true
-      breakoutTime: 2
-      freeTime: 2
-      sprintSpeed: 0.7
-      walkSpeed: 0.7
-      staminaDamage: 10
-
-# How did this make it in? It's entirely broken
-# - type: entity
-#   id: BulletMagnumEMP
-#   name: bullet (.45 magnum EMP)
-#   parent: BaseBulletTrigger
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: Sprite
-#     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-#     layers:
-#     - state: rubber
-#       color: "#009eff"
-#   - type: EmpOnTrigger
-#     range: 0.2
-#     energyConsumption: 80
-#     disableDuration: 1
-#   - type: Ammo
-#     muzzleFlash: null
-#   - type: PointLight
-#     radius: 1.5
-#     color: blue
-#     energy: 0.5
-#   - type: Projectile
-#     damage:
-#       types:
-#         Piercing: 10
-#         Ion: 20
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    proto: CartridgeMagnum
+    capacity: 12
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+- # Boxes
+type: entity
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnum
+  name: ammunition box (.45 magnum)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnum
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
 - type: entity
-  id: BulletMagnumFlash
-  name: bullet (.45 magnum flash)
-  parent: BaseBulletTrigger
-  categories: [ HideSpawnMenu ]
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnumPractice
+  name: ammunition box (.45 magnum practice)
   components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-      layers:
-        - state: rubber
-          color: "#fff94d"
-    - type: FlashOnTrigger
-      range: 5
-      duration: 4
-    - type: SpawnOnTrigger
-      proto: GrenadeFlashEffect
-    - type: Ammo
-      muzzleFlash: null
-    - type: PointLight
-      radius: 1.5
-      color: yellow
-      energy: 1
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 18
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: practice
+- type: entity
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnumRubber
+  name: ammunition box (.45 magnum rubber)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumRubber
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: rubber
+- type: entity
+  id: MagazineBoxMagnumIncendiary
+  parent: BaseMagazineBoxMagnum
+  name: ammunition box (.45 magnum incendiary)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: incendiary
+- type: entity
+  id: MagazineBoxMagnumUranium
+  parent: BaseMagazineBoxMagnum
+  name: ammunition box (.45 magnum uranium)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: uranium
+- type: entity
+  id: MagazineBoxMagnumAP
+  parent: BaseMagazineBoxMagnum
+  name: ammunition box (.45 magnum armor-piercing)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumAP
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+    - state: piercing
