@@ -1,79 +1,21 @@
-- # When adding new drinks also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\drinks_bottles.yml
+- # Base 50 units
 type: entity
-  parent: DrinkBase
-  id: DrinkBottlePlasticBaseFull
+  parent: DrinkBottleGlassBaseFull
+  id: DrinkBottleBaseFull50
   abstract: true
-  suffix: Full
   components:
-  - type: Tag
-    tags:
-    - DrinkBottle
-  - type: Openable
-    sound:
-      collection: bottleOpenSounds
-    closeable: true
-    closeSound:
-      collection: bottleCloseSounds
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 100
-  - type: Sprite
-    state: icon
-    sprite: Objects/Consumable/Drinks/generic_jug.rsi # fallback to generic plastic jug
-  - type: Item
-    size: Normal
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 5 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak - !type:SpillBehavior { } - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: TrashOnSolutionEmpty
-    solution: drink
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-  - type: PressurizedSolution
-    solution: drink
-  - type: Shakeable
+        maxVol: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkBottleGlassBaseFull
+  parent: DrinkBottleBaseFull50
+  id: DrinkBottleBaseEmpty50
   abstract: true
-  components:
-  - type: Sprite
-    state: icon
-  - type: MeleeWeapon
-    bluntStaminaDamageFactor: 2.0
-    damage:
-      types:
-        Blunt: 7.5
-    heavyRangeModifier: 1.5
-    heavyStaminaCost: 5
-    maxTargets: 1
-    angle: 25
-  - type: DamageOnLand
-    damage:
-      types:
-        Blunt: 5
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 5
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 5 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak - !type:SpillBehavior { } - !type:SpawnEntitiesBehavior spawn: BrokenBottle: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: Tool
-    qualities:
-    - Rolling
-    speedModifier: 0.75 # not as good as a rolling pin but does the job
-  - type: PhysicalComposition
-    materialComposition:
-      Glass: 100
-- type: entity
-  id: DrinkBottleVisualsOpenable
+  suffix: empty
+- # Allows for caps and fill levels
+type: entity
+  id: DrinkGlassVisualsOpenable
   abstract: true
   components:
   - type: Appearance
@@ -90,880 +32,484 @@ type: entity
       - state: icon
         map:
         - "enum.OpenableVisuals.Layer"
-- type: entity
-  id: DrinkBottleVisualsAll
-  abstract: true
+- # Milk
+# Empty Bottle
+type: entity
+  parent: DrinkBottleBaseEmpty50
+  id: N14DrinkBottleMilkEmpty
+  name: milk bottle
+  description: Looks good at holding milky substances.
   components:
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.OpenableVisuals.Opened:
-        enum.OpenableVisuals.Layer:
-          True:
-          state: "icon_open"
-          False:
-          state: "icon_empty"
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/alco-bottle.rsi
-    layers:
-      - state: icon
-        map:
-        - "enum.OpenableVisuals.Layer"
-      - state: fill-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: fill-
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkAbsintheBottleFull
-  name: Jailbreaker Verte
-  description: One sip of this and you just know you're gonna have a good time.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Absinthe
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/absinthebottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkBlueCuracaoBottleFull
-  name: Miss Blue Curacao
-  description: A fruity, exceptionally azure drink. Does not allow the imbiber to use the fifth magic.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: BlueCuracao
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/alco-bottle.rsi
-    layers:
-      - state: icon_blue
-        map:
-        - "enum.OpenableVisuals.Layer"
-      - state: fill-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: fill-
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottleGlassBaseFull
-  id: DrinkBottleOfNothingFull
-  name: bottle of nothing
-  description: A bottle filled with nothing.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Nothing
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/bottleofnothing.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottleGlassBaseFull
-  id: DrinkChampagneBottleFull
-  name: champagne bottle
-  description: Only people devoid of imagination can't find an excuse for champagne.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Champagne
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/champagnebottle.rsi
-  - type: Openable
-    closeable: false # Champagne corks are fat. Not worth the effort.
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkCognacBottleFull
-  name: cognac bottle
-  description: A sweet and strongly alchoholic drink, made after numerous distillations and years of maturing. You might as well not scream 'SHITCURITY' this time.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Cognac
-          Quantity: 100
-  - type: Label
-    currentLabel: cognac
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/cognacbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottlePlasticBaseFull
-  id: DrinkColaBottleFull
-  name: space cola bottle
-  description: Cola. In space.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Cola
-          Quantity: 100
-  - type: Label
-    currentLabel: cola
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/colabottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkGrenadineBottleFull
-  name: briar rose grenadine syrup bottle
-  description: Sweet and tangy, a bar syrup used to add color or flavor to drinks.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Grenadine
-          Quantity: 100
-  -   # intended use is to spike drinks so starts open
-type: Openable
-    opened: true
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/grenadinebottle.rsi
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkGinBottleFull
-  name: Griffeater gin
-  description: A bottle of high quality gin, produced in the New London Space Station.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Gin
-          Quantity: 100
-  - type: Label
-    currentLabel: gin
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/ginbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkGildlagerBottleFull
-  name: gildlager bottle
-  description: 100 proof cinnamon schnapps, made for alcoholic teen girls on spring break.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Gildlager
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/gildlagerbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottleGlassBaseFull
-  id: DrinkCoffeeLiqueurBottleFull
-  name: coffee liqueur bottle
-  description: The great taste of coffee with none of the benifits.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: CoffeeLiqueur
-          Quantity: 100
-  - type: Label
-    currentLabel: coffee liqueur
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/coffeeliqueurbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkMelonLiquorBottleFull
-  name: emeraldine melon liquor
-  description: A bottle of 46 proof Emeraldine Melon Liquor. Sweet and light.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: MelonLiquor
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/alco-bottle.rsi
-    layers:
-      - state: icon_green
-        map:
-        - "enum.OpenableVisuals.Layer"
-      - state: fill-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: SolutionContainerVisuals
-    maxFillLevels: 6
-    fillBaseName: fill-
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkPatronBottleFull
-  name: wrapp artiste patron bottle
-  description: Silver laced tequilla, served in space night clubs across the galaxy.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Patron
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/patronbottle.rsi
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottleGlassBaseFull
-  id: DrinkPoisonWinebottleFull
-  name: warlock's velvet bottle
-  description: What a delightful packaging for a surely high quality wine! The vintage must be amazing!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: PoisonWine
-          Quantity: 100
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/pwinebottle.rsi
-  - type: Sealable
-  - type: Tag
-    tags:
-    - Wine
-    - DrinkBottle
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkRumBottleFull
-  name: captain pete's Cuban spiced rum
-  description: This isn't just rum, oh no. It's practically GRIFF in a bottle.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Rum
-          Quantity: 100
-  - type: Label
-    currentLabel: rum
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/rumbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottlePlasticBaseFull
-  id: DrinkSpaceMountainWindBottleFull
-  name: space mountain wind bottle
-  description: Blows right through you like a space wind.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: SpaceMountainWind
-          Quantity: 100
-  - type: Drink
-  - type: Label
-    currentLabel: space mountain wind
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/space_mountain_wind_bottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottlePlasticBaseFull
-  id: DrinkSpaceUpBottleFull
-  name: space-up bottle
-  description: Tastes like a hull breach in your mouth.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: SpaceUp
-          Quantity: 100
-  - type: Drink
-  - type: Label
-    currentLabel: space-up
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/space-up_bottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkTequilaBottleFull
-  name: caccavo guaranteed quality tequila bottle
-  description: Made from premium petroleum distillates, pure thalidomide and other fine quality ingredients!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Tequila
-          Quantity: 100
-  - type: Label
-    currentLabel: tequila
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/tequillabottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkVermouthBottleFull
-  name: goldeneye vermouth bottle
-  description: Sweet, sweet dryness!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Vermouth
-          Quantity: 100
-  - type: Label
-    currentLabel: vermouth
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/vermouthbottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkVodkaBottleFull
-  name: vodka bottle
-  description: Aah, vodka. Prime choice of drink AND fuel by Russians worldwide.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Vodka
-          Quantity: 100
-  - type: Label
-    currentLabel: vodka
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/vodkabottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkWhiskeyBottleFull
-  name: uncle git's special reserve
-  description: A premium single-malt whiskey, gently matured inside the tunnels of a nuclear shelter. TUNNEL WHISKEY RULES.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Whiskey
-          Quantity: 100
-  - type: Label
-    currentLabel: whiskey
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/whiskeybottle.rsi
-  - type: Sealable
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottleGlassBaseFull
-  id: DrinkWineBottleFull
-  name: doublebearded bearded special wine bottle
-  description: A faint aura of unease and asspainery surrounds the bottle.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Wine
-          Quantity: 100
-  - type: Label
-    currentLabel: wine
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/winebottle.rsi
-  - type: Sealable
-  - type: Tag
-    tags:
-    - Wine
-    - DrinkBottle
-- # Small Bottles
+    sprite: _Nuclear14/Objects/Consumable/Drinks/milk.rsi
+- # Basic Milk Bottle
 type: entity
   parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkBeerBottleFull
-  name: beer # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
-  description: An alcoholic beverage made from malted grains, hops, yeast, and water.
+  - DrinkGlassVisualsOpenable
+  - DrinkBottleBaseFull50
+  id: N14DrinkMilkBrahmin
+  name: brahmin milk
+  description: A glass bottle of brahmin milk.
   components:
-  - type: Item
-    size: Small
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 50
         reagents:
-        - ReagentId: Beer
+        - ReagentId: N14MilkBrahmin
           Quantity: 50
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/beer.rsi
-  - type: Openable
-    closeable: false
-  - type: Tag
-    tags:
-    - Beer
-    - DrinkBottle
+    sprite: _Nuclear14/Objects/Consumable/Drinks/milk.rsi
+    layers:
+      - state: icon
+        map:
+        - "enum.OpenableVisuals.Layer"
+      - state: fill1
+        map:
+        - "enum.SolutionContainerLayers.Fill"
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill
 - type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottleGlassBaseFull
-  id: DrinkBeerGrowler # Needs to be renamed DrinkBeerBottleFull
-  name: Beer Growler # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
-  description: An alcoholic beverage made from malted grains, hops, yeast, and water. XL growler bottle.
+  parent: N14DrinkMilkBrahmin
+  id: N14DrinkMilkBighorner
+  name: bighorner milk
+  description: A glass bottle of bighorner milk.
   components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: Beer
-          Quantity: 150
-  - type: Label
-    currentLabel: beer
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/beer.rsi
-  - type: Openable
-    closeable: false
-  - type: Tag
-    tags:
-    - Beer
-    - DrinkBottle
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottlePlasticBaseFull
-  id: DrinkAleBottleFull
-  name: Magm-Ale
-  description: A true dorf's drink of choice.
-  components:
-  - type: Item
-    size: Small
   - type: SolutionContainerManager
     solutions:
       drink:
         maxVol: 50
         reagents:
-        - ReagentId: Ale
+        - ReagentId: N14MilkBighorner
           Quantity: 50
+- type: entity
+  parent: N14DrinkMilkBrahmin
+  id: N14DrinkMilkRadstag
+  name: radstag milk
+  description: A glass bottle of radstag milk.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: N14MilkRadstag
+          Quantity: 50
+- # Cream
+# Empty Cream Bottle
+type: entity
+  parent: DrinkBottleBaseEmpty50
+  id: N14DrinkCreamGlassEmpty
+  name: cream glass
+  description: Aw look, theres a little cow on the front.
+  components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/alebottle.rsi
-  - type: Openable
-    closeable: false
-- type: entity
-  parent:
-  - DrinkBottleVisualsAll
-  - DrinkBottlePlasticBaseFull
-  id: DrinkAleBottleFullGrowler
-  name: Magm-Ale Growler
-  description: A true dorf's drink of choice. XL growler bottle.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: Ale
-          Quantity: 150
-  - type: Label
-    currentLabel: ale
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/alebottle.rsi
-  - type: Openable
-    closeable: false
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottlePlasticBaseFull
-  id: DrinkWaterBottleFull
-  name: water bottle
-  description: Simple clean water of unknown origin. You think that maybe you dont want to know it.
-  components:
-  - type: Item
-    size: Small
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: Water
-          Quantity: 30
-  - type: Drink
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi
-    layers:
-      - state: icon
-        map:
-        - "enum.OpenableVisuals.Layer"
-      - state: icon-1
-        map:
-        - "enum.SolutionContainerLayers.Fill"
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 5
-    fillBaseName: icon-
-    inHandsMaxFillLevels: 2
-    inHandsFillBaseName: '-fill-'
-  - type: Sealable
-- type: entity
-  parent: DrinkWaterBottleFull
-  id: DrinkSodaWaterBottleFull
-  name: soda water bottle
-  description: Like water, but angry!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: SodaWater
-          Quantity: 150
-  - type: Label
-    currentLabel: soda water
-- type: entity
-  parent: DrinkWaterBottleFull
-  id: DrinkTonicWaterBottleFull
-  name: tonic water bottle
-  description: Like soda water, but angrier maybe? Often sweeter.
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: TonicWater
-          Quantity: 150
-  - type: Label
-    currentLabel: tonic water
-- # Cartons, TODO: this needs to be moved elsewhere eventually, since cartons shouldnt smash into glass shards
+    sprite: _Nuclear14/Objects/Consumable/Drinks/cream.rsi
+- # Filled Cream Bottle
 type: entity
   parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottlePlasticBaseFull
-  id: DrinkJuiceLimeCartonXL
-  name: lime juice XL
-  description: Sweet-sour goodness.
+  - DrinkGlassVisualsOpenable
+  - DrinkBottleBaseFull50
+  id: N14DrinkCreamGlass
+  name: cream
+  description: Aw look, theres a little cow on the front. Seems to be filled with heavy cream.
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: JuiceLime
-          Quantity: 150
-  - type: Drink
-  - type: Label
-    currentLabel: lime juice
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/limejuice.rsi
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottlePlasticBaseFull
-  id: DrinkJuiceOrangeCartonXL
-  name: orange juice XL
-  description: Full of vitamins and deliciousness!
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
-        reagents:
-        - ReagentId: JuiceOrange
-          Quantity: 150
-  - type: Drink
-  - type: Label
-    currentLabel: orange juice
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/orangejuice.rsi
-- type: entity
-  parent:
-  - DrinkBottleVisualsOpenable
-  - DrinkBottlePlasticBaseFull
-  id: DrinkCreamCartonXL
-  name: Milk Cream XL
-  description: It's cream. Made from milk. What else did you think you'd find in there?
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 150
+        maxVol: 50
         reagents:
         - ReagentId: Cream
-          Quantity: 150
-  - type: Drink
-  - type: Label
-    currentLabel: cream
+          Quantity: 50
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/cream.rsi
-- #boring jugs some more sprites are made
+    sprite: _Nuclear14/Objects/Consumable/Drinks/cream.rsi
+    layers:
+      - state: icon
+        map:
+        - "enum.OpenableVisuals.Layer"
+      - state: fill1
+        map:
+        - "enum.SolutionContainerLayers.Fill"
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill
+- # Soda
 type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkSugarJug
-  name: sugar jug
-  suffix: For Drinks, Full
-  description: some people put this in their coffee...
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkNukaColaBottleFull
+  name: Nuka-Cola bottle
+  description: A refreshing beverage that has a extremely sugary taste. Reminds you of vanilla and cinnamon.
   components:
+  - type: Openable # Forge-Change
+    closeable: false
+  - type: SpawnWhenOpened # Forge-Add
+    prototypes:
+    - id: N14CurrencyCap
+      amount: 1
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: Sugar
-          Quantity: 300
-  - type: Drink
+        - ReagentId: NukaCola
+          Quantity: 50
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola.rsi
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkLemonLimeJug
-  name: lemon lime jug
-  description: a dual citrus sensation.
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkIrradiatedNukaColaBottleFull
+  name: irradiated Nuka-Cola bottle
+  description: An unrefreshing beverage that has a extremely sugary taste. The aftertaste is bitter and burnt.
   components:
+  - type: Openable # Forge-Change
+    closeable: false
+  - type: SpawnWhenOpened # Forge-Add
+    prototypes:
+    - id: N14CurrencyCap
+      amount: 1
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: LemonLime
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: lemon-lime
-- type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkMeadJug
-  name: mead jug
-  description: storing mead in a plastic jug should be a crime.
+        - ReagentId: IrradiatedNukaCola
+          Quantity: 50
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola.rsi
+- # New Soda
+type: entity
+  parent: DrinkBottleBaseEmpty50
+  id: N14DrinkNukaColaEmpty
+  name: Nuka-Cola bottle
+  description: The leading cola since 2044.
   components:
+  - type: Tag
+    tags:
+    - N14EmptyNukaBottle
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: empty
+  - type: Openable # Forge-Change
+    closeable: false
+  - type: SpawnWhenOpened # Forge-Add
+    prototypes:
+    - id: N14CurrencyCap
+      amount: 1
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 5 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak - !type:SpillBehavior { } - !type:SpawnEntitiesBehavior spawn: N14DrinkNukaColaBroken: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Item
+    size: Small
+- type: entity
+  parent: BrokenBottle
+  id: N14DrinkNukaColaBroken
+  name: broken Nuka-Cola bottle
+  description: The leading cola since 2044.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: broken
+- type: entity
+  parent: N14DrinkNukaColaEmpty
+  id: N14DrinkNukaCola
+  name: Nuka-Cola
+  description: The leading cola since 2044.
+  suffix: full
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: cola
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 150
+        maxVol: 50
         reagents:
-        - ReagentId: Mead
-          Quantity: 150
-  - type: Drink
-  - type: Label
-    currentLabel: mead
+        - ReagentId: NukaCola
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkIceJug
-  name: ice jug
-  description: stubborn water. pretty cool.
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaCherry
+  name: Nuka-Cola Cherry
+  description: Classic Nuka-Cola taste, but with a twist! You can taste cherries and syrup! It tingles the tongue.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: cherry
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: Ice
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: ice
+        - ReagentId: NukaColaCherry
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkCoconutWaterJug
-  name: coconut water jug
-  description: It's on the inside of the coconut that counts.
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaGrape
+  name: Nuka-Cola Grape
+  description: Classic Nuka-Cola taste, but with a twist! You can taste grapes and syrup! It tingles the tongue.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: grape
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: CoconutWater
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: coconut water
+        - ReagentId: NukaColaGrape
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkCoffeeJug
-  name: coffee jug
-  description: wake up juice, of the heated kind.
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaOrange
+  name: Nuka-Cola Orange
+  description: Classic Nuka-Cola taste, but with a twist! You can taste oranges and syrup! It tingles the tongue.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: orange
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: Coffee
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: coffee
+        - ReagentId: NukaColaOrange
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkTeaJug
-  name: tea jug
-  description: the drink of choice for the Bri'ish and hipsters.
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaYellow
+  name: Nuka-Cola Yellow
+  description: A rare flavor of Nuka-Cola from crazy naked Roshambo. You're unsure of what this tastes or smells like and you feel like you shouldn't be drinking this.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: piss
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: Tea
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: tea
+        - ReagentId: NukaColaYellow
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkGreenTeaJug
-  name: green tea jug
-  description: its like tea... but green! great for settling the stomach.
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaQuantum
+  name: Nuka-Cola Quantum
+  description: An explosion of sweetness and fruit! You can taste various berry flavours.. And a lot of sugar!
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: quantum
+    shader: unshaded
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: GreenTea
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: green tea
+        - ReagentId: NukaColaQuantum
+          Quantity: 50
+  - type: PointLight
+    color: "#8DB6FF"
+    radius: 1.5
+    energy: 0.2
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkIcedTeaJug
-  name: iced tea jug
-  description: for when the regular tea is too hot for you boohoo
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaQuartz
+  name: Nuka-Cola Quartz
+  description: Minty, fresh, extra fizzy.. This soda is a blast to the mouth of freshness.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: quartz
+    shader: unshaded
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: IcedTea
-          Quantity: 300
-  - type: Drink
+        - ReagentId: NukaColaQuartz
+          Quantity: 50
+  - type: PointLight
+    color: "#B2FFFF"
+    radius: 1.5
+    energy: 0.2
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkDrGibbJug
-  name: dr gibb. jug
-  description: yeah I don't know either...
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaVictory
+  name: Nuka-Cola Victory
+  description: A mixture of vanilla, cinnamon, dash of cream, and a bit of spice.. It tingles the tongue.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: victory
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: DrGibb
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: dr gibb
+        - ReagentId: NukaColaVictory
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkRootBeerJug
-  name: root beer jug
-  description: this drink makes Australians giggle
+  parent: N14DrinkNukaCola
+  id: N14DrinkNukaColaWild
+  name: Nuka-Cola Wild
+  description: Creamy, heavy, spicy, good ol' fashioned root beer-like taste.. It tingles the tongue.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/nuka_cola_new.rsi
+    state: wild
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: RootBeer
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: root beer
-- type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkWaterMelonJuiceJug
-  name: watermelon juice jug
-  description: May include leftover seeds
+        - ReagentId: NukaColaWild
+          Quantity: 50
+- # Vim
+type: entity
+  parent: N14DrinkNukaCola
+  id: N14DrinkVim
+  name: Vim!
+  description: Pure Maine spring water, extracts, and syrups. Tastes medicinal.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/vim.rsi
+    state: vim
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 300
+        maxVol: 50
         reagents:
-        - ReagentId: JuiceWatermelon
-          Quantity: 300
-  - type: Drink
-  - type: Label
-    currentLabel: watermelon juice
+        - ReagentId: Vim
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: DrinkEnergyDrinkJug
-  name: red bool jug
-  description: A jug of Red Bool, with enough caffine to kill a whole station.
+  parent: N14DrinkVim
+  id: N14DrinkVimCaptainsBlend
+  name: Vim! Captain's Blend
+  description: A taste of Maine in a bottle. Fishy.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/vim.rsi
+    state: captainsblend
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 100
+        maxVol: 50
         reagents:
-        - ReagentId: EnergyDrink
-          Quantity: 100
-  - type: Drink
-  - type: Label
-    currentLabel: red bool
+        - ReagentId: VimCaptainsblend
+          Quantity: 50
 - type: entity
-  parent: DrinkBottlePlasticBaseFull
-  id: CustomDrinkJug
-  name: beverage jug
-  description: A jug for storing custom made drinks.
+  parent: N14DrinkVim
+  id: N14DrinkVimRefresh
+  name: Vim! Refresh
+  description: Apple and lime flavor with oddly no rads.
   components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/vim.rsi
+    state: refresh
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 150
-  - type: Drink
+        maxVol: 50
+        reagents:
+        - ReagentId: VimRefresh
+          Quantity: 50
+- type: entity
+  parent: N14DrinkVim
+  id: N14DrinkVimQuartz
+  name: Vim! Quartz
+  description: Bubblegum flavored Vim! with extra oomph.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/vim.rsi
+    state: quartz
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: VimQuartz
+          Quantity: 50
+- # Alcohol
+#N14Absinthe
+#N14Ale
+#N14AlcoholZ
+#N14BeantownBrownBeer
+#N14Bourbon
+type: entity
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkGammagulpBeer
+  name: Gamma Gulp Beer
+  description: One of Gecko's biggest exports. A mild, radioactive alcohol.
+  components:
+  - type: Item
+    size: Small # #Misfits Change: match DrinkAleBottleFull size so 12 fit in N14CrateBreakPlain
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/alcohol.rsi
+    state: gammagulp
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: N14GammaGulpBeer
+          Quantity: 50
+- #N14GwinnetStout
+#N14Lager
+#N14Moonshine
+#N14Pilsner
+type: entity
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkRoentgenRum
+  name: Roentgen Rum
+  description: One of Gecko's biggest exports. A strong, tingly alcohol.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/alcohol.rsi
+    state: roentgen
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: N14RoentgenRum
+          Quantity: 50
+- #N14RotGut
+#N14RumNuka
+#N14Scotch
+#N14Vodka
+type: entity
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkWhisky
+  name: whiskey
+  description: A bottle of standard looking whiskey
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/alcohol.rsi
+    state: whisky
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: Whiskey
+          Quantity: 50
+- #N14WhiskeyRare
+type: entity
+  parent: DrinkBottleBaseFull50
+  id: N14DrinkWine
+  name: wine
+  description: Nappa Valley Wine.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Drinks/alcohol.rsi
+    state: nappavalleywine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+        reagents:
+        - ReagentId: N14Wine
+          Quantity: 50
