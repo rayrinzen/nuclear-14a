@@ -1,17 +1,8 @@
 - type: Tag
-  id: MothroachHide
+  id: ComputerDisk
 
 - type: Tag
-  id: MagazineUniversalMagnum
+  id: ComputerBoard
 
 - type: Tag
-  id: CoreSilver
-
-- type: Tag
-  id: BluespaceCrystal
-
-- type: Tag
-  id: NormalityCrystal
-
-- type: Tag
-  id: PlushieCarp
+  id: ModularComputerEntity
