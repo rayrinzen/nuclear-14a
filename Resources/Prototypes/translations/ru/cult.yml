@@ -1,49 +1,58 @@
 - type: entity
-  name: unholy halberd
-  parent: BaseItem
-  id: UnholyHalberd
-  description: A poleaxe that seems to be linked to its wielder.
+  id: CultTileSpawnEffect
+  name: cult tile effect
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Tag
-      tags:
-        - FireAxe
-    - type: Sharp
+    - type: TimedDespawn
+      lifetime: 0.5
+    - type: Transform
+      noRot: true
+      anchored: true
     - type: Sprite
-      sprite: Objects/Weapons/Melee/cult_halberd.rsi
-      state: icon
-    - type: MeleeWeapon
-      wideAnimationRotation: -135
-      attackRate: 1.17
-      range: 1.75
-      damage:
-        types:
-          Blunt: 2
-          Slash: 13
-          Structural: 5
-      heavyRateModifier: 0.9
-      heavyDamageBaseModifier: 1.2
-      heavyStaminaCost: 7.5
-      angle: 100
-      soundHit:
-        collection: MetalThud
-    - type: DamageOtherOnHit
-      staminaCost: 9
-    - type: EmbeddableProjectile
-    - type: ThrowingAngle
-      angle: 225
-    - type: Wieldable
-    - type: IncreaseDamageOnWield
-      damage:
-        types:
-          Blunt: 2
-          Slash: 3
-          Structural: 10
-    - type: Item
-      size: Ginormous
-    - type: Clothing
-      sprite: Objects/Weapons/Melee/cult_halberd.rsi
-      quickEquip: false
-      slots:
-        - back
-    - type: UseDelay
-      delay: 1
+      layers:
+        - sprite: WhiteDream/BloodCult/Effects/tiles_spawn.rsi
+          state: floorglow
+          shader: unshaded
+      netsync: false
+      drawdepth: FloorObjects
+    - type: PointLight
+      color: "#FF0000"
+
+- type: entity
+  id: CultTeleportInEffect
+  name: Teleport in
+  components:
+    - type: TimedDespawn
+      lifetime: 0.8
+    - type: Transform
+      noRot: true
+      anchored: true
+    - type: Sprite
+      layers:
+        - sprite: WhiteDream/BloodCult/Effects/cult_in_out.rsi
+          state: cult_in
+          shader: unshaded
+      netsync: false
+      drawdepth: Effects
+    - type: PointLight
+      color: "#FF0000"
+
+- type: entity
+  id: CultTeleportOutEffect
+  name: Teleport out
+  components:
+    - type: TimedDespawn
+      lifetime: 0.8
+    - type: Transform
+      noRot: true
+      anchored: true
+    - type: Sprite
+      layers:
+        - sprite: WhiteDream/BloodCult/Effects/cult_in_out.rsi
+          state: cult_out
+          shader: unshaded
+      netsync: false
+      drawdepth: Effects
+    - type: PointLight
+      color: "#FF0000"
