@@ -1,19 +1,6 @@
-- type: entity
-  id: PlayerBorgMedical
-  parent: BorgChassisMedical
-  suffix: Diagnosis, Treatment
-  components:
-    - type: ContainerFill
-      containers:
-        borg_brain:
-          - PositronicBrain
-        borg_module:
-          - BorgModuleDiagnosis
-          - BorgModuleTreatment
-    - type: ItemSlots
-      slots:
-        cell_slot:
-          name: power-cell-slot-component-slot-name-default
-          startingItem: PowerCellMedium
-    - type: RandomMetadata
-      nameSegments: [ names_borg ]
+- type: antag
+  id: SubvertedSilicon
+  name: roles-antag-subverted-silicon-name
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-subverted-silicon-objective
