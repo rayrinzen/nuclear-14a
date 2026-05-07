@@ -1,42 +1,44 @@
-# Alphabetically ordered, except for Uncategorized since it is always first
+# Exosuit
+- type: latheCategory
+  id: Vim
+  name: lathe-category-mechs-vim
 
-- type: traitCategory
-  id: Uncategorized
-  root: true
+- type: latheCategory
+  id: Honker
+  name: lathe-category-mechs-honker
 
-- type: traitCategory
-  id: Auditory
-  root: true
+- type: latheCategory
+  id: Hamptr
+  name: lathe-category-mechs-hamptr
 
-- type: traitCategory
-  id: Mental
-  root: true
+- type: latheCategory
+  id: Ripley
+  name: lathe-category-mechs-ripley
 
-- type: traitCategory
-  id: Physical
-  root: true
+- type: latheCategory
+  id: RipleyMKII
+  name: lathe-category-mechs-ripleymkii
 
-- type: traitCategory
-  id: Speech
-  root: true
-  # subCategories:
-  # - TraitsSpeechUncategorized
-  # - TraitsSpeechAccents
-  # - TraitsSpeechLanguages
+- type: latheCategory
+  id: Clarke
+  name: lathe-category-mechs-clarke
 
-- type: traitCategory
-  id: TraitsSpeechUncategorized
+- type: latheCategory
+  id: Gygax
+  name: lathe-category-mechs-gygax
 
-- type: traitCategory
-  id: TraitsSpeechAccents
+- type: latheCategory
+  id: Durand
+  name: lathe-category-mechs-durand
 
-- type: traitCategory
-  id: TraitsSpeechLanguages
+- type: latheCategory
+  id: MechEquipment
+  name: lathe-category-mechs-equipment
 
-- type: traitCategory
-  id: Visual
-  root: true
+- type: latheCategory
+  id: MechWeapons
+  name: lathe-category-mechs-weapons
 
-- type: traitCategory
-  id: Language
-  root: true
+- type: latheCategory
+  id: Modsuit
+  name: lathe-category-modsuit
