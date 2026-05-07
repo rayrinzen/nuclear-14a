@@ -1,61 +1,96 @@
-- type: entity
-  name: Empty Crate Spawner
-  id: CrateEmptySpawner
-  parent: MarkerBase
-  components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Structures/Storage/Crates/generic.rsi
-          state: icon
-    - type: RandomSpawner
-      prototypes:
-        - CrateGenericSteel
-        - CratePlastic
-        - CrateFreezer
-        - CrateHydroponics
-        - CrateMedical
-        - CrateRadiation
-        - CrateInternals
-        - CrateElectrical
-        - CrateEngineering
-        - CrateScience
-        - CrateSurgery
-      chance: 0.7
+- type: construction
+  name: livestock crate
+  id: CrateLivestock
+  graph: CrateLivestock
+  startNode: start
+  targetNode: cratelivestock
+  category: construction-category-storage
+  description: A wooden crate for holding livestock.
+  icon:
+    {
+      sprite: Structures/Storage/Crates/livestock.rsi,
+      state: base
+    }
+  objectType: Structure
 
-- type: entity
-  name: Filled Crate Spawner
-  id: CrateFilledSpawner
-  suffix: Low Value
-  parent: MarkerBase
-  components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Structures/Storage/Crates/o2.rsi
-          state: icon
-    - type: RandomSpawner
-      prototypes:
-        - CrateServiceReplacementLights
-        - CrateServiceBureaucracy
-        - CrateChemistrySupplies
-        - CrateMaterialGlass
-        - CrateMaterialSteel
-        - CrateMaterialPlastic
-        - CrateMaterialWood
-        - CrateMaterialPlasteel
-        - CrateFunArtSupplies
-        - CrateEngineeringCableLV
-        - CrateEngineeringCableMV
-        - CrateEngineeringCableHV
-        - CrateEngineeringCableBulk
-        - CrateEmergencyFire
-        - CrateEmergencyInternals
-        - CrateEmergencyInflatablewall
-        - CrateHydroponicsTools
-        - CrateHydroponicsSeeds
-      chance: 0.7
-      rarePrototypes:
-        - CrateMaterialPlasma
-        - CrateHydroponicsSeedsExotic
-      rareChance: 0.1
+- type: construction
+  name: steel crate
+  id: CrateGenericSteel
+  graph: CrateGenericSteel
+  startNode: start
+  targetNode: crategenericsteel
+  category: construction-category-storage
+  description: A metal crate for storing things.
+  icon:
+    {
+      sprite: Structures/Storage/Crates/generic.rsi,
+      state: icon
+    }
+  objectType: Structure
+
+- type: construction
+  name: secure crate
+  id: CrateSecure
+  graph: CrateSecure
+  startNode: start
+  targetNode: cratesecure
+  category: construction-category-storage
+  description: A secure metal crate for storing things. Requires no special access, can be configured with an Access Configurator.
+  icon:
+    {
+      sprite: Structures/Storage/Crates/secure.rsi,
+      state: icon
+    }
+  objectType: Structure
+
+- type: construction
+  name: plastic crate
+  id: CratePlastic
+  graph: CratePlastic
+  startNode: start
+  targetNode: crateplastic
+  category: construction-category-storage
+  description: A plastic crate for storing things.
+  icon:
+    {
+      sprite: Structures/Storage/Crates/plastic.rsi,
+      state: icon
+    }
+  objectType: Structure
+
+- type: construction
+  name: cardboard box
+  id: BigBox
+  graph: BaseBigBox
+  startNode: start
+  targetNode: basebigbox
+  category: construction-category-storage
+  description: A big box for storing things or hiding in.
+  icon: { sprite: Structures/Storage/closet.rsi, state: cardboard }
+  objectType: Structure
+
+- type: construction
+  name: cardboard box
+  id: BoxCardboard
+  graph: BoxCardboard
+  startNode: start
+  targetNode: boxcardboard
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: Objects/Storage/boxes.rsi, state: box }
+  objectType: Item
+
+- type: construction
+  name: coffin
+  id: CrateCoffin
+  graph: CrateCoffin
+  startNode: start
+  targetNode: cratecoffin
+  category: construction-category-storage
+  description: A coffin for storing corpses.
+  icon:
+    {
+      sprite: Structures/Storage/Crates/coffin.rsi,
+      state: base
+    }
+  objectType: Structure
