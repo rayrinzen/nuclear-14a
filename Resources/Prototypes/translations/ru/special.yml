@@ -1,120 +1,146 @@
 - type: entity
-  abstract: true
+  id: BaseSpeedLoaderSpecial
+  name: "speed loader (.38 special)"
   parent: BaseItem
-  id: BaseMagazineBoxSpecial
+  abstract: true
   components:
+  - type: Tag
+    tags:
+      - SpeedLoaderSpecial
+  - type: SpeedLoader
   - type: BallisticAmmoProvider
-    mayTransfer: true
     whitelist:
       tags:
         - CartridgeSpecial
-    proto: CartridgeSpecial
-    capacity: 60
-  - type: Item
-    size: Small
+    capacity: 6
+  - type: Sprite
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type :Container
-  - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/Boxes/special.rsi
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-- # Boxes
-type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecial
-  name: ammunition box (.38 special)
+      ballistic-ammo: !type
+        ents: [ ]
+- type: entity
+  id: SpeedLoaderSpecial
+  name: "speed loader (.38 special)"
+  parent: BaseSpeedLoaderSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecial
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: base
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecialPractice
-  name: ammunition box (.38 special practice)
+  id: SpeedLoaderSpecialPractice
+  name: "speed loader (.38 special practice)"
+  parent: BaseSpeedLoaderSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialPractice
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-    - state: practice
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: practice-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: practice
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecialRubber
-  name: ammunition box (.38 special rubber)
+  id: SpeedLoaderSpecialRubber
+  name: "speed loader (.38 special rubber)"
+  parent: BaseSpeedLoaderSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialRubber
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-    - state: rubber
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: rubber-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: rubber
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecialIncendiary
-  name: ammunition box (.38 special incendiary)
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeSpecialIncendiary
-  - type: Sprite
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-    - state: incendiary
-- type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecialUranium
-  name: ammunition box (.38 special uranium)
+  id: SpeedLoaderSpecialUranium
+  name: "speed loader (.38 special uranium)"
+  parent: BaseSpeedLoaderSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialUranium
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-    - state: uranium
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: uranium-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: uranium
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
 - type: entity
-  parent: BaseMagazineBoxSpecial
-  id: MagazineBoxSpecialMindbreaker
-  name: ammunition box (.38 special mindbreaker)
+  id: SpeedLoaderSpecialMindbreaker
+  name: "speed loader (.38 special mindbreaker)"
+  parent: BaseSpeedLoaderSpecial
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSpecialMindbreaker
   - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-    - state: mindbreaker
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: mindbreaker-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mindbreaker
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: SpeedLoaderSpecialHoly
+  name: "speed loader (.38 special holy)"
+  parent: BaseSpeedLoaderSpecial
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeSpecialHoly
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Special/special_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: holy-6
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: holy
+    steps: 7
+    zeroVisible: false
+  - type: Appearance
