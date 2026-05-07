@@ -1,142 +1,47 @@
-# Wastelanders and Misc
+# General
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelExplorer
-  id: N14ClothingBackpackSatchelWastelanderFilled
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelTrekker
+  name: trekker satchel
+  description: A satchel used by wasteland trekkers.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Back/Satchels/trekker.rsi
 
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelChaplainFilled
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelExplorer
+  name: explorer satchel
+  description: A satchel used by wasteland explorers.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Back/Satchels/explorer.rsi
 
+# Tribal
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelMusicianFilled
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelTribal
+  name: explorer satchel
+  description: A satchel used by wasteland explorers.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
-        - id: AcousticGuitarInstrument
-        - id: SaxophoneInstrument
-
-# Caravan
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelCaravanFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Back/Satchels/explorer.rsi # placeholder
 
 # Military
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelMilitary
-  id: N14ClothingBackpackSatchelMilitaryFilled
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelMilitary
+  name: military satchel
+  description: A tough satchel used by the military.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledMilitary
-
-# NCR
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelNCR
-  id: N14ClothingBackpackSatchelNCRFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledMilitaryNCR
-
-# Townsfolk
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelExplorer
-  id: N14ClothingBackpackSatchelMayorFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Back/Satchels/military.rsi
 
 - type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelMilitary
-  id: N14ClothingBackpackSatchelDeputyFilled
+  parent: ClothingBackpackSatchel
+  id: N14ClothingBackpackSatchelNCR
+  name: NCR satchel
+  description: A tough satchel used by the NCR.
   components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
-        - id: N14CombatKnife
-        - id: MagazineBox10mm
-        - id: MagazineBox44
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelMilitary
-  id: N14ClothingBackpackSatchelSheriffFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: N14BoxPlasticFilledWastelander
-        # - id: N14CombatKnife
-        # - id: MagazineBox44
-        # - id: MagazineBox308
-
-# Tribal
-#Misfits Change /Tweak/: Keep Tribal satchel medical contents aligned with Tribal starting gear.
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelTribalFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: Torch
-        - id: Torch
-        - id: Torch
-        - id: N14CleanGauze10
-        - id: N14Ointment10
-        - id: N14HealingPowder
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelTribalHealerFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: Torch
-        - id: Torch
-        - id: Torch
-        - id: N14CleanGauze10
-        - id: N14CleanGauze10
-        - id: N14Ointment10
-        - id: N14HealingPowder
-        - id: N14HealingPowder
-        - id: N14HealingPoultice
-        - id: N14HealingPoultice
-        - id: N14Bitterdrink
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: N14ClothingBackpackSatchelTrekker
-  id: N14ClothingBackpackSatchelTribalElderFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: Torch
-        - id: Torch
-        - id: Torch
-        - id: N14CleanGauze10
-        - id: N14Ointment10
-        - id: N14HealingPowder
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Back/Satchels/satchelncr.rsi
