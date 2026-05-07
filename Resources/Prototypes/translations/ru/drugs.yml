@@ -1,19 +1,39 @@
-- type: entity
-  parent: DrinkGlassBase
-  id: DrinkMeth
-  name: meth # beer it is. coffee. beer? coff-ee? be-er? c-o... b-e
-  description: Just a whole glass of meth.
-  suffix: DEBUG
-  components:
-    - type: Tag
-      tags:
-        - Debug
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 20
-          reagents:
-            - ReagentId: Desoxyephedrine
-              Quantity: 20
-    - type: Sprite
-      sprite: Objects/Consumable/Drinks/beer.rsi
+# Drugs should be paired up in Trios of "Bonus, Penalty, Category"
+
+# Lotophagoi Oil
+- type: moodEffect
+  id: LotoTranscendence
+  moodChange: 30
+  timeout: 1020 #17 minutes
+  moodletOnEnd: LotoEnthrallment
+  category: "LotophagoiAddiction"
+
+- type: moodEffect
+  id: LotoEnthrallment
+  moodChange: -30
+  timeout: 600 #10 minutes
+  category: "LotophagoiAddiction"
+
+# Nicotine
+- type: moodEffect
+  id: NicotineBenefit
+  moodChange: 5
+  timeout: 1020 #17 minutes
+  moodletOnEnd: NicotineWithdrawal
+  category: "NicotineAddiction"
+
+- type: moodEffect
+  id: NicotineWithdrawal
+  moodChange: -7 #No timeout
+  category: "NicotineAddiction"
+
+# Non-Addictive Drugs
+- type: moodEffect
+  id: EthanolBenefit
+  moodChange: 7
+  timeout: 300 #5 minutes
+
+- type: moodEffect
+  id: SpaceDrugsBenefit
+  moodChange: 7
+  timeout: 300 #5 minutes
