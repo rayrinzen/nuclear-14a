@@ -1,15 +1,14 @@
 - type: entity
-  name: spear
+  name: throwing spear
   parent: BaseItem
-  id: Spear
-  description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
+  id: baseThrowingSpear
+  description: Definition of a classic. Keeping murder affordable since 200,000 BCE.
   components:
   - type: EmbeddableProjectile
     offset: 0.15,0.15
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
-  - type: LandAtCursor
   - type: Tag
     tags:
     - Spear
@@ -29,7 +28,7 @@
         friction: 0.2
   - type: Sharp
   - type: Sprite
-    sprite: Objects/Weapons/Melee/spear.rsi
+    sprite: _Nuclear14/Objects/Weapons/Melee/spear.rsi
     layers:
     - state: spear
     - state: spear1
@@ -38,25 +37,19 @@
       visible: false
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    range: 1.75
     damage:
       types:
-        Piercing: 7
-        Slash: 1
-    heavyRateModifier: 1.3
-    heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 5
-    maxTargets: 3
-    angle: 20
+        Piercing: 10
+        Slash: 2
+    angle: 0
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 10
-    staminaCost: 6
+        Piercing: 34
+        Slash: 7
   - type: Item
     size: Large
   - type: Clothing
@@ -64,13 +57,10 @@
     slots:
     - back
     - suitStorage
-  - type: Construction
-    graph: Spear
-    node: spear
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 2
+        maxVol: 10
   - type: MeleeChemicalInjector
     solution: melee
   - type: RefillableSolution
@@ -78,184 +68,10 @@
   - type: InjectableSolution
     solution: melee
   - type: SolutionInjectOnEmbed
-    transferAmount: 2
+    transferAmount: 5
     solution: melee
   - type: SolutionTransfer
     maxTransferAmount: 2
-  - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Piercing: 3
-        Slash: 3
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 30 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage avoids cost of spawning entities.
-    - trigger: '!type:DamageTrigger damage: 20 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak params: volume: -4 - !type:SpawnEntitiesBehavior spawn: PartRodMetal1: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: UseDelay
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: spear
-- type: entity
-  name: reinforced spear
-  parent: Spear
-  id: SpearReinforced
-  description: A spear with a reinforced glass shard as a tip.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/reinforced_spear.rsi
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 8.5
-        Slash: 1
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 12
-  - type: Construction
-    graph: SpearReinforced
-- type: entity
-  name: plasma spear
-  parent: Spear
-  id: SpearPlasma
-  description: A spear with a plasma shard as a tip.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/plasma_spear.rsi
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 9.5
-        Slash: 1.5
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 14
-  - type: Construction
-    graph: SpearPlasma
-- type: entity
-  name: uranium spear
-  parent: Spear
-  id: SpearUranium
-  description: A spear with a uranium shard as a tip.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/uranium_spear.rsi
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 8
-        Radiation: 8
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 8
-        Radiation: 8
-  - type: Construction
-    graph: SpearUranium
-- type: entity
-  name: bone spear
-  parent: Spear
-  id: SpearBone
-  description: A spear made of bones.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/bone_spear.rsi
-  - type: Construction
-    graph: SpearBone
-- type: entity
-  name: salvage harpoon
-  parent: BaseItem
-  id: SalvageHarpoon
-  description: A spear made of refined steel produced for salvage and hunting purposes. Hunters fancy it when it comes to hunting various carp species.
-  components:
-  - type: EmbeddableProjectile
-    offset: 0.15,0.15
-  - type: EmbedPassiveDamage
-  - type: ThrowingAngle
-    angle: 225
-  - type: LandAtCursor
-  - type: Tag
-    tags:
-    - Spear
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type
-          vertices:
-            - '-0.40,-0.30'
-            - '-0.30,-0.40'
-            - 0.40,0.30
-            - 0.30,0.40
-        density: 20
-        mask:
-        - ItemMask
-        restitution: 0.3
-        friction: 0.2
-  - type: Sharp
-  - type: Sprite
-    sprite: _DEN/Objects/Weapons/Melee/harpoon.rsi
-    layers:
-    - state: spear
-    - state: spear1
-      map:
-      - "enum.SolutionContainerLayers.Fill"
-      visible: false
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    range: 1.75
-    damage:
-      types:
-        Piercing: 10
-        Slash: 2
-    heavyRateModifier: 1.3
-    heavyRangeModifier: 1.25
-    heavyDamageBaseModifier: 1.0
-    heavyStaminaCost: 5
-    maxTargets: 3
-    angle: 20
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 16
-  - type: Item
-    size: Ginormous
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - back
-    - suitStorage
-  - type: SolutionContainerManager
-    solutions:
-      melee:
-        maxVol: 1
-  - type: MeleeChemicalInjector
-    solution: melee
-  - type: RefillableSolution
-    solution: melee
-  - type: InjectableSolution
-    solution: melee
-  - type: SolutionInjectOnEmbed
-    transferAmount: 1
-    solution: melee
-  - type: SolutionTransfer
-    maxTransferAmount: 1
-  - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Piercing: 3
-        Slash: 3
   - type: DamageOnLand
     damage:
       types:
@@ -265,3 +81,206 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     fillBaseName: spear
+  - type: StaticPrice
+    price: 30
+- type: entity
+  name: spear
+  parent: BaseItem
+  id: N14WastelandSpear
+  description: Definition of a classic. Keeping murder affordable since 200,000 BCE.
+  components:
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 3
+        Slash: 3
+  - type: EmbeddableProjectile
+    offset: 0.15,0.15
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  - type: Tag
+    tags:
+    - Spear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type
+          vertices:
+            - '-0.40,-0.30'
+            - '-0.30,-0.40'
+            - 0.40,0.30
+            - 0.30,0.40
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/spear.rsi
+    layers:
+    - state: spear
+    - state: spear1
+      map:
+      - "enum.SolutionContainerLayers.Fill"
+      visible: false
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 24
+        Slash: 10
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 24
+        Slash: 5
+  - type: Item
+    size: Large
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+  - type: MeleeChemicalInjector
+    solution: melee
+  - type: RefillableSolution
+    solution: melee
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: melee
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: UseDelay
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: spear
+- type: entity
+  name: NCR battle flag
+  parent: N14WastelandSpear
+  id: N14WastelandFlagSpear
+  description: A long spear with an NCR flag tied on the end, only the most loyal soldiers carry these to boost the morale.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/flagspear.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Tag
+    tags:
+    - Spear
+  - type: Sharp
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/flagspear.rsi
+    netsync: false
+    state: spear
+- type: entity
+  name: tribal spear
+  parent: N14WastelandSpear
+  id: N14WastelandTribalSpear
+  #Misfits Change /Fix:/ removed duplicate damage mapping key.
+  description: Strong and with a devastating attack, these spears are commonly made and used by tribals.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/tribalspear.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/tribalspear.rsi
+    netsync: false
+    state: spear
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 28
+        Slash: 18
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+        Slash: 22
+- type: entity
+  name: poleaxe
+  parent: N14WastelandSpear
+  id: N14WastelandPolearm
+  description: A heavy and long pole with an axe blade attached at its end, this basic weapon can be devastating.
+  components:
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Melee/polearm.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/polearm.rsi
+    netsync: false
+    state: spear
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 26
+        Slash: 38
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 20
+        Slash: 18
+  - type: StaticPrice
+    price: 30
+- type: entity
+  name: javelin
+  parent: baseThrowingSpear
+  id: N14WastelandTribalJavelin
+  description: "Technically a very short spear, but its strength doesn't come from melee combat."
+  components:
+  - type: LandAtCursor
+  - type: ThrowSpeedModifier
+    multiplier: 1.2
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Melee/javelin.rsi
+    netsync: false
+    state: spear
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type
+          vertices:
+            - '-0.48,-0.34'
+            - '-0.34,-0.48'
+            - 0.48,0.34
+            - 0.34,0.48
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 18
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 36
+        Slash: 6
+
