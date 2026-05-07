@@ -1,7 +1,6 @@
-- type: messagePack
-  id: BodaGoodbyes
-  messages:
-    - vending-machine-thanks
-    - thankyou-sovietsoda-1
-    - thankyou-sovietsoda-2
-    - thankyou-sovietsoda-3
+- type: vendingMachineInventory
+  id: BodaInventory
+  startingInventory:
+    DrinkSodaWaterCan: 10 #typically hacked product. Default product is "soda"
+  contrabandInventory:
+    DrinkColaCan: 10
