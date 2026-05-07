@@ -1,136 +1,232 @@
-# All Medical
+# All Security
 - type: characterItemGroup
-  id: LoadoutMedicalBackpacks
+  id: LoadoutSecurityBackpacks
   maxItems: 1
   items:
     - type: loadout
-      id: LoadoutBackpackMedical
+      id: LoadoutClothingBackSecurity
     - type: loadout
-      id: LoadoutBackpackVirology
+      id: LoadoutClothingBackSecuritySatchel
     - type: loadout
-      id: LoadoutBackpackGenetics
+      id: LoadoutClothingBackSecurityDuffel
+
+- type: characterItemGroup
+  id: LoadoutSecurityBelt
+  maxItems: 1
+  items:
     - type: loadout
-      id: LoadoutBackpackSatchelMedical
+      id: LoadoutSecurityBeltWebbing
     - type: loadout
-      id: LoadoutBackpackSatchelVirology
+      id: LoadoutClothingBeltSecurity
     - type: loadout
-      id: LoadoutBackpackSatchelGenetics
-    - type: loadout
-      id: LoadoutBackpackDuffelMedical
-    - type: loadout
-      id: LoadoutBackpackDuffelVirology
-    - type: loadout
-      id: LoadoutBackpackDuffelGenetics
-    - type: loadout
-      id: LoadoutBackpackMedicalDuffelSurgeryFilled
+      id: LoadoutClothingBeltHolster
 
 #- type: characterItemGroup
-#  id: LoadoutMedicalBelt
-#  maxItems: 1
-#  items:
-#- type: characterItemGroup
-#  id: LoadoutMedicalEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutMedicalEquipment
+#  id: LoadoutSecurityEars
 #  maxItems: 1
 #  items:
 #
 - type: characterItemGroup
-  id: LoadoutMedicalEyes
-  maxItems: 1
+  maxItems: 5
+  id: LoadoutSecurityEquipment
   items:
     - type: loadout
-      id: LoadoutMedicalEyesHudMedical
+      id: LoadoutSecurityCombatKnife
     - type: loadout
-      id: LoadoutMedicalEyesEyepatchHudMedical
+      id: LoadoutSecurityFlash
     - type: loadout
-      id: LoadoutMedicalEyesHudMedicalPrescription
+      id: LoadoutMagazinePistol
+    - type: loadout
+      id: LoadoutMagazinePistolSpare
+    - type: loadout
+      id: LoadoutMagazinePistolRubber
+    - type: loadout
+      id: LoadoutMagazinePistolRubberSpare
+    - type: loadout
+      id: LoadoutSpeedLoaderMagnum
+    - type: loadout
+      id: LoadoutSpeedLoaderMagnumSpare
+    - type: loadout
+      id: LoadoutSpeedLoaderMagnumRubber
+    - type: loadout
+      id: LoadoutSpeedLoaderMagnumRubberSpare
+    - type: loadout
+      id: LoadoutMagazineMagnum
+    - type: loadout
+      id: LoadoutMagazineMagnumRubber
+    - type: loadout
+      id: LoadoutMagazineMagnumSpare
+    - type: loadout
+      id: LoadoutMagazineMagnumRubberSpare
+    - type: loadout
+      id: LoadoutSpeedLoaderRifleHeavy
+    - type: loadout
+      id: LoadoutSpeedLoaderRifleHeavySpare
+    - type: loadout
+      id: LoadoutSpeedLoaderRifleHeavyRubber
+    - type: loadout
+      id: LoadoutSpeedLoaderRifleHeavyRubberSpare
 
 - type: characterItemGroup
-  id: LoadoutMedicalGloves
   maxItems: 1
+  id: LoadoutSecurityWeapons
   items:
     - type: loadout
-      id: LoadoutMedicalGlovesNitrile
+      id: LoadoutSecurityDisabler
     - type: loadout
-      id: LoadoutMedicalGlovesLatex
+      id: LoadoutSecurityMk58
+    - type: loadout
+      id: LoadoutSecurityMk58NonLethal
+    - type: loadout
+      id: LoadoutSecurityRevolver
+    - type: loadout
+      id: LoadoutSecurityRevolverNonLethal
+    - type: loadout
+      id: LoadoutSecurityRevolverDeckard
+    - type: loadout
+      id: LoadoutSecurityRevolverDeckardNonLethal
+    - type: loadout
+      id: LoadoutSecurityPistolN1984
+    - type: loadout
+      id: LoadoutSecurityPistolN1984NonLethal
+    - type: loadout
+      id: LoadoutSecurityPistolViper
+    - type: loadout
+      id: LoadoutSecurityPistolViperNonLethal
+    - type: loadout
+      id: LoadoutSecurityPistolViperWood
+    - type: loadout
+      id: LoadoutSecurityEquipmentTruncheon
+    - type: loadout
+      id: LoadoutSecurityEquipmentEnergySword
+    - type: loadout
+      id: LoadoutSecurityPistolSvalin
+    - type: loadout
+      id: LoadoutSecurityEnergyGunMini
+    - type: loadout
+      id: LoadoutSecurityEnergyGunPistol
+    - type: loadout
+      id: LoadoutSecurityPistolPollock
+    - type: loadout
+      id: LoadoutSecurityPistolPollockNonlethal
+    - type: loadout
+      id: LoadoutSecurityRevolverSnub
+    - type: loadout
+      id: LoadoutSecurityRevolverSnubNonlethal
+    - type: loadout
+      id: LoadoutSecurityRevolverK38Master
+    - type: loadout
+      id: LoadoutSecurityRevolverK38MasterNonlethal
+    - type: loadout
+      id: LoadoutSecurityRevolverFitz
+    - type: loadout
+      id: LoadoutSecurityRevolverFitzNonlethal
+    - type: loadout
+      id: LoadoutSecurityRevolverPython
+    - type: loadout
+      id: LoadoutSecurityRevolverPythonNonlethal
+    - type: loadout
+      id: LoadoutSecurityArgenti
+    - type: loadout
+      id: LoadoutSecurityArgentiNonLethal
+    - type: loadout
+      id: LoadoutSecurityPistolEnergyRevolver
 
 - type: characterItemGroup
-  id: LoadoutMedicalHead
+  id: LoadoutSecurityEyes
   maxItems: 1
   items:
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapBlue
+      id: LoadoutSecurityEyesHudSecurity
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapPurple
+      id: ClothingEyesGlassesSunglasses
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapGreen
+      id: LoadoutSecurityEyesEyepatchHudSecurity
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapCyan
+      id: LoadoutSecurityEyesHudSecurityPrescription
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapBlack
+      id: LoadoutClothingEyesGlassesSecurity
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapPink
+      id: LoadoutClothingEyesGlassesSecurityAviator
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapWhite
+      id: LoadoutClothingEyesGlassesSecurityBig
     - type: loadout
-      id: LoadoutMedicalHeadSurgcapCybersun
+      id: LoadoutClothingEyesGlassesSecurityVisor
 
 #- type: characterItemGroup
-#  id: LoadoutMedicalId
+#  id: LoadoutSecurityGloves
 #  maxItems: 1
 #  items:
 #
 - type: characterItemGroup
-  id: LoadoutMedicalNeck
+  id: LoadoutSecurityHead
   maxItems: 1
   items:
     - type: loadout
-      id: LoadoutMedicalNeckStethoscope
+      id: LoadoutSecurityHeadHatBeret
     - type: loadout
-      id: LoadoutMedicalBedsheetMedical
+      id: LoadoutClothingHeadHelmetBasic
+    - type: loadout
+      id: LoadoutSecurityHeadHelmetInsulated
 
 #- type: characterItemGroup
-#  id: LoadoutMedicalMask
+#  id: LoadoutSecurityId
+#  maxItems: 1
+#  items:
+#
+#- type: characterItemGroup
+#  id: LoadoutSecurityNeck
 #  maxItems: 1
 #  items:
 #
 - type: characterItemGroup
-  id: LoadoutMedicalOuter
+  id: LoadoutSecurityMask
   maxItems: 1
   items:
     - type: loadout
-      id: LoadoutMedicalOuterWinterCoat
-    - type: loadout
-      id: LoadoutMedicalOuterLabcoat
-    - type: loadout
-      id: LoadoutMedicalOuterCybersunWindbreaker
+      id: LoadoutSecurityMaskGasSwat
 
-#- type: characterItemGroup
-#  id: LoadoutMedicalShoes
-#  maxItems: 1
-#  items:
-#
 - type: characterItemGroup
-  id: LoadoutMedicalUniforms
+  id: LoadoutSecurityOuter
   maxItems: 1
   items:
     - type: loadout
-      id: LoadoutMedicalUniformScrubsBlue
+      id: LoadoutClothingOuterArmorPlateCarrier
     - type: loadout
-      id: LoadoutMedicalUniformScrubsGreen
+      id: LoadoutClothingOuterWinterCoatSec
     - type: loadout
-      id: LoadoutMedicalUniformScrubsPurple
+      id: LoadoutClothingOuterArmorDuraVest
     - type: loadout
-      id: LoadoutMedicalUniformScrubsCyan
+      id: LoadoutClothingOuterArmorBasic
     - type: loadout
-      id: LoadoutMedicalUniformScrubsBlack
+      id: LoadoutClothingOuterArmorSlim
+
+- type: characterItemGroup
+  id: LoadoutSecurityShoes
+  maxItems: 1
+  items:
     - type: loadout
-      id: LoadoutMedicalUniformScrubsPink
+      id: LoadoutSecurityShoesJackboots
     - type: loadout
-      id: LoadoutMedicalUniformScrubsCybersun
+      id: LoadoutClothingShoesBootsCombat
+
+- type: characterItemGroup
+  id: LoadoutSecurityUniforms
+  maxItems: 1
+  items:
     - type: loadout
-      id: LoadoutMedicalUniformScrubsWhite
+      id: LoadoutSecurityUniformJumpsuitBlue
+    - type: loadout
+      id: LoadoutSecurityUniformJumpsuitGrey
+    - type: loadout
+      id: LoadoutSecurityUniformJumpskirtGrey
+    - type: loadout
+      id: LoadoutSecurityUniformJumpskirtBlue
+    - type: loadout
+      id: LoadoutUniformJumpsuitSecFormal
+    - type: loadout
+      id: LoadoutUniformJumpsuitSecSummer
+    - type: loadout
+      id: LoadoutSecurityUniformEnvirosuitBlue
+    - type: loadout
+      id: LoadoutSecurityUniformEnvirosuitGrey
