@@ -1,7 +1,11 @@
 - type: entity
-  id: CartridgeLightRifleReplicated
-  name: replicated cartridge (.30 rifle)
-  parent: BaseCartridgeLightRifle
+  id: BulletLightRifleReplicated
+  name: replicated bullet (.20 rifle)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletLightRifleReplicated
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 5
+          Blunt: 7
