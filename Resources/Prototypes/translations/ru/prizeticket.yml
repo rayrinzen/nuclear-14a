@@ -1,6 +1,7 @@
-- type: material
+- type: stack
   id: PrizeTicket
-  stackEntity: PrizeTicket1
   name: prize ticket
   icon: { sprite: Objects/Fun/prizeticket.rsi, state: ticket }
-  price: 0
+  spawn: PrizeTicket1
+  maxCount: 100
+  itemSize: 1
