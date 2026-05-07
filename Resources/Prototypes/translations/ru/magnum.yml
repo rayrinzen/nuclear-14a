@@ -1,102 +1,70 @@
 - type: entity
-  id: BaseCartridgeMagnum
-  name: cartridge (.45 magnum)
-  parent: BaseCartridge
-  abstract: true
+  id: BulletMagnum
+  name: bullet (.45 magnum)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - CartridgeMagnum
-    - type: CartridgeAmmo
-      proto: BulletMagnum
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: Appearance
-    - type: SpentAmmoVisuals
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 35
 
 - type: entity
-  id: CartridgeMagnum
-  name: cartridge (.45 magnum)
-  parent: BaseCartridgeMagnum
+  id: BulletMagnumPractice
+  name: bullet (.45 magnum practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletMagnum
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 1
 
 - type: entity
-  id: CartridgeMagnumPractice
-  name: cartridge (.45 magnum practice)
-  parent: BaseCartridgeMagnum
+  id: BulletMagnumRubber
+  name: bullet (.45 magnum rubber)
+  parent: BaseBulletRubber
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletMagnumPractice
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#dbdbdb"
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 3
+    - type: StaminaDamageOnCollide
+      damage: 35 # 3 hits to stun cuz revolver
 
 - type: entity
-  id: CartridgeMagnumRubber
-  name: cartridge (.45 magnum rubber)
-  parent: BaseCartridgeMagnum
+  id: BulletMagnumIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.45 magnum incendiary)
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletMagnumRubber
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#43c4f7"
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 3
+          Heat: 32
 
 - type: entity
-  id: CartridgeMagnumIncendiary
-  name: cartridge (.45 magnum incendiary)
-  parent: BaseCartridgeMagnum
+  id: BulletMagnumAP
+  name: bullet (.45 magnum armor-piercing)
+  parent: BaseBulletAP
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletMagnumIncendiary
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#ff6e52"
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 26 # 20% decrease
+      ignoreResistances: true
 
 - type: entity
-  id: CartridgeMagnumAP
-  name: cartridge (.45 magnum armor-piercing)
-  parent: BaseCartridgeMagnum
+  id: BulletMagnumUranium
+  name: bullet (.45 magnum uranium)
+  parent: BaseBulletUranium
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletMagnumAP
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#0a0a0a"
-
-- type: entity
-  id: CartridgeMagnumUranium
-  name: cartridge (.45 magnum uranium)
-  parent: BaseCartridgeMagnum
-  components:
-    - type: CartridgeAmmo
-      proto: BulletMagnumUranium
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#65fe08"
+    - type: Projectile
+      damage:
+        types:
+          Radiation: 15
+          Piercing: 20
