@@ -1,245 +1,70 @@
 - type: marking
-  id: HumanFacialHairAbe
+  id: HumanFacialHairChin2
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: abe
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardchin
 - type: marking
-  id: HumanFacialHairBrokenman
+  id: HumanFacialHairSuperLong
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: brokenman
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardlong
 - type: marking
-  id: HumanFacialHairChin
+  id: HumanFacialHairShort
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: chin
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardshort
 - type: marking
-  id: HumanFacialHairDwarf
+  id: HumanFacialHairThick
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: dwarf
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardthick
 - type: marking
-  id: HumanFacialHairFullbeard
+  id: HumanFacialHairViking
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: fullbeard
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-beardviking
 - type: marking
-  id: HumanFacialHairCroppedfullbeard
+  id: HumanFacialHairBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: croppedfullbeard
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-bristle
 - type: marking
-  id: HumanFacialHairGt
+  id: HumanFacialHairMoustacheWithStubble
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: gt
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-mustachewithstubble
 - type: marking
-  id: HumanFacialHairHip
+  id: HumanFacialHairThickBristle
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: hip
+    - sprite: _ADT/Mobs/Customization/Human/custom.rsi
+      state: beard-thickbristle
 - type: marking
-  id: HumanFacialHairJensen
+  id: HumanFacialHairHandlebar
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: jensen
+    - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
+      state: handlebar
 - type: marking
-  id: HumanFacialHairNeckbeard
+  id: HumanFacialHairHandlebar2
   bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: neckbeard
-- type: marking
-  id: HumanFacialHairWise
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: wise
-- type: marking
-  id: HumanFacialHairMuttonmus
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: muttonmus
-- type: marking
-  id: HumanFacialHairMartialartist
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: martialartist
-- type: marking
-  id: HumanFacialHairChinlessbeard
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: chinlessbeard
-- type: marking
-  id: HumanFacialHairMoonshiner
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: moonshiner
-- type: marking
-  id: HumanFacialHairLongbeard
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: longbeard
-- type: marking
-  id: HumanFacialHairVolaju
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: volaju
-- type: marking
-  id: HumanFacialHair3oclock
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: 3oclock
-- type: marking
-  id: HumanFacialHairFiveoclock
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: fiveoclock
-- type: marking
-  id: HumanFacialHair5oclockmoustache
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: 5oclockmoustache
-- type: marking
-  id: HumanFacialHair7oclock
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: 7oclock
-- type: marking
-  id: HumanFacialHair7oclockmoustache
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: 7oclockmoustache
-- type: marking
-  id: HumanFacialHairMoustache
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: moustache
-- type: marking
-  id: HumanFacialHairPencilstache
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: pencilstache
-- type: marking
-  id: HumanFacialHairSmallstache
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: smallstache
-- type: marking
-  id: HumanFacialHairWalrus
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: walrus
-- type: marking
-  id: HumanFacialHairFumanchu
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: fumanchu
-- type: marking
-  id: HumanFacialHairHogan
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: hogan
-- type: marking
-  id: HumanFacialHairSelleck
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: selleck
-- type: marking
-  id: HumanFacialHairChaplin
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: chaplin
-- type: marking
-  id: HumanFacialHairVandyke
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: vandyke
-- type: marking
-  id: HumanFacialHairWatson
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: watson
-- type: marking
-  id: HumanFacialHairElvis
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: elvis
-- type: marking
-  id: HumanFacialHairMutton
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: mutton
-- type: marking
-  id: HumanFacialHairSideburn
-  bodyPart: FacialHair
-  markingCategory: FacialHair
-  sprites:
-    - sprite: Mobs/Customization/human_facial_hair.rsi
-      state: sideburn
+    - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
+      state: handlebar2
