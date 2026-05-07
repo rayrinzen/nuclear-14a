@@ -1,11 +1,18 @@
 - type: entity
-  parent: MagazineBox20gauge
-  id: MisfitsMagazineBox20GaugeBeanbag
-  name: ammunition box (20 gauge beanbag)
+  id: MisfitsShellShotgun20Beanbag
+  name: beanbag shell (20 gauge)
+  parent: N14ShellShotgun20
   components:
-    - type: BallisticAmmoProvider
-      proto: MisfitsShellShotgun20Beanbag
+    - type: Tag
+      tags:
+        - Cartridge
+        - N14ShellShotgun20
     - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
       layers:
-        - state: base
         - state: beanbag
+          map: [ "enum.AmmoVisualLayers.Base" ]
+    - type: CartridgeAmmo
+      proto: PelletShotgun20Beanbag
+    - type: SpentAmmoVisuals
+      state: beanbag
