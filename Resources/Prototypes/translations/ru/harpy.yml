@@ -1,36 +1,50 @@
-- type: entity
-  id: OrganHarpyLungs
-  parent: BaseHumanOrgan
-  name: lungs
-  description: "An advanced pair of avian lungs. Filters oxygen by way of moving air constantly through air sacs."
-  components:
-    - type: Sprite
-      layers:
-        - state: lung-l
-        - state: lung-r
-    - type: Lung
-    - type: Organ
-      slotId: lungs
-    - type: Metabolizer
-      updateInterval: 2.0
-      removeEmpty: true
-      solutionOnBody: false
-      solution: "Lung"
-      metabolizerTypes: [ Human ]
-      groups:
-        - id: Gas
-          rateModifier: 200.0
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 10
-        Lung:
-          maxVol: 100.0
-          canReact: false
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: UncookedAnimalProteins
-              Quantity: 5
+- type: body
+  id: Harpy
+  name: "harpy"
+  root: torso
+  slots:
+    head:
+      part: HeadHarpy
+      connections:
+        - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoHarpy
+      connections:
+        - right arm
+        - left arm
+        - right leg
+        - left leg
+        - head # Shitmed Change
+      organs:
+        heart: OrganHumanHeart
+        lungs: OrganHarpyLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmHarpy
+      connections:
+        - right hand
+    left arm:
+      part: LeftArmHarpy
+      connections:
+        - left hand
+    right hand:
+      part: RightHandHarpy
+    left hand:
+      part: LeftHandHarpy
+    right leg:
+      part: RightLegHarpy
+      connections:
+        - right foot
+    left leg:
+      part: LeftLegHarpy
+      connections:
+        - left foot
+    right foot:
+      part: RightFootHarpy
+    left foot:
+      part: LeftFootHarpy
