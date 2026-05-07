@@ -1,205 +1,194 @@
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFedoraBlack
-  name: black fedora
-  description: A black fedora. Lookin' classy.
+  id: ClothingHeadMailCarrier
+  name: mail carrier's hat
+  description: Smells like a good pension.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/blackfedora.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/blackfedora.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/mailman.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFedoraChoc
-  name: brown fedora
-  description: A brown fedora. Lookin' snazzy.
+  id: ClothingHeadHoodMysta
+  name: mystagogue's muffin cap # Delta V - Mystagogue new hat
+  description: Contrary to its silly name, it's actually a symbol of great academic achievement.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/brownfedora.rsi
+      sprite: DeltaV/Clothing/Head/Hats/mysta.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/brownfedora.rsi
+      sprite: DeltaV/Clothing/Head/Hats/mysta.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFedoraWhite
-  name: white fedora
-  description: A white fedora. Lookin' ritzy.
+  id: ClothingHeadHoodBrown
+  name: brown hood
+  description: Spooky.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/whitefedora.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/brownhood.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/whitefedora.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/brownhood.rsi
+    - type: Tag
+      tags:
+        - HidesHair
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFlatBlack
-  name: black flat cap
-  description: A black flat cap, for driving cabs and delivering the papers.
+  id: ClothingHeadAreopagite
+  name: areopagite hat
+  description: Intimidating.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/flatblack.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/flatblack.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/areopagite.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFlatBrown
-  name: brown flat cap
-  description: A brown flat cap, for driving cabs and delivering the papers.
+  id: ClothingHeadTechPriest
+  name: automaturge hood
+  description: Protects the mind that makes artificial minds.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/flatbrown.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/techpriest.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/flatbrown.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/techpriest.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatFlatSyndie
-  name: black flat cap
-  suffix: Weapon
-  description: A black flat cap, for sending a message.
+  id: ClothingHeadTinfoil
+  name: tinfoil hat
+  description: Protects you from all manner of psionic assaults.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/flatblack.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/flatblack.rsi
-    - type: MeleeWeapon
-      attackRate: 1.5
-      damage:
-        types:
-          Slash: 8
+      sprite: Nyanotrasen/Clothing/Head/Hats/tinfoil.rsi
+    - type: TinfoilHat
+    - type: Armor
+      modifiers:
+        coefficients:
+          Radiation: 0.95
+    - type: Construction
+      graph: TinfoilHat
+      node: tinfoilhat
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (PsionicInsulation)
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBellhop
+  name: bellhop cap
+  description: All the inconvinience and humiliation of a fez with none of the style!
+  components:
+    - type: Sprite
+      sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
+    - type: Clothing
+      sprite: Nyanotrasen/Clothing/Head/Hats/bellhop.rsi
+
+- type: entity
+  parent: ClothingHeadTinfoil
+  id: ClothingHeadCage
+  name: insulative headcage
+  description: Psionically insulates whoevers head is inside it. It takes time to resist out of.
+  components:
+    - type: Sprite
+      sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
+    - type: Clothing
+      sprite: Nyanotrasen/Clothing/Head/Hats/cage.rsi
+      equipDelay: 0.5
+      unequipDelay: 6
+    - type: HeadCage
+    - type: Tag
+      tags:
+        - ForensicBeltEquip
+
+- type: entity
+  parent: ClothingHeadTinfoil
+  id: ClothingHeadHelmetInsulated
+  name: insulative skullcap
+  description: Psionically insulates whoevers head is inside it. It has some protection from physical damage.
+  components:
+    - type: Sprite
+      sprite: Nyanotrasen/Clothing/Head/Helmets/insulative_skullcap.rsi
+    - type: Clothing
+      sprite: Nyanotrasen/Clothing/Head/Helmets/insulative_skullcap.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.85
+          Slash: 0.85
+          Piercing: 0.95
+          Radiation: 0.95
+    # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (PsionicInsulation)
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFezMantis
+  name: mantis' fez
+  description: A fine red fez with a gold tassel.
+  components:
+    - type: Sprite
+      sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi
+    - type: Clothing
+      sprite: Nyanotrasen/Clothing/Head/Hats/mantis_fez.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapBlack
-  name: surgical cap
-  description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  id: ClothingHeadPrisonGuard
+  name: prison guard's hat
+  description: Grants full immunity from denying others basic human rights, dignity, or respect.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_black.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_black.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/prisonguard.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapCyan
-  name: surgical cap
-  description: A cyan cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  id: ClothingHeadHelmetKendoMen
+  name: men
+  description: The quintessential head armor of the kendo practitioner.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_cyan.rsi
+      sprite: Nyanotrasen/Clothing/Head/Helmets/men.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_cyan.rsi
+      sprite: Nyanotrasen/Clothing/Head/Helmets/men.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.80
+          Slash: 0.95
+          Piercing: 0.95
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapCybersun
-  name: surgical cap
-  description: A surgical cap worn by members of Cybersun's Biotechnology division.
+  id: ClothingHeadHatBeretCap
+  name: captain's beret
+  description: A blue beret with a captain's rank emblem. For captains that are more inclined towards style than safety.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_cybersun.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_cybersun.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_cap.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapPink
-  name: surgical cap
-  description: A pink cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  id: ClothingHeadHatBeretCentcomm
+  name: CentCom beret
+  description: A green beret with an admiral's rank emblem.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_pink.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_pink.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_cent.rsi
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapRainbow
-  name: surgical cap
-  description: A rainbow cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  id: ClothingHeadHatBeretMysta
+  name: mystagogue's beret
+  description: A purple beret with a blue epistemics emblem. Mystical and stylish.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_rainbow.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_mysta.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_rainbow.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatSurgcapWhite
-  name: surgical cap
-  description: A black cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_white.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/surgcap_white.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadCourier
-  name: courier's cap
-  description: Special delivery.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadCourierFlipped
-  name: courier's cap flipped
-  description: Special delivery.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
-      state: flipped-icon
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Soft/couriersoft.rsi
-      equippedPrefix: flipped
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatDirCap
-  name: director's cap
-  description: A green cap with a director's rank emblem, belonging to a high-ranking member of Central Command. Whoever it is, they mean business.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/dircap.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBeretLogi
-  name: logistics beret
-  description: For the intellectual and studious accountant. Definitely not a revolutionary symbol.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/beret_lo.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBeretCorpsman
-  name: corpsman beret
-  description: For style-conscious combat lifesavers and medical specialists alike.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/beret_corpsman.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatCJToque
-  name: chief justice's toque
-  description: A standard-issue judicial hat. Wigs are old-fashioned anyway.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Head/Hats/cj_toque.rsi
+      sprite: Nyanotrasen/Clothing/Head/Hats/beret_mysta.rsi
