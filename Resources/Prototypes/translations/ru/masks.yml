@@ -1,30 +1,55 @@
 - type: entity
-  parent: ClothingMaskPullableBase
-  id: ClothingMaskOniBase
-  description: A mask depicting a ferocious creature from Japanese myth.
-  abstract: true
+  parent: [ ClothingMaskBase, BaseFoldable ]
+  id: N14ClothingMaskLiner
+  name: liner
+  description: Classic liner.
   components:
-    - type: IngestionBlocker
-    #  - type: DiseaseProtection
-    #    protection: 0.05
-    - type: IdentityBlocker
+    - type: Appearance
+    - type: Foldable
+      canFoldInsideContainer: true
+    - type: FoldableClothing
+      foldedSlots:
+        - HEAD
+      unfoldedSlots:
+        - MASK
+    - type: Mask
+    - type: Sprite
+      sprite: Corvax/Clothing/Mask/liner.rsi
+      scale: 0.5, 0.5
+      layers:
+        - state: icon_mask
+          map: [ "unfoldedLayer" ]
+        - state: icon
+          map: [ "foldedLayer" ]
+          visible: false
+    - type: Clothing
+      sprite: Corvax/Clothing/Mask/liner.rsi
+    - type: HideLayerClothing
+      slots:
+        - Hair
+        - Snout
+      hideOnToggle: true
 
 - type: entity
-  parent: ClothingMaskOniBase
-  id: ClothingMaskOniBlue
-  name: blue oni mask
+  parent: N14ClothingMaskLiner
+  id: N14ClothingMaskLinerBlack
+  name: black liner
+  description: Black liner.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/Mask/mask_oni_blue.rsi
+      sprite: Corvax/Clothing/Mask/linerblack.rsi
+      scale: 0.9, 0.9
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/Mask/mask_oni_blue.rsi
+      sprite: Corvax/Clothing/Mask/linerblack.rsi
 
 - type: entity
-  parent: ClothingMaskOniBase
-  id: ClothingMaskOniRed
-  name: red oni mask
+  parent: N14ClothingMaskLiner
+  id: N14ClothingMaskLinerElite
+  name: elite liner
+  description: Classic elite liner.
   components:
     - type: Sprite
-      sprite: Nyanotrasen/Clothing/Mask/mask_oni_red.rsi
+      sprite: Corvax/Clothing/Mask/linerelite.rsi
+      scale: 0.5, 0.5
     - type: Clothing
-      sprite: Nyanotrasen/Clothing/Mask/mask_oni_red.rsi
+      sprite: Corvax/Clothing/Mask/linerelite.rsi
