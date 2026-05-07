@@ -1,11 +1,17 @@
 - type: playTimeTracker
-  id: JobBrigmedic
+  id: JobMailCarrier
 
 - type: playTimeTracker
-  id: JobMedicalBorg
+  id: JobPrisoner
 
 - type: playTimeTracker
-  id: JobCourier
+  id: JobGladiator
 
 - type: playTimeTracker
-  id: JobAdminAssistant
+  id: JobMartialArtist
+
+- type: playTimeTracker
+  id: JobPrisonGuard
+
+- type: playTimeTracker
+  id: JobForensicMantis
