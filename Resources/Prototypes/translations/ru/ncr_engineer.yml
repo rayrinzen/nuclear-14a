@@ -1,0 +1,49 @@
+- #Misfits Change /Tweak/: NCR Engineer role consolidated into NCR Specialist (NCRWS).
+#  Engineer loadout kits (Mechanic, Demolition, Breacher) are now available in the Specialist's undecided loadout.
+#  Job kept defined but hidden so existing spawner/entity references don't break.
+type: job
+  id: NCREngineer
+  setPreference: false # #Misfits Tweak - hidden from character creation, role consolidated into Specialist
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  overrideConsoleVisibility: false
+  canBeAntag: false
+  name: job-name-ncr-engineer
+  description: job-description-ncr-engineer
+  playTimeTracker: NCREngineer
+  requirements:
+    - !type 
+      species:
+      - Human
+      - Ghoul
+  startingGear: NCREngineerGear
+  icon: "JobIconWarden"
+  supervisors: job-supervisors-ncr-sergeant
+  alwaysUseSpawner: true
+  access:
+  - NCR
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - Wastelander
+          - NCR
+- type: startingGear
+  id: NCREngineerGear
+  equipment:
+    head: N14ClothingHeadHatNCRHelmetMetalDesert # Corvax-Change
+    back: N14ClothingBackpackNCR # Corvax-Change
+    jumpsuit: N14ClothingUniformNCRDesert # Corvax-Change
+    outerClothing: N14ClothingOuterNCRPouchedVestDesert # Forge-Change
+    shoes: N14ClothingBootsLeatherFilled
+    ears: N14ClothingHeadsetNCR # #Misfits Add - NCR radio earpiece
+    hands: N14ClothingHandsGlovesCombat
+    id: N14IDNCRDogtagEngineer
+    pocket1: NCRengineerloadoutkits
+  innerClothingSkirt: N14ClothingUniformNCRDesert # Corvax-Change
+  satchel: N14ClothingBackpackSatchelNCRFilled
+  storage:  # Corvax-Change
+    back:
+    - N14BoxPlasticFilledMilitaryNCR
+- type: playTimeTracker
+  id: NCREngineer
