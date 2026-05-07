@@ -1,71 +1,19 @@
-- type: entity
-  id: BaseWeaponBattery
+- # Developer Note: Naming convention is N14 Weapon Plasma/Laser WeaponType Info/Name
+type: entity
+  id: N14BaseWeaponPowerCell
   parent: BaseItem
   abstract: true
   components:
   - type: Sprite
   - type: Item
-    size: Huge
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
+    size: Large
   - type: AmmoCounter
   - type: Gun
-    fireRate: 2
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    fireOnDropChance: 0.15
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
-  - type: StaticPrice
-    price: 500
-  - type: MeleeWeapon
-    attackRate: 1.3333
-    damage:
-      types:
-        Blunt: 8.5
-    bluntStaminaDamageFactor: 1.25
-    swapKeys: true
-    disableHeavy: true
-    animation: WeaponArcThrust
-    wideAnimationRotation: 180
-    soundHit:
-      collection: MetalThud
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-  - type: DamageOtherOnHit
-    staminaCost: 7
-  -   # Shitmed Change
-type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-- type: entity
-  id: BaseWeaponPowerCell
-  parent: BaseItem
-  abstract: true
-  components:
-  - type: Sprite
-  - type: Item
-    size: Huge
-  - type: AmmoCounter
-  - type: Gun
-    fireRate: 2
+    minAngle: 25
+    maxAngle: 60
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 1
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -76,629 +24,62 @@ type: Cautery
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PowerCellSmall
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - PowerCell
-            - PowerCellSmall
+            - N14MicrofusionCell
   - type: Appearance
   - type: StaticPrice
-    price: 500
+    price: 25
   - type: ContainerContainer
     containers:
       gun_magazine: !type :ContainerSlot
-  - type: MeleeWeapon
-    attackRate: 1.3333
-    damage:
-      types:
-        Blunt: 9.0
-    bluntStaminaDamageFactor: 1.25
-    swapKeys: true
-    disableHeavy: true
-    animation: WeaponArcThrust
-    wideAnimationRotation: 180
-    soundHit:
-      collection: MetalThud
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Blunt: 2.5
-  - type: DamageOtherOnHit
-    staminaCost: 7
-  -   # Shitmed Change
-type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-- type: entity
-  id: BaseWeaponBatterySmall
-  parent: BaseWeaponBattery
+- # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
+type: entity
+  id: N14BaseWeaponPowerCellSmall
+  parent: N14BaseWeaponPowerCell
   abstract: true
   components:
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    quickEquip: false
+    slots:
+    - Belt
   - type: Item
     size: Small
     shape:
     - 0,0,1,0
     - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
-  - type: MeleeWeapon
-    attackRate: 1.2
-    damage:
-      types:
-        Blunt: 7.5
-    bluntStaminaDamageFactor: 1.0
-    wideAnimationRotation: 135
-  - type: DamageOtherOnHit
-    staminaCost: 5
+  - type: Gun
+    availableModes:
+    - Semiauto
+    minAngle: 1
+    maxAngle: 9
+    angleIncrease: 0.5
+    angleDecay: 4
 - type: entity
-  id: BaseWeaponPowerCellSmall
-  parent: BaseWeaponPowerCell
+  id: N14BaseWeaponPowerCellMedium
+  parent: N14BaseWeaponPowerCell
   abstract: true
   components:
   - type: Item
-    size: Small
-  - type: Tag
-    tags:
-    - Sidearm
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
-    quickEquip: false
-    slots:
-    - Belt
-  - type: MeleeWeapon
-    attackRate: 1.2
-    damage:
-      types:
-        Blunt: 7.5
-    bluntStaminaDamageFactor: 1.0
-    wideAnimationRotation: 135
-  - type: DamageOtherOnHit
-    staminaCost: 5
-- type: entity
-  name: svalinn laser pistol
-  parent: BaseWeaponPowerCellSmall
-  id: WeaponLaserSvalinn
-  description: A cheap and widely used laser pistol.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Item
-    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-- type: entity
-  name: retro laser blaster
-  parent: BaseWeaponBatterySmall
-  id: WeaponLaserGun
-  description: A weapon using light amplified by the stimulated emission of radiation.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_retro.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 62.5
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
-- type: entity
-  name: makeshift laser pistol
-  parent: BaseWeaponBatterySmall
-  id: WeaponMakeshiftLaser
-  description: Better pray it won't burn your hands off.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/makeshift.rsi
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
-  - type: Battery
-    maxCharge: 500
-    startingCharge: 500
-- type: entity
-  name: tesla gun
-  parent: BaseWeaponBattery
-  id: WeaponTeslaGun
-  description: The power of the primordial element of lightning in your hands.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/tesla_gun.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: mag-unshaded-4
-        map:
-        - "enum.GunVisualLayers.MagUnshaded"
-        shader: unshaded
-  - type: Gun
-    projectileSpeed: 10
-    soundGunshot:
-      path: /Audio/Effects/Lightning/lightningshock.ogg
-      params:
-        variation: 0.2
-  - type: ProjectileBatteryAmmoProvider
-    proto: TeslaGunBullet
-    fireCost: 300
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
-- type: entity
-  name: laser rifle
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponLaserCarbine
-  description: Favoured by Nanotrasen Security for being cheap and easy to use.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
-  - type: StaticPrice
-    price: 420
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
-- type: entity
-  name: practice laser rifle
-  parent: WeaponLaserCarbine
-  id: WeaponLaserCarbinePractice
-  description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
-  components:
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaserPractice
-    fireCost: 62.5
-  - type: StaticPrice
-    price: 300
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 4
-- type: entity
-  name: pulse pistol
-  parent: BaseWeaponBatterySmall
-  id: WeaponPulsePistol
-  description: A state of the art energy pistol favoured as a sidearm by the NT operatives.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_pistol.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
-    fireCost: 200
-  - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
-- type: entity
-  name: antique pulse pistol
-  parent: WeaponPulsePistol
-  id: WeaponPulsePistolHoS
-  description: One of the many weapons belonging to the Head of Security's private collection. This pistol is engraved with the words, "Forgive Us, Mother Sol'"
-  components:
-  - type: StealTarget
-    stealGroup: HoSAntiqueWeapon
-- type: entity
-  name: captain's pulse pistol
-  parent: WeaponPulsePistol
-  id: WeaponPulsePistolCaptain
-  description: A rare and exotic handgun gifted to the station's Captain. Its ivory grip has been engraved with the words, "Glory to the Company, Glory to Mother Sol. Phoron will make us all rich."
-  components:
-  - type: StealTarget
-    stealGroup: WeaponCaptain
-- type: entity
-  name: pulse carbine
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponPulseCarbine
-  description: A high tech energy carbine favoured by the NT-ERT operatives.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
-  - type: Gun
-    selectedMode: SemiAuto
-    fireRate: 3
-    availableModes:
-      - SemiAuto
-      - FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
-    fireCost: 200
-  - type: Battery
-    maxCharge: 5000
-    startingCharge: 5000
-- type: entity
-  name: pulse rifle
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponPulseRifle
-  description: A weapon that is almost as infamous as its users.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/pulse_rifle.rsi
-  - type: Gun
-    fireRate: 1.5
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: Pulse
-    fireCost: 100
-  - type: Battery
-    maxCharge: 40000
-    startingCharge: 40000
-- type: entity
-  name: laser cannon
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponLaserCannon
-  description: A heavy duty, high powered laser weapon.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-4
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/laser_cannon.rsi
-  - type: Gun
-    fireRate: 1.5
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedHeavyLaser
-    fireCost: 100
-  - type: MeleeWeapon
-    attackRate: 1.4
-    damage:
-      types:
-        Blunt: 10
-    bluntStaminaDamageFactor: 1.3333
-  - type: DamageOtherOnHit
-    staminaCost: 9.5
-- type: entity
-  name: portable particle decelerator
-  parent: BaseWeaponBattery
-  id: WeaponParticleDecelerator
-  description: A portable particle decelerator capable of decomposing a tesla or singularity.
-  components:
-    - type: Item
-      size: Ginormous
-    - type: MultiHandedItem
-    - type: ClothingSpeedModifier
-      walkModifier: 0.6
-      sprintModifier: 0.6
-    - type: HeldSpeedModifier
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Battery/particle_decelerator.rsi
-      layers:
-        - state: base
-          map:
-          - "enum.GunVisualLayers.Base"
-    - type: Gun
-      fireRate: 0.5
-      soundGunshot:
-        path: /Audio/Weapons/emitter.ogg
-        params:
-          pitch: 2
-    - type: ProjectileBatteryAmmoProvider
-      proto: AntiParticlesProjectile
-      fireCost: 500
-    - type: Battery
-      maxCharge: 10000
-      startingCharge: 10000
-    - type: MeleeWeapon
-      attackRate: 1.6
-      damage:  # This is super expensive, low attack rate, slows down the user and high stam cost so it can be high
-        types:
-          Blunt: 34
-          Structural: 10
-      swapKeys: false
-      disableHeavy: false
-      disableClick: true
-      bluntStaminaDamageFactor: 1.5
-      heavyRateModifier: 1.0
-      heavyDamageBaseModifier: 1.0
-      heavyStaminaCost: 21
-      wideAnimationRotation: 270
-    - type: DamageOtherOnHit
-      staminaCost: 48
-- type: entity
-  name: x-ray cannon
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponXrayCannon
-  description: An experimental weapon that uses concentrated x-ray energy against its target.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-0
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/xray.rsi
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: XrayLaser
-    fireCost: 100
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
-- type: entity
-  name: disabler
-  parent: BaseWeaponBatterySmall
-  id: WeaponDisabler
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
-  components:
-    - type: Tag
-      tags:
-        - Taser
-        - Sidearm
-        - WeaponDisabler
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-      layers:
-        - state: base
-          map:
-          - "enum.GunVisualLayers.Base"
-        - state: mag-unshaded-0
-          map:
-          - "enum.GunVisualLayers.MagUnshaded"
-          shader: unshaded
-    - type: Clothing
-      sprite: Objects/Weapons/Guns/Battery/disabler.rsi
-      quickEquip: false
-      slots:
-        - suitStorage
-        - Belt
-    - type: Gun
-      fireRate: 2
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-    - type: ProjectileBatteryAmmoProvider
-      proto: BulletDisabler
-      fireCost: 100
-    - type: MagazineVisuals
-      magState: mag
-      steps: 5
-      zeroVisible: true
-    - type: Appearance
-    -     # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Security)
-type: MeleeWeapon
-      damage:
-        types:
-          Blunt: 5.0
-      bluntStaminaDamageFactor: 2.5
-      wideAnimationRotation: 135
-- type: entity
-  name: disabler SMG
-  parent: BaseWeaponBattery
-  id: WeaponDisablerSMG
-  description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
-  components:
-  - type: Item
     size: Large
-  - type: Tag
-    tags:
-      - Taser
-      - Sidearm
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/disabler_smg.rsi
-    layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: mag-unshaded-0
-        map:
-        - "enum.GunVisualLayers.MagUnshaded"
-        shader: unshaded
-  - type: Gun
-    selectedMode: FullAuto
-    fireRate: 4
-    availableModes:
-      - SemiAuto
-      - FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisablerSmg
-    fireCost: 33
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: StaticPrice
-    price: 260
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 6.5
-    bluntStaminaDamageFactor: 2.5
-    wideAnimationRotation: 180
-- type: entity
-  name: practice disabler
-  parent: WeaponDisabler
-  id: WeaponDisablerPractice
-  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
-  components:
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
-      layers:
-        - state: base
-          map:
-          - "enum.GunVisualLayers.Base"
-        - state: mag-unshaded-0
-          map:
-          - "enum.GunVisualLayers.MagUnshaded"
-          shader: unshaded
-    - type: Clothing
-      sprite: Objects/Weapons/Guns/Battery/practice_disabler.rsi
-      quickEquip: false
-      slots:
-        - Belt
-    - type: StaticPrice
-      price: 100
-    - type: ProjectileBatteryAmmoProvider
-      proto: BulletDisablerPractice
-      fireCost: 100
-    - type: MeleeWeapon
-      damage:
-        types:
-          Blunt: 3
-      bluntStaminaDamageFactor: 1.0
-- type: entity
-  name: taser
-  parent: BaseWeaponBatterySmall
-  id: WeaponTaser
-  description: A low-capacity, energy-based stun gun used by security teams to subdue targets at range.
-  components:
-  - type: Tag
-    tags:
-    - Taser
-    - Sidearm
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/taser.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-0
-      map:
-      - "enum.GunVisualLayers.MagUnshaded"
-      shader: unshaded
-  - type: Item
-    heldPrefix: taser4
   - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
     quickEquip: false
     slots:
     - Belt
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletTaser
-    fireCost: 200
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Appearance
-- type: entity
-  name: antique laser pistol
-  parent: BaseWeaponBatterySmall
-  id: WeaponAntiqueLaser
-  description: This is an antique laser pistol. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy.
+- # MARK: Pistols
+type: entity
+  name: AEP-7 laser pistol
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponLaserPistol
+  description: A basic energy-based laser gun that fires concentrated beams of light.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_pistol.rsi
     layers:
     - state: base
       map:
@@ -708,16 +89,240 @@ type: MeleeWeapon
       - "enum.GunVisualLayers.MagUnshaded"
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_pistol.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PowerCellSmall
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellSmall
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    - 0,0,1,1
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      collection: N14LaserPistolGunshot
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 80
+  - type: Cautery
+    speed: 0.3
+- type: entity
+  name: makeshift laser revolver
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponLaserRevolver
+  description: A crude makeshift energy revolver cobbled together from scrap parts. Fires a red laser beam — inaccurate but functional.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_revolver.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,1
+    - 0,0,1,1
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      collection: N14LaserPistolGunshot
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 60
+  - type: Cautery
+    speed: 0.3
+- type: entity
+  name: plasma pistol
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponPlasmaPistol
+  description: A highly advanced plasma pistol.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
+      collection: N14PlasmaPistolGunshot
+    fireRate: 1.5
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 80
+  - type: Cautery
+    speed: 0.2
+- type: entity
+  name: plasma defender
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponPlasmaDefender
+  description: A highly advanced plasma pistol with an upgraded rate of fire.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_pistol.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      collection: N14PlasmaDefenderGunshot
+    fireRate: 2.5
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 100
+  - type: Cautery
+    speed: 0.2
+- # MARK: Recharger
+type: entity
+  name: recharger rifle
+  parent: BaseWeaponBattery
+  id: N14WeaponLaserRifleRecharger
+  description: The first model for a self-charging laser rifle, its low energy consumption and advanced internal battery lets this gun last for centuries without recharging.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -53
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_rifle.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_rifle.rsi
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 40
+    autoRechargeRate: 25
+  - type: Gun
+    minAngle: 25 # Corvax-Change
+    maxAngle: 60 # Corvax-Change
+    angleIncrease: 4 # Corvax-Change
+    angleDecay: 16 # Corvax-Change
+    soundGunshot:
+      collection: N14RechargerRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 50
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 175
+- type: entity
+  name: recharger pistol
+  parent: BaseWeaponBatterySmall
+  id: N14WeaponLaserPistolRecharger
+  description: The upgraded version of the recharger rifle, compact but maintaining the same power, its low energy consumption and advanced internal battery makes this gun last for centuries without recharging.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/recharger_pistol.rsi
+  - type: Gun
+    soundGunshot:
+      collection: N14RechargerPistolGunshot
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -725,36 +330,26 @@ type: MeleeWeapon
   - type: Appearance
   - type: Tag
     tags:
-    - HighRiskItem
     - Sidearm
-    - WeaponAntiqueLaser
+  - type: FollowDistance
+    backStrength: 6
   - type: StaticPrice
-    price: 750
-  - type: StealTarget
-    stealGroup: WeaponAntiqueLaser
-  - type: MeleeWeapon
-    attackRate: 1.3333
-    damage:
-      types:
-        Blunt: 9
-    bluntStaminaDamageFactor: 1.25
-    wideAnimationRotation: 135
-  - type: DamageOtherOnHit
-    staminaCost: 5
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-inanimate
-    weight: 0.0002 # 5,000 times less likely than 1 regular animal
-- # not putting a BlockMovement component here cause that's funny.
+    price: 175
+  - type: Cautery
+    speed: 0.3
+- # MARK: FullAuto
 type: entity
-  name: advanced laser pistol
-  parent: BaseWeaponBatterySmall
-  id: WeaponAdvancedLaser
-  description: An experimental high-energy laser pistol with a self-charging nuclear battery.
+  name: AER-9 auto laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleAuto
+  description: A jury-rigged AER-9 with a rotating barrel assembly for full-auto fire. Fires a red laser beam — inaccurate but devastating in volume.
   components:
-  - type: Item
-    size: Normal # Intentionally larger than other pistols
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24 # #Misfits Tweak - wielded spread 1°/5°; matches RCW
+    maxAngle: -55
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_autorifle.rsi
     layers:
     - state: base
       map:
@@ -764,175 +359,1156 @@ type: entity
       - "enum.GunVisualLayers.MagUnshaded"
       shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/advancedlasergun.rsi
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 30
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_autorifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: FollowDistance
+    backStrength: 5
   - type: StaticPrice
-    price: 63
-  - type: MeleeWeapon
-    damage:
-      types:
-        Blunt: 8
-  - type: DamageOtherOnHit
-    staminaCost: 6
+    price: 225
 - type: entity
-  name: C.H.I.M.P. handcannon
-  parent: BaseWeaponBatterySmall
-  id: WeaponPistolCHIMP
-  description: Just because it's a little C.H.I.M.P. doesn't mean it can't punch like an A.P.E.
+  name: automatic plasma rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponPlasmaRifleAuto
+  description: A highly advanced automatic plasma rifle in pristine condition.
   components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -56
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+    scale: 0.8, 0.8
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle_icon.rsi
     layers:
     - state: base
       map:
       - "enum.GunVisualLayers.Base"
-    - state: mag-unshaded-1
-      visible: false
+    - state: mag-2
       map:
-      - "enum.GunVisualLayers.MagUnshaded"
+      - "enum.GunVisualLayers.Mag"
       shader: unshaded
-  - type: Appearance
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_autorifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
   - type: MagazineVisuals
     magState: mag
     steps: 3
-    zeroVisible: false
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/chimp.rsi
+    zeroVisible: true
   - type: Gun
-    projectileSpeed: 4
-    fireRate: 1.5
+    fireRate: 4
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: AnomalousParticleDeltaStrong
-    fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: AnomalousParticleDeltaStrong
-      fireCost: 100
-    - proto: AnomalousParticleEpsilonStrong
-      fireCost: 100
-    - proto: AnomalousParticleZetaStrong
-      fireCost: 100
-    - proto: AnomalousParticleSigmaStrong
-      fireCost: 100
-  - type: Construction
-    graph: UpgradeWeaponPistolCHIMP
-    node: start
+      collection: N14PlasmaAutoRifleGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: FollowDistance
+    backStrength: 5
   - type: StaticPrice
-    price: 100
+    price: 225
 - type: entity
-  name: experimental C.H.I.M.P. handcannon
-  parent: WeaponPistolCHIMP
-  id: WeaponPistolCHIMPUpgraded
-  description: This C.H.I.M.P. seems to have a greater punch than is usual...
+  name: prototype AER-14 laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRiflePrototypeAER14
+  description: A cutting-edge pre-war prototype laser rifle with experimental green-spectrum optics. Extremely powerful — the enhanced focusing lenses produce a distinctive green beam with significantly higher damage output.
   components:
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: AnomalousParticleDeltaStrong
-      fireCost: 100
-    - proto: AnomalousParticleEpsilonStrong
-      fireCost: 100
-    - proto: AnomalousParticleOmegaStrong
-      fireCost: 100
-    - proto: AnomalousParticleZetaStrong
-      fireCost: 100
-    - proto: AnomalousParticleSigmaStrong
-      fireCost: 100
-- type: entity
-  name: eye of a behonker
-  parent: BaseWeaponBatterySmall
-  id: WeaponBehonkerLaser
-  description: The eye of a behonker, it fires a laser when squeezed.
-  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24 # #Misfits Tweak - wielded spread 1°/3°; full-auto weapons keep 1° minimum
+    maxAngle: -57
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/behonker_eye.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_proto.rsi
     layers:
     - state: base
       map:
       - "enum.GunVisualLayers.Base"
-  - type: Gun
-    fireRate: 1
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
-    proto: RedMediumLaser
-    fireCost: 100
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_proto.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  -   # #Misfits Add - Green beam override (25 Heat); AER-14 prototype with unique green optics
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserGreen
+  - type: FollowDistance
+    backStrength: 5
   - type: StaticPrice
-    price: 750
-- type: entity
-  name: energy shotgun
-  parent:
-  - BaseWeaponBattery
-  - BaseGunWieldable
-  id: WeaponEnergyShotgun
-  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+    price: 250
+- # #Misfits Add - AER-12: advanced pre-war laser rifle with amber beam optics
+type: entity
+  name: AER-12 laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleAER12
+  description: An advanced pre-war laser rifle featuring upgraded amber-spectrum focusing optics. Higher rate of fire and slightly increased damage over the standard AER-9 — a significant step up in energy weapon technology.
   components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -25 # #Misfits Tweak - wielded spread 0°/3°; 0° min for rifles
+    maxAngle: -57
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_autorifle.rsi # Reuses AER-9 Auto sprite until dedicated AER-12 art is available
     layers:
-      - state: base
-        map:
-        - "enum.GunVisualLayers.Base"
-      - state: mag-unshaded-4
-        map:
-        - "enum.GunVisualLayers.MagUnshaded"
-        shader: unshaded
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_shotgun.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_autorifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 6 # Higher ROF than AER-9 (5); reflects advanced pre-war engineering
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  -   # Amber beam override (19 Heat) — weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserAmber
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 275
+- # #Misfits Add - AER-15: top-tier experimental energy rifle with blue beam
+type: entity
+  name: AER-15 laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleAER15
+  description: The pinnacle of pre-war laser rifle technology. Experimental blue-spectrum focusing crystals produce the highest damage output of any man-portable laser weapon. Extremely rare — only a handful survived the war, and the manufacturing knowledge is lost.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -25 # #Misfits Tweak - wielded spread 0°/2°; best accuracy, 0° min for rifles
+    maxAngle: -58
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_proto.rsi # Reuses AER-14 prototype sprite until dedicated AER-15 art is available
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_proto.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 3 # Low ROF compensates for highest damage output
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  -   # Blue beam override (30 Heat) — highest damage laser weapon; T5 blueprint item
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserBlue
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 500
+- # MARK: Semiauto
+type: entity
+  name: AER-9
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifle
+  description: A sturdy pre-war laser rifle. Fires a standard red laser beam — reliable, well-understood technology that remains the backbone of energy weapon armories.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -25 # #Misfits Tweak - wielded spread 0°/4°; 0° min for rifles
+    maxAngle: -56
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 250
+- type: entity
+  name: crude laser rifle
+  parent: N14WeaponLaserRifle
+  id: N14WeaponLaserRifleCrude
+  description: A crude laser rifle, a cheap imitation of the pre-war AER-9. Fires a red laser beam — inaccurate and prone to overheating.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -56
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_crude.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_rifle_crude.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 2.5
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: StaticPrice
+    price: 150
+- type: entity
+  name: makeshift laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleMakeshift
+  description: A makeshift laser rifle cobbled from scrap. Fires a red laser beam — unreliable but gets the job done.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -34
+    maxAngle: -63
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/makeshift_laser_rifle.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/makeshift_laser_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 50
+- type: entity
+  name: plasma rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponPlasmaRifle
+  description: An advanced plasma rifle in almost pristine condition.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -58
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle_icon.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-2
+      map:
+      - "enum.GunVisualLayers.Mag"
+      shader: unshaded
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      collection: N14PlasmaAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 275
+- type: entity
+  name: crude plasma rifle
+  parent: N14WeaponPlasmaRifle
+  id: N14WeaponPlasmaRifleCrude
+  description: A cheap knock-off of a much more advanced plasma rifle.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -56
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle_crude_icon.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-2
+      map:
+      - "enum.GunVisualLayers.Mag"
+      shader: unshaded
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle_crude.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_rifle_crude.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: Gun
+    fireRate: 2.5
+    soundGunshot:
+      collection: N14PlasmaAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: StaticPrice
+    price: 175
+- type: entity
+  name: urban plasma rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponPlasmaRifleUrban
+  description: A mass-produced pre-war plasma rifle designed for close quarters combat in urban environments.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -55
+  - type: Sprite
+    scale: 0.8, 0.8
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_urban_icon.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-2
+      map:
+      - "enum.GunVisualLayers.Mag"
+      shader: unshaded
+  - type: Item
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_urban.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_urban.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: true
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      collection: N14PlasmaAutoRifleGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 225
+- # MARK: Shotguns
+type: entity
+  name: multiplas
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponPlasmaMultiplas
+  description: A modified urban plasma rifle, it sacrifices accuracy to instead spread the plasma into multiple projectiles.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -23
+    maxAngle: -56
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/multiplas.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/multiplas.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridgeMultiplas # #Misfits Change - use dedicated multi-shot cartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridgeMultiplas
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    fireRate: 2 # #Misfits Tweak - reduced from 6; shotgun pacing (1 spread burst per 0.5s)
+    soundGunshot:
+      collection: N14MultiplasGunshot
+    selectedMode: SemiAuto # #Misfits Fix - was Burst; Multiplas fires multiple bolts simultaneously like a shotgun
+    availableModes:
+     - SemiAuto
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 225
+- #MARK: Focused
+# (just a different looking laser rifle until we get more options)
+type: entity
+  name: wattz 3000 laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleWattz3000
+  description: Wattz 3000 Laser Rifle. Military-grade focusing optics produce a wide, bright yellow beam with devastating damage output. The most powerful laser rifle in the Wattz line — drains cells fast but hits like a truck.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -58
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/wattz3000.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/wattz3000.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
   - type: Gun
     fireRate: 2
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserSpread
-    fireCost: 150
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletLaserSpread
-      fireCost: 150
-    - proto: BulletLaserSpreadNarrow
-      fireCost: 200
-    - proto: BulletDisablerSmgSpread
-      fireCost: 120
+      collection: N14WattzGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 300
+  -   # #Misfits Change - Yellow beam override + focusing optics: +23 heat damage (total 40), double fireCost (12 shots)
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserYellow
+    bonusDamage:
+      types:
+        Heat: 23
+    fireCostMultiplier: 2.0
+- type: entity
+  name: wattz 2000 laser rifle
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserRifleWattz2000
+  description: Wattz 2000 Laser Rifle. Precision focusing optics produce a wide yellow beam with heavy damage per shot. Slower rate of fire but each hit packs a serious punch at the cost of higher cell drain.
+  components:
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -58
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/wattz2000.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/wattz2000.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      collection: N14WattzGunshot
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: FollowDistance
+    backStrength: 4
+  - type: StaticPrice
+    price: 400
+  -   # #Misfits Change - Yellow beam override + focusing optics: +13 heat damage (total 30), double fireCost (12 shots)
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserYellow
+    bonusDamage:
+      types:
+        Heat: 13
+    fireCostMultiplier: 2.0
+- #MARK: Heavy
+type: entity
+  name: plasma caster
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponPlasmaCaster
+  description: A massive plasma gun with a pretty sharp barrel, this gun is fed with plasma shells.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_caster.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/plasma_caster.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14PlasmaCartridge
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PlasmaCartridge
+  - type: Gun
+    minAngle: 2
+    maxAngle: 12
+    angleIncrease: 4
+    angleDecay: 12
+    fireRate: 4
+    soundGunshot:
+      collection: N14PlasmaCasterGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: Appearance
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 500
+- type: entity
+  name: laser gatling gun
+  parent: N14BaseWeaponPowerCellMedium
+  id: N14WeaponLaserGatling
+  description: A minigun, but laser — for those who prefer ash piles to perforated corpses. Spews a torrent of red laser bolts downrange at eight rounds per second. Requires a fusion core to operate.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_gatling.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laser_gatling.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Item
+    size: Ginormous
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: N14FusionCore # #Misfits Change - consolidated to single generic fusion core
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14FusionCore
+  - type: Gun
+    minAngle: 2
+    maxAngle: 12
+    angleIncrease: 4
+    angleDecay: 12
+    fireRate: 8
+    soundGunshot:
+      collection: N14LaserGatlingGunshot
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: Appearance
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: FollowDistance
+    backStrength: 6
+  - type: StaticPrice
+    price: 400
+- # #Misfits Add — Laser RCW, Pulse Pistol, Pulse Carbine, Pulse Rifle, Tesla Cannon
+# Ported from Fortune13/LoneStar (https://github.com/Cythisiax/LoneStar/), a SS13 Fallout fork.
+type: entity
+  name: laser RCW
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponLaserRCW
+  description: A rapid-cycling laser weapon with the silhouette of a submachine gun. Designed for close-quarters energy weapon deployment. Inaccurate and battery-hungry, but capable of sustained continuous laser fire.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laserrcw.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/laserrcw.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14MicrofusionCell # #Misfits Change - consolidated to single generic MFC; RCW fires red beam
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14MicrofusionCell
   - type: Item
     size: Large
     shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -7 # #Misfits Tweak - wielded spread 1°/5°; rapid-fire weapons keep 1° minimum
+    maxAngle: -20
+  - type: Gun
+    fireRate: 5 #Misfits Change — reduced from 8; RCW is rapid-cycling but not a bullet hose, 5 keeps it distinctly auto without being oppressive
+    minAngle: 8
+    maxAngle: 25
+    angleIncrease: 4
+    angleDecay: 14
+    selectedMode: Fullauto
+    availableModes:
+    - Fullauto
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  -   # #Misfits Add - Red beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14MFLaserRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 300
+- type: entity
+  name: pulse pistol
+  parent: N14BaseWeaponPowerCellSmall
+  id: N14WeaponPulsePistol
+  description: A compact energy weapon firing focused electromagnetic pulse bursts. Effective against robotic targets. Small power cell limits capacity but the size makes it concealable as a sidearm.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsepistol.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsepistol.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14ElectronChargePack
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,0,1
+    - 0,0,0,1
+  - type: Gun
+    fireRate: 2
+    minAngle: 1
+    maxAngle: 12
+    angleIncrease: 1
+    angleDecay: 8
+    soundGunshot:
+      collection: N14LaserPistolGunshot
+  -   # #Misfits Add - Red pulse beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14PulseRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 200
+- type: entity
+  name: pulse carbine
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponPulseCarbine
+  description: A medium-frame pulse weapon balancing cell capacity and portability. Standard Brotherhood of Steel counter-robot doctrine arms a team member with one. Effective suppressing fire against mechanical targets.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsecarbine.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulsecarbine.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14ElectronChargePack
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,1,0,1
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -18
+    maxAngle: -50
+  - type: Gun
+    fireRate: 2
+    minAngle: 18
+    maxAngle: 50
+    angleIncrease: 2
+    angleDecay: 12
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  -   # #Misfits Add - Red pulse beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14PulseRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 350
+- type: entity
+  name: pulse rifle (YK42b)
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponPulseRifle
+  description: The YK42b pulse rifle — a long-barrelled electromagnetic pulse weapon designed for sustained fire against armoured and mechanical targets. Brotherhood of Steel issue, though examples have spread across the wasteland over decades of attrition.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulserifle.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/pulserifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14ElectronChargePack # #Misfits Change - consolidated to single generic ECP
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14ElectronChargePack
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+    - 0,2,0,2
+  - type: Wieldable
+  - type: GunWieldBonus
+    minAngle: -22
+    maxAngle: -65
+  - type: Gun
+    fireRate: 1.5
+    minAngle: 22
+    maxAngle: 65
+    angleIncrease: 2
+    angleDecay: 14
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  -   # #Misfits Add - Red pulse beam override; weapon controls its own beam color
+type: GunDamageBonus
+    hitscanProtoOverride: N14PulseRed
+  - type: FollowDistance
+    backStrength: 5
+  - type: StaticPrice
+    price: 500
+- type: entity
+  name: Tesla Cannon
+  parent: N14BaseWeaponPowerCell
+  id: N14WeaponTeslaCannon
+  description: A shoulder-mounted heavy energy weapon that fires arcing electrical discharge. Devastating against groups and anything mechanical. Slow to cycle, impossible to misidentify. Brotherhood of Steel heavy ordnance — not commonly seen in the field.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/teslacannon.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-unshaded-4
+      map:
+      - "enum.GunVisualLayers.MagUnshaded"
+      shader: unshaded
+  - type: Clothing
+    sprite: _Nuclear14/Objects/Weapons/Guns/Battery/teslacannon.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Power Cell
+        startingItem: N14TeslaElectronChargePack #Misfits Change — use tesla cell so cannon fires energy ball projectile
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - N14PowerCellAdvanced
+  - type: Item
+    size: Huge
+    shape:
     - 0,0,3,1
-    sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
-    heldPrefix: energy
-  - type: Tag
-    tags:
-    - HighRiskItem
-  - type: StealTarget
-    stealGroup: HoSAntiqueWeapon
-  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-  - type: Battery
-    maxCharge: 1200
-    startingCharge: 1200
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 24
-    autoRechargePause: true
-    autoRechargePauseTime: 10
+    - 0,2,0,2
+  - type: Wieldable
+    wieldedSpeedModifier: 0.7
+  - type: GunWieldBonus
+    minAngle: -24
+    maxAngle: -70
+  - type: MultiHandedItem
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: Gun
+    fireRate: 0.5
+    minAngle: 24
+    maxAngle: 70
+    angleIncrease: 2
+    angleDecay: 14
+    soundGunshot:
+      collection: N14LaserAutoRifleGunshot
+  - type: FollowDistance
+    backStrength: 8
+  - type: StaticPrice
+    price: 800
