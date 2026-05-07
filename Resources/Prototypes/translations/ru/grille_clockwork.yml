@@ -1,0 +1,44 @@
+- type: constructionGraph
+  id: ClockGrille
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: clockGrille
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: MetalRod
+              amount: 2
+              doAfter: 1
+    - node: clockGrille
+      entity: ClockworkGrille
+      edges:
+        - to: start
+          completed:
+            - !type 
+              message: "A grille was cut"
+            - !type 
+              prototype: PartRodMetal1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: clockGrilleBroken
+      entity: ClockworkGrilleBroken
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: PartRodMetal1
+              amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Cutting
+        - to: clockGrille
+          steps:
+            - material: MetalRod
+              amount: 1
+              doAfter: 1
