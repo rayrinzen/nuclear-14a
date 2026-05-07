@@ -1,12 +1,10 @@
 - type: construction
-  name: moth plushie
-  id: mothplushie
-  graph: MothPlushie
+  name: bananium horn
+  id: HornBananium
+  graph: BananiumHorn
   startNode: start
-  targetNode: plush
-  category: construction-category-misc
-  description: A cute little moth plushie.
-  icon:
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_moth
+  targetNode: bananiumHorn
+  category: construction-category-weapons
+  description: An air horn made from bananium.
+  icon: { sprite: Objects/Fun/bananiumhorn.rsi, state: icon }
   objectType: Item
