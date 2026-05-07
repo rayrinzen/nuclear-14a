@@ -1,217 +1,501 @@
-- # For all other walls see SS14
-# Make a base for wood, metal walls (breaks to girder), concrete (breaks to nothing / rubble), rebarconcrete (breaks to rebar girder) etc for destruction
-# Concrete Walls
-type: entity
-  parent: BaseWall
-  id: N14WallStore
-  name: store wall
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/store.rsi
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 1000 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: IconSmooth
-    key: wallsstore
-    base: store
-- type: entity
-  parent: N14WallStore
-  id: N14WallSuperstore
-  name: store wall
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/superstore.rsi
-- type: entity
-  parent: N14WallStore
-  id: N14WallRuins
-  name: ruined wall
-  description: A ruined wall from a pre-war structure.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/ruins.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/ruins.rsi
-  - type: IconSmooth
-    key: wallsruins
-    base: ruin
-- type: entity
-  parent: N14WallStore
-  id: N14WallBrick
-  name: brick wall
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/brick.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/brick.rsi
-  - type: IconSmooth
-    key: wallsbrick
-    base: brick
-- type: entity
-  parent: N14WallStore
-  id: N14WallConcreteLight
-  name: concrete wall
-  suffix: light
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/concrete.rsi
-- type: entity
-  parent: N14WallConcreteLight
-  id: N14WallConcreteDark
-  suffix: dark
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/concretedark.rsi
-- # Metal walls
-type: entity
-  parent: BaseWall
-  id: N14WallMetalEnclave
-  name: metal wall
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/enclavewall.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/enclavewall.rsi
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 1000 behaviors: - !type:SpawnEntitiesBehavior spawn: Girder: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: IconSmooth
-    key: wallsenclave
-    base: enclave
-- # Wood walls
-type: entity
-  id: N14WallWoodFrame
-  parent: Barricade
-  name: wooden wall Frame
-  description: A frame for building into a wall.
-  components:
-  - type: Construction
-    graph: N14WoodWall
-    node: Frame
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/woodlog.rsi
-    state: girder
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank1: min: 0 max: 2 - !type:DoActsBehavior acts: [ "Destruction" ] - !type:PlaySoundBehavior sound: collection: WoodDestroyHeavy'
-- type: entity
-  parent: BaseWall
-  id: N14WallWoodWhite
-  name: wooden wall
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
-  - type: Damageable
-    damageModifierSet: Wood
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 200 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank: min: 1 max: 2 - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: IconSmooth
-    key: wallswood
-    base: wood
-- type: entity
-  parent: BaseStructureDynamic
-  id: N14WallWoodWhiteFrame
-  name: wall frame
-  description: Part of a wooden wall supporting the structure.
-  components:
-  - type: Transform
-    anchored: true
-    noRot: true
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.45,-0.45,0.45,0.45"'
-        density: 60
-        mask:
-        - MachineMask
-        layer:
-        - GlassAirlockLayer
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/woodwhite.rsi
-    state: girder
-  - type: Damageable
-    damageModifierSet: Wood
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank: min: 0 max: 1 - !type:DoActsBehavior acts: ["Destruction"]'
-- type: entity
-  parent: N14WallWoodWhite
-  id: N14WallWoodDark
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
-- type: entity
-  parent: N14WallWoodWhiteFrame
-  id: N14WallWoodDarkFrame
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/wooddark.rsi
-    state: girder
-- type: entity
-  parent: N14WallWoodWhite
-  id: N14WallWoodLog
-  name: log wall
-  description: A wall made out of wooden logs.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/woodlognew.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/woodlognew.rsi
-  - type: IconSmooth
-    key: log
-    base: log
-  - type: Construction
-    graph: N14WoodWall
-    node: logWall
-- # Tent Walls
-type: entity
-  parent: BaseWall
-  id: N14WallTent
-  name: tent wall
-  description: A tent made from cloth. Keeps the weather out at least.
-  components:
-  - type: Sprite
-    sprite: _Nuclear14/Structures/Walls/nc14/tent.rsi
-  - type: Icon
-    sprite: _Nuclear14/Structures/Walls/nc14/tent.rsi
-  - type: Damageable
-    damageModifierSet: Web
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:DoActsBehavior acts: ["Destruction"]'
-  - type: IconSmooth
-    key: tent
-    base: tent
-- type: entity
-  id: N14BlastDoorExteriorIndestructible
-  parent: BlastDoor
-  suffix: Indestructible, Closed
-  components:
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 10000 behaviors: - !type:DoActsBehavior acts: ["Destruction"]' # pseudo indestructible
-- type: entity
-  id: BlastDoorExteriorIndestructibleOpen
-  parent: BlastDoorOpen
-  suffix: Indestructible, Open
-  components:
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 10000 behaviors: - !type:DoActsBehavior acts: ["Destruction"]'
+﻿- type: constructionGraph
+  id: N14WoodWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Frame
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+        - to: logWall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+        - to: WallWoodTall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: WoodPlank
+              amount: 4
+              doAfter: 3
+    - node: Frame
+      entity: N14WallWoodFrame
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type ':DeleteEntity {}'
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Screwing
+              doAfter: 2
+        - to: WoodWall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: WoodPlank
+              amount: 2
+              doAfter: 2
+    - node: logWall
+      entity: N14WallWoodLog
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 10
+    - node: WoodWall
+      entity: N14WallWoodSlanted
+      edges:
+        - to: Frame
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 10
+    - node: WallWoodTall
+      entity: N14WallWoodTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type ':DeleteEntity {}'
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - tool: Prying
+              doAfter: 10
+- type: constructionGraph
+  id: N14ScrapWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: SheetScrapWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: SheetScrapWallTall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: WhiteScrapWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: WhiteScrapWallTall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: RedScrapWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: RedScrapWallTall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: BlueScrapWall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: BlueScrapWallTall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Steel
+              amount: 10
+              doAfter: 2
+        - to: RoughScrapWall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: N14Scrap
+              amount: 5
+              doAfter: 4
+    - node: SheetScrapWall
+      entity: N14WallScrapSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: SheetScrapWallTall
+      entity: N14WallScrapTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: WhiteScrapWall
+      entity: N14WallScrapWhiteSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: WhiteScrapWallTall
+      entity: N14WallScrapWhiteTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: BlueScrapWall
+      entity: N14WallScrapBlueSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: BlueScrapWallTall
+      entity: N14WallScrapBlueTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: RedScrapWall
+      entity: N14WallScrapRedSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: RedScrapWallTall
+      entity: N14WallScrapRedTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 7
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 10
+    - node: RoughScrapWall
+      entity: N14WallRoughScrapSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14Scrap
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 25
+    - node: RoughScrapWallTall
+      entity: N14WallRoughScrapTall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14Scrap
+              amount: 5
+            - !type :DeleteEntity
+          steps:
+            - tool: Welding
+              doAfter: 25
+- # #Misfits Add: Concrete wall construction graph
+type: constructionGraph
+  id: N14ConcreteWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: ConcreteWallLight
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: N14Concrete
+              amount: 4
+              doAfter: 3
+        - to: ConcreteWallDark
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: N14Concrete
+              amount: 4
+              doAfter: 3
+    - node: ConcreteWallLight
+      entity: N14WallConcreteLight
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialConcrete1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 15
+    - node: ConcreteWallDark
+      entity: N14WallConcreteDark
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialConcrete1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 15
+- # #Misfits Add: Brick wall construction graph
+type: constructionGraph
+  id: N14BrickWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: BrickWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: N14Brick
+              amount: 6
+              doAfter: 4
+    - node: BrickWall
+      entity: N14WallBrick
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialBrick1
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 20
+- # #Misfits Add: Adobe wall construction graph using the existing slanted adobe wall prototype.
+type: constructionGraph
+  id: N14AdobeWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: AdobeWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: N14Brick
+              amount: 6
+              doAfter: 4
+    - node: AdobeWall
+      entity: N14WallAdobeSlanted
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialBrick1
+              amount: 3
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 20
+- # #Misfits Add: Tent construction graphs
+type: constructionGraph
+  id: N14TentWall
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: LeatherTentWall
+          completed:
+            - !type 
+              southRotation: true
+          steps:
+            - material: Leather
+              amount: 3
+              doAfter: 2
+        - to: ClothTentWall
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Thread
+              amount: 4
+              doAfter: 2
+        - to: LeatherTentCorner
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Leather
+              amount: 2
+              doAfter: 1
+        - to: ClothTentCorner
+          completed:
+            - !type 
+              southRotation: true
+          conditions:
+            - !type ':EntityAnchored {}'
+          steps:
+            - material: Thread
+              amount: 3
+              doAfter: 1
+    - node: LeatherTentWall
+      entity: N14TentLeatherWall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialLeather1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: ClothTentWall
+      entity: N14TentClothWall
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialThread1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: LeatherTentCorner
+      entity: N14TentLeatherCorner
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialLeather1
+              amount: 1
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
+    - node: ClothTentCorner
+      entity: N14TentClothCorner
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: N14MaterialThread1
+              amount: 2
+            - !type :DeleteEntity
+          steps:
+            - tool: Prying
+              doAfter: 5
