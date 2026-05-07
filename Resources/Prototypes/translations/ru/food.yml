@@ -1,25 +1,42 @@
-- type: reagent
-  id: Nausium
-  name: reagent-name-nausium
-  group: Foods
-  desc: reagent-desc-nausium
-  physicalDesc: reagent-physical-desc-sickly
-  color: brown
-  metabolisms:
-    Food:
-      effects:
-      - !type 
-        probability: 0.9
-        conditions:
-        - !type 
-          reagent: Nausium
-          min: 5
-      - !type 
-        type: Local
-        messages:
-        - "disease-sick-stomach"
-        probability: 0.25
-        conditions:
-        - !type 
-          reagent: Nausium
-          min: 2.5
+- # Curd Cheese
+type: reaction
+  id: CurdlingCurdCheese
+  impact: Low
+  quantized: true
+  reactants:
+    Milk:
+      amount: 15
+    Vinegar:
+      amount: 5
+    Cream:
+      amount: 5
+  effects:
+    - !type 
+      entity: FoodCurdCheese
+      number: 2
+- # Mozzarella
+type: reaction
+  id: CurdlingMozzarella
+  impact: Low
+  quantized: true
+  reactants:
+    Milk:
+      amount: 15
+    Cream:
+      amount: 10
+    Enzyme:
+      amount: 5
+      catalyst: true
+  effects:
+    - !type 
+      entity: FoodMozzarella
+      number: 2
+- type: reaction
+  id: Ghee
+  impact: Low
+  minTemp: 373
+  reactants:
+    Butter:
+      amount: 1
+  products:
+    OilGhee: 1
