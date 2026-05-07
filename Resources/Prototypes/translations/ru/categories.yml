@@ -1,38 +1,18 @@
-- type: alertCategory
-  id: Pressure
+# See the following file for existing categories: Resources\Prototypes\Loadouts\categories.yml
 
-- type: alertCategory
-  id: Temperature
+- type: loadoutCategory
+  id: Bags
+  root: true
+  subCategories:
+    - Backpacks
+    - Duffel
+    - Satchel
 
-- type: alertCategory
-  id: Breathing
+- type: loadoutCategory
+  id: Backpacks
 
-- type: alertCategory
-  id: Buckled
+- type: loadoutCategory
+  id: Duffel
 
-- type: alertCategory
-  id: Health
-
-- type: alertCategory
-  id: Internals
-
-- type: alertCategory
-  id: Stamina
-
-- type: alertCategory
-  id: Piloting
-
-- type: alertCategory
-  id: Hunger
-
-- type: alertCategory
-  id: Thirst
-
-- type: alertCategory
-  id: Toxins
-
-- type: alertCategory
-  id: Battery
-
-- type: alertCategory
-  id: Mood
+- type: loadoutCategory
+  id: Satchel
