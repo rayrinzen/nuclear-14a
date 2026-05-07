@@ -1,19 +1,38 @@
 - type: entity
-  parent: PaintingBase
-  id: PaintingBlunt
-  name: Blunt Painting
-  description: A blunt smoking weird-cat thing with a smug look.
+  parent: MarkerBase
+  id: RandomPainting
+  name: random painting spawner
   components:
     - type: Sprite
-      sprite: DeltaV/Structures/Wallmounts/Paintings/ps3moira.rsi
-      state: bluntpainting
-
-- type: entity
-  parent: PaintingBase
-  id: PaintingSpoon
-  name: Spoon Painting
-  description: The type of painting that really ties together a room.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Structures/Wallmounts/Paintings/leonardodabepis.rsi
-      state: spoonpainting
+      layers:
+        - state: red
+        - sprite: Structures/Wallmounts/paintings.rsi
+          state: painting8
+    - type: RandomSpawner
+      offset: 0
+      prototypes:
+        - PaintingPersistenceOfMemory
+        - PaintingTheSonOfMan
+        - PaintingTheKiss
+        - PaintingTheScream
+        - PaintingTheGreatWave
+        - PaintingCafeTerraceAtNight
+        - PaintingNightHawks
+        - PaintingSkeletonCigarette
+        - PaintingPrayerHands
+        - PaintingOldGuitarist
+        - PaintingOlympia
+        - PaintingSaturn
+        - PaintingSleepingGypsy
+        - PaintingRedBlueYellow
+        - PaintingHelloWorld
+        - PaintingSpoon # DeltaV Painting, see Resources/Prototypes/DeltaV/Entities/Structures/Wallmount/painting.yml
+      chance: 1
+      rarePrototypes:
+        - PaintingSkeletonBoof
+        - PaintingEmpty
+        - PaintingMoony
+        - PaintingAmogusTriptych
+        - PaintingMothBigCatch # Nyanotrasen Painting, see Resources/Prototypes/Nyanotrasen/Entities/Structures/Wallmount/painting.yml
+        - PaintingBlunt # DeltaV Painting, see Resources/Prototypes/DeltaV/Entities/Structures/Wallmount/painting.yml
+      rareChance: 0.01
