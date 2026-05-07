@@ -1,83 +1,37 @@
-# Psychologist
-- type: characterItemGroup
-  id: LoadoutPsychologistBackpacks
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutPsychologistBackpackBackpack
-    - type: loadout
-      id: LoadoutPsychologistBackpackSatchel
-    - type: loadout
-      id: LoadoutPsychologistBackpackDuffel
+- type: job
+  id: Psychologist
+  name: job-name-psychologist
+  description: job-description-psychologist
+  playTimeTracker: JobPsychologist
+  startingGear: PsychologistGear
+  icon: "JobIconPsychologist"
+  supervisors: job-supervisors-cmo
+  access:
+    - Medical
+    - Maintenance
+    - Psychologist # DeltaV - Add Psychologist access
+  extendedAccess:
+    - Chemistry
+  setPreference: false
 
-#- type: characterItemGroup
-#  id: LoadoutPsychologistBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistEars
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutPsychologistEquipment
-  maxItems: 3
-  items:
-    - type: loadout
-      id: LoadoutPsychologistPillCanisterSpaceDrugs
-    - type: loadout
-      id: LoadoutPsychologistPillCanisterPax
-    - type: loadout
-      id: LoadoutPsychologistPillCanisterCryptobiolin
-    - type: loadout
-      id: LoadoutPsychologistPillCanisterChloralHydrate
+- type: startingGear
+  id: PsychologistGear
+  subGear:
+    - PsychologistPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPsychologist
+    back: ClothingBackpackPsychologistFilled #DeltaV - stamp included
+    shoes: ClothingShoesLeather
+    id: PsychologistPDA
+    ears: ClothingHeadsetMedical
+  innerClothingSkirt: ClothingUniformJumpsuitPsychologist
+  satchel: ClothingBackpackSatchelPsychologistFilled #DeltaV - stamp included
+  duffelbag: ClothingBackpackDuffelPsychologistFilled #DeltaV - stamp included
 
-#- type: characterItemGroup
-#  id: LoadoutPsychologistEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistGloves
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistMask
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistOuter
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutPsychologistShoes
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutPsychologistUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutPsychologistJumpsuit
-    - type: loadout
-      id: LoadoutPsychologistJumpskirt
+- type: startingGear
+  id: PsychologistPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacksPsychologist
+    head: ClothingHeadEnvirohelmMedicalDoctor
+    gloves: ClothingHandsGlovesEnviroglovesWhite
