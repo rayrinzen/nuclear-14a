@@ -1,680 +1,353 @@
-- type: entity
-  abstract: true
-  parent: BaseItem
-  id: MaterialBase
-  description: A raw material.
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-  - type: Item
-    sprite: Objects/Materials/materials.rsi
-    size: Normal
-  - type: Tag
-    tags:
-      - RawMaterial
-  - type: Damageable
-    damageContainer: Inorganic
-  -   # - type: Craftable  # #Misfits Remove: Stalker14 crafting system
-type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-- type: entity
-  parent: MaterialBase
-  id: MaterialCardboard
-  name: cardboard
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Cardboard: 100
-  - type: Stack
-    stackType: Cardboard
-    baseLayer: base
-    layerStates:
-    - cardboard
-    - cardboard_2
-    - cardboard_3
-  - type: Sprite
-    state: cardboard_3
-    layers:
-    - state: cardboard_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Extractable
-    grindableSolutionName: cardboard
-  - type: SolutionContainerManager
-    solutions:
-      cardboard:
-        reagents:
-        - ReagentId: Cellulose
-          Quantity: 6
-  - type: Construction
-    graph: N14Cardboard
-    node: cardboard
-- type: entity
-  parent: MaterialCardboard
-  id: MaterialCardboard10
-  suffix: 10
-  components:
-  - type: Sprite
-    state: cardboard
-  - type: Stack
-    count: 10
-- type: entity
-  parent: MaterialCardboard
-  id: MaterialCardboard1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: cardboard
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialCloth
-  name: cloth
-  suffix: Full
-  components:
-  -   # - type: Healing
-  # damageContainers:
-  # - Biological
-  # damage:
-  # types:
-  # Slash: -0.5
-  # Piercing: -0.5
-  # bloodlossModifier: -4
-  # healingBeginSound:
-  # path: "/Audio/Items/Medical/brutepack_begin.ogg"
-  # healingEndSound:
-  # path: "/Audio/Items/Medical/brutepack_end.ogg"
-type: Stack
-    stackType: Cloth
-    baseLayer: base
-    layerStates:
-    - cloth
-    - cloth_2
-    - cloth_3
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
-  - type: Sprite
-    state: cloth_3
-    layers:
-    - state: cloth_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: FlavorProfile
-    flavors:
-    - fiber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-  - type: Tag
-    tags:
-      - ClothMade
-      - Gauze
-      - RawMaterial
-  - type: Construction
-    graph: WebObjects # not sure if I should either keep this here or just make another prototype. Will keep it here just in case.
-    node: cloth
-- type: entity
-  parent: MaterialCloth
-  id: MaterialCloth10
-  suffix: 10
-  components:
-  - type: Sprite
-    state: cloth
-  - type: Stack
-    count: 10
-- type: entity
-  parent: MaterialCloth
-  id: MaterialCloth1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: cloth
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialDurathread
-  name: durathread
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Durathread
-    baseLayer: base
-    layerStates:
-    - durathread
-    - durathread_2
-    - durathread_3
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Durathread: 100
-  - type: Sprite
-    state: durathread_3
-    layers:
-    - state: durathread_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Construction
-    graph: Durathread
-    node: MaterialDurathread
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-  - type: Tag
-    tags:
-      - ClothMade
-      - RawMaterial
-- type: entity
-  parent: MaterialDurathread
-  id: MaterialDurathread1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: durathread
-  - type: Stack
-    count: 1
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:  #Hell if I know what durathread is made out of.
-        - ReagentId: Fiber
-          Quantity: 6
-- type: entity
-  parent: MaterialBase
-  id: MaterialWoodPlank
-  name: wood
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Wood: 100
-  - type: Stack
-    stackType: WoodPlank
-    baseLayer: base
-    layerStates:
-    - wood
-    - wood_2
-    - wood_3
-  - type: Sprite
-    state: wood
-    layers:
-    - state: wood
-      map:
-      - "base"
-  - type: Appearance
-  - type: Item
-    heldPrefix: wood
-  - type: Tag
-    tags:
-    - Wooden
-    - RawMaterial
-  - type: Extractable
-    grindableSolutionName: wood
-  - type: SolutionContainerManager
-    solutions:
-      wood:
-        reagents:
-        - ReagentId: Cellulose
-          Quantity: 10
-- type: entity
-  parent: MaterialWoodPlank
-  id: MaterialWoodPlank10
-  suffix: 10
-  components:
-  - type: Stack
-    count: 10
-- type: entity
-  parent: MaterialWoodPlank
-  id: MaterialWoodPlank1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialBiomass
-  name: biomass
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Biomass: 1
-  - type: Stack
-    stackType: Biomass
-    count: 100
-  - type: Sprite
-    sprite: /Textures/Objects/Misc/monkeycube.rsi
-    state: cube
-    color: "#8A9A5B"
-- # #Misfits Removed - GuideHelp: guide entries not present in Nuclear-14 (Cloning)
-type: entity
-  parent: MaterialBiomass
-  id: MaterialBiomass1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
-- # Following not used currently
-type: entity
-  parent: MaterialBase
-  id: MaterialHideBear
-  name: bear hide
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-    layers:
-    - map:
-    - "enum.DamageStateVisualLayers.Base"
-      state: bearpelt
-    - map:
-    - "enum.DamageStateVisualLayers.BaseUnshaded"
-      state: bearpelt_glow
-      shader: unshaded
-  - type: Item
-    sprite: Clothing/Head/Misc/hides.rsi
-    heldPrefix: bear
-  - type: Clothing
-    sprite: Clothing/Head/Misc/hides.rsi
-    equippedPrefix: bear
-    slots:
-      - HEAD
-  - type: PointLight
-    radius: 1.2
-    energy: 1.5
-    color: "#4faffb"
-    slots:
-- type: entity
-  parent: MaterialBase
-  id: MaterialHideCorgi
-  name: corgi hide
-  description: Luxury pelt used in only the most elite fashion. Rumors say this is found when a corgi is sent to the nice farm.
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-    state: corgihide
-  - type: Item
-    sprite: Clothing/Head/Misc/hides.rsi
-    heldPrefix: corgi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/hides.rsi
-    equippedPrefix: corgi2
-    slots:
-    - HEAD
-  - type: Tag
-    tags:
-    - HideCorgi
-- type: entity
-  parent: MaterialBase
-  id: MaterialDiamond
-  name: refined diamond
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Diamond
-    baseLayer: base
-    layerStates:
-    - diamond
-    - diamond_2
-    - diamond_3
-  - type: Sprite
-    state: diamond
-    layers:
-    - state: diamond
-      map:
-      - "base"
-  - type: Appearance
-  - type: Item
-    heldPrefix: diamond
-  - type: Extractable
-    grindableSolutionName: diamond
-  - type: SolutionContainerManager
-    solutions:
-      diamond:
-        reagents:
-        - ReagentId: Carbon
-          Quantity: 20
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Diamond: 100
-- type: entity
-  parent: MaterialDiamond
-  id: MaterialDiamond1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialCotton
-  name: cotton
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Cotton
-    baseLayer: base
-    layerStates:
-    - cotton
-    - cotton_2
-    - cotton_3
-  - type: Sprite
-    state: cotton_3
-    layers:
-    - state: cotton_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: FlavorProfile
-    flavors:
-    - fiber
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
-  - type: Tag
-    tags:
-      - ClothMade
-      - RawMaterial
-- type: entity
-  parent: MaterialCotton
-  id: MaterialCotton1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: cotton
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialPyrotton
-  name: pyrotton
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Pyrotton
-    baseLayer: base
-    layerStates:
-    - pyrotton
-    - pyrotton_2
-    - pyrotton_3
-  - type: Sprite
-    state: pyrotton_3
-    layers:
-    - state: pyrotton_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: Phlogiston
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
-      - ReagentId: Phlogiston
-        Quantity: 3
-  - type: Tag
-    tags:
-      - ClothMade
-      - RawMaterial
-- type: entity
-  parent: MaterialPyrotton
-  id: MaterialPyrotton1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: pyrotton
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialBananium
-  name: bananium
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      Bananium: 150
-  - type: Sprite
-    state: bananium_1
-    layers:
-    - state: bananium_1
-      map:
-      - "base"
-  - type: Stack
-    stackType: Bananium
-    count: 10
-    baseLayer: base
-    layerStates:
-      - bananium
-      - bananium_1
-  - type: RadiationSource #Delta V - Adds radiation
-    intensity: 0.1
-  - type: FlavorProfile
-    flavors:
-      - banana
-  - type: Food
-    trash:
-    - TrashBananiumPeel
-  - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 11
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 4
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Honk
-          Quantity: 5
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: JuiceBanana
-        Quantity: 5
-      - ReagentId: Honk
-        Quantity: 5
-  - type: Appearance
-- type: entity
-  parent: MaterialBananium
-  id: MaterialBananium1
-  suffix: Single
-  components:
-  - type: Sprite
-    state: bananium
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialWebSilk
-  name: silk
-  description: A webby material.
-  suffix: Full
-  components:
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      WebSilk: 100
-  - type: Sprite
-    sprite: Objects/Materials/silk.rsi
-    state: icon
-  - type: Stack
-    count: 50
-    stackType: WebSilk
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: FlavorProfile
-    flavors:
-      - cobwebs
-    ignoreReagents:
-      - Fiber
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Fiber
-        Quantity: 3
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 3
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 3
-  - type: Tag
-    tags:
-      - ClothMade
-      - RawMaterial
-- type: entity
-  parent: MaterialWebSilk
-  id: MaterialWebSilk25
-  suffix: 25
-  components:
-  - type: Stack
-    count: 25
-- type: entity
-  parent: MaterialWebSilk
-  id: MaterialWebSilk1
-  suffix: 1
-  components:
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialBones
-  name: bones
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Bones
-    baseLayer: base
-    layerStates:
-    - bones
-    - bones_2
-    - bones_3
-  - type: Sprite
-    state: cotton_3
-    layers:
-    - state: cotton_3
-      map:
-      - "base"
-  - type: Appearance
-  - type: Food
-  - type: BadFood
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: Vitamin
-          Quantity: 3
-- type: entity
-  parent: MaterialBones
-  id: MaterialBones1
-  suffix: 1
-  components:
-  - type: Stack
-    count: 1
-- type: entity
-  parent: MaterialBase
-  id: MaterialGunpowder
-  name: gunpowder
-  description: An explosive compound.
-  components:
-  -   # - type: Stack // Forge-Change
-  #   stackType: Gunpowder
-  #   count: 1
-type: Sprite
-    sprite: Objects/Misc/reagent_fillings.rsi
-    state: powderpile
-    color: darkgray
-  - type: PhysicalComposition
-    materialComposition:
-      Gunpowder: 100
-  - type: Item
-    size: Tiny
-- type: entity
-  parent: MaterialBase
-  id: MaterialGoliathHide
-  name: goliath hide plates
-  description: Pieces of a goliath's rocky hide, these might be able to make your suit a bit more durable to attack from the local fauna.
-  suffix: Full
-  components:
-  - type: Sprite
-    sprite: Objects/Materials/hide.rsi
-    layers:
-    - state: goliath_hide
-      map:
-      - "base"
-  - type: StaticPrice
-    price: 0
-  - type: StackPrice
-    price: 1500
-  - type: Appearance
-  - type: Stack
-    stackType: GoliathHide
-    baseLayer: base
-    layerStates:
-    - goliath_hide
-    - goliath_hide_2
-    - goliath_hide_3
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,2
-- type: entity
-  parent: MaterialGoliathHide
-  id: MaterialGoliathHide1
-  suffix: 1
-  components:
-  - type: Stack
-    count: 1
+- type: material
+  id: Circuitry
+  stackEntity: N14MaterialCircuitry1
+  name: materials-circuitry # N14TODO: Localise
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: circuits_3
+  color: "#8A9A5B"
+  price: 0.1
+- # Metals
+type: material
+  id: Lead
+  stackEntity: N14IngotLead1
+  name: materials-lead
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_lead
+  color: "#C0C0C0"
+  price: 0.04
+- type: material
+  id: Sulfur
+  stackEntity: SulfurPowder1
+  name: materials-sulfur
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: powder_brass
+  color: "#FDD805"
+  price: 0.01
+- type: material
+  id: Aluminum
+  stackEntity: N14IngotAluminum1
+  name: materials-aluminum
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_aluminum
+  color: "#C0C0C0"
+  price: 0.01
+- type: material
+  id: N14Copper
+  stackEntity: N14IngotCopper1
+  name: materials-copper
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_copper
+  color: "#B87333"
+  price: 0.01
+- type: material
+  id: N14Brass
+  stackEntity: N14IngotBrass1
+  name: materials-N14brass
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_brass
+  color: "#B5A642"
+  price: 0.01
+- type: material
+  id: N14Gold
+  stackEntity: N14IngotGold1
+  name: materials-N14gold
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_gold
+  color: "#FFD700"
+  price: 0.14
+- type: material
+  id: N14Iron
+  stackEntity: N14IngotIron1
+  name: materials-N14iron
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_iron
+  color: "#B0C4DE"
+  price: 0.02
+- type: material
+  id: N14Silver
+  stackEntity: N14IngotSilver1
+  name: materials-N14silver
+  unit: materials-unit-bar
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: ingot_silver
+  color: "#C0C0C0"
+  price: 0.05 # Corvax-Change
+- # Materials
+# Misfits Fix: N14Paper needs its own material prototype so lathe-type machines
+# (ammo workshop, etc.) eject N14Paper1 instead of vanilla SheetPaper1.
+# N14Paper entities previously used PhysicalComposition: Paper: 100, which caused
+# them to enter the upstream Paper material pool and eject as SheetPaper1 —
+# making the output unusable in N14 hand-crafting recipes (e.g. cardboard).
+type: material
+  id: N14Paper
+  stackEntity: N14Paper1
+  name: materials-N14paper
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/clutter.rsi
+  state: paper
+  color: "#d9d9d9"
+  price: 0.0003
+- type: material
+  id: N14Gunpowder
+  stackEntity: N14Gunpowder1
+  name: materials-gunpowder
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: powder_lead
+  color: "#3E201D"
+  price: 0.075
+- type: material
+  id: ScrapElectronic
+  stackEntity: N14ScrapElectronic1
+  name: materials-scrap-electronic
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_electronic_3
+  price: 0.005
+- type: material
+  id: ScrapSteel
+  stackEntity: N14ScrapSteel1
+  name: materials-scrap-steel
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_steel_3
+  price: 0.005
+- type: material
+  id: ScrapGold
+  stackEntity: N14ScrapGold1
+  name: materials-scrap-gold
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_gold
+  color: "#FFD700"
+  price: 0.007
+- type: material
+  id: ScrapCopper
+  stackEntity: N14ScrapCopper1
+  name: materials-scrap-copper
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_copper
+  color: "#B87333"
+  price: 0.005
+- type: material
+  id: ScrapBrass
+  stackEntity: N14ScrapBrass1
+  name: materials-scrap-brass
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_brass
+  color: "#B5A642"
+  price: 0.005
+- type: material
+  id: Scrap
+  stackEntity: N14Scrap1
+  name: materials-scrap
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_2
+  color: "#4A4A4A"
+  price: 0.003
+- type: material
+  id: ScrapLead
+  stackEntity: N14ScrapLead1
+  name: materials-lead-scrap
+  unit: materials-unit-bunch
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_lead
+  color: "#C0C0C0"
+  price: 0.005
+- type: reagent
+  id: N14Gunpowder
+  name: reagent-name-gunpowder
+  desc: reagent-desc-gunpowder
+  physicalDesc: reagent-physical-desc-powdery
+  color: "#3E201D"
+  boilingPoint: 673.0
+  meltingPoint: 607.0
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type 
+        damage:
+          types:
+            Poison: 0.25
+- type: material
+  id: Charcoal
+  stackEntity: Charcoal
+  name: materials-charcoal
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: powder_lead
+  color: "#1D3B3E"
+  price: 0.005
+- type: material
+  id: Fertilizer
+  stackEntity: FertilizerOre1
+  name: materials-fertilizer
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/Sacks/daesack2.rsi
+  state: icon
+  color: "#1D3B3E"
+  price: 0.05
+- type: reagent
+  id: Fertilizer
+  name: reagent-name-fertilizer
+  group: Botanical
+  desc: reagent-desc-fertilizer
+  flavor: bitter
+  color: "#664330"
+  physicalDesc: reagent-physical-desc-thick
+  plantMetabolism:
+  - !type 
+    amount: 3
+  - !type 
+    amount: -1
+  - !type 
+    amount: 0.1
+  - !type 
+    amount: 1
+  - !type ':PlantDiethylamine {}'
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Poison: 0.25
+      - !type 
+        probability: 0.45
+- type: reagent
+  id: Dung
+  name: reagent-name-dung
+  group: Botanical
+  desc: reagent-desc-dung
+  flavor: bitter
+  color: "#664330"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Poison: 0.25
+      - !type 
+        probability: 0.80
+- type: material
+  id: N14Timber
+  stackEntity: N14FloraLogTimber
+  name: materials-timber
+  unit: materials-unit-piece
+  icon:
+  sprite: _Nuclear14/Structures/Decoration/flora.rsi
+  state: tree_timber
+  color: "#1D3B3E"
+  price: 0.003
+- type: material
+  id: Leather
+  stackEntity: N14MaterialLeather1
+  name: materials-leather
+  unit: materials-unit-roll
+  icon:
+  sprite: _Nuclear14/Objects/Misc/materials.rsi
+  state: leather_3
+  price: 0.02
+- type: material
+  id: Exoskeleton
+  stackEntity: N14MaterialExoskeleton
+  name: materials-exoskeleton
+  unit: materials-unit-piece
+  icon:
+  sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+  state: rad_exo
+  price: 0.05
+- type: material
+  id: AntChitin
+  stackEntity: N14MaterialAntChitin1
+  name: materials-antchitin
+  unit: materials-unit-piece
+  icon:
+  sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+  state: chitin_3
+  price: 0.05
+- type: material
+  id: RawLeather
+  stackEntity: N14MaterialRawLeather1
+  name: materials-raw-leather
+  unit: materials-unit-roll
+  icon:
+  sprite: _Nuclear14/Objects/Misc/materials.rsi
+  state: raw_leather_2
+  price: 0.01
+- type: material
+  id: Thread
+  stackEntity: N14MaterialThread1
+  name: materials-thread
+  unit: materials-unit-roll
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: thread
+  color: "#d2691e"
+  price: 0.01
+- # #Misfits Add: Construction material prototypes for the cement/concrete/brick building system.
+# PhysicalComposition on N14MaterialCement, N14MaterialConcrete, and N14MaterialBrick reference these IDs.
+type: material
+  id: Cement
+  stackEntity: N14MaterialCement1
+  name: materials-cement
+  unit: materials-unit-pile
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: powder_brass
+  color: "#c0bdb8"
+  price: 0.005
+- type: material
+  id: Concrete
+  stackEntity: N14MaterialConcrete1
+  name: materials-concrete
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_3
+  color: "#b0b0b0"
+  price: 0.01
+- type: material
+  id: Brick
+  stackEntity: N14MaterialBrick1
+  name: materials-brick
+  unit: materials-unit-piece
+  icon:
+  sprite: /Textures/_Nuclear14/Objects/Misc/materials.rsi
+  state: scrap_copper
+  color: "#8b4513"
+  price: 0.01
