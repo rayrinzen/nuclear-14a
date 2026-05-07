@@ -1,13 +1,225 @@
 - type: entity
-  id: ActionCancelEscape
-  name: Stop escaping
-  description: Calm down and sit peacefuly in your carrier's inventory
-  categories:
-  - HideSpawnMenu
+  id: LockerSyndicatePersonalFilled
+  suffix: Filled
+  parent: LockerSyndicatePersonal
   components:
-  - type: InstantAction
-    icon:
-      sprite: Actions/escapeinventory.rsi
-      state: cancel-escape
-    event: !type :EscapeInventoryCancelActionEvent
-    useDelay: 2
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        children:
+        - !type 
+          id: ClothingBeltMilitaryWebbing
+        - !type 
+          id: ClothingHandsGlovesCombat
+        - !type 
+          id: JetpackBlackFilled
+        - !type 
+          id: ClothingUniformJumpsuitOperative
+        - !type 
+          id: ClothingUniformJumpskirtOperative
+        - !type 
+          id: ClothingHeadsetAltSyndicate
+        - !type 
+          id: ClothingEyesHudSyndicate
+- type: entityTable
+  id: FillLockerEmergencyStandard
+  table: !type
+    children:
+    - !type 
+      id: ClothingMaskBreath
+    - !type 
+      id: ClothingOuterSuitEmergency
+    - !type 
+      children:
+      - !type 
+        id: EmergencyOxygenTankFilled
+      - !type 
+        id: OxygenTankFilled
+    - !type 
+      id: ToolboxEmergencyFilled
+      prob: 0.5
+    - !type 
+      id: MedkitOxygenFilled
+      prob: 0.2
+    - !type 
+      id: WeaponFlareGun
+      prob: 0.05
+    - !type 
+      id: BoxMRE
+      prob: 0.1
+- type: entity
+  id: ClosetEmergencyFilledRandom
+  parent: ClosetEmergency
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: FillLockerEmergencyStandard
+- type: entity
+  id: ClosetWallEmergencyFilledRandom
+  parent: ClosetWallEmergency
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: FillLockerEmergencyStandard
+- type: entity
+  id: ClosetEmergencyN2FilledRandom
+  parent: ClosetEmergencyN2
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        children:
+        - !type 
+          id: ClothingMaskBreath
+        - !type 
+          id: ClothingOuterSuitEmergency
+        - !type 
+          children:
+          - !type 
+            id: EmergencyNitrogenTankFilled
+          - !type 
+            id: NitrogenTankFilled
+- type: entityTable
+  id: FillLockerFireStandard
+  table: !type
+    children:
+    - !type 
+      id: ClothingOuterSuitFire
+    - !type 
+      id: ClothingHeadHelmetFire
+    - !type 
+      id: ClothingMaskGas
+    - !type 
+      children:
+      - !type 
+        id: EmergencyOxygenTankFilled
+      - !type 
+        id: OxygenTankFilled
+    - !type 
+      id: CrowbarRed
+    - !type 
+      children:
+      - !type 
+        id: FireExtinguisher
+        weight: 98
+      - !type 
+        id: SprayBottleWater #It's just budget cut after budget cut man
+        weight: 2
+- type: entity
+  id: ClosetFireFilled
+  parent: ClosetFire
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: FillLockerFireStandard
+- type: entity
+  id: ClosetWallFireFilledRandom
+  parent: ClosetWallFire
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: FillLockerFireStandard
+- type: entityTable
+  id: SyndieMaintLoot
+  table: !type
+    children:
+    - !type 
+      children:
+      - !type 
+        id: ClothingUniformJumpsuitOperative
+      - !type 
+        id: ClothingUniformJumpskirtOperative
+    - !type 
+      id: ClothingBackpackDuffelSyndicate
+    - !type 
+      id: CyberPen
+    - !type 
+      id: CigPackSyndicate
+    - !type 
+      id: ClothingBackpackDuffelSyndicatePyjamaBundle
+    - !type 
+      id: ClothingBeltMilitaryWebbing
+    - !type 
+      id: ClothingShoesBootsCombatFilled
+    - !type 
+      id: ToolboxSyndicateFilled
+    - !type 
+      id: BalloonSyn
+    - !type 
+      id: WeaponSniperMosin
+      weight: 2
+    - !type 
+      id: ClothingEyesNightVisionGogglesSyndie
+    - !type 
+      id: ClothingEyesThermalVisionGogglesSyndie
+- type: entityTable
+  id: MaintenanceLockerLoot
+  table: !type
+    children:
+    - !type 
+      id: StrangePill
+      prob: 0.20
+    - !type 
+      tableId: MaintToolsTable
+      rolls: !type
+        range: 1, 5
+    - !type 
+      tableId: MaintFluffTable
+      prob: 0.33
+      rolls: !type
+        range: 0, 2
+    - !type 
+      tableId: AllPlushiesTable
+      prob: 0.10
+      rolls: !type
+        range: 1, 2
+    - !type 
+      tableId: MaintWeaponTable
+      prob: 0.075
+    - !type 
+      tableId: SyndieMaintLoot
+      prob: 0.05
+- type: entity
+  id: ClosetMaintenanceFilledRandom
+  suffix: Filled, Random
+  parent: ClosetMaintenance
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: MaintenanceLockerLoot
+- type: entity
+  id: ClosetWallMaintenanceFilledRandom
+  parent: ClosetWall
+  suffix: Filled, Random
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        tableId: MaintenanceLockerLoot
+- type: entity
+  id: ClosetWallRadiationFilled
+  suffix: Filled
+  parent: ClosetWallRadiation
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type
+        children:
+        - !type 
+          id: ClothingOuterSuitRad
+          amount: !type
+            value: 2
+        - !type 
+          id: GeigerCounter
+          amount: !type
+            value: 2
