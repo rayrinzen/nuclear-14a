@@ -1,97 +1,60 @@
+# Flashlights
 - type: entity
-  parent: BaseLightbulb
-  name: blue light tube
-  description: A medium power high energy bulb that reminds you of space. May contain mercury.
-  id: BlueLightTube
+  parent: FlashlightLantern
+  id: N14Flashlight
+  name: flashlight
+  description: Brighten up your miserable life.
   components:
-    - type: LightBulb
-      bulb: Tube
-      color: "#B4FCF0"
-      lightEnergy: 3
-      lightRadius: 12
-      lightSoftness: 0.5
-      BurningTemperature: 350
-      PowerUse: 75
     - type: Sprite
-      sprite: Objects/Power/light_tube.rsi
-      state: normal
+      sprite: Objects/Tools/flashlight.rsi # N14TODO: SPRITE
+      layers:
+        - state: flashlight
+        - state: flashlight-overlay
+          shader: unshaded
+          visible: false
+          map: [ "light" ]
+    - type: Item
+      sprite: Objects/Tools/flashlight.rsi # N14TODO: SPRITE
 
 - type: entity
-  parent: BaseLightbulb
-  name: incandescent light bulb
-  suffix: Maintenance
-  id: LightBulbMaintenance
-  description: A dim light bulb.
+  parent: N14Flashlight
+  id: N14FlashlightEmpty
+  suffix: Empty
   components:
-    - type: LightBulb
-      bulb: Bulb
-      color: "#FFD1A3" # 4000K color temp
-      lightEnergy: 0.7
-      lightRadius: 1.5
-      lightSoftness: 1.1
+    - type: ItemSlots
+      slots:
+        cell_slot:
+          name: power-cell-slot-component-slot-name-default
 
-# Colored
+# Flares
 - type: entity
-  parent: BaseLightbulb
-  name: red light tube
-  description: A colorful light tube. These emit a red hue.
-  id: ColoredLightTubeRed
+  parent: Flare
+  id: N14Flare
+  name: flare
+  description: Creates light for a short period of time.
   components:
-    - type: LightBulb
-      bulb: Tube
-      color: "#FF6666"
-      lightEnergy: 0.9
-      lightRadius: 10
-      lightSoftness: 0.5
-      PowerUse: 25
     - type: Sprite
-      sprite: Objects/Power/light_tube.rsi
-      state: normal
-
-- type: entity
-  parent: BaseLightbulb
-  name: blue light tube
-  description: A colorful light tube. These emit a frosty blue hue.
-  id: ColoredLightTubeFrostyBlue
-  components:
-    - type: LightBulb
-      bulb: Tube
-      color: "#00FFFF"
-      lightEnergy: 0.8
-      lightRadius: 10
-      lightSoftness: 1
-      PowerUse: 25
-    - type: Sprite
-      sprite: Objects/Power/light_tube.rsi
-      state: normal
-
-- type: entity
-  parent: BaseLightbulb
-  name: black light tube
-  description: A colorful light tube. These emit "black light".
-  id: ColoredLightTubeBlackLight
-  components:
-    - type: LightBulb
-      bulb: Tube
-      color: "#5D0CED"
-      lightEnergy: 1.1
-      lightRadius: 10
-      lightSoftness: 1
-      PowerUse: 25
-    - type: Sprite
-      sprite: Objects/Power/light_tube.rsi
-      state: normal
-
-- type: entity
-  parent: BaseLightbulb
-  name: incandescent light bulb
-  suffix: Maintenance, Red
-  id: LightBulbMaintenanceRed
-  description: A dim light bulb. These emit a red hue.
-  components:
-    - type: LightBulb
-      bulb: Bulb
-      color: "#FF6666" # 4000K color temp
-      lightEnergy: 1.1
-      lightRadius: 1.5
-      lightSoftness: 1.1
+      sprite: Objects/Misc/flare.rsi # N14TODO: Change
+      layers:
+        - map: [ enum.ExpendableLightVisualLayers.Base ]
+          state: flare_base
+        - map: [ enum.ExpendableLightVisualLayers.Glow ]
+          state: flare_burn
+          color: "#FFFFFF" # N14TODO: Change
+          visible: false
+          shader: unshaded
+        - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+          state: flare_unlit
+          color: "#FF0000" # N14TODO: Change
+    - type: Icon
+      sprite: Objects/Misc/flare.rsi # N14TODO: Change
+      state: icon
+    - type: Item
+      sprite: Objects/Misc/flare.rsi # N14TODO: Change
+      heldPrefix: unlit
+    - type: PointLight
+      enabled: false
+      color: "#FF8080" # N14TODO: Change
+      radius: 1.0
+      energy: 9.0
+      netsync: false
