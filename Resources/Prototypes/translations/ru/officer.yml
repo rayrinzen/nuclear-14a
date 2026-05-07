@@ -1,13 +1,13 @@
 # #Misfits Removed - not a Misfits faction, not deployed on Wendover
 # - type: job
-#   id: ChineseOfficer
+#   id: PreventorOfficer
 #   setPreference: false
 #   overrideConsoleVisibility: false
 #   canBeAntag: false
-#   name: chinese officer
-#   description: lead your troops and fight in the name of communism. #need work
-#   playTimeTracker: ChineseOfficer
-#   startingGear: ChineseOfficerGear
+#   name: preventor officer
+#   description: make sure the vancouver goverment and blue line commercial agreements are accomplished. #need work
+#   playTimeTracker: PreventorOfficer
+#   startingGear: PreventorOfficerGear
 #   icon: "JobIconSecurityCadet"
 #   special:
 #   - !type:AddComponentSpecial
@@ -19,18 +19,14 @@
 null
 
 # - type: startingGear
-#   id: ChineseOfficerGear
+#   id: PreventorOfficerGear
 #   equipment:
-#     head: N14ClothingHeadHatChinese
+#     head: N14ClothingHeadHatVancouver
 #     back: N14ClothingBackpackMilitaryFilled
-#     eyes: N14ClothingEyesGlassesGoggles
-#     belt: ClothingBeltMilitaryFilled
-#     jumpsuit: N14ClothingUniformJumpsuitChinese
-#     shoes: N14ClothingBootsLeather
-#     gloves: N14ClothingHandsGlovesLeather
-#     outerClothing: N14ClothingOuterVestChinese
-#     pocket1: N14WeaponPistol9mmChinese
+#     belt: ClothingBeltRevolverWebleyFilled
+#     jumpsuit: N14ClothingUniformJumpsuitVancouver
+#     shoes: N14ClothingBootsCombat
+#     outerClothing: N14ClothingOuterPreventorJacket
 #     pocket2: N14CombatKnife
-#     suitstorage: N14ChineseSword
 # - type: playTimeTracker
-#   id: ChineseOfficer
+#   id: PreventorOfficer
