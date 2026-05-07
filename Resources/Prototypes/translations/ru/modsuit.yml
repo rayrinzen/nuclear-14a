@@ -1,46 +1,33 @@
 - type: entity
-  parent: ClothingOuterBase
-  id: ClothingModsuitChestplateStandard
-  name: standard modsuit chestplate
-  description: A special modular suit spaceproof cover designed for compact folding inside modular suit control.
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsStandard
+  name: standard modsuit boots
+  description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
     - type: Appearance
-    - type: AllowSuitStorage
     - type: Sprite
-      sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+      sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
       layers:
-        - state: chestplate
-        - state: chestplate-sealed
+        - state: boots
+        - state: boots-sealed
           visible: false
           map: [ "sealed" ]
     - type: Clothing
       equipSound: /Audio/Mecha/mechmove03.ogg
       unequipSound: /Audio/Mecha/mechmove03.ogg
-      slots: [ outerClothing ]
+      slots: [ feet ]
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: SealableClothing
+      sealUpPopup: sealable-clothing-seal-up-boots
+      sealDownPopup: sealable-clothing-seal-down-boots
     - type: ClothingSpeedModifier
       walkModifier: 0.9
       sprintModifier: 0.9
-    - type: SealableClothing
-      sealUpPopup: sealable-clothing-seal-up-chestplate
-      sealDownPopup: sealable-clothing-seal-down-chestplate
     - type: SealableClothingVisuals
       visualLayers:
-        outerClothing:
-          - state: equipped-OUTERCLOTHING-sealed
+        shoes:
+          - state: equipped-FEET-sealed
             shader: unshaded
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.85
-          Heat: 0.85
-          Radiation: 0.6
-    - type: ComponentToggler
-      components:
-        - type: PressureProtection
-          highPressureMultiplier: 0.3
-          lowPressureMultiplier: 1000
-        - type: TemperatureProtection
-          coefficient: 0.1
