@@ -1,35 +1,24 @@
 - type: entity
-  abstract: true
+  id: N14BaseMagazine9mmPistol
+  name: pistol magazine (9mm)
   parent: BaseItem
-  id: BaseMagazineBox9mm
+  abstract: true
   components:
+  - type: Tag
+    tags:
+      - N14MagazinePistol9mm
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - N14CartridgePistol9
-    proto: NN14CartridgePistol9
-    capacity: 80
+    capacity: 14
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type :Container
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/9mm.rsi
     netsync: false
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
-- type: entity
-  parent: BaseMagazineBox9mm
-  id: MagazineBox9mm
-  name: ammunition box (9mm)
-  components:
-  - type: BallisticAmmoProvider
-    proto: N14CartridgePistol9
-  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/9mm/pistolmag.rsi
     layers:
     - state: base
       map:
@@ -37,3 +26,35 @@
     - state: mag-1
       map:
       - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: N14MagazinePistol9mm
+  name: pistol magazine (9mm)
+  parent: N14BaseMagazine9mmPistol
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol9
+- type: entity
+  id: N14MagazineSMG9mm
+  name: SMG magazine (9mm)
+  parent: N14BaseMagazine9mmPistol
+  components:
+  - type: Tag
+    tags:
+      - N14MagazineSMG9mm
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/9mm/smgmag.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - N14CartridgePistol9
+    capacity: 31
+    proto: N14CartridgePistol9
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
