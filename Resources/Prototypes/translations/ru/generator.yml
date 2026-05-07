@@ -1,15 +1,32 @@
-- type: soundCollection
-  # Plays when you try to start a generator.
-  # You know, lawnmower cord pull sound.
-  id: GeneratorTug
-  files:
-    - /Audio/Machines/generator-tug-1.ogg
-    - /Audio/Machines/generator-tug-2.ogg
-    - /Audio/Machines/generator-tug-3.ogg
-
-- type: soundCollection
-  id: GeneratorTugEmpty
-  files:
-    - /Audio/Machines/generator-tug-1-empty.ogg
-    - /Audio/Machines/generator-tug-2-empty.ogg
-    - /Audio/Machines/generator-tug-3-empty.ogg
+- type: entity
+  id: SingularityGenerator
+  name: gravitational singularity generator
+  description: An Odd Device which produces a Gravitational Singularity when set up.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/generator.rsi
+    state: icon
+  - type: SingularityGenerator
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:  # Using a circle here makes it a lot easier to pull it all the way from Cargo !type:PhysShapeCircle radius: 0.45
+        density: 190
+        # Keep an eye on ParticlesProjectile when adjusting these
+        mask:
+        - MachineMask
+        layer:
+        - Opaque
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Anchorable
+  - type: Pullable
+    # - type: GuideHelp
+    # guides: [ Singularity, Power ]
