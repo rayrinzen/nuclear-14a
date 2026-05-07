@@ -1,0 +1,194 @@
+- type: utilityQuery
+  id: InventoryGuns
+  query:
+    - !type :InventoryQuery
+    - !type 
+      components:
+        - type: Gun
+  considerations:
+    - !type 
+      curve: !type :QuadraticCurve
+- type: utilityQuery
+  id: NearbyAmmo
+  query:
+    - !type 
+      components:
+        - type: Ammo
+        - type: Item
+  considerations:
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyFood
+  query:
+    - !type 
+      components:
+      - type: Food
+  considerations:
+    - !type 
+      curve: !type :InverseBoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type
+        slope: 1.0
+        exponent: 0.4
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyDrink
+  query:
+  - !type 
+    components:
+    - type: Drink
+  considerations:
+  - !type 
+    curve: !type :InverseBoolCurve
+  - !type 
+    curve: !type
+      preset: TargetDistance
+  - !type 
+    curve: !type
+      slope: 1.0
+      exponent: 0.4
+  - !type 
+    curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyGuns
+  query:
+    - !type 
+      components:
+        - type: Gun
+        - type: Item
+  considerations:
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyMeleeTargets
+  query:
+    - !type :NearbyHostilesQuery
+  considerations:
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type
+        preset: TargetHealth
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: OrderedTargets
+  query:
+    - !type :NearbyHostilesQuery
+  considerations:
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type
+        preset: TargetHealth
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyMeleeWeapons
+  query:
+    - !type 
+      components:
+        -         # Just serializer things
+type: MeleeWeapon
+          damage:
+            types:
+              Blunt: 0
+        - type: Item
+  considerations:
+    - !type 
+      curve: !type
+        slope: 0.5
+        exponent: 0.5
+        yOffset: 0
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyPuddles
+  query:
+    - !type 
+      components:
+        - type: Puddle
+    - !type :PuddleFilter
+  considerations:
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type :BoolCurve
+- type: utilityQuery
+  id: NearbyGunTargets
+  query:
+    - !type :NearbyHostilesQuery
+  considerations:
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type
+        preset: TargetDistance
+    - !type 
+      curve: !type
+        preset: TargetHealth
+    - !type 
+      curve: !type :BoolCurve
+    - !type 
+      curve: !type :BoolCurve
+- #- type: utilityQuery
+#  id: NearbyShoes
+#  query:
+#    - !type:ComponentQuery
+#      components:
+#        - type: Clothing
+#    - !type:ClothingSlotFilter
+#      slotFlags: Feet
+#  considerations:
+#    - !type:TargetDistanceCon
+#      curve: !type:PresetCurve
+#        preset: TargetDistance
+#    - !type:TargetAccessibleCon
+#      curve: !type:BoolCurve
+# Presets
+type: utilityCurvePreset
+  id: TargetDistance
+  curve: !type
+    slope: -1
+    exponent: 1
+    yOffset: 1
+    xOffset: 0
+- type: utilityCurvePreset
+  id: TargetHealth
+  curve: !type
+    slope: 1.0
+    exponent: 0.4
+    xOffset: '-0.02'
