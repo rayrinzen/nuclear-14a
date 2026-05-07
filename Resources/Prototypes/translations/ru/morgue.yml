@@ -1,172 +1,163 @@
 - type: entity
-  id: BodyBag
-  parent: BaseFoldable
-  name: body bag
-  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
+  id: Morgue
+  name: morgue
+  description: Used to store bodies until someone fetches them. Includes a high-tech alert system for false-positives!
+  placement:
+    mode: SnapgridCenter
   components:
-  - type: Item
-    size: Small
+  - type: Pullable
+  - type: Anchorable
   - type: Sprite
-    drawdepth: SmallObjects #I guess body bags need appear above a coroner's table?
-    sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
+    sprite: Structures/Storage/morgue.rsi
     layers:
-    - state: bag
+    - state: morgue_closed
       map:
-      - "unfoldedLayer"
-      - "enum.StorageVisualLayers.Base"
-    - state: bag_folded
-      map:
-      - "foldedLayer"
+      - "enum.MorgueVisualLayers.Base"
+    - state: morgue_tray
+      offset: 0, -1
       visible: false
-    - state: open_overlay
       map:
       - "enum.StorageVisualLayers.Door"
-    - state: paper
+    - state: morgue_nomob_light
+      visible: false
       map:
-      - "enum.PaperLabelVisuals.Layer"
-  - type: Icon
-    sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
-    state: bag
-  - type: Tag
-    tags:
-    - BodyBag
+      - "enum.MorgueVisualLayers.Light"
+      shader: unshaded
   - type: Clickable
   - type: InteractionOutline
-  - type: MovedByPressure
   - type: Physics
-    bodyType: Dynamic
-  - type: Transform
-    noRot: true
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.25,-0.4,0.25,0.1"'
-        density: 20
+        shape: '!type:PhysShapeAabb bounds: "-0.5,-0.5,0.5,0.5"'
+        density: 1000
         mask:
-        - Impassable
+        - MachineMask
+        layer:
+        - HalfWallLayer
   - type: EntityStorage
-    capacity: 1
     isCollidableWhenOpen: true
+    showContents: false
+    capacity: 1
+    enteringOffset: 0, -1
     closeSound:
-      path: /Audio/Misc/zip.ogg
+      path: /Audio/Items/deconstruct.ogg
     openSound:
-      path: /Audio/Misc/zip.ogg
+      path: /Audio/Items/deconstruct.ogg
   - type: EntityStorageLayingDownOverride
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: Attach Label
-      ejectVerbText: Remove Label
-      whitelist:
-        components:
-        - Paper
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateDoorOpen: open_overlay
-  - type: GenericVisualizer
-    visuals:
-      enum.PaperLabelVisuals.HasLabel:
-        enum.PaperLabelVisuals.Layer:
-          True:
-              visible: true
-          False:
-              visible: false
-      enum.PaperLabelVisuals.LabelType:
-        enum.PaperLabelVisuals.Layer:
-          Paper:
-          state: paper
-          Bounty:
-          state: bounty
-          CaptainsPaper:
-          state: captains_paper
-          Invoice:
-          state: invoice
-      enum.FoldedVisuals.State:
-        foldedLayer:
-          True:
-              visible: true
-          False:
-              visible: false
-        unfoldedLayer:
-          True:
-              visible: false
-          False:
-              visible: true
-  - type: Pullable
-  - type: AntiRottingContainer
-  - type: ItemSlots
+  - type: Morgue
   - type: ContainerContainer
     containers:
       entity_storage: !type :Container
-      paper_label: !type :ContainerSlot
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        # basic open.close layer:
+        enum.MorgueVisualLayers.Base:
+          True:
+          state: morgue_open
+          False:
+          state: morgue_closed
+        # show/hide morgue tray:
+        enum.StorageVisualLayers.Door:
+          True:
+              visible: true
+          False:
+              visible: false
+      enum.MorgueVisuals.Contents:
+        # toggle contents light indicator:
+        enum.MorgueVisualLayers.Light:
+          Empty:
+              visible: false
+          HasContents:
+          visible: true
+          state: morgue_nomob_light
+          HasMob:
+          visible: true
+          state: morgue_nosoul_light
+          HasSoul:
+          visible: true
+          state: morgue_soul_light
+  - type: Transform
+    anchored: true
+  - type: AntiRottingContainer
   - type: StaticPrice
-    price: 50
+    price: 200
 - type: entity
-  id: BodyBagFolded
-  name: body bag
-  description: A plastic bag designed for the storage and transportation of cadavers to stop body decomposition.
-  parent: BodyBag
-  suffix: folded
+  id: Crematorium
+  name: crematorium
+  description: A human incinerator. Works well on barbecue nights.
+  placement:
+    mode: SnapgridCenter
   components:
-  - type: Foldable
-    folded: true
-- #  - type: BodyBagItem #TODO: we need some kind of generic placable, like thus:
-# - type: Placeable
-#   prototype: someId
-#   snap: Center
-type: entity
-  parent: BaseItem
-  id: Ash
-  name: ash
-  description: This used to be something, but now it's not.
-  components:
-  - type: Item
-    size: Tiny
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
-    state: ash
-  - type: Tag
-    tags:
-    - Trash
-    - Ash
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 50
-        reagents:
-        - ReagentId: Ash
-          Quantity: 10
-  - type: SolutionSpiker
-    sourceSolution: food
-    ignoreEmpty: true
-  - type: ScoopableSolution
-    solution: food
-  - type: Extractable
-    grindableSolutionName: food
-  - type: SupermatterImmune
-- type: entity
-  parent: Ash
-  id: Ectoplasm
-  name: ectoplasm
-  description: Much less deadly in this form.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Mobs/Ghosts/revenant.rsi # DeltaV - Custom revenant sprite
-      state: ectoplasm
-    - type: Tag
-      tags:
-        - Trash
-        - Ectoplasm
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 50
-          reagents:
-            - ReagentId: Ash
-              Quantity: 5
-            - ReagentId: Necrosol
-              Quantity: 5
-            - ReagentId: Ectoplasm # DeltaV - for normality crystals
-              Quantity: 30 # DeltaV
-      # - type: GuideHelp
-      # guides:
-      # - MinorAntagonists
+    sprite: Structures/Storage/morgue.rsi
+    layers:
+    - state: crema_closed
+      map:
+      - "enum.CrematoriumVisualLayers.Base"
+      - "enum.StorageVisualLayers.Base"
+    - state: crema_tray
+      offset: 0, -1
+      map:
+      - "enum.StorageVisualLayers.Door"
+    - state: crema_contents_light
+      visible: false
+      map:
+      - "enum.CrematoriumVisualLayers.LightContent"
+      shader: unshaded
+    - state: crema_active_light
+      visible: false
+      map:
+      - "enum.CrematoriumVisualLayers.LightBurning"
+      shader: unshaded
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.5,-0.5,0.5,0.5"'
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: EntityStorage
+    isCollidableWhenOpen: true
+    showContents: false
+    capacity: 1
+    enteringOffset: 0, -1
+    closeSound:
+      path: /Audio/Items/deconstruct.ogg
+    openSound:
+      path: /Audio/Items/deconstruct.ogg
+  - type: EntityStorageLayingDownOverride
+  - type: Crematorium
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type :Container
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: crema_closed
+    stateBaseOpen: crema_open
+    stateDoorOpen: crema_tray
+  - type: GenericVisualizer
+    visuals:
+      enum.CrematoriumVisuals.Burning:
+        enum.CrematoriumVisualLayers.LightBurning:
+          True:
+              visible: true
+          False:
+              visible: false
+      enum.StorageVisuals.HasContents:
+        enum.CrematoriumVisualLayers.LightContent:
+          True:
+              visible: true
+          False:
+              visible: false
+  - type: Transform
+    anchored: true
