@@ -1,31 +1,27 @@
-- type: entity
-  id: CratePirateChestCaptain
-  name: captains pirate chest
-  suffix: Filled
-  parent: CratePirate
-  components:
-    - type: StorageFill
-      contents:
-        - id: ClothingNeckCloakPirateCap
-        - id: EnergyCutlass
-        - id: MicroBombImplanter
+- type: factionIcon
+  id: BloodCultMember
+  priority: 11
+  locationPreference: left
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Construct
+      - BloodCultist
+      - BloodCultLeader
+  icon:
+    sprite: /Textures/WhiteDream/BloodCult/cult_hud.rsi
+    state: cult_member
 
-- type: entity
-  id: CratePirateChest
-  name: crews pirate chest
-  suffix: Filled
-  parent: CratePirate
-  components:
-    - type: StorageFill
-      contents:
-        - id: WeaponLauncherPirateCannon
-          amount: 2
-        - id: ClothingOuterCoatGentle
-        - id: Cutlass
-          amount: 2
-        - id: CannonBall
-          amount: 2
-        - id: WeaponPistolFlintlock
-          amount: 4
-        - id: WeaponShotgunBlunderbuss
-          amount: 2
+- type: factionIcon
+  id: BloodCultLeader
+  priority: 11
+  locationPreference: left
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Construct
+      - BloodCultist
+      - BloodCultLeader
+  icon:
+    sprite: /Textures/WhiteDream/BloodCult/cult_hud.rsi
+    state: cult_leader
