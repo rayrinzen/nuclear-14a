@@ -1,0 +1,54 @@
+- type: job
+  id: BoSMidPaladinCommander
+  setPreference: true
+  hideWithoutJobWhitelist: false # #Misfits Tweak - BoS Heads not whitelisted
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 110
+  showBorder: true
+  overrideConsoleVisibility: false
+  canBeAntag: true
+  name: job-name-bos-mid-paladin-comm
+  description: job-description-bos-mid-paladin-comm
+  playTimeTracker: BoSMidPaladinCommander
+  requirements:
+    - !type 
+      species:
+      - Human
+    - !type 
+      department: BrotherhoodOfSteel
+      min: 144000 # 40 hours
+    - !type 
+      tracker: BoSMidPaladin
+      min: 28800 # 8 hours as Senior Paladin
+  startingGear: BoSMidPaladinCommanderGear
+  alwaysUseSpawner: true
+  icon: "JobIconBosMCommander" # Corvax-Change
+  supervisors: job-supervisors-bos-mid-commander
+  accessGroups:
+  - BOSHeadPaladin
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - BrotherhoodOfSteel
+      - type: PowerArmorProficiency
+- type: startingGear
+  id: BoSMidPaladinCommanderGear
+  equipment:
+    jumpsuit: N14ClothingUniformBosRecon #Misfits Change /Tweak/: New consolidated BoS gear
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingBootsLeatherFilled
+    head: N14ClothingPaladinBeret
+    outerClothing: N14ClothingOuterPowerArmorWashT51Elite #Misfits Tweak: Head Paladin wears T-51b (was T-51BC commander)
+    hands: N14ClothingHandsGlovesCombat
+    pocket1: BoSBrotherhoodHeadPaladinKits
+    id: N14HeadPaladin_PipBoy
+    ears: N14ClothingHeadsetBrotherhoodOfSteel
+    belt: N14ClothingBeltBoSWebbing
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitary
+- type: playTimeTracker
+  id: BoSMidPaladinCommander
