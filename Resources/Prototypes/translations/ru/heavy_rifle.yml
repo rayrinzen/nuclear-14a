@@ -1,21 +1,30 @@
 - type: entity
-  id: BulletHeavyRifle
-  name: bullet (.20 rifle)
-  parent: BaseBullet
-  categories: [ HideSpawnMenu ]
+  id: BaseMagazineHeavyRifle
+  name: "magazine (.20 rifle)"
+  parent: BaseItem
+  abstract: true
   components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 19
-
-- type: entity
-  id: BulletMinigun
-  name: minigun bullet (.10 rifle)
-  parent: BulletHeavyRifle
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Projectile
-      damage:
-        types:
-          Piercing: 5
+  - type: Tag
+    tags:
+      - MagazineHeavyRifle
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    capacity: 100
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type :Container
+  - type: Sprite
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
