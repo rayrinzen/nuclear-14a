@@ -1,34 +1,8 @@
-- type: entity
-  name: gas analyzer
-  parent: BaseItem
-  id: GasAnalyzer
-  description: A hand-held environmental scanner which reports current gas levels.
-  components:
-    - type: Sprite
-      sprite: Objects/Specific/Atmos/gasanalyzer.rsi
-      layers:
-        - state: icon
-          map: [ "analyzer" ]
-    - type: GasAnalyzer
-    - type: ActivatableUI
-      inHandsOnly: true
-      singleUser: true
-      requireActiveHand: false
-      key: enum.GasAnalyzerUiKey.Key
-    - type: UserInterface
-      interfaces:
-        enum.GasAnalyzerUiKey.Key:
-          type: GasAnalyzerBoundUserInterface
-    - type: Appearance
-    - type: GenericVisualizer
-      visuals:
-        enum.GasAnalyzerVisuals.Enabled:
-          enabled:
-            true: { state: working }
-            false: { state: icon }
-    - type: StaticPrice
-      price: 80
-    - type: PhysicalComposition
-      materialComposition:
-        Steel: 400
-        Glass: 100
+- type: palette
+  id: Atmos
+  name: Atmos
+  colors:
+    waste: '#990000'
+    distro: '#0055CC'
+    air: '#03FCD3'
+    mix: '#947507'
