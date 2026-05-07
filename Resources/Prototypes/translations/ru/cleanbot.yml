@@ -1,27 +1,39 @@
-- type: constructionGraph
-  id: CleanBot
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: bot
-          steps:
-            - tag: Bucket
-              icon:
-                sprite: Objects/Tools/bucket.rsi
-                state: icon
-              name: bucket
-            - tag: ProximitySensor
-              icon:
-                sprite: Objects/Misc/proximity_sensor.rsi
-                state: icon
-              name: proximity sensor
-              doAfter: 2
-            - tag: BorgArm
-              icon:
-                sprite: Mobs/Silicon/drone.rsi
-                state: l_hand
-              name: borg arm
-              doAfter: 2
-    - node: bot
-      entity: MobCleanBot
+- type: htnCompound
+  id: CleanbotCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: BufferNearbyPuddlesCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- # Picks a random puddle in range to move to and idle
+type: htnCompound
+  id: BufferNearbyPuddlesCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            proto: NearbyPuddles
+        - !type 
+          operator: !type
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
+        - !type 
+          preconditions:
+            - !type 
+              targetKey: Target
+              rangeKey: InteractRange
+          operator: !type
+            targetKey: Target
+          services:
+            - !type 
+              id: PuddleService
+              proto: NearbyPuddles
+              key: Target
