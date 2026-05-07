@@ -1,9 +1,8 @@
 - type: npcFaction
-  id: GlimmerMonster # Crew hostile psionic
+  id: GeometerOfBlood
   hostile:
-    - PsionicInterloper
-
-- type: npcFaction
-  id: PsionicInterloper # Crew aligned psionic
-  hostile:
-    - GlimmerMonster
+    - NanoTrasen
+    - SimpleHostile
+    - Xeno
+    - PetsNT
+    - Zombie
