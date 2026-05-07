@@ -1,0 +1,63 @@
+- # Specific Root compound tasks being used for NPCs.
+# Tries to shoot a target in LOS in range.
+type: htnCompound
+  id: TurretCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          operator: !type
+            proto: NearbyGunTargets
+        - !type 
+          preconditions:
+            - !type 
+              key: Target
+            - !type 
+              targetKey: Target
+              # TODO: Non-scuffed
+              rangeKey: RangedRange
+            - !type 
+              targetKey: Target
+              rangeKey: RangedRange
+          operator: !type
+            targetKey: Target
+            requireLOS: true
+          services:
+            - !type 
+              id: RangedService
+              proto: NearbyGunTargets
+              key: Target
+    - 
+    tasks:
+        - !type 
+          task: IdleSpinCompound
+- type: htnCompound
+  id: SimpleRangedHostileCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: InnateRangedCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: SimpleHumanoidHostileCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: RangedCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
