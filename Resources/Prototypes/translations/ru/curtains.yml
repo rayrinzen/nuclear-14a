@@ -1,333 +1,325 @@
-﻿- type: entity
-  id: BaseCurtains
-  parent: BaseStructure
-  name: curtains
-  description: Hides what others shouldn't see.
-  abstract: true
-  placement:
-    mode: SnapgridCenter
-  components:
-  - type: Occluder
-  - type: AnimationPlayer
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: '!type:PhysShapeAabb bounds: "-0.49,-0.49,0.49,0.49"'
-        density: 100
-        mask:
-        - FullTileMask
-        layer:
-        - Opaque
-  - type: Door
-    canCrush: false
-    performCollisionCheck: false
-    bumpOpen: false
-    clickOpen: true
-    closeTimeOne: 0.5
-    closeTimeTwo: 0.1
-    openTimeOne: 0.5
-    openTimeTwo: 0.1
-    openSound:
-      path: /Audio/Effects/curtain_openclose.ogg
-    closeSound:
-      path: /Audio/Effects/curtain_openclose.ogg
-  - type: Appearance
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Wood
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 5 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:SpawnEntitiesBehavior spawn: MaterialCloth1: min: 1 max: 2'
-  - type: WallMount
-    arc: 360
-- type: entity
-  id: HospitalCurtains
-  parent: BaseCurtains
-  suffix: Hospital
-  description: Contains less than 1% mercury.
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/hospital.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: Curtains
-- type: entity
-  id: HospitalCurtainsOpen
-  parent: HospitalCurtains
-  suffix: Open, Hospital
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsBlack
-  parent: BaseCurtains
-  suffix: Fancy black
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/black.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsBlack
-- type: entity
-  id: CurtainsBlackOpen
-  parent: CurtainsBlack
-  suffix: Open, Fancy black
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsBlackOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsBlue
-  parent: BaseCurtains
-  suffix: Fancy blue
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/blue.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsBlue
-- type: entity
-  id: CurtainsBlueOpen
-  parent: CurtainsBlue
-  suffix: Open, Fancy blue
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsBlueOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsCyan
-  parent: BaseCurtains
-  suffix: Fancy cyan
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/cyan.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsCyan
-- type: entity
-  id: CurtainsCyanOpen
-  parent: CurtainsCyan
-  suffix: Open, Fancy cyan
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsCyanOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsGreen
-  parent: BaseCurtains
-  suffix: Fancy green
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/green.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsGreen
-- type: entity
-  id: CurtainsGreenOpen
-  parent: CurtainsGreen
-  suffix: Open, Fancy green
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsGreenOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsOrange
-  parent: BaseCurtains
-  suffix: Fancy orange
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/orange.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsOrange
-- type: entity
-  id: CurtainsOrangeOpen
-  parent: CurtainsOrange
-  suffix: Open, Fancy orange
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsOrangeOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsPink
-  parent: BaseCurtains
-  suffix: Fancy pink
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/pink.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsPink
-- type: entity
-  id: CurtainsPinkOpen
-  parent: CurtainsPink
-  suffix: Open, Fancy pink
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsPinkOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsPurple
-  parent: BaseCurtains
-  suffix: Fancy purple
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/purple.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsPurple
-- type: entity
-  id: CurtainsPurpleOpen
-  parent: CurtainsPurple
-  suffix: Open, Fancy purple
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsPurpleOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsRed
-  parent: BaseCurtains
-  suffix: Fancy red
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/red.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsRed
-- type: entity
-  id: CurtainsRedOpen
-  parent: CurtainsRed
-  suffix: Open, Fancy red
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsRedOpen
-  - type: Physics
-    canCollide: false
-- type: entity
-  id: CurtainsWhite
-  parent: BaseCurtains
-  suffix: Fancy white
-  components:
-  - type: Sprite
-    snapCardinals: true
-    sprite: Structures/Decoration/Curtains/white.rsi
-    layers:
-    - state: closed
-      map:
-      - "enum.DoorVisualLayers.Base"
-  - type: Construction
-    graph: Curtains
-    node: CurtainsWhite
-- type: entity
-  id: CurtainsWhiteOpen
-  parent: CurtainsWhite
-  suffix: Open, Fancy white
-  components:
-  - type: Door
-    state: Open
-  - type: Occluder
-    enabled: false
-  - type: Construction
-    graph: Curtains
-    node: CurtainsWhiteOpen
-  - type: Physics
-    canCollide: false
+- type: constructionGraph
+  id: Curtains
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type ':DestroyEntity {}'
+      edges:
+        - to: Curtains
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 1
+        - to: CurtainsBlack
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetBlack
+              doAfter: 1
+              name: black carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-black
+        - to: CurtainsBlue
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetBlue
+              doAfter: 1
+              name: blue carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-blue
+        - to: CurtainsCyan
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetCyan
+              doAfter: 1
+              name: cyan carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-cyan
+        - to: CurtainsGreen
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetGreen
+              doAfter: 1
+              name: green carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-green
+        - to: CurtainsOrange
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetOrange
+              doAfter: 1
+              name: orange carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-orange
+        - to: CurtainsPink
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetPink
+              doAfter: 1
+              name: pink carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-pink
+        - to: CurtainsPurple
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetPurple
+              doAfter: 1
+              name: purple carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-purple
+        - to: CurtainsRed
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetRed
+              doAfter: 1
+              name: red carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-red
+        - to: CurtainsWhite
+          completed:
+            - !type ':SnapToGrid { }'
+          steps:
+            - tag: CarpetWhite
+              doAfter: 1
+              name: white carpet
+              icon:
+                sprite: Objects/Tiles/tile.rsi
+                state: carpet-white
+    - node: Curtains
+      entity: HospitalCurtains
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialCloth1
+              amount: 2
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsOpen
+      entity: HospitalCurtainsOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialCloth1
+              amount: 2
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsBlack
+      entity: CurtainsBlack
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemBlack
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsBlackOpen
+      entity: CurtainsBlackOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemBlack
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsBlue
+      entity: CurtainsBlue
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemBlue
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsBlueOpen
+      entity: CurtainsBlueOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemBlue
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsCyan
+      entity: CurtainsCyan
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemCyan
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsCyanOpen
+      entity: CurtainsCyanOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemCyan
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsGreen
+      entity: CurtainsGreen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemGreen
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsGreenOpen
+      entity: CurtainsGreenOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemGreen
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsOrange
+      entity: CurtainsOrange
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemOrange
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsOrangeOpen
+      entity: CurtainsOrangeOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemOrange
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsPink
+      entity: CurtainsPink
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemPink
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsPinkOpen
+      entity: CurtainsPinkOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemPink
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsPurple
+      entity: CurtainsPurple
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemPurple
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsPurpleOpen
+      entity: CurtainsPurpleOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemPurple
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsRed
+      entity: CurtainsRed
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemRed
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsRedOpen
+      entity: CurtainsRedOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemRed
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsWhite
+      entity: CurtainsWhite
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemWhite
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
+    - node: CurtainsWhiteOpen
+      entity: CurtainsWhiteOpen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: FloorCarpetItemWhite
+              amount: 1
+          steps:
+            - tool: Cutting
+              doAfter: 1
