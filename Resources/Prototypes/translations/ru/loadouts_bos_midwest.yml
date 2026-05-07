@@ -1,180 +1,99 @@
-- # Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+- # Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
 #- type: loadout
-#  id: LoadoutBoSMidwestUnknown
+#  id: LoadoutBoSMidwestSquire
+#  category: Outer
+#  cost: 6 # Forge-Change
+#  exclusive: true
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSMidPaladin # Forge-Change
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidPaladin
+#      min: 54000 # 15 hours veterancy unlock
+#  items:
+#    - N14ClothingOuterMidwestReconArmor
+# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#- type: loadout
+#  id: LoadoutBoSMidwestReconHelmet
 #  category: Roles
-#  cost: 10
+#  cost: 6
 #  exclusive: true
 #  requirements:
 #    - !type:CharacterJobRequirement
 #      jobs:
 #        - BoSMidPaladin
+#    - !type:CharacterPlaytimeRequirement
+#      tracker: BoSMidPaladin
+#      min: 54000 # 15 hours veterancy unlock
 #  items:
-#    - N14ClothingOuterPowerArmorMidwest
-# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
+#    - N14ClothingHeadHatBrotherhoodMidwestHelmetRecon
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
 #- type: loadout
-#  id: LoadoutBoSMidwestUnknown2
+#  id: LoadoutClothingOuterMBoSSquireArmor
 #  category: Roles
 #  cost: 10
 #  exclusive: true
 #  requirements:
 #    - !type:CharacterJobRequirement
 #      jobs:
-#        - BoSMidPaladinCommander
-#  items:
-#    - N14ClothingOuterPowerArmorMidwestCommander
-# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
-#- type: loadout
-#  id: LoadoutClothingOuterBOSInquisitorBlackCoat
-#  category: Roles
-#  cost: 8
-#  exclusive: true
-#  requirements:
-#    - !type:CharacterJobRequirement
-#      jobs:
-#        - BoSMidInquisitor
+#        - BoSMidSquire
 #    - !type:CharacterPlaytimeRequirement
-#      tracker: BoSMidInquisitor
-#      min: 216000 # 60 hours
-#  items:
-#    - N14ClothingOuterBOSInquisitorBlackCoat
-# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
-#- type: loadout
-#  id: LoadoutClothingOuterBOSInquisitorBattleArmor
-#  category: Roles
-#  cost: 8
-#  exclusive: true
-#  requirements:
-#    - !type:CharacterJobRequirement
-#      jobs:
-#        - BoSMidInquisitor
-#    - !type:CharacterPlaytimeRequirement
-#      tracker: BoSMidInquisitor
+#      tracker: BoSMidSquire
 #      min: 72000 # 20 hours veterancy unlock
 #  items:
-#    - N14ClothingOuterBOSInquisitorBattleArmor
-#Misfits Change /Comment-out/: Inquisitor hat loadouts removed — no Inquisitor role in Misfits.
+#    - N14ClothingOuterMBoSSquireArmor
+# Misfits Change - Disabled: armor/weapons removed from roundstart loadout menu
 #- type: loadout
-#  id: LoadoutClothingHeadHatBoSInquisitorHat
-#  category: Roles
-#  cost: 1
+#  id: LoadoutBoSMidwestSeniorKnight
+#  category: Outer
+#  cost: 6 # Forge-Change
 #  exclusive: true
 #  requirements:
 #    - !type:CharacterJobRequirement
 #      jobs:
-#        - BoSMidInquisitor
-#  items:
-#    - N14ClothingHeadHatBoSInquisitorHat
-#- type: loadout
-#  id: LoadoutClothingHeadHatBoSInquisitorBlackHat
-#  category: Roles
-#  cost: 1
-#  exclusive: true
-#  requirements:
-#    - !type:CharacterJobRequirement
-#      jobs:
-#        - BoSMidInquisitor
+#        - BoSMidKnight
 #    - !type:CharacterPlaytimeRequirement
-#      tracker: BoSMidInquisitor
-#      min: 216000
+#      tracker: BoSMidKnight
+#      min: 144000 # 40 hours veterancy unlock
 #  items:
-#    - N14ClothingHeadHatBoSInquisitorBlackHat
-# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
-#- type: loadout
-#  id: LoadoutClothingHeadHatBoSInquisitorBattleHelmet
-#  category: Roles
-#  cost: 4
-#  exclusive: true
-#  requirements:
-#    - !type:CharacterItemGroupRequirement
-#      group: N14LoadoutHead
-#    - !type:CharacterJobRequirement
-#      jobs:
-#        - BoSMidInquisitor
-#    - !type:CharacterPlaytimeRequirement
-#      tracker: BoSMidInquisitor
-#      min: 72000 # 20 hours veterancy unlock
-#  items:
-#    - N14ClothingHeadHatBoSInquisitorBattleHelmet
-# Misfits Change - Disabled: armor with resistance values removed from roundstart loadout menu
-#- type: loadout
-#  id: LoadoutClothingHeadHatBoSInquisitorBattleHelmetHood
-#  category: Roles
-#  cost: 4
-#  exclusive: true
-#  requirements:
-#    - !type:CharacterItemGroupRequirement
-#      group: N14LoadoutHead
-#    - !type:CharacterJobRequirement
-#      jobs:
-#        - BoSMidInquisitor
-#    - !type:CharacterPlaytimeRequirement
-#      tracker: BoSMidInquisitor
-#      min: 72000 # 20 hours veterancy unlock
-#  items:
-#    - N14ClothingHeadHatBoSInquisitorBattleHelmetHood
+#    - N14ClothingOuterMBoSSeniorKArmor
 type: loadout
-  id: LoadoutMaskBoSMidwestLiner
-  category: Mask
+  id: LoadoutBoSMidwestFieldScribe
+  category: Uniform
   cost: 1
   exclusive: true
   requirements:
     - !type 
       jobs:
-        - BoSMidPaladinCommander
-        - BoSMidPaladin
-        - BoSMidKnight
-        - BoSMidSquire
-        - BoSWestElderCommander
-        - BoSHeadKnight
-        - BoSWestScribe
-        - BoSInitiate
-        - BoSKnight
-        - BoSPaladin
-        - BoSScribe
         - BoSMidScribe
-    - !type 
-      tracker: BoSMidSquire
-      min: 18000
-  items:
-    - N14ClothingMaskLiner
-- type: loadout
-  id: LoadoutMaskBoSMidwestLinerBlack
-  category: Mask
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type 
-      jobs:
-        - BoSMidPaladinCommander
-        - BoSMidPaladin
-        - BoSMidKnight
-        - BoSWestElderCommander
-        - BoSHeadKnight
         - BoSWestScribe
-        - BoSKnight
-        - BoSPaladin
         - BoSScribe
-        - BoSMidScribe
     - !type 
-      tracker: BoSMidKnight
-      min: 36000
+      tracker: BoSMidScribe
+      min: 72000 # 20 hours veterancy unlock
   items:
-    - N14ClothingMaskLinerBlack
-- type: loadout
-  id: LoadoutMaskBoSMidwestLinerElite
-  category: Mask
-  cost: 1
-  exclusive: true
-  requirements:
-    - !type 
-      jobs:
-        - BoSMidPaladinCommander
-        - BoSMidPaladin
-        - BoSWestElderCommander
-        - BoSHeadKnight
-        - BoSPaladin
-    - !type 
-      tracker: BoSMidPaladin
-      min: 36000
-  items:
-    - N14ClothingMaskLinerElite
+    - N14ClothingUniformJumpsuitBOSFieldScribe
+# - type: loadout #! Forge-Change
+#   id: LoadoutBoSMidwestPA
+#   category: Outer
+#   cost: 9
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - BoSMidPaladin
+#         - BoSMidPaladinCommander
+#   items:
+#     - N14ClothingOuterPowerArmorMidwest
+# - type: loadout #! Forge-Change
+#   id: LoadoutBoSMidwestPACommander
+#   category: Outer
+#   cost: 10
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - BoSMidPaladinCommander
+#   items:
+#     - N14ClothingOuterPowerArmorMidwestCommander
