@@ -1,728 +1,1230 @@
-# Insert hat base here
-
-# General
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBaseball
-  name: pre-war baseball cap
-  description: A pre-war baseball cap.
+  id: ClothingHeadHatBeaverHat
+  name: beaver hat
+  description: 'Gentlemen?'
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/baseballcap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/baseballcap.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadHatTrucker
-  id: N14ClothingHeadHatTrucker # N14:TODO This is the SS14 one, probably needs replaced.
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beaver_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beaver_hat.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatDeputy
-  name: deputy hat
-  description: When the sheriff can't do the job alone, that's when a deputy comes in.
+  id: ClothingHeadHatBeret
+  name: beret
+  description: A beret, an artists favorite headwear.
   components:
-    - type: Sprite
-      sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadHatBeret
+  id: ClothingHeadHatBeretWhite
+  name: beret
+  description: A beret, an artists favorite headwear.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beretwhite.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beretwhite.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatSheriff
-  name: sheriff hat
-  description: The law personified in a hat.
+  id: ClothingHeadHatBeretFrench
+  name: French beret
+  description: A French beret, "vive la France".
   components:
-    - type: Sprite
-      sprite: Clothing/Head/Hats/hoshat.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Hats/hoshat.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-      # charismaModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_french.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_french.rsi
+  - type: AddAccentClothing
+    accent: FrenchAccent
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatCowboyGrey
-  name: grey cowboy hat
-  description: A rustic grey cowboy hat. A trusted companion for any gunslinger.
+  id: ClothingHeadHatBeretSecurity
+  name: security beret
+  description: A stylish clothing option for security officers.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatgrey.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatgrey.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_security.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatCowboyGreyBanded
-  name: banded cowboy hat
-  description: A rugged grey cowboy hat with some brass casings banded around itself.
+  id: ClothingHeadHatBeretArtist
+  name: artist beret
+  description: A beret fit for an artist.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatgreybanded.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatgreybanded.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_artist.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_artist.rsi
+  - type: Tag
+    tags:
+    - ClothMade
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatCowboyBrown
-  name: brown cowboy hat
-  description: A rustic brown cowboy hat, A trusted companion for any gunslinger.
+  id: ClothingHeadHatBeretPeaked
+  name: peaked beret
+  description: A peaked beret.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatcowboy.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatcowboy.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_peaked.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_peaked.rsi
+  - type: Tag
+    tags:
+    - ClothMade
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatHeadscarf
-  name: cloth headscarf
-  description: A headscarf made from scraps of cloth.
+  id: ClothingHeadHatCasa
+  name: casa
+  description: Cone-shaped hat
   components:
     - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/headscarf.rsi
+      sprite: Clothing/Head/Hats/casa.rsi
     - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/headscarf.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+      sprite: Clothing/Head/Hats/casa.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBeanie
-  name: beanie hat
-  description: A dark green beanie hat.
+  id: ClothingHeadHatBeretRND
+  name: scientific beret
+  description: A beret for real scientists.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/beanie.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/beanie.rsi
-      # - type: ClothingSpecialModifier
-      # enduranceModifier: 1
-
-# Boonies
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_rnd.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_rnd.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatWoodBoonie
-  name: woods boonie
-  description: A boonie hat, this one has green woodland camo.
+  id: ClothingHeadHatBeretEngineering
+  name: engineering beret
+  description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniewood.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniewood.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_engineering.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_engineering.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatWinterBoonie
-  name: winter boonie
-  description: A boonie hat, this one has snow-white camo.
+  id: ClothingHeadHatBeretQM
+  # DeltaV - Logistics Department - Replace Quartermaster with Logistics Officer
+  name: logistics officer's beret
+  description: A beret with the logistics department's insignia emblazoned on it. For logistics officers that are more inclined towards style.
+  # End of modified code
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniewinter.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniewinter.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_qm.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_qm.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatDesertBoonie
-  name: desert boonie
-  description: A boonie hat with desert camo.
+  id: ClothingHeadHatBeretHoS
+  name: head of security's beret
+  description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniedesert.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/booniedesert.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Army
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_hos.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatArmyBeret
-  name: army beret
-  description: A pre-war army beret. This one is black.
+  id: ClothingHeadHatBeretWarden
+  name: warden's beret
+  description: A black beret with a warden's rank emblem. For officers that are more inclined towards style than safety. # DeltaV - changed description to match sprite
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberet.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberet.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/beret_warden.rsi # DeltaV - resprite
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatArmyBeretAirborne
-  name: army airborne beret
-  description: A pre-war army beret. Crimson with a winged insignia.
+  id: ClothingHeadHatBeretSeniorPhysician
+  name: physician beret
+  description: Donning the colours of medical and chemistry, physicians are the pride of this department!
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetairborne.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetairborne.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_physician.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_physician.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatArmyBeretRanger
-  name: army ranger beret
-  description: A pre-war army beret. Brown with a Ranger insignia.
+  id: ClothingHeadHatBeretBrigmedic
+  name: brigmedical beret
+  description: White beret, looks like a cream pie on the head.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetranger.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetranger.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_brigmedic.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatArmyBeretSpecial
-  name: army special forces beret
-  description: A pre-war army beret. This one is green.
+  id: ClothingHeadHatBeretMerc
+  name: mercenary beret
+  description: Olive beret, the badge depicts a jackal on a rock.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetspecial.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armyberetspecial.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_merc.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_merc.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatArmyCap
-  name: army cap
-  description: A pre-war army cap. Slightly worn.
+  id: ClothingHeadHatBowlerHat
+  name: bowler hat
+  description: Stylish bowler hat.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armycap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/armycap.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Bandit
+  - type: Sprite
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/bowler_hat.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBandit
-  name: bandit hat
-  description: Uh oh. He's coming this way.
+  id: ClothingHeadHatCaptain
+  name: captain's hardhat
+  description: It's good being the king.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/bandit.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/bandit.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Brotherhood
+  - type: Sprite
+    sprite: Clothing/Head/Hats/captain.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/captain.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBrotherhoodCap
-  name: Brotherhood of Steel Cap
-  description: A cap worn by members of the Brotherhood of Steel.
+  id: ClothingHeadHatCardborg
+  name: cardborg helmet
+  description: A hat made out of a box.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodcap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodcap.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/cardborg_h.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/cardborg_h.rsi
+  - type: TypingIndicatorClothing
+    proto: robot
+  - type: IdentityBlocker
+  - type: IngestionBlocker
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBrotherhoodBeret
-  name: Brotherhood of Steel Beret
-  description: A beret worn by members of the Brotherhood of Steel.
+  id: ClothingHeadHatCentcom
+  name: CentCom brand hat
+  description: "It's good to be the emperor."
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodberet.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/centcom.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/centcom.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatBrotherhoodFieldCap
-  name: BoS Field Cap
-  description: A cap worn by Paladins of the Brotherhood of Steel during their field duties.
+  id: ClothingHeadHatChef
+  name: chef's hat
+  description: "It's a hat used by chefs to keep hair out of your food. Judging by the food in the mess, they don't work."
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/brotherhoodhat.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Enclave
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatEnclaveIntel
-  name: enclave recon beret
-  description: A sharp-looking beret worn by Enclave intelligence officers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveintel.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveintel.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatEnclaveOfficer
-  name: enclave officer cap
-  description: A decorative looking cap worn by Enclave officers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveofficer.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclaveofficer.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatEnclavePeacekeeperCap
-  name: enclave peacekeeper cap
-  description: A military cap worn by Enclave Peacekeepers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavepeacekeeper.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavepeacekeeper.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatEnclaveScientist
-  name: enclave scientist beret
-  description: A blue beret worn by Enclave Scientists.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavescience.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/enclavescience.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# NCR
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNCRBeretOfficer
-  name: NCR Officer beret
-  description: An olive beret worn by NCR Officers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetofficer.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetofficer.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNCRBeretMedic
-  name: NCR medic beret
-  description: An white beret worn by NCR Medics.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetmedical.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetmedical.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNCRBeretRecon
-  name: NCR recon beret
-  description: An crimson beret worn by NCR Recon Units.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetrecon.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetrecon.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNCRBeretQM
-  name: NCR quartermaster beret
-  description: A black beret worn by NCR Quartermasters.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetsapper.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrberetsapper.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNCRSidecap
-  name: NCR sidecap
-  description: A sidecap often worn by junior NCR soldiers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrsidecap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/ncrsidecap.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatRanger
-  name: ranger hat
-  description: A cool cowboy hat made by the NCR for the Rangers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhat.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-      # charismaModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatRangerB
-  name: ranger hat
-  description: An NCR ranger hat, standard issue amongst all but the most elite rangers.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatB.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/rangerhatB.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-      # charismaModifier: 1
-
-#MARK: Tribal
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatTribalOutcastHood
-  name: tribal outcast hood
-  description: Shame! A hood worn by outcasts.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/tribalhoodoutcast.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/tribalhoodoutcast.rsi
-    - type: Tag #Misfits Change /Fix/: Hide humanoid hair so it does not clip through the tribal outcast hood.
+  - type: Sprite
+    sprite: Clothing/Head/Hats/chefhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/chefhat.rsi
+  - type: Storage
+    grid:
+    - 0,0,0,0
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type :Container
+  - type: PilotedClothing
+    pilotWhitelist:
       tags:
-        - HidesHair
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
-      priceMultiplier: 0.4
-    - type: Butcherable
-      butcheringType: Knife
-      spawned:
-        - id: N14MaterialLeather1
-          amount: 2
-
+        - ChefPilot
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadHatChef
+  id: ClothingHeadHatChefNt
+  name: nanotrasen chef's hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/chefhat_nt.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/chefhat_nt.rsi
+- type: entity
+  parent: ClothingHeadHatChef
+  id: ClothingHeadHatChefIdris
+  name: idris incorporated chef's hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/chefhat_idris.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/chefhat_idris.rsi
+- type: entity
+  parent: ClothingHeadHatChef
+  id: ClothingHeadHatChefOrion
+  name: orion express' chef hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/chefhat_orion.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/chefhat_orion.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingDrylanderGoggles
-  name: tribal goggled wraps
-  description: Headgear fashioned of rags with a pair of goggles.
+  id: ClothingHeadHatFedoraBrown
+  name: brown fedora
+  description: It's a brown fedora.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-goggles.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-goggles.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.95
-          Slash: 0.95
-          Piercing: 0.95
-          Heat: 0.9
-    - type: HideLayerClothing
-      slots:
-        - Hair
-        - Snout
-    - type: Item
-      size: Normal
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingHeadTakerwraps
-  name: tribal headtakers wraps
-  description: Headgear worn by the tribals.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-headtaker.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-headtaker.rsi
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingTribalHeadWraps
-  name: tribal Headwraps
-  description: Head wraps worn by tribals.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-headwrap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-headwrap.rsi
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingTribalHood
-  name: tribal Hood
-  description: A large hood worn by tribals.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-hood.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-hood.rsi
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingTribalShamanHat
-  name: tribal shamans hat
-  description: Headgear often worn by the shamans of a tribe.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-shamanhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-shamanhat.rsi
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingTribalShemagh
-  name: tribal shemagh
-  description: Headgear often worn by tribals.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-shemagh.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/drylander-shemagh.rsi
-
-- type: entity
-  parent: N14ClothingDrylanderGoggles
-  id: N14ClothingTribalHunterHood
-  name: tribal hunting hood
-  description: Headgear often worn by the hunters of a tribe.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/dryland-hunterhood.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/dryland-hunterhood.rsi
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/brownfedora.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/brownfedora.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingTribalMuffaloskull
-  name: brahmin skull hat
-  description: A brahmin skull fashioned into a hat.
+  id: ClothingHeadHatFedoraGrey
+  name: grey fedora
+  description: It's a grey fedora.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/muffalo-skull.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/muffalo-skull.rsi
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/greyfedora.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/greyfedora.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingTribalRadstagSkull
-  name: radstag skull hat
-  description: A radstag skull fashioned into a hat.
+  id: ClothingHeadHatFez
+  name: fez
+  description: A red fez.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/radstag-skull.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/radstag-skull.rsi
-
+  - type: Sprite
+    sprite: Clothing/Head/Hats/fez.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/fez.rsi
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingTribalShamanHeadband
-  name: tribal shamans headband
-  description: A headband with a small set of antlers mounted on.
+  id: ClothingHeadHatHopcap
+  name: head of personnel's cap
+  description: A grand, stylish head of personnel's cap.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/tribal-shaman-headband.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/tribal-shaman-headband.rsi
-
-# Canadian Mounties
+  - type: Sprite
+    sprite: Clothing/Head/Hats/hopcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/hopcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
 - type: entity
   parent: ClothingHeadBase
-  id: N14ClothingHeadHatMountie
+  id: ClothingHeadHatHoshat
+  name: head of security's hat
+  description: "There's a new sheriff in station."
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/hoshat.rsi # DeltaV - resprite
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatOutlawHat
+  name: outlaw's hat
+  description: A hat that makes you look like you carry a notched pistol, numbered one and nineteen more.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/outlawhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/outlawhat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWitch1
+  name: witch hat
+  description: A witch hat.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/witchhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/witchhat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPaper
+  name: paper hat
+  description: A hat made of paper.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/paper.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/paper.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPirate
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pirate.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pirate.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPlaguedoctor
+  name: plague doctor hat
+  description: These were once used by plague doctors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/plaguedoctor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/plaguedoctor.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatRedwizard
+  name: red wizard hat
+  description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/redwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSantahat
+  name: santa hat
+  description: "A festive hat worn by Santa Claus"
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/santahat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/santahat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSombrero
+  name: sombrero
+  description: "Perfectly for Space Mexico, si?"
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/sombrero.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/sombrero.rsi
+  - type: AddAccentClothing
+    accent: SpanishAccent
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSurgcapBlue
+  name: surgical cap
+  description: A blue cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/surgcap_blue.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/surgcap_blue.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSurgcapGreen
+  name: surgical cap
+  description: A green cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/surgcap_green.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/surgcap_green.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSurgcapPurple
+  name: surgical cap
+  description: A purple cap surgeons wear during operations. Keeps their hair from tickling your internal organs.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/surgcap_purple.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/surgcap_purple.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTophat
+  name: tophat
+  description: A stylish black tophat.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/tophat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/tophat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent:
+  - ClothingHeadBase
+  - BaseFoldable
+  id: ClothingHeadHatUshanka
+  name: ushanka
+  description: "Perfect for winter in Siberia, da?"
+  components:
+  - type: Clothing
+    sprite: Clothing/Head/Hats/ushanka.rsi
+  - type: Appearance
+  - type: AddAccentClothing
+    accent: RussianAccent
+  - type: Foldable
+    canFoldInsideContainer: true
+  - type: FoldableClothing
+    foldedEquippedPrefix: up
+    foldedHeldPrefix: up
+  - type: Sprite
+    sprite: Clothing/Head/Hats/ushanka.rsi
+    layers:
+    - state: icon
+      map:
+      - "unfoldedLayer"
+    - state: icon-up
+      map:
+      - "foldedLayer"
+      visible: false
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatVioletwizard
+  name: violet wizard hat
+  description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/violetwizard.rsi
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWarden
+  name: warden's cap
+  description: The responsibility weighs heavy, like a barbed crown. # DeltaV - changed description to remove THE LAW
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hats/warden.rsi # DeltaV - resprite
+  - type: StealTarget
+    stealGroup: ClothingHeadHatWarden
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWitch
+  name: witch hat
+  description: A witch hat.
+  components:
+  - type: WizardClothes #Yes this will count
+  - type: Sprite
+    sprite: Clothing/Head/Hats/witch.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/witch.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - ClothMade
+  - type: HideLayerClothing
+    slots:
+    - Hair
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWizardFake
+  name: fake wizard hat
+  description: It has WIZZARD written across it in sequins. Comes with a cool beard.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizard_fake.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wizard_fake.rsi
+- type: entity
+  abstract: true
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWizardBase
+  components:
+  - type: WizardClothes
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatWizard
+  name: wizard hat
+  description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/wizardhat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/wizardhat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.2
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatXmasCrown
+  name: xmas crown
+  description: 'Happy Christmas!'
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/xmascrown.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/xmascrown.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTrucker
+  name: trucker hat
+  description: Formerly Chucks, this hat is yours now.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/truckershat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/truckershat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPyjamaSyndicateBlack
+  name: syndicate black pyjama hat
+  description: For keeping that traitor head of yours warm.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPyjamaSyndicatePink
+  name: syndicate pink pyjama hat
+  description: For keeping that traitor head of yours warm.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPyjamaSyndicateRed
+  name: syndicate red pyjama hat
+  description: For keeping that traitor head of yours warm.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPaperSack
+  name: papersack hat
+  description: A paper sack with crude holes cut out for eyes. Useful for hiding one's identity or ugliness.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/papersack.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/papersack.rsi
+  - type: IdentityBlocker
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadPaperSackSmile
+  name: smiling papersack hat
+  description: A paper sack with crude holes cut out for eyes and a sketchy smile drawn on the front. Not creepy at all.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/papersacksmile.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/papersacksmile.rsi
+  - type: IdentityBlocker
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadFishCap
+  name: fishing cap
+  description: Women fear me. Fish fear me. Men turn their eyes away from me. As I walk no beast dares make a sound in my presence. I am alone on this barren Earth.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/fishcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/fishcap.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadNurseHat
+  name: nurse hat
+  description: Somehow I feel I'm not supposed to leave this place.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/nursehat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/nursehat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadRastaHat
+  name: rasta hat
+  description: Right near da beach, boyee.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/rasta.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/rasta.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSafari
+  name: safari hat
+  description: Keeps the sun out of your eyes. Makes you a target for the locals.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/safarihat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/safarihat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatJester
+  name: jester hat
+  description: A hat with bells, to add some merriness to the suit.
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/jester.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/jester.rsi
+- type: entity
+  parent: ClothingHeadHatJester
+  id: ClothingHeadHatJesterAlt
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/jester2.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/jester2.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCmo
+  name: chief medical officer's beret
+  description: Turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_cmo.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_cmo.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPirateTricord
+  name: pirate hat
+  description: 'Yo ho ho and a bottle of rum!'
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/piratetricord.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatWatermelon
+  name: watermelon helmet
+  description: A carelessly cut half of a watermelon, gutted from the inside, to be worn as a helmet. It can soften the blow to the head.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/melon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/melon.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHolyWatermelon
+  name: watermelon halo
+  description: Holy moly.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/holyhatmelon.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.95
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSyndie
+  name: syndicate hat
+  description: A souvenir hat from "Syndieland", their production has already been closed.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/syndiecap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/syndiecap.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSyndieMAA
+  name: master at arms hat
+  description: Master at arms hat, looks intimidating, I doubt that you will like to communicate with its owner...
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/syndiecap_maa.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/syndiecap_maa.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatTacticalMaidHeadband
+  name: tactical maid headband
+  description: "A red headband - don't imagine yourself a Rambo and don't pick up a few machine guns."
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/tacticalmaidheadband.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHetmanHat
+  name: hetman hat
+  description: From the Zaporozhian Sich with love.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/hetman_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/hetman_hat.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMagician
+  name: magician's tophat
+  description: "A magician's tophat."
+  components:
+  - type: Icon
+    sprite: Clothing/Head/Hats/magician.rsi
+    state: "icon"
+  - type: Sprite
+    state: "icon"
+    sprite: Clothing/Head/Hats/magician.rsi
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+        offset: "0, 0.12"
+    sprite: Clothing/Head/Hats/magician.rsi
+  - type: Item
+    size: Small
+    sprite: Clothing/Head/Hats/magician.rsi
+    storedRotation: 0
+  - type: Storage
+    grid:
+    - 0,0,0,0
+  - type: UserInterface
+    interfaces:
+        enum.StorageUiKey.Key:
+          type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type :Container
+  - type: Tag
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCapcap
+  name: cap cap
+  description: A grand, stylish captain cap.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/capcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/capcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+  - type: BlockMovement
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCentcomcap
+  name: CentCom cap
+  description: An extravagant, fancy Central Commander cap.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/comcap.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - HamsterWearable
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGladiator
+  name: gladiator helmet
+  description: Protects the head from harsh ash winds and toy spears.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/gladiator.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/gladiator.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPartyRed
+  name: red party hat
+  description: Spread a joy!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/party_red.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/party_red.rsi
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+      - HamsterWearable
+- type: entity
+  parent: ClothingHeadHatPartyRed
+  id: ClothingHeadHatPartyYellow
+  name: yellow party hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/party_yellow.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/party_yellow.rsi
+- type: entity
+  parent: ClothingHeadHatPartyRed
+  id: ClothingHeadHatPartyGreen
+  name: green party hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/party_green.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/party_green.rsi
+- type: entity
+  parent: ClothingHeadHatPartyRed
+  id: ClothingHeadHatPartyBlue
+  name: blue party hat
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/party_blue.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/party_blue.rsi
+- type: entity
+  parent: ClothingHeadHatPartyRed
+  id: ClothingHeadHatPartyWaterCup
+  name: water cup party hat
+  description: Not as fulfilling as you had hoped...
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/party_water_cup.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/party_water_cup.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGreyFlatcap
+  name: grey flatcap
+  description: Fashionable for both the working class and old man Jenkins.
+  components:
+  - type: Tag
+    tags:
+    - BrimFlatcapGrey
+  - type: Sprite
+    sprite: Clothing/Head/Hats/greyflatcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/greyflatcap.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBrownFlatcap
+  name: brown flatcap
+  description: Stupid clown! You made me look bad!
+  components:
+  - type: Tag
+    tags:
+    - BrimFlatcapBrown
+  - type: Sprite
+    sprite: Clothing/Head/Hats/brownflatcap.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/brownflatcap.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCowboyBrown
+  name: brown cowboy hat
+  description: This hat ain't big enough for the both of us.
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatbrown.rsi
+    - type: AddAccentClothing
+      accent: ReplacementAccent
+      replacement: cowboy
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyBlack
+  name: black cowboy hat
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatblack.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatblack.rsi
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyGrey
+  name: grey cowboy hat
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatgrey.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatgrey.rsi
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyRed
+  name: red cowboy hat
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatred.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatred.rsi
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyWhite
+  name: white cowboy hat
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatwhite.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatwhite.rsi
+- type: entity
+  parent: ClothingHeadHatCowboyBrown
+  id: ClothingHeadHatCowboyBountyHunter
+  name: bounty hunter cowboy hat
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/cowboyhatbountyhunter.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatStrawHat
+  name: straw hat
+  description: A fancy hat for hot days! Not recommended to wear near fires.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/straw_hat.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/straw_hat.rsi
+  - type: Construction
+    graph: StrawHat
+    node: strawhat
+  - type: Tag
+    tags:
+    - HamsterWearable
+  - type: Flammable
+    fireSpread: true
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    damage:
+      types:
+        Heat: 1
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Appearance
+  - type: FireVisuals
+    sprite: Effects/fire.rsi
+    normalState: fire
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 15 behaviors: - !type:SpawnEntitiesBehavior spawn: Ash: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretMedic
+  name: medical beret
+  description: White beret that encourages you to be clean.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beret_medic.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beret_medic.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFlatcapBartenderNanotrasen
+  name: bartender's nanotrasen flatcap
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/flatcap_nt.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/flatcap_nt.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFlatcapBartenderIdris
+  name: bartender's idris incorporated flatcap
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/flatcap_idris.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/flatcap_idris.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFlatcapBartenderOrion
+  name: bartender's orion express flatcap
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/flatcap_orion.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/flatcap_orion.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanie
+  name: beanie
+  description: A head-hugging brimless winter cap. This one is tight.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beanie.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beanie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.5
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanieWinter
+  name: winter beanie
+  description: A head-hugging brimless winter cap. This one has flaps that cover the ears.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beanie_winter.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beanie_winter.rsi
+  - type: TemperatureProtection
+    coefficient: 0.5
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanieSubmariner
+  name: submariner beanie
+  description: A design of tightly fitting beanie popular among Submarine station workers.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beanie_submariner.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beanie_submariner.rsi
+  - type: TemperatureProtection
+    coefficient: 0.5
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanieTight
+  name: tight beanie
+  description: A rather tight beanie that hides your hair.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/beanie_tight.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/beanie_tight.rsi
+  - type: TemperatureProtection
+    coefficient: 0.5
+  - type: HideLayerClothing
+    slots:
+    - Hair
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSlouch
+  name: slouch hat
+  description: A wide brimmed hat folded to form a slouch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/slouch.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/slouch.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSunVisor
+  name: sun visor
+  description: A stylish visor intended for blocking out harsh sunlight.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/sun_visor.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/sun_visor.rsi
+- # Nuclear 14 hats
+type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeanieGreen
+  name: green beanie
+  description: A dark green beanie.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/beanie.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/beanie.rsi
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMountie
   name: mountie hat
   description: A flat hat made 100% of fur felt.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/mountiehat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/mountiehat.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Chinese renmants
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatChinese
-  name: chinese hat
-  description: A ushanka style of hat with the communist chinese insignia on the front.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/chinesehat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/chinesehat.rsi
-      # - type: ClothingSpecialModifier
-      # perceptionModifier: 1
-
-# Vancouver preventors
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatVancouver
-  name: vancouver preventor cap
-  description: A simple green cap used by the vancouver preventor force.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/vancouverhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/vancouverhat.rsi
-      # - type: ClothingSpecialModifier
-      # charismaModifier: 1
-
-# Vault
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatVaultRiot
-  name: vault riot helmet
-  description: The only thing standing between your face and a knife.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/vaultriot.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/vaultriot.rsi
-    - type: IngestionBlocker
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.9
-          Heat: 0.9
-      priceMultiplier: 0.1
-
-# Craftable
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatAnimal
-  name: canine hat
-  description: Made from a dog-like creature, this wild looking hat will keep your head warm and safe.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/animalhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/animalhat.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.95
-          Heat: 0.95
-      priceMultiplier: 0.5
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatNightstalker
-  name: nightstalker hat
-  description: A warm and resistent hat made from the head of a nightstalker.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/nightstalkerhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/nightstalkerhat.rsi
-    - type: Armor
-      modifiers:
-        coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.95
-          Heat: 0.95
-          Radiation: 0.9
-    - type: Construction
-      graph: NightstalkerhatGraph
-      node: head
-    # - type: ClothingSpecialModifier
-    #  enduranceModifier: 1
-#Blue Line Caravan Co.
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatCaravan
-  name: railwayman's cap
-  description: A hat perfect for the working man/woman/person/ghoul.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyhat.rsi
-      # - type: ClothingSpecialModifier
-      # enduranceModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatCaravanUniform
-  name: Blue Line Caravan Co. employee hat
-  description: Serving the Blue Line Caravan Company loudly and proudly.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyuniformhat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanyuniformhat.rsi
-      # - type: ClothingSpecialModifier
-      # charismaModifier: 1
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatCaravanSuit
-  name: Blue Line Caravan Co. boss' hat
-  description: Hat worn by those affectionately known as the Big Cheese, the Head Honcho, or simply Boss
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanysuithat.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/caravancompanysuithat.rsi
-      # - type: ClothingSpecialModifier
-      # charismaModifier: 2
-
-- type: entity
-  parent: ClothingHeadBase
-  id: N14ClothingHeadHatTownGuard
-  name: the Guard's hat
-  description: A pre-war Canadian army hat for officers, now worn by the Town's Guard of the locals.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/townarmycap.rsi
-    - type: Clothing
-      sprite: _Nuclear14/Clothing/Head/FalloutHats/townarmycap.rsi
-    - type: StaticPrice
-      price: 50
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/mountiehat.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/Head/FalloutHats/mountiehat.rsi
