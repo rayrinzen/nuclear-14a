@@ -1,38 +1,51 @@
 - type: entity
-  id: CigPackBase
+  id: N14CigPackBase
   parent: [ BaseStorageItem, BaseBagOpenClose ]
   name: cigarette pack
   abstract: true
   components:
     - type: Sprite
+      scale: 0.65, 0.65
       layers:
         - state: closed
         - state: open
           map: [ "openLayer" ]
           visible: false
-        - state: cig1
+        - state: overlay_cig_0
+          map: [ "cig0" ]
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
+          visible: false
+        - state: overlay_cig_1
           map: [ "cig1" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
-        - state: cig2
+        - state: overlay_cig_2
           map: [ "cig2" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
-        - state: cig3
+        - state: overlay_cig_3
           map: [ "cig3" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
-        - state: cig4
+        - state: overlay_cig_4
           map: [ "cig4" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
-        - state: cig5
+        - state: overlay_cig_5
           map: [ "cig5" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
-        - state: cig6
+        - state: overlay_cig_6
           map: [ "cig6" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
+          visible: false
+        - state: overlay_cig_7
+          map: [ "cig7" ]
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
+          visible: false
+        - state: overlay_cig_8
+          map: [ "cig8" ]
+          sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/overlays.rsi
           visible: false
     - type: Tag
       tags:
@@ -40,8 +53,7 @@
         - Trash
     - type: PhysicalComposition
       materialComposition:
-        Steel: 50
-    - type: SpaceGarbage
+        Cardboard: 10
     - type: Item
       size: Tiny
       shape: # Yes, this is cursed, but it breaks otherwise, dont question it.
@@ -49,234 +61,122 @@
     - type: Storage
       grid:
         - 0,0,4,1
+      whitelist:
+        tags:
+          - Cigarette
     - type: StorageFill
       contents:
         - id: Cigarette
-          amount: 10
+          amount: 8
     - type: ItemCounter
       count:
         tags: [ Cigarette ]
       composite: true
       layerStates:
+        - cig0
         - cig1
         - cig2
         - cig3
         - cig4
         - cig5
         - cig6
+        - cig7
+        - cig8
     - type: Appearance
-
+    - type: StaticPrice
+      price: 5
+    # - type: entity
+    # parent: N14CigPackBase
+    # id: N14CigarettePack
+    # name: cigarette packet
+    # description: A generic pack of cigarettes.
 - type: entity
-  id: CigPackMixedBase
-  parent: [ BaseStorageItem, BaseBagOpenClose ]
-  name: soaked cigarette pack
-  abstract: true
+  parent: N14CigPackBase
+  id: N14CigarettePackSalem
+  name: Salem cigs pack
+  description: "A refined green cigarette packet. A label on the packaging reads: Salem. Refreshes your taste."
   components:
     - type: Sprite
-      layers:
-        - state: closed
-        - state: open
-          map: [ "openLayer" ]
-          visible: false
-        - state: cig1
-          map: [ "cig1" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-        - state: cig2
-          map: [ "cig2" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-        - state: cig3
-          map: [ "cig3" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-        - state: cig4
-          map: [ "cig4" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-        - state: cig5
-          map: [ "cig5" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-        - state: cig6
-          map: [ "cig6" ]
-          sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/visualizer.rsi
-          visible: false
-    - type: Tag
-      tags:
-        - CigPack
-        - Trash
-    - type: PhysicalComposition
-      materialComposition:
-        Steel: 50
-    - type: SpaceGarbage
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/salem.rsi
     - type: Item
-      size: Tiny
-      shape: # Yes, this is cursed, but it breaks otherwise, dont question it.
-        - 0,0,0,1
-    - type: Storage
-      grid:
-        - 0,0,4,1
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/salem.rsi
     - type: StorageFill
       contents:
-        - id: CigaretteRandom
-          amount: 10
-    - type: ItemCounter
-      count:
-        tags: [ Cigarette ]
-      composite: true
-      layerStates:
-        - cig1
-        - cig2
-        - cig3
-        - cig4
-        - cig5
-        - cig6
-    - type: Appearance
+        - id: N14CigaretteSalem
+          amount: 8
 
 - type: entity
-  id: CigPackGreen
-  parent: CigPackBase
-  name: Spessman's Smokes packet
-  description: A label on the packaging reads, Wouldn't a slow death make a change?
+  parent: N14CigPackBase
+  id: N14CigarettePackKool
+  name: Kools cigs pack
+  description: "A kool green cigarette packet. A label on the packaging reads: KOOL. So good, it's got to be KOOL!"
   components:
     - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/kool.rsi
     - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/green.rsi
-
-- type: entity
-  id: CigPackRed
-  parent: CigPackBase
-  name: DromedaryCo packet
-  description: The most popular brand of Space Cigarettes, sponsors of the Space Olympics.
-  components:
-    - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
-    - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/red.rsi
-
-- type: entity
-  id: CigPackBlue
-  parent: CigPackBase
-  name: AcmeCo packet
-  description: For those who somehow want to obtain the record for the most amount of cancerous tumors.
-  components:
-    - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
-    - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/blue.rsi
-
-- type: entity
-  id: CigPackBlack
-  parent: CigPackBase
-  name: Nomads packet
-  description: Nomads's extra strong, for when your life is more extra hard.
-  components:
-    - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
-    - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/black.rsi
-
-- type: entity
-  id: CigPackSyndicate
-  parent: CigPackBase
-  name: Interdyne herbals packet
-  description: Premium medicinal cigarettes from the Interdyne Corporation. Not endorsed by the Terra-Gov Surgeon General.
-  components:
-    - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
-    - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/kool.rsi
     - type: StorageFill
       contents:
-        - id: CigaretteSyndicate
-          amount: 5
+        - id: N14CigaretteKool
+          amount: 8
 
 - type: entity
-  id: CigPackMixedMedical
-  parent: CigPackMixedBase
-  name: Dan's soaked smokes
-  suffix: Medical
-  description: Dan worked with NT chemistry to dispose of excess chemicals, ENJOY.
+  parent: N14CigPackBase
+  id: N14CigarettePackMarlboro
+  name: Marlboro cigs pack
+  description: "A cool red cigarette packet. A label on the packaging reads: Marlboro. Where there's a man, there's a Marlboro."
   components:
     - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/marlboro.rsi
     - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/marlboro.rsi
     - type: StorageFill
       contents:
-        - id: CigaretteIron
-        - id: CigaretteTricordrazine
-        - id: CigaretteDylovene
-        - id: CigaretteDermaline
-        - id: CigaretteArithrazine
-        - id: CigaretteBicaridine
-        - id: CigaretteIpecac
-        - id: CigaretteOmnizine
-          prob: 0.25
-        - id: CigaretteDexalin
-          prob: 0.25
-        - id: CigarettePax
-          prob: 0.10
+        - id: N14CigaretteMarlboro
+          amount: 8
 
 - type: entity
-  id: CigPackMixed
-  parent: CigPackMixedBase
-  name: Dan's soaked smokes
-  suffix: Mixed
-  description: Dan worked with NT chemistry to dispose of excess chemicals, ENJOY.
+  parent: N14CigPackBase
+  id: N14CigarettePackWinston
+  name: Winston cigs pack
+  description: "A refined red cigarette packet. A label on the packaging reads: Winston. Winston tastes good, like a cigarette should!"
   components:
     - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/winston.rsi
     - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/winston.rsi
     - type: StorageFill
       contents:
-        - id: CigaretteBbqSauce
-          prob: 0.70
-        - id: CigaretteBlackPepper
-          prob: 0.70
-        - id: CigaretteCapsaicinOil
-          prob: 0.70
-        - id: CigaretteBread
-          prob: 0.70
-        - id: CigaretteMilk
-          prob: 0.70
-        - id: CigaretteBanana
-          prob: 0.10
-        - id: CigaretteTHC
-          prob: 0.70
-        - id: CigaretteTricordrazine
-          prob: 0.25
-        - id: CigaretteSpaceDrugs
-          prob: 0.50
-        - id: CigaretteLicoxide
-          prob: 0.10
+        - id: N14CigaretteWinston
+          amount: 8
 
 - type: entity
-  id: CigPackMixedNasty
-  parent: CigPackMixedBase
-  name: Dan's soaked smokes
-  suffix: Nasty
-  description: Dan worked with NT chemistry to dispose of excess chemicals, ENJOY.
+  parent: N14CigPackBase
+  id: N14CigarettePackCustom
+  suffix: custom
+  name: cardboard cigs pack
+  description: A simple hand-made cardboard cigarette pack.
   components:
     - type: Sprite
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/custom.rsi
     - type: Item
-      sprite: Objects/Consumable/Smokeables/Cigarettes/Packs/mixed.rsi
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/custom.rsi
     - type: StorageFill
       contents:
-        - id: CigaretteSpaceDrugs
-          amount: 2
-        - id: CigaretteWeldingFuel
-          amount: 2
-        - id: CigaretteMold
-          amount: 2
-        - id: CigaretteTHC
-        - id: CigaretteLicoxide
-          prob: 0.50
-        - id: CigarettePax
-          prob: 0.10
-        - id: CigaretteMuteToxin
-          prob: 0.05
+        - id: N14CigaretteRollie
+          amount: 8
+
+- type: entity
+  parent: N14CigPackBase
+  id: N14CigarettePackRepublics
+  name: Republics cig pack
+  description: "A rustic cardboard cigarette pack with the flag of the New California Republic on it. A label on the packaging reads: Republics. Taste the freedom, feel the burn."
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/republics.rsi
+    - type: Item
+      sprite: _Nuclear14/Objects/Consumable/Smokeables/Packs/republics.rsi
+    - type: StorageFill
+      contents:
+        - id: N14CigaretteRepublic
+          amount: 8
