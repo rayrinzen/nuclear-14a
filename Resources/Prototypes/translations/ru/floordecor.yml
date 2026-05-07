@@ -1,641 +1,632 @@
 - type: entity
-  parent: N14DecorFloorBase
-  id: NCDecorFloorPole
-  name: metal pole
-  description: Upon seeing this pole, you feel a strange urge to undress...
-  components:
-    - type: Sprite
-      sprite: Corvax/Structures/Decoration/metal_pole.rsi
-      state: metal_pole
-      drawdepth: Mobs
-
-- type: entity
-  parent: N14DecorFloorBase
-  id: NCDecorFloorVaultSkeleton
-  name: skeleton in a vault suit
-  components:
-    - type: Sprite
-      sprite: Corvax/Structures/Decoration/vault_bones.rsi
-      state: bones
-
-# graves
-- type: entity
-  parent: N14DecorFloorBase
-  id: NCDecorFloorGrave1
-  name: gravestone
-  components:
-    - type: Sprite
-      sprite: Corvax/Structures/Decoration/graves.rsi
-      state: grob1
-
-- type: entity
-  parent: NCDecorFloorGrave1
-  id: NCDecorFloorGrave2
-  name: gravestone
-  components:
-    - type: Sprite
-      state: grob2
-
-- type: entity
-  parent: NCDecorFloorGrave1
-  id: NCDecorFloorGrave3
-  name: gravestone
-  components:
-    - type: Sprite
-      state: grob3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsDuo
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_grey_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsDuo
-  id: NCDecorFloorBarrelsDuo1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_grey_2
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsRedDuo
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_red_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsRedDuo
-  id: NCDecorFloorBarrelsRedDuo1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_red_2
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsToxicDuo
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_toxic_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsToxicDuo
-  id: NCDecorFloorBarrelsToxicDuo1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_waste_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsToxicDuo
-  id: NCDecorFloorBarrelsToxicDuo2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_waste_2
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsYellowDuo
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_yellow_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsYellowDuo
-  id: NCDecorFloorBarrelsYellowDuo1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: double_yellow_2
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsFlam
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: flammable_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsFlam
-  id: NCDecorFloorBarrelsFlam1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: flammable_2
-
-- type: entity
-  parent: NCDecorFloorBarrelsFlam
-  id: NCDecorFloorBarrelsFlam2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: flammable_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsGrey
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: grey_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsGrey
-  id: NCDecorFloorBarrelsGrey1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: grey_2
-
-- type: entity
-  parent: NCDecorFloorBarrelsGrey
-  id: NCDecorFloorBarrelsGrey2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: grey_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsHazard
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: hazard_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsHazard
-  id: NCDecorFloorBarrelsHazard1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: hazard_2
-
-- type: entity
-  parent: NCDecorFloorBarrelsHazard
-  id: NCDecorFloorBarrelsHazard2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: hazard_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelsLabel
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: label_1
-
-- type: entity
-  parent: NCDecorFloorBarrelsLabel
-  id: NCDecorFloorBarrelsLabel1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: label_2
-
-- type: entity
-  parent: NCDecorFloorBarrelsLabel
-  id: NCDecorFloorBarrelsLabel2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: label_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelSquad
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_grey_1
-
-- type: entity
-  parent: NCDecorFloorBarrelSquad
-  id: NCDecorFloorBarrelSquad1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_red_1
-
-- type: entity
-  parent: NCDecorFloorBarrelSquad
-  id: NCDecorFloorBarrelSquad2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_red_2
-
-- type: entity
-  parent: NCDecorFloorBarrelSquad
-  id: NCDecorFloorBarrelSquad3
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_toxic_1
-
-- type: entity
-  parent: NCDecorFloorBarrelSquad
-  id: NCDecorFloorBarrelSquad4
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_waste_1
-
-- type: entity
-  parent: NCDecorFloorBarrelSquad
-  id: NCDecorFloorBarrelSquad5
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: quad_yellow_1
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrel
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_1
-
-- type: entity
-  parent: NCDecorFloorBarrel
-  id: NCDecorFloorBarre1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_2
-
-- type: entity
-  parent: NCDecorFloorBarrel
-  id: NCDecorFloorBarre2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelAlt
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_alt_1
-
-- type: entity
-  parent: NCDecorFloorBarrelAlt
-  id: NCDecorFloorBarrelAlt1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_alt_2
-
-- type: entity
-  parent: NCDecorFloorBarrelAlt
-  id: NCDecorFloorBarrelAlt2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: red_alt_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelToxic
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: toxic_1
-
-- type: entity
-  parent: NCDecorFloorBarrelToxic
-  id: NCDecorFloorBarrelToxic1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: toxic_2
-
-- type: entity
-  parent: NCDecorFloorBarrelToxic
-  id: NCDecorFloorBarrelToxic2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: toxic_3
-
-- type: entity
-  parent: NCDecorFloorBarrelToxic
-  id: NCDecorFloorBarrelToxic3
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: toxic_4
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelTriple
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_grey_1
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_grey_2
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_grey_3
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple3
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_red_1
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple4
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_red_2
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple5
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_toxic_1
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple6
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_toxic_2
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple7
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_waste_1
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple8
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_waste_2
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple9
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_waste_3
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple10
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_yellow_1
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple11
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_yellow_2
-
-- type: entity
-  parent: NCDecorFloorBarrelTriple
-  id: NCDecorFloorBarrelTriple12
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: triple_yellow_3
-
-- type: entity
-  parent: N14DecorConcreteBarrier
-  id: NCDecorFloorBarrelWarning
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: warning_1
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelWarning1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: warning_2
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelWarning2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: warning_3
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelWaste
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: waste_1
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelWaste1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: waste_2
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelWaste2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: waste_3
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelYellow
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: yellow_1
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelYellow1
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: yellow_2
-
-- type: entity
-  parent: NCDecorFloorBarrelWarning
-  id: NCDecorFloorBarrelYellow2
-  name: Barrel
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Decoration/barrels.rsi
-      state: yellow_3
-
-# Flag
-- type: entity
-  parent: N14DecorationFlagFlammable
-  id: N14DecorationFlagWesterBoS
-  name: Western Brotherhood of Steel Flag
-  description: A flag with a two Wester Brotherhood
-  components:
-    - type: Sprite
-      sprite: Corvax/Structures/Decoration/flag1.rsi
-      state: zbos
-
-- type: entity
-  parent: N14DecorationFlagpoleNCR
-  id: N14DecorationFlagpoleWesternBOS
-  name: Western Brotherhood of Steel Flag Pole
-  description: A Western Brotherhood flag on a wooden pole.
-  components:
-    - type: Sprite
-      sprite: Corvax/Structures/Decoration/flag2.rsi
-      state: zbosflagshtock
-      noRot: true
-
-- type: entity
-  parent: N14DecorationFlagpoleNCR
-  id: N14DecorationFlagpoleUSA
-  name: USA flag pole
-  description: A USA flag on a wooden pole.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/clutter.rsi
-      state: flagpole_usa
-      noRot: true
-
-- type: entity
-  parent: N14DecorationFlagpoleNCR
-  id: N14DecorationFlagpoleNCR2
-  name: NCR flag pole
-  description: A NCR flag on a wooden pole.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/clutter.rsi
-      state: flagpole_ncr
-      noRot: true
-
-- type: entity
-  parent: N14DecorationFlagpoleNCR
-  id: N14DecorationFlagpoleLegion
-  name: Legion flag pole
-  description: A Legion flag on a wooden pole.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/clutter.rsi
-      state: flagpole_legion
-      noRot: true
-
-# Decormini
-- type: entity
-  parent: N14DecorFloorBase
-  id: NCDecorFloorFlagUSAFolded
-  name: Folded US flag, Patriotic
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/clutter.rsi
-      state: trifold
+  id: DecorFloorBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/cave_decor.rsi
+    netsync: false
+    noRot: true
+    drawdepth: FloorObjects
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Clickable
+  - type: InteractionOutline
+- # No fixture on this base, inherit from further down for fixture
+# Cave Decor
+type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard1
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-1
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard2
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-2
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard3
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-3
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard4
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-4
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard5
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-5
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard6
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_ns-6
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard7
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-1
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard8
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-2
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard9
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-3
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard10
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-4
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard11
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-5
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard12
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_drought_we-6
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard13
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-1
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard14
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-2
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard15
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-3
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard16
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-4
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard17
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-5
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard18
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_ns-6
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard19
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-1
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard20
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-2
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard21
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-3
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard22
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-4
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard23
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-5
+- type: entity
+  parent: DecorFloorBase
+  id: DecorFloorBoard24
+  name: floor board
+  description: Keep the mud off your feet.
+  components:
+  - type: Sprite
+    state: boards_mammoth_we-6
+- type: entity
+  parent: DecorFloorBase
+  id: DecorStalagmite1
+  name: stalagmite
+  description: Pointy rocks! Mites go up, tites come...
+  components:
+  - type: Sprite
+    state: stalagmite
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.20'
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorStalagmite2
+  components:
+  - type: Sprite
+    state: stalagmite1
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorStalagmite3
+  components:
+  - type: Sprite
+    state: stalagmite2
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorStalagmite4
+  components:
+  - type: Sprite
+    state: stalagmite3
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorStalagmite5
+  components:
+  - type: Sprite
+    state: stalagmite4
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorStalagmite6
+  components:
+  - type: Sprite
+    state: stalagmite5
+- type: entity
+  parent: DecorStalagmite1
+  id: DecorMinecart
+  name: minecart
+  description: It seems to have fallen over...
+  components:
+  - type: Sprite
+    state: minecart_fallen
+- type: entity
+  parent: DecorFloorBase
+  id: DecorSignLeftMine
+  name: sign
+  description: A sign, for a mine, pointing li...left
+  components:
+  - type: Sprite
+    state: sign_left
+- type: entity
+  parent: DecorFloorBase
+  id: DecorSignRightMine
+  name: sign
+  description: A sign, pointing right.
+  components:
+  - type: Sprite
+    state: sign_right
+- # World Decor
+type: entity
+  parent: DecorFloorBase
+  id: DecorFloorWorldBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/world.rsi
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorPaper
+  name: scattered paper
+  description: A mess of papers
+  suffix: 8 states
+  components:
+  - type: Sprite
+    sprite: Structures/Decoration/world.rsi
+    state: scattered_papers
+- # add destruction drop for materials
+type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorPaper1
+  suffix: 4 states
+  name: scattered paper
+  description: A mess of papers
+  components:
+  - type: Sprite
+    state: papers_1
+- type: entity
+  parent: DecorFloorPaper1
+  id: DecorFloorPaper2
+  components:
+  - type: Sprite
+    state: papers_2
+- type: entity
+  parent: DecorFloorPaper1
+  id: DecorFloorPaper3
+  components:
+  - type: Sprite
+    state: papers_3
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorScrapwood
+  name: wood scraps
+  description: wood scraps
+  suffix: 6 states
+  components:
+  - type: Sprite
+    snapCardinals: false
+    state: woodscrap
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorBrickrubble
+  name: brick rubble
+  description: brick rubble
+  suffix: "6 states"
+  components:
+  - type: Sprite
+    state: brickrubble
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorCardboard
+  name: cardboard boxes
+  description: cardboard scrap boxes
+  suffix: "6 states"
+  components:
+  - type: Sprite
+    state: cardboard
+- # add destruction drop for materials
+type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorPallet
+  name: pallet
+  description: a wooden pallet.
+  suffix: "2 states"
+  components:
+  - type: Sprite
+    state: pallet
+- # add destruction drop for materials
+type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorPalletStack
+  name: pallet stack
+  description: a stack of wooden pallets
+  suffix: "2 states"
+  components:
+  - type: Sprite
+    state: pallet_stack
+  -   # add destruction drop for materials
+type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.20'
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+- type: entity
+  parent: DecorFloorPalletStack
+  id: DecorFloorBrickStack
+  name: brick stack
+  description: a neat stack of bricks
+  components:
+  - type: Sprite
+    state: brickpile
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorBookstack1
+  name: book stack
+  description: a stack of books
+  components:
+  - type: Sprite
+    state: bookstack_1
+- # add destruction drop for materials
+type: entity
+  parent: DecorFloorBookstack1
+  id: DecorFloorBookstack2
+  components:
+  - type: Sprite
+    state: bookstack_2
+- type: entity
+  parent: DecorFloorBookstack1
+  id: DecorFloorBookstack3
+  components:
+  - type: Sprite
+    state: bookstack_3
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorBookPile1
+  name: book pile
+  description: a pile of books
+  components:
+  - type: Sprite
+    state: bookpile_1
+- # add destruction drop for materials
+type: entity
+  parent: DecorFloorBookPile1
+  id: DecorFloorBookPile2
+  components:
+  - type: Sprite
+    state: bookpile_2
+- type: entity
+  parent: DecorFloorBookPile1
+  id: DecorFloorBookPile3
+  components:
+  - type: Sprite
+    state: bookpile_3
+- type: entity
+  parent: DecorFloorBookPile1
+  id: DecorFloorBookPile4
+  components:
+  - type: Sprite
+    state: bookpile_4
+- type: entity
+  parent: DecorFloorBookPile1
+  id: DecorFloorBookPile5
+  components:
+  - type: Sprite
+    state: bookpile_5
+- type: entity
+  parent: DecorFloorBookPile1
+  id: DecorFloorBookPile6
+  components:
+  - type: Sprite
+    state: bookpile_6
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorFood1
+  name: food stuff
+  description: some old food stuff
+  components:
+  - type: Sprite
+    state: foodstuff_1
+- type: entity
+  parent: DecorFloorFood1
+  id: DecorFloorFood2
+  components:
+  - type: Sprite
+    state: foodstuff_2
+- type: entity
+  parent: DecorFloorFood1
+  id: DecorFloorFood3
+  components:
+  - type: Sprite
+    state: foodstuff_3
+- type: entity
+  parent: DecorFloorFood1
+  id: DecorFloorFood4
+  components:
+  - type: Sprite
+    state: foodstuff_4
+- type: entity
+  parent: DecorFloorFood1
+  id: DecorFloorFood5
+  components:
+  - type: Sprite
+    state: foodstuff_5
+- type: entity
+  parent: DecorFloorFood1
+  id: DecorFloorFood6
+  components:
+  - type: Sprite
+    state: foodstuff_6
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorTrashbags1
+  name: trash bags
+  description: some old trash bags
+  components:
+  - type: Sprite
+    state: trashbags_1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.20'
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+- type: entity
+  parent: DecorFloorTrashbags1
+  id: DecorFloorTrashbags2
+  components:
+  - type: Sprite
+    state: trashbags_2
+- type: entity
+  parent: DecorFloorTrashbags1
+  id: DecorFloorTrashbags3
+  components:
+  - type: Sprite
+    state: trashbags_3
+- type: entity
+  parent: DecorFloorTrashbags1
+  id: DecorFloorTrashbags4
+  components:
+  - type: Sprite
+    state: trashbags_4
+- type: entity
+  parent: DecorFloorTrashbags1
+  id: DecorFloorTrashbags5
+  components:
+  - type: Sprite
+    state: trashbags_5
+- type: entity
+  parent: DecorFloorTrashbags1
+  id: DecorFloorTrashbags6
+  components:
+  - type: Sprite
+    state: trashbags_6
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorGlass1
+  name: glass bottles
+  description: some old glass scraps
+  components:
+  - type: Sprite
+    state: glass_1
+- # add glass shard destruction
+type: entity
+  parent: DecorFloorGlass1
+  id: DecorFloorGlass2
+  components:
+  - type: Sprite
+    state: glass_2
+- type: entity
+  parent: DecorFloorGlass1
+  id: DecorFloorGlass3
+  components:
+  - type: Sprite
+    state: glass_3
+- type: entity
+  parent: DecorFloorGlass1
+  id: DecorFloorGlass4
+  components:
+  - type: Sprite
+    state: glass_4
+- type: entity
+  parent: DecorFloorGlass1
+  id: DecorFloorGlass5
+  components:
+  - type: Sprite
+    state: glass_5
+- type: entity
+  parent: DecorFloorGlass1
+  id: DecorFloorGlass6
+  components:
+  - type: Sprite
+    state: glass_6
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorSignMines
+  name: mines
+  description: danger of mines and death...
+  components:
+  - type: Sprite
+    state: mine_sign
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorFloorSkeleton
+  name: skeleton
+  description: looks a little worse for wear
+  components:
+  - type: Sprite
+    state: skeleton
+- type: entity
+  parent: DecorFloorWorldBase
+  id: DecorBarrels
+  name: barrels
+  description: a bunch of old rusty barrels.
+  components:
+  - type: Sprite
+    layers:
+    - state: barrels1
+      map:
+      - "body"
+  - type: RandomSprite
+    available:
+        - 
+      body:
+          barrels1: ""
+          barrels2: ""
+          barrels3: ""
+          barrels4: ""
+          barrels5: ""
+          barrels6: ""
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.3'
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+- type: entity
+  parent: DecorFloorSkeleton
+  id: DecorFloorSkeletonOver
+  suffix: draws over objects
+  components:
+  - type: Sprite
+    drawdepth: Mobs
