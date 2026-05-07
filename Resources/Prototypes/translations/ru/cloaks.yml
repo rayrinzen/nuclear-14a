@@ -1,32 +1,10 @@
 - type: entity
   parent: ClothingNeckBase
-  id: N14ClothingNeckCloakLegionRed
-  name: Legion red cloak
-  description: A comfy cloak with a Legion.
+  id: ClothingNeckCloakJanitor
+  name: janitor's cloak
+  description: An exquisite cloak fitting for those who save the station from messes and slips. The unsung heroes who work thanklessly while we make a mess over the bar. Pure angels of patience and an iron will! ...It's also waterproof!
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Neck/cloaklegionred.rsi
+      sprite: _NF/Clothing/Neck/Cloaks/janitor.rsi
     - type: Clothing
-      sprite: Corvax/Clothing/Neck/cloaklegionred.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: N14ClothingNeckCloakLegionWhite
-  name: Legion white cloak
-  description: A comfy cloak with a Legion.
-  components:
-    - type: Sprite
-      sprite: Corvax/Clothing/Neck/cloaklegionwhite.rsi
-    - type: Clothing
-      sprite: Corvax/Clothing/Neck/cloaklegionwhite.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: N14ClothingNeckCloakLegionBlack
-  name: Legion black cloak
-  description: A comfy cloak with a Legion.
-  components:
-    - type: Sprite
-      sprite: Corvax/Clothing/Neck/cloaklegionblack.rsi
-    - type: Clothing
-      sprite: Corvax/Clothing/Neck/cloaklegionblack.rsi
+      sprite: _NF/Clothing/Neck/Cloaks/janitor.rsi
