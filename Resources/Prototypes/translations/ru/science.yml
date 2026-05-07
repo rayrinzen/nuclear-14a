@@ -1,17 +1,10 @@
 - type: entity
-  id: LockerScienceFilled
-  suffix: Filled
-  parent: LockerScientist
+  id: CrateScienceModsuitCoresFilled
+  parent: CrateScienceSecure
+  name: MOD cores crate
+  description: Contains three MOD cores inside.
   components:
     - type: StorageFill
       contents:
-        - id: ClothingHandsGlovesLatex
-        - id: ClothingHeadsetScience
-        - id: ClothingMaskSterile
-        - id: ClothingOuterCoatRnd
-        - id: AnomalyScanner
-        - id: NodeScanner
-        - id: NetworkConfigurator
-          prob: 0.5
-        - id: LunchboxEpistemicsFilledRandom # Delta-V Lunchboxes!
-          prob: 0.3
+        - id: ModsuitCoreStandard
+          amount: 3
