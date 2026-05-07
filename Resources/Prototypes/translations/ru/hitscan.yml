@@ -1,26 +1,38 @@
-# Used to animate the hitscan effects because effectsystem doesn't support it
-- type: entity
-  id: HitscanEffect
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: TimedDespawn
-      lifetime: 2.0
-    - type: Sprite
-      drawdepth: Effects
-      layers:
-        - shader: unshaded
-          map: [ "enum.EffectLayers.Unshaded" ]
-    - type: EffectVisuals
-    - type: Tag
-      tags:
-        - HideContextMenu
-    - type: AnimationPlayer
+# Misfits — Hitscan beam definitions for energy weapons.
+# Each weapon specifies its own beam via GunDamageBonusComponent.hitscanProtoOverride.
+# The cell just provides charge; the weapon controls beam color and base damage.
+# Damage hierarchy: Red (17) < Amber (19) < Yellow (17 base, Wattz +bonus) < Green (25) < Blue (30) < Violet (30)
 
+#MARK: Microfusion Cell Lasers — per-weapon beam assignment
+# AER-9/Auto/RCW/Gatling/crude/makeshift -> Red
+# AER-12 -> Amber
+# AER-14 -> Green
+# AER-15 -> Blue
+# Wattz 2K/3K -> Yellow (with GunDamageBonus on top)
+# Violet -> reserved for future / highest-tier weapons
 - type: hitscan
-  id: RedLaser
+  id: N14MFLaserRed
   damage:
     types:
-      Heat: 15 # Forge-Change
+      Heat: 17
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+# #Misfits Add - Amber beam for AER-12 rapid-fire laser rifle.
+# Uses red beam sprites tinted amber. Slight damage increase over Red.
+- type: hitscan
+  id: N14MFLaserAmber
+  damage:
+    types:
+      Heat: 19
+  tintColor: "#FF8C00"
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -32,10 +44,82 @@
     state: impact_laser
 
 - type: hitscan
-  id: RedLaserPractice
+  id: N14MFLaserGreen
   damage:
     types:
-      Heat: 1
+      Heat: 25
+  muzzleFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: muzzle_green_laser
+  travelFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: beam_green
+  impactFlash:
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: impact_green_laser
+
+- type: hitscan
+  id: N14MFLaserBlue
+  damage:
+    types:
+      Heat: 30
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_blue
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+# #Misfits Change - Recolored violet beam to true violet spectrum (#8B00FF).
+# Original used u_laser sprites (purple). Now tinted to distinct violet.
+- type: hitscan
+  id: N14MFLaserViolet
+  damage:
+    types:
+      Heat: 30
+  tintColor: "#8B00FF"
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_u_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: u_laser
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_u_laser
+
+# #Misfits Add - Yellow beam for Wattz 2000/3000 focused laser rifles.
+# Uses red beam sprites tinted bright yellow. Base damage matches Red;
+# actual output is higher due to GunDamageBonusComponent on the Wattz weapons.
+# Wider beam (1.5x) simulates focused optics — Assaultron is 3.0 for comparison.
+- type: hitscan
+  id: N14MFLaserYellow
+  damage:
+    types:
+      Heat: 17
+  tintColor: "#FFD700"
+  beamWidth: 1.5
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_laser
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_laser
+
+#MARK: Electron Charge Pack Pulses — Red < Green < Blue < Violet
+# Used by N14ElectronChargePackRed/Green/Blue/Violet. All pulse weapons accept any of these.
+- type: hitscan
+  id: N14PulseRed
+  damage:
+    types:
+      Heat: 14
+      Shock: 6
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -47,71 +131,27 @@
     state: impact_laser
 
 - type: hitscan
-  id: RedMediumLaser
+  id: N14PulseGreen
   damage:
     types:
-      Heat: 21 # Forge-Change
+      Heat: 18
+      Shock: 8
   muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: muzzle_green_laser
   travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: beam_green
   impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+    sprite: _Misfits/Objects/Weapons/Guns/Projectiles/green_laser.rsi
+    state: impact_green_laser
 
 - type: hitscan
-  id: RedLightLaser
+  id: N14PulseBlue
   damage:
     types:
-      Heat: 7
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
-
-- type: hitscan
-  id: XrayLaser
-  damage:
-    types:
-      Heat: 10
-      Radiation: 10
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_xray
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: xray
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_xray
-
-- type: hitscan
-  id: RedHeavyLaser
-  damage:
-    types:
-      Heat: 28
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy
-
-- type: hitscan
-  id: Pulse
-  damage:
-    types:
-      Heat: 35
+      Heat: 22
+      Shock: 10
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -123,34 +163,39 @@
     state: impact_blue
 
 - type: hitscan
-  id: RedShuttleLaser
+  id: N14PulseViolet
   damage:
     types:
-      Heat: 45
-      Structural: 10
+      Heat: 28
+      Shock: 12
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_beam_heavy2
+    state: muzzle_u_laser
   travelFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_heavy2
+    state: u_laser
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_beam_heavy2
+    state: impact_u_laser
 
-# Glimmer wisp laser
+#MARK: Misc
+# Assaultron head laser — devastating focused heat beam.
+# Orange tint, wide beam, holds for ~3 seconds to simulate a sustained focused blast.
 - type: hitscan
-  id: WispLash
+  id: N14AssaultronHeadLaser
   damage:
     types:
-      Cold: 8
-      Shock: 8
+      Heat: 90
+      Structural: 15
+  tintColor: "#FF6A00"
+  beamWidth: 3
+  beamDuration: 3.0
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_omni
+    state: muzzle_laser
   travelFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam_omni
+    state: beam
   impactFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_omni
+    state: impact_laser
