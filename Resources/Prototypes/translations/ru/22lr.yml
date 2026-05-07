@@ -1,35 +1,24 @@
 - type: entity
-  abstract: true
+  id: N14BaseMagazine22Pistol
+  name: pistol magazine (.22lr)
   parent: BaseItem
-  id: BaseMagazineBox22
+  abstract: true
   components:
+  - type: Tag
+    tags:
+      - N14MagazinePistol22lr
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - N14CartridgePistol22
-    proto: N14CartridgePistol22
-    capacity: 75
+    capacity: 18
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type :Container
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/22lr.rsi
     netsync: false
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
-- type: entity
-  parent: BaseMagazineBox22
-  id: MagazineBox22
-  name: ammunition box (22lr)
-  components:
-  - type: BallisticAmmoProvider
-    proto: N14CartridgePistol22
-  - type: Sprite
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/22lr/pistolmag.rsi
     layers:
     - state: base
       map:
@@ -37,3 +26,16 @@
     - state: mag-1
       map:
       - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: N14MagazinePistol22lr
+  name: pistol magazine (.22lr)
+  parent: N14BaseMagazine22Pistol
+  components:
+  - type: BallisticAmmoProvider
+    proto: N14CartridgePistol22
+
