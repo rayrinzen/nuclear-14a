@@ -1,150 +1,133 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
 - type: entity
-  id: BasePlasmamanOrgan
+  id: PartPlasmaman
+  parent: [ BaseItem, BasePart ]
+  name: plasmaman body part
   abstract: true
   components:
     - type: Sprite
-      sprite: Mobs/Species/Plasmaman/organs.rsi
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 5 # Not very nutritious
-            - ReagentId: Plasma
-              Quantity: 2.5
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: Plasma
-              Quantity: 5
-    - type: Extractable
-      grindableSolutionName: food
-      juiceSolution:
-        reagents:
-          - ReagentId: Plasma
-            Quantity: 5
-    - type: FlavorProfile
-      flavors:
-        - plasma
+      sprite: Mobs/Species/Plasmaman/parts.rsi
+    - type: Butcherable
+      butcheringType: Knife
+      butcherDelay: 4.0
+      spawned:
+        - id: SheetPlasma1
+          amount: 1
+    - type: IgniteFromGasPart
+      gas: Oxygen
 
 - type: entity
-  id: OrganPlasmamanLungs
-  parent: [ BasePlasmamanOrgan, OrganHumanLungs ]
-  name: plasmaman lungs
-  description: The lungs yearn for the plasma. Only plasma gas can satiate these lungs, and oxygen is lethally toxic.
+  id: TorsoPlasmaman
+  name: plasmaman torso
+  parent: [ PartPlasmaman, BaseTorso ]
   components:
     - type: Sprite
-      layers:
-        - state: lungs
-    - type: Metabolizer
-      metabolizerTypes: [ Plasmaman ]
-    - type: Lung
-      alert: LowPlasma
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 5
-            - ReagentId: Plasma
-              Quantity: 2.5
-        Lung:
-          maxVol: 100.0
-          canReact: false
-        food:
-          maxVol: 5
-          reagents:
-            - ReagentId: Plasma
-              Quantity: 5
+      state: torso_m
+    - type: Butcherable
+      butcherDelay: 6.0
+      spawned:
+        - id: SheetPlasma1
+          amount: 3
+    - type: IgniteFromGasPart
+      fireStacks: 0.06
 
 - type: entity
-  id: OrganPlasmamanStomach
-  parent: [ BasePlasmamanOrgan, OrganHumanStomach ]
-  name: plasmaman stomach
-  description: Why do plasmamen have stomachs if they don't need to eat?
-  components:
-    - type: Metabolizer
-      metabolizerTypes: [ Plasmaman ]
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 8
-            - ReagentId: Plasma
-              Quantity: 4
-        stomach:
-          maxVol: 50
-        food:
-          maxVol: 8
-          reagents:
-            - ReagentId: Plasma
-              Quantity: 8
-    - type: Extractable
-      juiceSolution:
-        reagents:
-          - ReagentId: Plasma
-            Quantity: 8
-
-- type: entity
-  id: OrganPlasmamanEyes
-  parent: [ BasePlasmamanOrgan, OrganHumanEyes ]
-  name: plasmaman eyes
+  id: HeadPlasmaman
+  name: plasmaman head
+  parent: [ PartPlasmaman, BaseHead ]
   components:
     - type: Sprite
-      layers:
-        - state: eyes
+      state: head_m
+    - type: Butcherable
+      butcherDelay: 5.0
+    - type: IgniteFromGasPart
+      fireStacks: 0.02
 
 - type: entity
-  id: OrganPlasmamanLiver
-  parent: [ BasePlasmamanOrgan, OrganHumanLiver ]
-  name: plasmaman liver
-  components:
-    - type: Metabolizer
-      metabolizerTypes: [ Plasmaman ]
-
-- type: entity
-  id: OrganPlasmamanTongue
-  parent: [ BasePlasmamanOrgan, OrganHumanTongue ]
-  name: plasmaman tongue
-
-- type: entity
-  id: OrganPlasmamanKidneys
-  parent: [ BasePlasmamanOrgan, OrganHumanKidneys ]
-  name: plasmaman kidneys
+  id: LeftArmPlasmaman
+  name: left plasmaman arm
+  parent: [ PartPlasmaman, BaseLeftArm ]
   components:
     - type: Sprite
-      layers:
-        - state: kidneys
-    - type: Metabolizer
-      metabolizerTypes: [ Plasmaman ]
+      state: l_arm
+    - type: IgniteFromGasPart
+      fireStacks: 0.02
 
 - type: entity
-  id: OrganPlasmamanHeart
-  parent: [ BasePlasmamanOrgan, OrganHumanHeart ]
-  name: plasmaman heart
-  description: It pulses with plasma even outside the body.
+  id: RightArmPlasmaman
+  name: right plasmaman arm
+  parent: [ PartPlasmaman, BaseRightArm ]
   components:
-    - type: Metabolizer
-      metabolizerTypes: [ Plasmaman ]
+    - type: Sprite
+      state: r_arm
+    - type: IgniteFromGasPart
+      fireStacks: 0.02
 
 - type: entity
-  id: OrganPlasmamanBrain
-  parent: [ BasePlasmamanOrgan, OrganHumanBrain ]
-  name: plasmaman brain
+  id: LeftHandPlasmaman
+  name: left plasmaman hand
+  parent: [ PartPlasmaman, BaseLeftHand ]
   components:
-    - type: SolutionContainerManager
-      solutions:
-        organ:
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 5
-            - ReagentId: Plasma
-              Quantity: 2.5
-        food:
-          maxVol: 10
-          reagents:
-            - ReagentId: GreyMatter
-              Quantity: 5
-            - ReagentId: Plasma
-              Quantity: 5
+    - type: Sprite
+      state: l_hand
+    - type: Butcherable
+      butcherDelay: 3.0
+    - type: IgniteFromGasPart
+      fireStacks: 0.01
+
+- type: entity
+  id: RightHandPlasmaman
+  name: right plasmaman hand
+  parent: [ PartPlasmaman, BaseRightHand ]
+  components:
+    - type: Sprite
+      state: r_hand
+    - type: Butcherable
+      butcherDelay: 3.0
+    - type: IgniteFromGasPart
+      fireStacks: 0.01
+
+- type: entity
+  id: LeftLegPlasmaman
+  name: left plasmaman leg
+  parent: [ PartPlasmaman, BaseLeftLeg ]
+  components:
+    - type: Sprite
+      state: l_leg
+    - type: IgniteFromGasPart
+      fireStacks: 0.02
+
+- type: entity
+  id: RightLegPlasmaman
+  name: right plasmaman leg
+  parent: [ PartPlasmaman, BaseRightLeg ]
+  components:
+    - type: Sprite
+      state: r_leg
+    - type: IgniteFromGasPart
+      fireStacks: 0.02
+
+- type: entity
+  id: LeftFootPlasmaman
+  name: left plasmaman foot
+  parent: [ PartPlasmaman, BaseLeftFoot ]
+  components:
+    - type: Sprite
+      state: l_foot
+    - type: Butcherable
+      butcherDelay: 3.0
+    - type: IgniteFromGasPart
+      fireStacks: 0.01
+
+- type: entity
+  id: RightFootPlasmaman
+  name: right plasmaman foot
+  parent: [ PartPlasmaman, BaseRightFoot ]
+  components:
+    - type: Sprite
+      state: r_foot
+    - type: Butcherable
+      butcherDelay: 3.0
+    - type: IgniteFromGasPart
+      fireStacks: 0.01
