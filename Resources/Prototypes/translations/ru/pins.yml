@@ -1,206 +1,175 @@
 - type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckPinBase
-  abstract: true
-  name: pin
-  description: be nothing do crime
-  components:
-    - type: Item
-      size: Tiny
-    - type: DamageOtherOnHit
-      damage:
-        types:
-          Blunt: 1
-      staminaCost: 1
-
-- type: entity
   parent: ClothingNeckPinBase
-  id: ClothingNeckLGBTPin
-  name: LGBT pin
-  description: be gay do crime
+  id: ClothingNeckPinNCRRecruit
+  name: recruit pin
+  description: A worn Republic Armed Forces badge showing the wearer's rank.
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: lgbt
+        - state: recruit
     - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: /_Nuclear14/Clothing/Neck/Misc/pins.rsi
       clothingVisuals:
         neck:
-          - state: lgbt-equipped
+          - state: empty-equipped
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckAromanticPin
-  name: aromantic pin
-  description: be aro do crime
+  parent: ClothingNeckPinNCRRecruit
+  id: ClothingNeckPinNCRPrivate
+  name: private pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: aro
+        - state: private
     - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       clothingVisuals:
         neck:
-          - state: aro-equipped
+          - state: gold-equipped
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckAsexualPin
-  name: asexual pin
-  description: be ace do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRPrivate1st
+  name: private 1st pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: asex
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: asex-equipped
+        - state: private1st
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckBisexualPin
-  name: bisexual pin
-  description: be bi do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRCorporal
+  name: corporal pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: bi
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: bi-equipped
+        - state: corporal
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckGayPin
-  name: gay pin
-  description: be gay do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSpecialist
+  name: specialist pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: gay
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: gay-equipped
+        - state: specialist
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckIntersexPin
-  name: intersex pin
-  description: be intersex do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSergeant
+  name: sergeant pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: inter
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: inter-equipped
+        - state: sergeant
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckLesbianPin
-  name: lesbian pin
-  description: be lesbian do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSergeant1st
+  name: sergeant 1st pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: les
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: les-equipped
+        - state: sergeant1st
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckNonBinaryPin
-  name: non-binary pin
-  description: "01100010 01100101 00100000 01100101 01101110 01100010 01111001 00100000 01100100 01101111 00100000 01100011 01110010 01101001 01101101 01100101"
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRMasterSergeant
+  name: master sergeant pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: non
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: non-equipped
+        - state: mastersergeant
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckPansexualPin
-  name: pansexual pin
-  description: be pan do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSergeantMajor
+  name: sergeant major pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: pan
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: pan-equipped
+        - state: sergeantmajor
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckTransPin
-  name: transgender pin
-  description: be trans do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRSecondLieutenant
+  name: second lieutenant pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/pins.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: trans
-    - type: Clothing
-      sprite: Clothing/Neck/Misc/pins.rsi
-      clothingVisuals:
-        neck:
-          - state: trans-equipped
+        - state: secondlieutenant
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckAutismPin
-  name: autism pin
-  description: be autism do crime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRFirstlLieutenant
+  name: first lieutenant pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/autismpin.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: autism
+        - state: firstlieutenant
     - type: Clothing
-      sprite: Clothing/Neck/Misc/autismpin.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       clothingVisuals:
         neck:
-          - state: autism-equipped
+          - state: silver-equipped
 
 - type: entity
-  parent: ClothingNeckPinBase
-  id: ClothingNeckGoldAutismPin
-  name: golden autism pin
-  description: be autism do warcrime
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRCaptain
+  name: captain pin
   components:
     - type: Sprite
-      sprite: Clothing/Neck/Misc/goldautismpin.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       layers:
-        - state: goldautism
+        - state: captain
     - type: Clothing
-      sprite: Clothing/Neck/Misc/goldautismpin.rsi
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
       clothingVisuals:
         neck:
-          - state: goldautism-equipped
+          - state: silver-equipped
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRMajor
+  name: major pin
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+      layers:
+        - state: major
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRDoctor
+  name: doctor pin
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+      layers:
+        - state: doctor
+    - type: Clothing
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+      clothingVisuals:
+        neck:
+          - state: red-equipped
+
+- type: entity
+  parent: ClothingNeckPinNCRPrivate
+  id: ClothingNeckPinNCRChiefPhysician
+  name: chiefphysician pin
+  components:
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Neck/Misc/pins.rsi
+      layers:
+        - state: chiefphysician
