@@ -1,7 +1,6 @@
-- # -- Melee --
-# Selects a target in melee and tries to attack it.
+- # It shouldn't pick up objects or anything similar, merely charge and hit you with whatever he got.
 type: htnCompound
-  id: MeleeCombatCompound
+  id: N14MeleeCombatCompound
   branches:
     - 
     tasks:
@@ -9,118 +8,9 @@ type: htnCompound
           operator: !type
             proto: NearbyMeleeTargets
         - !type 
-          task: BeforeMeleeAttackTargetCompound
+          task: N14MeleeAttackTargetCompound
 - type: htnCompound
-  id: BeforeMeleeAttackTargetCompound
-  branches:
-    - 
-    preconditions:
-        - !type 
-          isBuckled: true
-      tasks:
-        - !type 
-          operator: !type
-            shutdownState: TaskFinished
-    - 
-    preconditions:
-        - !type 
-          isPulled: true
-      tasks:
-        - !type 
-          operator: !type
-            shutdownState: TaskFinished
-    - 
-    preconditions:
-        - !type 
-          isInContainer: true
-      tasks:
-        - !type 
-          task: EscapeCompound
-    - 
-    # Pickup weapon if we don't have one.
-    preconditions:
-        - !type 
-            components:
-              -               # Just serializer things
-type: MeleeWeapon
-                damage:
-                  types:
-                    Blunt: 0
-            invert: true
-      tasks:
-        - !type 
-          task: PickupMeleeCompound
-    - 
-    preconditions:
-      - !type 
-        isBuckled: true
-      tasks:
-      - !type 
-        operator: !type
-          shutdownState: TaskFinished
-    - 
-    preconditions:
-      - !type 
-        isInContainer: true
-      tasks:
-      - !type 
-        task: EscapeCompound
-    - 
-    preconditions:
-      - !type 
-        isPulled: true
-      tasks:
-      - !type 
-        operator: !type
-          shutdownState: TaskFinished
-    - 
-    # Melee combat (unarmed or otherwise)
-    tasks:
-        - !type 
-          task: MeleeAttackTargetCompound
-- type: htnCompound
-  id: RatServantCombatCompound
-  branches:
-    - 
-    preconditions:
-        - !type 
-          components:
-            - type: MeleeWeapon
-              damage:
-                types:
-                  Blunt: 0
-          invert: true
-      tasks:
-        - !type 
-          task: PickupMeleeCompound
-    - 
-    tasks:
-        - !type 
-          operator: !type
-            proto: OrderedTargets
-        - !type 
-          task: MeleeAttackOrderedTargetCompound
-- type: htnCompound
-  id: PickupMeleeCompound
-  branches:
-    - 
-    tasks:
-        - !type 
-          operator: !type
-            proto: NearbyMeleeWeapons
-        - !type 
-          operator: !type :MoveToOperator
-        - !type 
-          preconditions:
-            - !type :ActiveHandFreePrecondition
-            - !type 
-              targetKey: Target
-              rangeKey: InteractRange
-          operator: !type
-            targetKey: Target
-- # Tries to melee attack our target.
-type: htnCompound
-  id: MeleeAttackTargetCompound
+  id: N14MeleeAttackTargetCompound
   branches:
     - 
     preconditions:
@@ -130,6 +20,8 @@ type: htnCompound
         - !type 
           operator: !type
             shutdownState: PlanFinished
+            # #Misfits Change /Fix:/ Plan the route up front so melee NPCs commit to
+            # obstacle-aware movement instead of steering blind into doors before combat jukes run.
             pathfindInPlanning: true
             removeKeyOnFinish: false
             targetKey: TargetCoordinates
@@ -137,7 +29,7 @@ type: htnCompound
             rangeKey: MeleeRange
         - !type 
           operator: !type
-            jukeType: Away
+            jukeType: AdjacentTile
         - !type 
           operator: !type
             targetKey: Target
@@ -151,52 +43,4 @@ type: htnCompound
             - !type 
               id: MeleeService
               proto: NearbyMeleeTargets
-              key: Target
-- type: htnCompound
-  id: EscapeCompound
-  branches:
-    - 
-  tasks:
-    - !type 
-      operator: !type
-        targetKey: Target
-        shutdownState: TaskFinished
-    - !type 
-      operator: !type
-        targetKey: Target
-      preconditions:
-      - !type 
-        isInContainer: true
-- type: htnCompound
-  id: MeleeAttackOrderedTargetCompound
-  branches:
-    - 
-    preconditions:
-      - !type 
-        key: Target
-      tasks:
-        - !type 
-          operator: !type
-            shutdownState: PlanFinished
-            pathfindInPlanning: true
-            removeKeyOnFinish: false
-            targetKey: TargetCoordinates
-            pathfindKey: TargetPathfind
-            rangeKey: MeleeRange
-        - !type 
-          operator: !type
-            jukeType: Away
-        - !type 
-          operator: !type
-            targetKey: Target
-          preconditions:
-            - !type 
-              key: Target
-            - !type 
-              targetKey: Target
-              rangeKey: MeleeRange
-          services:
-            - !type 
-              id: MeleeService
-              proto: OrderedTargets
               key: Target
