@@ -1,0 +1,30 @@
+- type: htnCompound
+  id: MeleePsionicFamiliarCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: MeleeCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: FollowCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
+- type: htnCompound
+  id: RangedPsionicFamiliarCompound
+  branches:
+    - 
+    tasks:
+        - !type 
+          task: InnateRangedCombatCompound
+    - 
+    tasks:
+        - !type 
+          task: FollowCompound
+    - 
+    tasks:
+        - !type 
+          task: IdleCompound
