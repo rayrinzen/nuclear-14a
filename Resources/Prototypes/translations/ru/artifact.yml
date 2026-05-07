@@ -1,12 +1,10 @@
-- type: construction
-  name: alien artifact
-  id: Artifact
-  graph: Artifact
-  startNode: start
-  targetNode: done
-  category: construction-category-misc
-  objectType: Item
-  description: A strange alien artifact
-  icon:
-    sprite: Objects/Specific/Xenoarchaeology/item_artifacts.rsi
-    state: ano01
+- type: soundCollection
+  id: ArtifactActivation
+  files:
+    - /Audio/Items/Artifact/artifact1.ogg
+    - /Audio/Items/Artifact/artifact2.ogg
+    - /Audio/Items/Artifact/artifact3.ogg
+    - /Audio/Items/Artifact/artifact4.ogg
+    - /Audio/Items/Artifact/artifact5.ogg
+    - /Audio/Items/Artifact/artifact6.ogg
+    - /Audio/Items/Artifact/artifact7.ogg
