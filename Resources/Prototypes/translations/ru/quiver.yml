@@ -1,28 +1,19 @@
-- type: entity
-  parent: ClothingBeltStorageBase
-  id: ClothingBeltQuiver
-  name: quiver
-  description: Can hold up to 15 arrows, and fits snug around your waist.
-  components:
-    - type: Sprite
-      sprite: Clothing/Belt/quiver.rsi
-      layers:
-        - state: icon
-        - map: [ "enum.StorageContainerVisualLayers.Fill" ]
-          visible: false
-    - type: Clothing
-    - type: Storage
-      grid:
-        - 0,0,7,3
-      maxItemSize: Small
-      whitelist:
-        tags:
-          - Arrow
-          - Plunger
-    - type: Appearance
-    - type: StorageContainerVisuals
-      maxFillLevels: 3
-      fillBaseName: fill-
-    - type: Construction
-      graph: Quiver
-      node: Quiver
+- type: constructionGraph
+  id: Quiver
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: Quiver
+          steps:
+            - material: Cable
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 5
+              doAfter: 2
+            - material: WoodPlank
+              amount: 1
+              doAfter: 2
+    - node: Quiver
+      entity: ClothingBeltQuiver
