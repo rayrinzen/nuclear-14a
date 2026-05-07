@@ -1,66 +1,102 @@
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieWhite
-  name: white tie
-  description: An ivory-white tie.
+  id: ClothingNeckTieRed
+  name: red-tie
+  description: A neosilk clip-on red tie.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/whitetie.rsi
+      sprite: Clothing/Neck/Ties/redtie.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/whitetie.rsi
+      sprite: Clothing/Neck/Ties/redtie.rsi
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+        - ClothMade
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieDet
+  name: detective's tie
+  description: A loosely tied necktie, a perfect accessory for the over-worked detective.
+  components:
+    - type: Sprite
+      sprite: Clothing/Neck/Ties/dettie.rsi
+    - type: Clothing
+      sprite: Clothing/Neck/Ties/dettie.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieSci
+  name: scientist's tie
+  description: Why do we all have to wear these ridiculous ties?
+  components:
+    - type: Sprite
+      sprite: Clothing/Neck/Ties/scitie.rsi
+    - type: Clothing
+      sprite: Clothing/Neck/Ties/scitie.rsi
+    - type: Tag
+      tags:
+        - ClothMade
+        - HamsterWearable
+        - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieColor
+  name: tie
+  description: A neosilk clip-on tie.
+  components:
+    - type: Sprite
+      sprite: Clothing/Neck/Ties/color.rsi
+    - type: Clothing
+      sprite: Clothing/Neck/Ties/color.rsi
       renderLayer: innerNeck
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+        - ClothMade
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieBlack
-  name: black tie
-  description: A charcoal-black tie.
+  id: ClothingNeckTieShort
+  name: short tie
+  description: A short tie, perfect for vests.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/blacktie.rsi
+      sprite: Clothing/Neck/Ties/shorttie.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/blacktie.rsi
+      sprite: Clothing/Neck/Ties/shorttie.rsi
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieBrown
-  name: brown tie
-  description: A chocolate-brown tie.
+  id: ClothingNeckTieBow
+  name: neck bow
+  description: A bow for adorning the neck.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/browntie.rsi
+      sprite: Clothing/Neck/Ties/bow.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/browntie.rsi
+      sprite: Clothing/Neck/Ties/bow.rsi
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieBlue
-  name: blue tie
-  description: A cerulean-blue tie.
+  id: ClothingNeckTieBowTie
+  name: bow tie
+  description: A bow tie. Snazzy!
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/bluetie.rsi
+      sprite: Clothing/Neck/Ties/bowtie.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/bluetie.rsi
+      sprite: Clothing/Neck/Ties/bowtie.rsi
 
 - type: entity
   parent: ClothingNeckBase
-  id: ClothingNeckTieGreen
-  name: green tie
-  description: A grass-green tie.
+  id: ClothingNeckTieRibbon
+  name: neck ribbon
+  description: A ribbon for adorning the neck.
   components:
     - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/greentie.rsi
+      sprite: Clothing/Neck/Ties/ribbon.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/greentie.rsi
-
-- type: entity
-  parent: ClothingNeckBase
-  id: ClothingNeckTieChem
-  name: chemistry tie
-  description: An safety-orange tie.
-  components:
-    - type: Sprite
-      sprite: DeltaV/Clothing/Neck/Ties/chemtie.rsi
-    - type: Clothing
-      sprite: DeltaV/Clothing/Neck/Ties/chemtie.rsi
+      sprite: Clothing/Neck/Ties/ribbon.rsi
