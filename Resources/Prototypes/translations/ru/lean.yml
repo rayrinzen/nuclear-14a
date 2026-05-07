@@ -1,0 +1,38 @@
+- type: reagent
+  id: Lean
+  name: reagent-name-lean
+  parent: BaseAlcohol
+  desc: reagent-desc-lean
+  physicalDesc: reagent-physical-desc-strong-smelling
+  color: "#9400D3"
+  metamorphicSprite:
+    sprite: Objects/Consumable/Drinks/lean.rsi
+    state: icon
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type 
+        key: Stutter
+        component: StutteringAccent
+      - !type :Jitter
+    Poison:
+      effects:
+      - !type 
+        conditions:
+        - !type 
+          min: 25
+        damage:
+          types:
+           Caustic: 0.5
+      - !type 
+        conditions:
+        - !type 
+          min: 35
+        probability: 0.1
+    Medicine:
+      effects:
+      - !type 
+        conditions:
+          - !type 
+            min: 60
+        probability: 0.2
