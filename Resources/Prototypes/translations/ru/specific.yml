@@ -1,15 +1,14 @@
 - type: entity
-  parent: BaseItem
-  id: N14Whip
-  name: whip
-  description: "A painful weapon of oppression."
+  parent: ClothingShoesBase
+  id: ClothingShoesEnclosedChem
+  name: enclosed shoes
+  description: Those shoes will protect you from melting your feet while working.
   components:
     - type: Sprite
-      sprite: Corvax/Objects/Weapons/Melee/whip.rsi
-      state: icon
-    - type: MeleeWeapon
-      soundHit:
-        collection: WhipSound
-      damage:
-        types:
-          Slash: 10
+      sprite: DeltaV/Clothing/Shoes/Specific/enclosedshoes.rsi
+    - type: Clothing
+      sprite: DeltaV/Clothing/Shoes/Specific/enclosedshoes.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Caustic: 0.95
