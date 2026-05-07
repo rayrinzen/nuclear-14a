@@ -1,2006 +1,2101 @@
+# Metal Tiles
 - type: tile
-  id: FloorSteel
-  name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  id: FloorMetalBlue
+  name: tiles-metal-blue
+  sprite: /Textures/_Nuclear14/Tiles/metalblue.png
+  baseTurf: FloorWasteland
   isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalBlue
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalBlueSolid
+  name: tiles-metal-blue-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalbluesolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalBlueSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGreen
+  name: tiles-metal-green
+  sprite: /Textures/_Nuclear14/Tiles/metalgreen.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGreen
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGreenSolid
+  name: tiles-metal-green-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalgreensolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGreenSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGrey
+  name: tiles-metal-grey
+  sprite: /Textures/_Nuclear14/Tiles/metalgrey.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGrey
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGreySolid
+  name: tiles-metal-grey-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalgreysolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGreySolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGreyDark
+  name: tiles-metal-grey-dark
+  sprite: /Textures/_Nuclear14/Tiles/metalgreydark.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGreyDark
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalGreyDarkSolid
+  name: tiles-metal-grey-dark-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalgreydarksolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalGreyDarkSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalPurple
+  name: tiles-metal-purple
+  sprite: /Textures/_Nuclear14/Tiles/metalpurple.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalPurple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalPurpleSolid
+  name: tiles-metal-purple-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalpurplesolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalPurpleSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalRed
+  name: tiles-metal-red
+  sprite: /Textures/_Nuclear14/Tiles/metalred.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalRedSolid
+  name: tiles-metal-red-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalredsolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalRedSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalTeal
+  name: tiles-metal-teal
+  sprite: /Textures/_Nuclear14/Tiles/metalteal.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalTeal
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalTealSolid
+  name: tiles-metal-teal-solid
+  sprite: /Textures/_Nuclear14/Tiles/metaltealsolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalTealSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalWhite
+  name: tiles-metal-white
+  sprite: /Textures/_Nuclear14/Tiles/metalwhite.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalWhite
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalWhiteSolid
+  name: tiles-metal-white-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalwhitesolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalWhiteSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalYellow
+  name: tiles-metal-yellow
+  sprite: /Textures/_Nuclear14/Tiles/metalyellow.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalYellow
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalYellowSolid
+  name: tiles-metal-yellow-solid
+  sprite: /Textures/_Nuclear14/Tiles/metalyellowsolid.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  itemDrop: FloorTileItemMetalYellowSolid
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalFreezer
+  name: tiles-metal-freezer
+  sprite: /Textures/_Nuclear14/Tiles/metalfreezer.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  itemDrop: FloorTileItemMetalFreezer
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalTunnel
+  name: tiles-metal-tunnel
+  sprite: /Textures/_Nuclear14/Tiles/tunnelintact.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalTunnelRusty
+  name: tiles-metal-tunnel-rusty
+  sprite: /Textures/_Nuclear14/Tiles/tunnelrusty.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMetalTunnelWasteland
+  name: tiles-metal-tunnel-wasteland
+  sprite: /Textures/_Nuclear14/Tiles/tunnelwasteland.png
+  variants: 11
+  placementVariants: [ 0, 1, 2, 3, 5, 6, 7, 8, 9, 10 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 4500
+  weather: true
+
+# MS13 Metal Tiles
+- type: tile
+  id: FloorMS13MetalIndustrial
+  name: tiles-ms13-metal-industrial
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_industrial.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemMetalIndustrial
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
 
 - type: tile
-  id: FloorSteelCheckerLight
-  name: tiles-steel-floor-checker-light
-  sprite: /Textures/Tiles/cafeteria.png
+  id: FloorMS13MetalTile
+  name: tiles-ms13-metal-tile
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_tiles.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemMetalMS13
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13MetalGrate
+  name: tiles-ms13-metal-grate
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_grate.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemMetalGrate
+  footstepSounds:
+    collection: N14FootstepMetalHollow
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13MetalSolid
+  name: tiles-ms13-metal-solid
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Steel/steel_solid.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
   deconstructTools: [ Prying ]
+  itemDrop: FloorTileItemMetalSolid
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelCheckerLight
+    collection: N14FootstepMetalSolid
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 4500
+  weather: true
 
+# Interior
 - type: tile
-  id: FloorSteelCheckerDark
-  name: tiles-steel-floor-checker-dark
-  sprite: /Textures/Tiles/checker_dark.png
+  id: FloorWoodOak
+  name: tiles-wood-oak
+  sprite: /Textures/_Nuclear14/Tiles/oak.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelCheckerDark
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTileItemWoodOak
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 4500
+  weather: true
 
 - type: tile
-  id: FloorSteelMini
-  name: tiles-steel-floor-mini
-  sprite: /Textures/Tiles/steel_mini.png
+  id: FloorWoodOakBroken
+  name: tiles-wood-oak-broken
+  sprite: /Textures/_Nuclear14/Tiles/oakbroken.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+    collection: N14FootstepWood
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 4500
+  weather: true
 
 - type: tile
-  id: FloorSteelPavement
-  name: tiles-steel-floor-pavement
-  sprite: /Textures/Tiles/steel_pavement.png
+  id: FloorWoodHouse
+  name: tiles-wood-house
+  sprite: /Textures/_Nuclear14/Tiles/woodhouse.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTileItemWoodHouse
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 4500
+  weather: true
 
 - type: tile
-  id: FloorSteelDiagonal
-  name: tiles-steel-floor-diagonal
-  sprite: /Textures/Tiles/steel_diagonal.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorSteelOffset
-  name: tiles-steel-floor-offset
-  sprite: /Textures/Tiles/steel_offset.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorSteelMono
-  name: tiles-steel-floor-mono
-  sprite: /Textures/Tiles/steel_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorSteelPavementVertical
-  name: tiles-steel-floor-pavement-vertical
-  sprite: /Textures/Tiles/steel_pavement_vertical.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorSteelHerringbone
-  name: tiles-steel-floor-herringbone
-  sprite: /Textures/Tiles/steel_herringbone.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorSteelDiagonalMini
-  name: tiles-steel-floor-diagonal-mini
-  sprite: /Textures/Tiles/steel_diagonal_mini.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorBrassFilled
-  name: tiles-brass-floor-filled
-  sprite: /Textures/Tiles/Misc/clockwork/clockwork_floor_filled.png
-  baseTurf: PlatingBrass
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemBrassFilled
-  heatCapacity: 10000
-  tileRipResistance: 220
-
-- type: tile
-  id: FloorBrassReebe
-  name: tiles-brass-floor-reebe
-  sprite: /Textures/Tiles/Misc/clockwork/reebe.png
-  baseTurf: PlatingBrass
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemBrassReebe
-  heatCapacity: 10000
-  tileRipResistance: 220
-
-- type: tile
-  id: FloorPlastic
-  name: tiles-plastic-floor
-  sprite: /Textures/Tiles/plastic.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWood
-  name: tiles-wood
-  sprite: /Textures/Tiles/wood.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWood
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhite
-  name: tiles-white-floor
-  sprite: /Textures/Tiles/white.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteMini
-  name: tiles-white-floor-mini
-  sprite: /Textures/Tiles/white_mini.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhitePavement
-  name: tiles-white-floor-pavement
-  sprite: /Textures/Tiles/white_pavement.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteDiagonal
-  name: tiles-white-floor-diagonal
-  sprite: /Textures/Tiles/white_diagonal.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteOffset
-  name: tiles-white-floor-offset
-  sprite: /Textures/Tiles/white_offset.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteMono
-  name: tiles-white-floor-mono
-  sprite: /Textures/Tiles/white_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhitePavementVertical
-  name: tiles-white-floor-pavement-vertical
-  sprite: /Textures/Tiles/white_pavement_vertical.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteHerringbone
-  name: tiles-white-floor-herringbone
-  sprite: /Textures/Tiles/white_herringbone.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhiteDiagonalMini
-  name: tiles-white-floor-diagonal-mini
-  sprite: /Textures/Tiles/white_diagonal_mini.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorWhitePlastic
-  name: tiles-plastic-white-floor
-  sprite: /Textures/Tiles/white_plastic.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemWhite
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorDark
-  name: tiles-dark-floor
-  sprite: /Textures/Tiles/dark.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkMini
-  name: tiles-dark-floor-mini
-  sprite: /Textures/Tiles/dark_mini.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkPavement
-  name: tiles-dark-floor-pavement
-  sprite: /Textures/Tiles/dark_pavement.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkDiagonal
-  name: tiles-dark-floor-diagonal
-  sprite: /Textures/Tiles/dark_diagonal.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkOffset
-  name: tiles-dark-floor-offset
-  sprite: /Textures/Tiles/dark_offset.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkMono
-  name: tiles-dark-floor-mono
-  sprite: /Textures/Tiles/dark_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkPavementVertical
-  name: tiles-dark-floor-pavement-vertical
-  sprite: /Textures/Tiles/dark_pavement_vertical.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkHerringbone
-  name: tiles-dark-floor-herringbone
-  sprite: /Textures/Tiles/dark_herringbone.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkDiagonalMini
-  name: tiles-dark-floor-diagonal-mini
-  sprite: /Textures/Tiles/dark_diagonal_mini.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorDarkPlastic
-  name: tiles-plastic-dark-floor
-  sprite: /Textures/Tiles/dark_plastic.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemDark
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorTechMaint
-  name: tiles-techmaint-floor
-  sprite: /Textures/Tiles/tech_maint.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemTechmaint
-  heatCapacity: 10000
-  tileRipResistance: 250
-
-- type: tile
-  id: FloorReinforced
-  name: tiles-reinforced-floor
-  sprite: /Textures/Tiles/reinforced.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemReinforced
-  heatCapacity: 10000
-  reinforced: true
-
-- type: tile
-  id: FloorMono
-  name: tiles-mono-floor
-  sprite: /Textures/Tiles/mono.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemMono
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorLino
-  name: tiles-linoleum-floor
-  sprite: /Textures/Tiles/lino.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemLino
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorSteelDirty
-  name: tiles-dirty-steel-floor
-  sprite: /Textures/Tiles/steel_dirty.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepPlating
-  itemDrop: FloorTileItemDirty
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorElevatorShaft
-  name: tiles-elevator-shaft
-  sprite: /Textures/Tiles/elevator_shaft.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemElevatorShaft
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorMetalDiamond
-  name: tiles-diamond-plate-floor
-  sprite: /Textures/Tiles/metaldiamond.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemMetalDiamond
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorRockVault
-  name: tiles-rock-floor
-  sprite: /Textures/Tiles/rock_vault.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepAsteroid
-  itemDrop: FloorTileItemRockVault
-  heatCapacity: 10000
-  tileRipResistance: 400
-
-- type: tile
-  id: FloorBlue
-  name: tiles-blue-tile
-  sprite: /Textures/Tiles/blue.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemBlue
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorSteelLime
-  name: tiles-lime-floor
-  sprite: /Textures/Tiles/lime.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemLime
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorMining
-  name: tiles-mining-tile
-  sprite: /Textures/Tiles/mining_floor.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemMining
-  heatCapacity: 10000
-  tileRipResistance: 250
-
-- type: tile
-  id: FloorMiningDark
-  name: tiles-mining-dark-tile
-  sprite: /Textures/Tiles/mining_floor_dark.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemMiningDark
-  heatCapacity: 10000
-  tileRipResistance: 250
-
-- type: tile
-  id: FloorMiningLight
-  name: tiles-mining-light-tile
-  sprite: /Textures/Tiles/mining_floor_light.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemMiningLight
-  heatCapacity: 10000
-  tileRipResistance: 250
-
-# Departamental
-- type: tile
-  id: FloorFreezer
-  name: tiles-freezer
-  sprite: /Textures/Tiles/freezer.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemFreezer
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorShowroom
-  name: tiles-showroom-floor
-  sprite: /Textures/Tiles/showroom.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShowroom
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorHydro
-  name: tiles-hydro-floor
-  sprite: /Textures/Tiles/hydro.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemHydro
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorBar
-  name: tiles-bar-floor
-  sprite: /Textures/Tiles/bar.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemBar
-  heatCapacity: 10000
-  tileRipResistance: 100
-
-- type: tile
-  id: FloorClown
-  name: tiles-clown-floor
-  sprite: /Textures/Tiles/clown.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemClown
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorMime
-  name: tiles-mime-floor
-  sprite: /Textures/Tiles/mime.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemMime
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorKitchen
-  name: tiles-kitchen-floor
-  sprite: /Textures/Tiles/kitchen.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemKitchen
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorLaundry
-  name: tiles-laundry-floor
-  sprite: /Textures/Tiles/laundry.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemLaundry
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorSteelDamaged
-  name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_damaged.png
-  variants: 5
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel #This should probably be made null when it becomes possible to make it such, in SS13 prying destroyed tiles wouldn't give you anything.
-  heatCapacity: 10000
-  tileRipResistance: 175
-
-- type: tile
-  id: FloorSteelBurnt
-  name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_burnt.png
+  id: FloorWoodHouseBroken
+  name: tiles-wood-house-broken
+  sprite: /Textures/_Nuclear14/Tiles/woodhousebroken.png
   variants: 2
-  placementVariants:
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  placementVariants: [ 0, 1 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel #Same case as FloorSteelDamaged, make it null when possible
+    collection: N14FootstepWood
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 175
+  weather: true
 
+- type: tile
+  id: FloorWoodBurntBroken
+  name: tiles-wood-burnt-broken
+  sprite: /Textures/_Nuclear14/Tiles/woodburntbroken.png
+  variants: 7
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorWoodMaple
+  name: tiles-wood-maple
+  sprite: /Textures/_Nuclear14/Tiles/maple.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTileItemWoodMaple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# MS13 wood
+- type: tile
+  id: FloorMS13WoodCommon
+  name: tiles-ms13-wood-common
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_common.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTilesItemMS13WoodCommon # Corvax-Change
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodCommonDamaged
+  name: tiles-ms13-wood-common-damaged
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_common_damaged.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  # itemDrop: FloorTileItemWoodMaple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodFancy
+  name: tiles-ms13-wood-fancy
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_fancy.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTilesItemMS13WoodFancy # Corvax-Change
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodFancyDamaged
+  name: tiles-ms13-wood-fancy-damaged
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_fancy_damaged.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  # itemDrop: FloorTileItemWoodMaple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodMosaic
+  name: tiles-ms13-wood-mosaic
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_mosaic.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTilesItemMS13WoodMosaic # Corvax-Change
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodMosaicDamaged
+  name: tiles-ms13-wood-mosaic-damaged
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_mosaic_damaged.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  # itemDrop: FloorTileItemWoodMaple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodWide
+  name: tiles-ms13-wood-wide
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_wide.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  itemDrop: FloorTilesItemMS13WoodWide # Corvax-Change
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13WoodWideDamaged
+  name: tiles-ms13-wood-wide-damaged
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Wood/wood_wide_damaged.png
+  variants: 4
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepWood
+  friction: 0.30
+  # itemDrop: FloorTileItemWoodMaple
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# Carpet
+- type: tile
+  id: FloorCarpetRed
+  name: tiles-carpet-red
+  sprite: /Textures/_Nuclear14/Tiles/carpet.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# MS13 Carpet
+- type: tile
+  id: FloorMS13CarpetRed
+  name: tiles-ms13-carpet-red
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_red.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetFancyRed
+  name: tiles-ms13-carpet-fancy-red
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_red.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetBlue
+  name: tiles-ms13-carpet-blue
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_blue.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetFancyBlue
+  name: tiles-ms13-carpet-fancy-blue
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_blue.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetGreen
+  name: tiles-ms13-carpet-green
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_green.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetFancyGreen
+  name: tiles-ms13-carpet-fancy-green
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_fancy_green.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13CarpetViolet
+  name: tiles-ms13-carpet-violet
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Carpet/carpet_violet.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepCarpet
+  friction: 0.30
+  # itemDrop: FloorTileItemCarpetRed
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# Paths and Roads
 # Concrete
 - type: tile
-  id: FloorConcrete
+  id: N14FloorConcrete
+  name: tiles-concrete
+  sprite: /Textures/_Nuclear14/Tiles/concrete.png
+  variants: 6
+  placementVariants: [ 0, 1, 2, 3, 4, 5 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorConcreteTileGoon
   name: tiles-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/concrete.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  sprite: /Textures/_Nuclear14/Tiles/concrete-goon.png
+  variants: 1
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorConcreteMono
-  name: tiles-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: N14FloorConcreteGreyBay
+  name: tiles-concrete-grey
+  sprite: /Textures/_Nuclear14/Tiles/concrete-bay.png
+  variants: 1
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorConcreteSmooth
-  name: tiles-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_smooth.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: N14FloorConcreteHexacrete
+  name: tiles-concrete-hexacrete
+  sprite: /Textures/_Nuclear14/Tiles/hexacrete.png
+  variants: 1
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorGrayConcrete
-  name: tiles-gray-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: N14FloorConcreteHexacreteDark
+  name: tiles-concrete-hexacrete-dark
+  sprite: /Textures/_Nuclear14/Tiles/hexacrete_dark.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemGrayConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorGrayConcreteMono
-  name: tiles-gray-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: N14FloorConcreteDark
+  name: tiles-concrete-dark
+  sprite: /Textures/_Nuclear14/Tiles/concretedark.png
+  variants: 6
+  placementVariants: [ 0, 1, 2, 3, 4, 5 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemGrayConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorGrayConcreteSmooth
-  name: tiles-gray-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_smooth.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: N14FloorConcreteRoad
+  name: tiles-concrete-road
+  sprite: /Textures/_Nuclear14/Tiles/concreteroad.png
+  variants: 6
+  placementVariants: [ 0, 1, 2, 3, 4, 5 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemGrayConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
+# MS13 Concrete & Brick
 - type: tile
-  id: FloorOldConcrete
-  name: tiles-old-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13BrickConcrete
+  name: tiles-ms13-brick-concrete
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/brickconcrete.png
+  variants: 9
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemOldConcrete
+    collection: N14FootstepConcreteBroken
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorOldConcreteMono
-  name: tiles-old-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_mono.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13BrickHorizontal
+  name: tiles-ms13-brick-horizontal
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Brick/brickhorizontal.png
+  variants: 9
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemOldConcrete
+    collection: N14FootstepConcreteBroken
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorMS13BrickVertical
+  name: tiles-ms13-brick-vertical
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Brick/brickvertical.png
+  variants: 9
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepConcreteBroken
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
 - type: tile
-  id: FloorOldConcreteSmooth
-  name: tiles-old-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_smooth.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13Concrete
+  name: tiles-ms13-concrete
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_big.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemOldConcrete
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
-  tileRipResistance: 300
 
-# Carpets (non smoothing)
 - type: tile
-  id: FloorArcadeBlue
-  name: tiles-blue-arcade-floor
-  sprite: /Textures/Tiles/arcadeblue.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13ConcreteIndustrial
+  name: tiles-ms13-concrete-industrial
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemArcadeBlue
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
 - type: tile
-  id: FloorArcadeBlue2
-  name: tiles-blue-arcade-floor
-  sprite: /Textures/Tiles/arcadeblue2.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13ConcreteIndustrialAlt
+  name: tiles-ms13-concrete-industrial-alt
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_alt.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemArcadeBlue2
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
 - type: tile
-  id: FloorArcadeRed
-  name: tiles-red-arcade-floor
-  sprite: /Textures/Tiles/arcadered.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13ConcreteIndustrialSplit
+  name: tiles-ms13-concrete-industrial-split
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/concrete_industrial_split.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemArcadeRed
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
 - type: tile
-  id: FloorEighties
-  name: tiles-eighties-floor
-  sprite: /Textures/Tiles/eighties.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  id: FloorMS13TileConcreteSmall
+  name: tiles-ms13-tile-concrete-small
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Concrete/tileconcretesmall.png
+  variants: 3
+  placementVariants: [ 0, 1, 2 ]
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemEighties
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
+# MS13 Tiles
 - type: tile
-  id: FloorCarpetClown
-  name: tiles-clown-carpet-floor
-  sprite: /Textures/Tiles/carpetclown.png
-  baseTurf: Plating
+  id: FloorMS13TileFancy
+  name: tiles-ms13-tile-fancy
+  sprite: /Textures/_Nuclear14/Tiles/ms13/fancy.png
+  baseTurf: FloorWasteland
   isSubfloor: false
-  deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemCarpetClown
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
 - type: tile
-  id: FloorCarpetOffice
-  name: tiles-office-carpet-floor
-  sprite: /Textures/Tiles/carpetoffice.png
-  baseTurf: Plating
+  id: FloorMS13TileSierra
+  name: tiles-ms13-tile-sierra
+  sprite: /Textures/_Nuclear14/Tiles/ms13/sierra.png
+  baseTurf: FloorWasteland
   isSubfloor: false
-  deconstructTools: [ Prying ]
   footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  friction: 0.25
-  itemDrop: FloorTileItemCarpetOffice
+    collection: N14FootstepConcrete
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
-  tileRipResistance: 75
+  weather: true
 
 - type: tile
-  id: FloorBoxing
-  name: tiles-boxing-ring-floor
-  sprite: /Textures/Tiles/boxing.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
+  id: FloorMS13TileSierraBroken
+  name: tiles-ms13-tile-sierra-broken
+  sprite: /Textures/_Nuclear14/Tiles/ms13/sierrabroken.png
+  variants: 3
+  placementVariants: [ 0, 1, 2 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
-  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: N14FootstepConcreteBroken
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileBlack
+  name: tiles-ms13-tile-black
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Small/tileblack.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
   footstepSounds:
     collection: FootstepFloor
-  friction: 0.25
-  itemDrop: FloorTileItemBoxing
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorGym
-  name: tiles-gym-floor
-  sprite: /Textures/Tiles/gym.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  friction: 0.25
-  itemDrop: FloorTileItemGym
-  heatCapacity: 10000
-  tileRipResistance: 50
-
-# Shuttle
-- type: tile
-  id: FloorShuttleWhite
-  name: tiles-white-shuttle-floor
-  sprite: /Textures/Tiles/shuttlewhite.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleWhite
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleGrey
-  name: tiles-grey-shuttle-floor
-  sprite: /Textures/Tiles/shuttlegrey.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleGrey
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleBlack
-  name: tiles-black-shuttle-floor
-  sprite: /Textures/Tiles/shuttleblack.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleBlack
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleBlue
-  name: tiles-blue-shuttle-floor
-  sprite: /Textures/Tiles/shuttleblue.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleBlue
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleOrange
-  name: tiles-orange-shuttle-floor
-  sprite: /Textures/Tiles/shuttleorange.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleOrange
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttlePurple
-  name: tiles-purple-shuttle-floor
-  sprite: /Textures/Tiles/shuttlepurple.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttlePurple
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleRed
-  name: tiles-red-shuttle-floor
-  sprite: /Textures/Tiles/shuttlered.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleRed
-  heatCapacity: 10000
-  tileRipResistance: 4500
-
-# Materials
-- type: tile
-  id: FloorGold
-  name: tiles-gold-tile
-  sprite: /Textures/Tiles/gold.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemGold
-  heatCapacity: 10000
-  tileRipResistance: 600
-
-- type: tile
-  id: FloorSilver
-  name: tiles-silver-tile
-  sprite: /Textures/Tiles/silver.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: FloorTileItemSilver
-  heatCapacity: 10000
-  tileRipResistance: 500
-
-- type: tile
-  id: FloorGlass
-  name: tiles-glass-floor
-  sprite: /Textures/DeltaV/Tiles/glass.png # DeltaV - Replace glass texture so it's easier to see
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: SheetGlass1
-  heatCapacity: 10000
-  tileRipResistance: 150
-
-- type: tile
-  id: FloorRGlass
-  name: tiles-reinforced-glass-floor
-  sprite: /Textures/Tiles/rglass.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepTile
-  itemDrop: SheetRGlass1
-  heatCapacity: 10000
-  tileRipResistance: 175
-
-# Circuits
-- type: tile
-  id: FloorGreenCircuit
-  name: tiles-green-circuit-floor
-  sprite: /Textures/Tiles/green_circuit.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemGCircuit
-  heatCapacity: 10000
-  tileRipResistance: 225
-
-- type: tile
-  id: FloorBlueCircuit
-  name: tiles-blue-circuit-floor
-  sprite: /Textures/Tiles/blue_circuit.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemBCircuit
-  heatCapacity: 10000
-  tileRipResistance: 225
-
-# Terrain
-- type: tile
-  id: FloorAsphalt
-  name: tiles-asphalt
-  sprite: /Textures/Tiles/Planet/Concrete/asphalt.png
-  variants: 10
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: FloorDirt
-  isSubfloor: false
-  footstepSounds:
-    collection: FootstepTile
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorGrass
-  name: tiles-planet-grass-floor
-  sprite: /Textures/Tiles/grass.png
-  baseTurf: FloorDirt
+  id: FloorMS13TileBlackFull
+  name: tiles-ms13-tile-black-full
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tileblackfull.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
-  canShovel: true #DV
   footstepSounds:
-    collection: FootstepGrass
-  itemDrop: FloorTileItemGrass
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorGrassJungle
-  name: tiles-jungle-grass-floor
-  sprite: /Textures/Tiles/grassjungle.png
-  baseTurf: FloorDirt
+  id: FloorMS13TileBlackLarge
+  name: tiles-ms13-tile-black-large
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tileblacklarge.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
-  canShovel: true # Delta V
   footstepSounds:
-    collection: FootstepGrass
-  itemDrop: FloorTileItemGrassJungle
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorGrassDark
-  name: tiles-dark-grass-floor
-  sprite: /Textures/Tiles/grassdark.png
+  id: FloorMS13TileLongBlue
+  name: tiles-ms13-tile-long-blue
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Long/tilebluelong.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileBrown
+  name: tiles-ms13-tile-brown
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Small/tilebrown.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileCafe
+  name: tiles-ms13-tile-cafe
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilecafe.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileCeramic
+  name: tiles-ms13-tile-ceramic
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tileceramic.png
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileCeramicBroken
+  name: tiles-ms13-tile-ceramic-broken
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tileceramicbroken.png
+  variants: 7
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileCheck
+  name: tiles-ms13-tile-check
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilecheck.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileGreen
+  name: tiles-ms13-tile-green
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilegreen.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileGreenFull
+  name: tiles-ms13-tile-green-full
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilegreenfull.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileGrey
+  name: tiles-ms13-tile-grey
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Small/tilegrey.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileGreyLarge
+  name: tiles-ms13-tile-grey-large
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilegreylarge.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileGreyLong
+  name: tiles-ms13-tile-grey-long
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Long/tilegreylong.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileNavy
+  name: tiles-ms13-tile-navy
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Small/tilenavy.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileNavyFull
+  name: tiles-ms13-tile-navy-full
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilenavyfull.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileNavyLarge
+  name: tiles-ms13-tile-navy-large
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilenavylarge.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileWhiteLarge
+  name: tiles-ms13-tile-white-large
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Large/tilewhitelarge.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileWhiteFull
+  name: tiles-ms13-tile-white-full
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Full/tilewhitefull.png
+  variants: 8
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7 ]
+  baseTurf: FloorWasteland
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorMS13TileOrnate
+  name: tiles-ms13-tile-ornate
+  sprite: /Textures/_Nuclear14/Tiles/ms13/tileornate.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: FloorDirt
+  placementVariants: [ 0, 1, 2, 3 ]
+  baseTurf: FloorWasteland
   isSubfloor: false
-  canShovel: true # Delta V
   footstepSounds:
-    collection: FootstepGrass
-  itemDrop: FloorTileItemGrassDark # Delta V
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# Roads
+- type: tile
+  id: N14FloorRoadInnerMiddle
+  name: tiles-road-inner-middle
+  sprite: /Textures/_Nuclear14/Tiles/roadinnermiddle.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorGrassLight
-  name: tiles-light-grass-floor
-  sprite: /Textures/Tiles/grasslight.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: FloorDirt
-  isSubfloor: false
-  canShovel: true # Delta V
+  id: N14FloorRoadOuterMiddlePath
+  name: tiles-road-outer-middle-path
+  sprite: /Textures/_Nuclear14/Tiles/roadoutermiddle.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepGrass
-  itemDrop: FloorTileItemGrassLight
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorDirt
-  name: tiles-dirt-floor
-  sprite: /Textures/Tiles/dirt.png
+  id: N14FloorRoadCorner1
+  name: tiles-road-corner1
+  sprite: /Textures/_Nuclear14/Tiles/roadcorner1.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadCorner2
+  name: tiles-road-corner2
+  sprite: /Textures/_Nuclear14/Tiles/roadcorner2.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadCorner3
+  name: tiles-road-corner3
+  sprite: /Textures/_Nuclear14/Tiles/roadcorner3.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadCorner4
+  name: tiles-road-corner4
+  sprite: /Textures/_Nuclear14/Tiles/roadcorner4.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadBottom
+  name: tiles-road-bottom
+  sprite: /Textures/_Nuclear14/Tiles/roadbottom.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadLeft
+  name: tiles-road-left
+  sprite: /Textures/_Nuclear14/Tiles/roadleft.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadRight
+  name: tiles-road-right
+  sprite: /Textures/_Nuclear14/Tiles/roadright.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTop
+  name: tiles-road-top
+  sprite: /Textures/_Nuclear14/Tiles/roadtop.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnNorth
+  name: tiles-road-outer-turn-north
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturnn.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnSouth
+  name: tiles-road-outer-turn-south
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturns.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnWest
+  name: tiles-road-outer-turn-west
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturnw.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnEast
+  name: tiles-road-outer-turn-east
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturne.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterCorner1
+  name: tiles-road-outer-corner-1
+  sprite: /Textures/_Nuclear14/Tiles/roadoutercorner1.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterCorner2
+  name: tiles-road-outer-corner-2
+  sprite: /Textures/_Nuclear14/Tiles/roadoutercorner2.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterCorner3
+  name: tiles-road-outer-corner-3
+  sprite: /Textures/_Nuclear14/Tiles/roadoutercorner3.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterCorner4
+  name: tiles-road-outer-corner-4
+  sprite: /Textures/_Nuclear14/Tiles/roadoutercorner4.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadInnerTurn1
+  name: tiles-road-inner-turn-1
+  sprite: /Textures/_Nuclear14/Tiles/roadinnerturn1.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadInnerTurn2
+  name: tiles-road-inner-turn-2
+  sprite: /Textures/_Nuclear14/Tiles/roadinnerturn2.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadInnerTurn3
+  name: tiles-road-inner-turn-3
+  sprite: /Textures/_Nuclear14/Tiles/roadinnerturn3.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadInnerTurn4
+  name: tiles-road-inner-turn-4
+  sprite: /Textures/_Nuclear14/Tiles/roadinnerturn4.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerHorizontal1
+  name: tiles-road-tiny-corner-horizontal-1
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal1.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerHorizontal2
+  name: tiles-road-tiny-corner-horizontal-2
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal2.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerHorizontal3
+  name: tiles-road-tiny-corner-horizontal-3
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal3.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerHorizontal4
+  name: tiles-road-tiny-corner-horizontal-4
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornerhorizontal4.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerVertical1
+  name: tiles-road-tiny-corner-vertical-1
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical1.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerVertical2
+  name: tiles-road-tiny-corner-vertical-2
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical2.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerVertical3
+  name: tiles-road-tiny-corner-vertical-3
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical3.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadTinyCornerVertical4
+  name: tiles-road-tiny-corner-vertical-4
+  sprite: /Textures/_Nuclear14/Tiles/roadtinycornervertical4.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadInnerMiddleWithTop
+  name: tiles-road-inner-middle-with-top
+  sprite: /Textures/_Nuclear14/Tiles/roadinnermiddlewithtop.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnSouthTop
+  name: tiles-road-outer-turn-south-top
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturnstop.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: N14FloorRoadOuterTurnWestTop
+  name: tiles-road-outer-turn-west-top
+  sprite: /Textures/_Nuclear14/Tiles/roadouterturnwtop.png
+  baseTurf: FloorWasteland
+  isSubfloor: true
+  footstepSounds:
+    collection: FootstepFloor
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+
+# Wasteland
+- type: tile
+  id: FloorWasteland
+  name: tiles-wasteland
+  sprite: /Textures/_Nuclear14/Tiles/wasteland.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    # #Misfits Tweak: Shared terrain blend metadata allows dirt to participate in the new
-    # mask-driven terrain edge path without affecting non-terrain floors.
+  placementVariants: [ 0, 1, 2, 3 ]
+  # #Misfits Tweak: Opt wasteland into shared terrain blending so dirt can feather into it
+  # without enabling blending on unrelated hard-floor tiles.
+  blendGroup: terrain
+  blendPriority: 0
+  blendMaskSet: soft-terrain
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorDirtNew
+  name: tiles-dirt
+  sprite: /Textures/_Nuclear14/Tiles/Dirt/dirt.png
+  edgeSpritePriority: 1
   blendGroup: terrain
   blendPriority: 1
-  blendMaskSet: soft-terrain
-  baseTurf: Plating
-  isSubfloor: true
-  canShovel: true # Delta V
-  footstepSounds:
-    collection: FootstepAsteroid
-  itemDrop: FloorTileItemDirt # Delta V
-  heatCapacity: 10000
-  weather: true
-
-# Asteroid
-- type: tile
-  id: FloorAsteroidSand
-  name: tiles-asteroid-sand
-  sprite: /Textures/Tiles/Asteroid/asteroid.png
-  variants: 13
-  placementVariants:
-    - 0.8
-    - 0.0166 #Should be roughly 20%.... I think??? I don't know dude, I'm just a YAML monkey.
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0116
-    - 0.0116
-  baseTurf: Space
+  edgeSprites:
+    SouthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SE.png
+    NorthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NE.png
+    NorthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NW.png
+    SouthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SW.png
+    South: /Textures/_Nuclear14/Tiles/Dirt/double_edge_S.png
+    East: /Textures/_Nuclear14/Tiles/Dirt/double_edge_E.png
+    North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
+    West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
+  # baseTurf: FloorBase
   isSubfloor: true
   footstepSounds:
-    collection: FootstepAsteroid
+    collection: N14FootstepDirt
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorAsteroidSandDug
-  name: tiles-asteroid-sand
-  sprite: /Textures/Tiles/Asteroid/asteroid_dug.png
-  baseTurf: Space
+  id: FloorDirtIndoors
+  name: tiles-dirt-indoors
+  sprite: /Textures/_Nuclear14/Tiles/Dirt/dirt.png
+  edgeSpritePriority: 1
+  blendGroup: terrain
+  blendPriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SE.png
+    NorthEast: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NE.png
+    NorthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_NW.png
+    SouthWest: /Textures/_Nuclear14/Tiles/Dirt/single_edge_SW.png
+    South: /Textures/_Nuclear14/Tiles/Dirt/double_edge_S.png
+    East: /Textures/_Nuclear14/Tiles/Dirt/double_edge_E.png
+    North: /Textures/_Nuclear14/Tiles/Dirt/double_edge_N.png
+    West: /Textures/_Nuclear14/Tiles/Dirt/double_edge_W.png
+  # baseTurf: FloorBase
   isSubfloor: true
   footstepSounds:
-    collection: FootstepAsteroid
+    collection: N14FootstepDirt
   heatCapacity: 10000
   weather: true
 
 - type: tile
-  id: FloorAsteroidSandRed
-  name: tiles-asteroid-sand
-  sprite: /Textures/Tiles/Asteroid/asteroid_red.png
-  variants: 13
-  placementVariants:
-    - 0.8
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0166
-    - 0.0116
-    - 0.0116
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidTile
-  name: tiles-asteroid-tile
-  sprite: /Textures/Tiles/Asteroid/asteroid_tile.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidIronsand
-  name: tiles-asteroid-ironsand
-  sprite: /Textures/Tiles/Asteroid/ironsand.png
-  variants: 15
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidSandUnvariantized
-  name: tiles-asteroid-sand
-  sprite: /Textures/Tiles/Asteroid/asteroid0.png
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidIronsandUnvariantized
-  name: tiles-asteroid-ironsand
-  sprite: /Textures/Tiles/Asteroid/ironsand0.png
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-# Caves
-- type: tile
-  id: FloorCave
-  name: tiles-cave
-  sprite: /Textures/Tiles/cave.png
-  variants: 7
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  weather: true
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorCaveDrought
-  name: tiles-cave-drought
-  sprite: /Textures/Tiles/cavedrought.png
-  variants: 8
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorFlesh
-  name: tiles-flesh-floor
-  sprite: /Textures/Tiles/meat.png
+  id: FloorRubble
+  name: tiles-rubble
+  sprite: /Textures/_Nuclear14/Tiles/Rubble/rubble.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepBlood
-  itemDrop: FloorTileItemFlesh
-  friction: 0.05 #slippy
-  heatCapacity: 10000
-  tileRipResistance: 80
-
-- type: tile
-  id: FloorTechMaint2
-  name: tiles-techmaint2-floor
-  sprite: /Textures/Tiles/steel_maint.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSteelMaint
-  heatCapacity: 10000
-  tileRipResistance: 225
-
-- type: tile
-  id: FloorTechMaint3
-  name: tiles-techmaint3-floor
-  sprite: /Textures/Tiles/grating_maint.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemGratingMaint
-  heatCapacity: 10000
-  tileRipResistance: 225
-
-- type: tile
-  id: FloorWoodTile
-  name: tiles-wood2
-  sprite: /Textures/Tiles/wood_tile.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWoodPattern
-  heatCapacity: 10000
-  tileRipResistance: 75
-
-- type: tile
-  id: FloorBrokenWood
-  name: tiles-wood3
-  sprite: /Textures/Tiles/wood_broken.png
-  variants: 7
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: MaterialWoodPlank1
-  heatCapacity: 10000
-  tileRipResistance: 60
-
-- type: tile
-  id: FloorWebTile
-  name: tiles-web
-  sprite: /Textures/Tiles/Misc/Web/web_tile.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepCarpet
-  barestepSounds:
-    collection: BarestepCarpet
-  itemDrop: FloorTileItemWeb
-  heatCapacity: 10000
-  tileRipResistance: 30
-
-- type: tile
-  id: FloorChromite
-  name: tiles-chromite
-  sprite: /Textures/Tiles/chromite.png
-  variants: 7
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-
-#Hull tiles
-- type: tile
-  id: FloorHull
-  name: tiles-hull
-  sprite: /Textures/Tiles/hull.png
-  baseTurf: Plating
-  isSubfloor: false
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSteel #probably should not be normally obtainable, but the game shits itself and dies when you try to put null here
-  heatCapacity: 10000
-  tileRipResistance: 500
-
-- type: tile
-  id: FloorHullReinforced
-  name: tiles-hull-reinforced
-  sprite: /Textures/Tiles/hull_reinforced.png
-  baseTurf: Plating
-  isSubfloor: false
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSteel
-  heatCapacity: 100000 #/tg/ has this set as "INFINITY." I don't know if that exists here so I've just added an extra 0
-  indestructible: true
-  reinforced: true
-
-- type: tile
-  id: FloorReinforcedHardened
-  name: tiles-super-reinforced-floor
-  sprite: /Textures/Tiles/super_reinforced.png
-  baseTurf: Plating
-  isSubfloor: false
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemReinforced #same case as FloorHull
-  reinforced: true
-
-# Faux sci tiles
-# Grass
-- type: tile
-  id: FloorAstroGrass
-  name: tiles-astro-grass
-  sprite: /Textures/Tiles/Planet/Grass/grass.png
-  variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
   edgeSpritePriority: 1
   edgeSprites:
-    SouthEast: /Textures/Tiles/Planet/Grass/single_edge.png
-    NorthEast: /Textures/Tiles/Planet/Grass/single_edge.png
-    NorthWest: /Textures/Tiles/Planet/Grass/single_edge.png
-    SouthWest: /Textures/Tiles/Planet/Grass/single_edge.png
-    South: /Textures/Tiles/Planet/Grass/double_edge.png
-    East: /Textures/Tiles/Planet/Grass/double_edge.png
-    North: /Textures/Tiles/Planet/Grass/double_edge.png
-    West: /Textures/Tiles/Planet/Grass/double_edge.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Cutting ]
+    SouthEast: /Textures/_Nuclear14/Tiles/Rubble/single_edge_SE.png
+    NorthEast: /Textures/_Nuclear14/Tiles/Rubble/single_edge_NE.png
+    NorthWest: /Textures/_Nuclear14/Tiles/Rubble/single_edge_NW.png
+    SouthWest: /Textures/_Nuclear14/Tiles/Rubble/single_edge_SW.png
+    South: /Textures/_Nuclear14/Tiles/Rubble/double_edge_S.png
+    East: /Textures/_Nuclear14/Tiles/Rubble/double_edge_E.png
+    North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
+    West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
+  # baseTurf: FloorBase
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepGrass
-  itemDrop: FloorTileItemAstroGrass
+    collection: FootstepAsteroid
   heatCapacity: 10000
-  tileRipResistance: 50
+  weather: true
 
 - type: tile
-  id: FloorMowedAstroGrass
-  name: tiles-mowed-astro-grass
-  parent: FloorGrass
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Cutting ]
-  itemDrop: FloorTileItemMowedAstroGrass
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorJungleAstroGrass
-  name: tiles-jungle-astro-grass
-  parent: FloorGrassJungle
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Cutting ]
-  itemDrop: FloorTileItemJungleAstroGrass
-  tileRipResistance: 50
-
-# Ice
-- type: tile
-  id: FloorAstroIce
-  name: tiles-astro-ice
-  sprite: /Textures/Tiles/Planet/Snow/ice.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  friction: 0.05
-  heatCapacity: 10000
-  mobFriction: 0.5
-  mobFrictionNoInput: 0.05
-  mobAcceleration: 2
-  itemDrop: FloorTileItemAstroIce
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorAstroSnow
-  name: tiles-astro-snow
-  parent: FloorSnow
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  itemDrop: FloorTileItemAstroSnow
-  tileRipResistance: 50
-
-- type: tile
-  id: FloorWoodLarge
-  name: tiles-wood-large
-  sprite: /Textures/Tiles/wood_large.png
+  id: FloorRubbleIndoors
+  name: tiles-rubble-indoors
+  sprite: /Textures/_Nuclear14/Tiles/Rubble/rubble.png
   variants: 4
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
+  edgeSpritePriority: 1
+  edgeSprites:
+    SouthEast: /Textures/_Nuclear14/Tiles/Rubble/single_edge_SE.png
+    NorthEast: /Textures/_Nuclear14/Tiles/Rubble/single_edge_NE.png
+    NorthWest: /Textures/_Nuclear14/Tiles/Rubble/single_edge_NW.png
+    SouthWest: /Textures/_Nuclear14/Tiles/Rubble/single_edge_SW.png
+    South: /Textures/_Nuclear14/Tiles/Rubble/double_edge_S.png
+    East: /Textures/_Nuclear14/Tiles/Rubble/double_edge_E.png
+    North: /Textures/_Nuclear14/Tiles/Rubble/double_edge_N.png
+    West: /Textures/_Nuclear14/Tiles/Rubble/double_edge_W.png
+  # baseTurf: FloorBase
+  isSubfloor: true
   footstepSounds:
-    collection: FootstepWood
-  barestepSounds:
-    collection: BarestepWood
-  itemDrop: FloorTileItemWoodLarge
+    collection: FootstepAsteroid
   heatCapacity: 10000
-  tileRipResistance: 100
+  weather: true
+
+#  Water
+- type: tile
+  id: WaterRiver
+  name: tiles-river-water
+  sprite: /Textures/_Nuclear14/Tiles/riverwater.png
+  variants: 32
+  placementVariants: [ 0, 1, 2, 3 ]
+  friction: 0.01
+  isSubfloor: true
+  isSpace: false # TODO: Make this true once default gas mix is set, water = space for boats
+  footstepSounds:
+    collection: N14FootstepWater # need water sloshing
+  sturdy: false
+  thermalConductivity: 0.4
+  heatCapacity: 700000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: WaterDeep
+  name: tiles-water-deep
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Water/water_deep.png
+  friction: 0.01
+  isSubfloor: true
+  isSpace: false # TODO: Make this true once default gas mix is set, water = space for boats
+  footstepSounds:
+    collection: N14FootstepWater # need water sloshing
+  sturdy: false
+  thermalConductivity: 0.4
+  heatCapacity: 700000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: WaterMedium
+  name: tiles-water-medium
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Water/water_medium.png
+  friction: 0.01
+  isSubfloor: true
+  isSpace: false # TODO: Make this true once default gas mix is set, water = space for boats
+  footstepSounds:
+    collection: N14FootstepWater # need water sloshing
+  sturdy: false
+  thermalConductivity: 0.4
+  heatCapacity: 700000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: WaterShallow
+  name: tiles-water-shallow
+  sprite: /Textures/_Nuclear14/Tiles/ms13/Water/water_shallow.png
+  friction: 0.01
+  isSubfloor: true
+  isSpace: false # TODO: Make this true once default gas mix is set, water = space for boats
+  footstepSounds:
+    collection: N14FootstepWater # need water sloshing
+  sturdy: false
+  thermalConductivity: 0.4
+  heatCapacity: 700000
+  weather: true
+  indestructible: true
+
+# Swampland
+- type: tile
+  id: FloorSwampland
+  name: tiles-swampland
+  sprite: /Textures/_Nuclear14/Tiles/swampland.png
+  variants: 11
+  placementVariants: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepWater
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandBottom
+  name: tiles-wasteland-swamp-bottom
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampbottom.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandTop
+  name: tiles-wasteland-swamp-top
+  sprite: /Textures/_Nuclear14/Tiles/wasteswamptop.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandRight
+  name: tiles-wasteland-swamp-right
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampright.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandLeft
+  name: tiles-wasteland-swamp-left
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampleft.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandTopRight
+  name: tiles-wasteland-swamp-top-right
+  sprite: /Textures/_Nuclear14/Tiles/wasteswamptopright.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandTopLeft
+  name: tiles-wasteland-swamp-top-left
+  sprite: /Textures/_Nuclear14/Tiles/wasteswamptopleft.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandTopRightCorner
+  name: tiles-wasteland-swamp-top-right-corner
+  sprite: /Textures/_Nuclear14/Tiles/wasteswamptoprightcorner.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandTopLeftCorner
+  name: tiles-wasteland-swamp-top-left-corner
+  sprite: /Textures/_Nuclear14/Tiles/wasteswamptopleftcorner.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandBottomRight
+  name: tiles-wasteland-swamp-bottom-right
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampbottomright.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandBottomLeft
+  name: tiles-wasteland-swamp-bottom-left
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampbottomleft.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandBottomRightCorner
+  name: tiles-wasteland-swamp-bottom-right-corner
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampbottomrightcorner.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
+
+- type: tile
+  id: FloorSwamplandBottomLeftCorner
+  name: tiles-wasteland-swamp-bottom-left-corner
+  sprite: /Textures/_Nuclear14/Tiles/wasteswampbottomleftcorner.png
+  baseTurf: Space
+  isSubfloor: true
+  footstepSounds:
+    collection: N14FootstepDirt
+  friction: 0.30
+  thermalConductivity: 0.04
+  heatCapacity: 10000
+  weather: true
+  indestructible: true
