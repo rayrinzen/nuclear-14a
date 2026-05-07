@@ -1,200 +1,311 @@
 - type: constructionGraph
-  id: Seat
+  id: N14Seat
   start: start
   graph:
     - node: start
       actions:
         - !type ':DestroyEntity {}'
       edges:
-        - to: chair
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-        - to: stool
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-        - to: stoolBar
-          steps:
-            - material: Steel
-              amount: 1
-              doAfter: 1
-        - to: chairBrass
-          steps:
-            - material: Brass
-              amount: 1
-              doAfter: 1
-        - to: chairOffice
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-        - to: chairOfficeDark
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-        - to: chairComfy
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-        - to: chairPilotSeat
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-        - to: chairWood
+        - to: N14ChairSchool
           steps:
             - material: WoodPlank
-              amount: 3
+              amount: 1
               doAfter: 1
-        - to: chairMeat
+        - to: N14ChairWood
           steps:
-            - material: MeatSheets
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+        - to: N14ChairWood1
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+        - to: N14ChairWoodPadded
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairWoodSettler
+          steps:
+            - material: WoodPlank
+              amount: 1
+              doAfter: 1
+        - to: N14ChairStoolBarBlack
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairStoolBarTan
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairStoolBarRed
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairArmchair
+          steps:
+            - material: WoodPlank
               amount: 2
               doAfter: 1
-        - to: chairFolding
+            - material: Cloth
+              amount: 1
+        - to: N14ChairMetalGreen
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairMetalBlue
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairMetalRed
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+        - to: N14ChairOfficeRed
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairOfficeBlue
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairOfficeGreen
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairOfficeErgonomic
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
+              amount: 1
+        - to: N14ChairMetalFolding
           steps:
             - material: Plastic
               amount: 1
               doAfter: 1
             - material: MetalRod
               amount: 2
-        - to: chairSteelBench
+        - to: N14ChairPlastic
           steps:
-            - material: Steel
+            - material: Plastic
               amount: 2
               doAfter: 1
-        - to: chairWoodBench
-          steps:
-            - material: WoodPlank
-              amount: 4
-              doAfter: 2
-        - to: redComfBench
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-            - material: Cloth
-              amount: 1
-        - to: blueComfBench
-          steps:
-            - material: Steel
-              amount: 2
-              doAfter: 1
-            - material: Cloth
-              amount: 1
-    - node: chair
-      entity: Chair
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: stool
-      entity: Stool
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: stoolBar
-      entity: StoolBar
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairBrass
-      entity: ChairBrass
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetBrass1
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairOffice
-      entity: ChairOfficeLight
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairOfficeDark
-      entity: ChairOfficeDark
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairComfy
-      entity: ComfyChair
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairPilotSeat
-      entity: ChairPilotSeat
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-          steps:
-            - tool: Screwing
-              doAfter: 2
-    - node: chairWood
-      entity: ChairWood
+    - node: N14ChairSchool
+      entity: N14ChairSchool
       edges:
         - to: start
           completed:
             - !type 
               prototype: MaterialWoodPlank1
-              amount: 3
+              amount: 1
           steps:
             - tool: Screwing
               doAfter: 1
-    - node: chairMeat
-      entity: ChairMeat
+    - node: N14ChairWood
+      entity: N14ChairWood
       edges:
         - to: start
           completed:
             - !type 
-              prototype: MaterialSheetMeat1
-              amount: 2
+              prototype: MaterialWoodPlank1
+              amount: 1
           steps:
             - tool: Screwing
               doAfter: 1
-    - node: chairFolding
-      entity: ChairFolding
+    - node: N14ChairWood1
+      entity: N14ChairWood1
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairWoodPadded
+      entity: N14ChairWoodPadded
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 1
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairWoodSettler
+      entity: N14ChairWoodSettler
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairStoolBarBlack
+      entity: N14ChairStoolBarBlack
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairStoolBarTan
+      entity: N14ChairStoolBarTan
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairStoolBarRed
+      entity: N14ChairStoolBarRed
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairArmchair
+      entity: N14ChairArmchair
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialWoodPlank1
+              amount: 2
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairMetalGreen
+      entity: N14ChairMetalGreen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairMetalBlue
+      entity: N14ChairMetalBlue
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairMetalRed
+      entity: N14ChairMetalRed
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairOfficeRed
+      entity: N14ChairOfficeRed
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairOfficeBlue
+      entity: N14ChairOfficeBlue
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairOfficeGreen
+      entity: N14ChairOfficeGreen
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 1
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairOfficeErgonomic
+      entity: N14ChairOfficeErgonomic
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 2
+            - !type 
+              prototype: MaterialCloth1
+              amount: 1
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: N14ChairMetalFolding
+      entity: N14ChairMetalFolding
       edges:
         - to: start
           completed:
@@ -207,57 +318,14 @@
           steps:
             - tool: Screwing
               doAfter: 1
-    - node: chairSteelBench
-      entity: SteelBench
+    - node: N14ChairPlastic
+      entity: N14ChairPlastic
       edges:
         - to: start
           completed:
             - !type 
-              prototype: SheetSteel1
+              prototype: SheetPlastic1
               amount: 2
           steps:
-            - tool: Screwing
-              doAfter: 1
-    - node: chairWoodBench
-      entity: WoodenBench
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 4
-          steps:
-            - tool: Screwing
-              doAfter: 2
-    - node: redComfBench
-      entity: BenchRedComfy
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-            - !type 
-              prototype: MaterialCloth1
-              amount: 1
-          steps:
-            - tool: Cutting
-              doAfter: 1
-            - tool: Screwing
-              doAfter: 1
-    - node: blueComfBench
-      entity: BenchBlueComfy
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: SheetSteel1
-              amount: 2
-            - !type 
-              prototype: MaterialCloth1
-              amount: 1
-          steps:
-            - tool: Cutting
-              doAfter: 1
-            - tool: Screwing
+            - tool: Welding
               doAfter: 1
