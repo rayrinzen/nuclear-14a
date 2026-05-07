@@ -1,20 +1,14 @@
 - type: entity
-  name: beaker box
-  parent: BoxCardboard
-  id: BoxBeaker
-  description: A box full of beakers.
+  id: CrateScienceBiosuit
+  parent: CrateScienceSecure
+  name: scientist bio suit crate
+  description: Contains 2 biohazard suits to ensure that no disease will distract you from doing science. Requires Science access to open.
   components:
-    - type: Storage
-      grid:
-        - 0,0,3,2
-      maxItemSize: Normal
     - type: StorageFill
       contents:
-        - id: LargeBeaker
+        - id: ClothingOuterBioScientist
           amount: 2
-        - id: Beaker
+        - id: ClothingHeadHatHoodBioScientist
           amount: 2
-    - type: Sprite
-      layers:
-        - state: box
-        - state: beaker
+        - id: ClothingMaskSterile
+          amount: 2
