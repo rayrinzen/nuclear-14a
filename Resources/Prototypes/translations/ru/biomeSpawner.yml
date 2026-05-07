@@ -1,24 +1,42 @@
 - type: entity
-  parent: N14BaseBiomeSpawner
-  id: NCBiomeSpawnerFloraConcrete
-  name: flora random spawn
-  suffix: Flora, Concrete
+  id: N14BaseBiomeSpawner
+  name: biome spawner
+  abstract: true
+  placement:
+    mode: SnapgridCenter
   components:
+    - type: Transform
+      anchored: true
+    - type: Clickable
+    - type: InteractionOutline
     - type: Sprite
-      layers:
-        - state: waste
-        - state: frame
+      snapCardinals: true
+      drawdepth: BelowFloor
+      sprite: _Nuclear14/Markers/biome.rsi
     - type: CP14BiomeSpawner
-      biome: NCFloraConcrete
+    - type: PlacementReplacement
+      key: CP14BiomeSpawner
 
 - type: entity
-  parent: NCBiomeSpawnerFloraConcrete
-  id: NCBiomeSpawnerFloraWasteland
-  suffix: Flora, Wasteland
+  id: N14BiomeSpawnerWasteland
+  parent: N14BaseBiomeSpawner
+  suffix: Wasteland
   components:
     - type: Sprite
       layers:
         - state: waste
         - state: frame
     - type: CP14BiomeSpawner
-      biome: NCFloraWasteland
+      biome: Wastes
+
+- type: entity
+  id: N14BiomeSpawnerCaves
+  parent: N14BaseBiomeSpawner
+  suffix: Caves
+  components:
+    - type: Sprite
+      layers:
+        - state: cave
+        - state: frame
+    - type: CP14BiomeSpawner
+      biome: N14CavesGeneric
