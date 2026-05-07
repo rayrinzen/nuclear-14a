@@ -1,59 +1,188 @@
 - type: cargoProduct
-  id: ArmorySmg
+  id: WebleyPistolCrate
   icon:
-    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Pistols/webleypistol.rsi
+    state: base
+  product: N14CrateBreakPlainFilledWebley9mmPistol
+  cost: 70
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: WebleyRevolverCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Revolvers/webley_revolver.rsi
+    state: base
+  product: N14CrateBreakPlainFilledWebley44revolver
+  cost: 280
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: C70RifleCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/canadianrifle.rsi
+    state: base
+  product: N14CrateBreakPlainFilledC70
+  cost: 600
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: F2RifleCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Rifles/canadianmarksman.rsi
+    state: base
+  product: N14CrateBreakPlainFilledF2
+  cost: 600
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: F1RifleCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/canadiansniper.rsi
+    state: base
+  product: N14CrateRedFilledF1
+  cost: 375
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: RossRifleCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Snipers/ross.rsi
+    state: base
+  product: N14CrateRedFilledRoss
+  cost: 250 # Forge-Change
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: FrenchiShotgunCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/Shotguns/canadian_shotgun.rsi
     state: icon
-  product: CrateArmorySMG
-  cost: 9000
-  category: cargoproduct-category-name-armory
+  product: N14CrateBreakPlainFilledFrenchi
+  cost: 550
+  category: Armory
   group: market
 
 - type: cargoProduct
-  id: ArmoryShotgun
+  id: StenSMGCrate
   icon:
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/canadianSMG.rsi
+    state: base
+  product: N14CrateBreakPlainFilledSten
+  cost: 190
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: DouglasSMGCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/SMGs/canadianadvanceSMG.rsi
+    state: base
+  product: N14CrateBreakPlainFilledDouglas
+  cost: 500
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: CanadianHMGCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/canadianhmg.rsi
+    state: base
+  product: N14CrateBreakPlainFilledHMG
+  cost: 1755 # Forge-Change
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: BrenHMGCrate
+  icon:
+    sprite: _Nuclear14/Objects/Weapons/Guns/LMGs/bren.rsi
+    state: base
+  product: N14CrateBreakPlainFilledBren
+  cost: 1000 # Forge-Change
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: C4Crate
+  icon:
+    sprite: Objects/Weapons/Bombs/c4.rsi
     state: icon
-  product: CrateArmoryShotgun
-  cost: 7000
-  category: cargoproduct-category-name-armory
+  product: N14CrateBreakPlainFilledC4
+  cost: 500 # Forge-Change
+  category: Armory
   group: market
 
 - type: cargoProduct
-  id: TrackingImplant
+  id: EnergyCellCrate
   icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateTrackingImplants
-  cost: 1000
-  category: cargoproduct-category-name-armory
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/EC.rsi
+    state: o2
+  product: N14CrateBreakPlainFilledEnergyCell
+  cost: 230
+  category: Armory
   group: market
 
 - type: cargoProduct
-  id: TrainingBombs
+  id: MFCellCrate
   icon:
-    sprite: Structures/Machines/bomb.rsi
-    state: training-bomb
-  product: CrateTrainingBombs
-  cost: 3000
-  category: cargoproduct-category-name-armory
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Battery/microfusion.rsi
+    state: empty
+  product: N14CrateBreakPlainFilledMFCell
+  cost: 260
+  category: Armory
   group: market
 
 - type: cargoProduct
-  id: ArmoryLaser
+  id: CombatArmorMK1Crate
   icon:
-    sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombat.rsi
     state: icon
-  product: CrateArmoryLaser
-  cost: 4800
-  category: cargoproduct-category-name-armory
+  product: N14CrateRedFilledMk1
+  cost: 560 # Forge-Change
+  category: Armory
+  group: market
+
+#- type: cargoProduct
+#  id: CombatArmorMK2Crate
+#  icon:
+#    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutcombatmk2.rsi
+#    state: icon
+#  product: N14CrateRedFilledMk2
+#  cost: 845 #Forge-Change
+#  category: Armory
+#  group: market
+- type: cargoProduct
+  id: PoliceVestCrate
+  icon:
+    sprite: _Nuclear14/Clothing/OuterClothing/Armor/falloutpolicevest.rsi
+    state: icon
+  product: N14CrateBreakPlainFilledPoliceVest
+  cost: 440 # Forge-Change
+  category: Armory
   group: market
 
 - type: cargoProduct
-  id: ArmoryPistol
+  id: CarrierCrate
   icon:
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: Clothing/Belt/salvagewebbing.rsi
     state: icon
-  product: CrateArmoryPistols
-  cost: 5200
-  category: cargoproduct-category-name-armory
+  product: N14CrateRedFilledCarrier
+  cost: 160
+  category: Armory
+  group: market
+
+- type: cargoProduct
+  id: GrenadierCrate
+  icon:
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    state: frag
+  product: N14CrateBreakPlainFilledGrenadier
+  cost: 275 # Forge-Change
+  category: Armory
   group: market
