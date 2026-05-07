@@ -1,87 +1,56 @@
 - type: entity
-  id: BaseCartridgePistol
-  name: cartridge (.35 auto)
-  parent: BaseCartridge
-  abstract: true
+  id: BulletPistol
+  name: bullet (.35 auto)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - CartridgePistol
-    - type: CartridgeAmmo
-      proto: BulletPistol
-    - type: Sprite
-      sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-    - type: Appearance
-    - type: SpentAmmoVisuals
+    - type: Projectile
+      damage:
+        types:
+          Piercing: 16
 
 - type: entity
-  id: CartridgePistol
-  name: cartridge (.35 auto)
-  parent: BaseCartridgePistol
+  id: BulletPistolPractice
+  name: bullet (.35 auto practice)
+  parent: BaseBulletPractice
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletPistol
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 2
 
 - type: entity
-  id: CartridgePistolPractice
-  name: cartridge (.35 auto practice)
-  parent: BaseCartridgePistol
+  id: BulletPistolRubber
+  name: bullet (.35 auto rubber)
+  parent: BaseBulletRubber
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletPistolPractice
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#dbdbdb"
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 3
 
 - type: entity
-  id: CartridgePistolRubber
-  name: cartridge (.35 auto rubber)
-  parent: BaseCartridgePistol
+  id: BulletPistolIncendiary
+  parent: BaseBulletIncendiary
+  name: bullet (.35 auto incendiary)
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletPistolRubber
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#43c4f7"
+    - type: Projectile
+      damage:
+        types:
+          Blunt: 2
+          Heat: 14
 
 - type: entity
-  id: CartridgePistolIncendiary
-  name: cartridge (.35 auto incendiary)
-  parent: BaseCartridgePistol
+  id: BulletPistolUranium
+  parent: BaseBulletUranium
+  name: bullet (.35 auto uranium)
+  categories: [ HideSpawnMenu ]
   components:
-    - type: CartridgeAmmo
-      proto: BulletPistolIncendiary
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#ff6e52"
-
-- type: entity
-  id: CartridgePistolUranium
-  name: cartridge (.35 auto uranium)
-  parent: BaseCartridgePistol
-  components:
-    - type: CartridgeAmmo
-      proto: BulletPistolUranium
-    - type: Sprite
-      layers:
-        - state: base
-          map: [ "enum.AmmoVisualLayers.Base" ]
-        - state: tip
-          map: [ "enum.AmmoVisualLayers.Tip" ]
-          color: "#65fe08"
+    - type: Projectile
+      damage:
+        types:
+          Radiation: 6
+          Piercing: 10
