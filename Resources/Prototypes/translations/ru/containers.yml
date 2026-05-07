@@ -1,12 +1,11 @@
+# Shitmed
 - type: damageContainer
-  id: Spirit
+  id: OrganicPart
   supportedGroups:
+    - Brute
     - Burn
-    - Immaterial
 
 - type: damageContainer
-  id: CorporealSpirit
+  id: Organ
   supportedGroups:
-    - Burn
-    - Brute
-    - Immaterial
+    - OrganFailure
