@@ -1,90 +1,41 @@
-- type: constructionGraph
+- type: construction
   id: ClosetSteel
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - material: Steel
-        amount: 4
-        doAfter: 5
-  - node: done
-    entity: ClosetSteelBase
-    edges:
-    - to: start
-      steps:
-      - tool: Screwing
-        doAfter: 5
-      conditions:
-      - !type 
-        welded: false
-      - !type 
-        locked: false
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 4
-      - !type :EmptyAllContainers
-      - !type :DeleteEntity
-- type: constructionGraph
+  name: closet
+  graph: ClosetSteel
+  startNode: start
+  targetNode: done
+  category: construction-category-storage
+  description: A tall steel box that cannot be locked.
+  icon:
+  sprite: Structures/Storage/closet.rsi
+  state: generic_icon
+  objectType: Structure
+- type: construction
   id: ClosetSteelSecure
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - material: Steel
-        amount: 4
-      - material: Cable
-        amount: 2
-        doAfter: 5
-  - node: done
-    entity: LockerSteel
-    edges:
-    - to: start
-      steps:
-      - tool: Screwing
-        doAfter: 5
-      conditions:
-      - !type 
-        welded: false
-      - !type 
-        locked: false
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 4
-      - !type 
-        prototype: CableApcStack1
-        amount: 2
-      - !type :EmptyAllContainers
-      - !type :DeleteEntity
-- type: constructionGraph
+  name: secure closet
+  graph: ClosetSteelSecure
+  startNode: start
+  targetNode: done
+  category: construction-category-storage
+  description: A tall steel box that can be locked.
+  icon:
+  sprite: Structures/Storage/closet.rsi
+  state: secure_icon
+  objectType: Structure
+- type: construction
   id: ClosetWall
-  start: start
-  graph:
-  - node: start
-    edges:
-    - to: done
-      steps:
-      - material: Steel
-        amount: 4
-        doAfter: 5
-  - node: done
-    entity: ClosetWall
-    edges:
-    - to: start
-      steps:
-      - tool: Screwing
-        doAfter: 5
-      conditions:
-      - !type 
-        welded: false
-      completed:
-      - !type 
-        prototype: SheetSteel1
-        amount: 4
-      - !type :EmptyAllContainers
-      - !type :DeleteEntity
+  name: wall closet
+  graph: ClosetWall
+  startNode: start
+  targetNode: done
+  category: construction-category-storage
+  description: A standard-issue Nanotrasen storage unit, now on walls.
+  icon:
+  sprite: Structures/Storage/wall_locker.rsi
+  state: generic_icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: true
+  conditions:
+    - !type :WallmountCondition
