@@ -1,82 +1,46 @@
 - type: entity
-  id: N14BaseMagazine10mmPistol
-  name: pistol magazine (10mm)
+  id: N14BaseSpeedLoader10
+  name: "speed loader (10mm)"
   parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - N14MagazinePistol10mm
+      - SpeedLoader10
+  - type: SpeedLoader
   - type: BallisticAmmoProvider
-    mayTransfer: true
     whitelist:
       tags:
         - N14CartridgePistol10
-    capacity: 10
+    capacity: 6
+  - type: Sprite
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type :Container
-  - type: Sprite
-    netsync: false
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/10mm/pistolmag.rsi
-    layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
+      ballistic-ammo: !type
+        ents: [ ]
 - type: entity
-  id: N14MagazinePistol10mm
-  name: pistol magazine (10mm)
-  parent: N14BaseMagazine10mmPistol
+  id: SpeedLoader10
+  name: "speed loader (10mm)"
+  parent: N14BaseSpeedLoader10
   components:
   - type: BallisticAmmoProvider
     proto: N14CartridgePistol10
-- type: entity
-  id: N14BaseMagazine10mmSubMachineGun
-  name: SMG magazine (10mm)
-  parent: BaseItem
-  abstract: true
-  components:
-  - type: Tag
-    tags:
-      - N14MagazineSMG10mm
-  - type: BallisticAmmoProvider
-    mayTransfer: true
-    whitelist:
-      tags:
-        - N14CartridgePistol10
-    capacity: 35
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type :Container
+  - type: Item # Forge-Change
+    size: Small
+    shape:
+    - 0,0,0,0
+    - 0,0,0,0
   - type: Sprite
-    netsync: false
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/10mm/smgmag.rsi
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Speedloaders/10mmloader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-6
+        map:
+        - "enum.GunVisualLayers.Mag"
   - type: MagazineVisuals
-    magState: mag
-    steps: 2
+    magState: base
+    steps: 7
     zeroVisible: false
   - type: Appearance
-- type: entity
-  id: N14MagazineSMG10mm
-  name: SMG magazine (10mm)
-  parent: N14BaseMagazine10mmSubMachineGun
-  components:
-  - type: Sprite # Forge-Change
-    scale: 0.70, 0.70
-  - type: BallisticAmmoProvider
-    proto: N14CartridgePistol10
