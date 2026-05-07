@@ -1,316 +1,318 @@
 - type: entity
-  parent: ChairWood
-  id: N14ChairSchool
-  name: school chair
-  description: A wooden chair suited for long hours of study.
+  name: chair
+  id: SeatBase
+  abstract: true
+  description: You sit in this. Either by will or force.
+  placement:
+    mode: PlaceFree
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/schoolchair.rsi
-      state: chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairSchool
-
-- type: entity
-  parent: ChairWood
-  id: N14ChairWood
-  name: wooden chair
-  description: A wooden chair suitable for sitting on.
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.2'
+        density: 100
+        mask:
+        - TableMask
+  - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi
+    noRot: true
+  - type: Strap
+    position: Stand
+    buckleOffset: "0,-0.05"
+  - type: Pullable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 25 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: MetalBreak'
+  - type: StaticPrice
+    price: 1 # Forge-Change
+  - type: RequireProjectileTarget
+- #Starts unanchored, cannot be rotated while anchored
+type: entity
+  name: chair
+  id: UnanchoredChairBase
+  parent: SeatBase
+  abstract: true
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
-      state: wooden_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairWood
-
-- type: entity
-  parent: ChairWood
-  id: N14ChairWood1
+  - type: Anchorable
+  - type: Rotatable
+- #Start anchored, cannot be rotated while anchored
+type: entity
+  name: chair
+  id: ChairBase
+  abstract: true
+  parent: UnanchoredChairBase
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: wood_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairWood1
-
-- type: entity
-  parent: ChairWood
-  id: N14ChairWoodPadded
-  suffix: padded
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+- #Starts unanchored, can be rotated while anchored
+type: entity
+  name: chair
+  id: OfficeChairBase
+  parent: UnanchoredChairBase
+  abstract: true
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: wood_chair_padded
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairWoodPadded
-
-- type: entity
-  parent: N14ChairWood
-  id: N14ChairWoodSettler
-  name: wooden chair
-  description: A wooden chair claimed by some settlers.
+  - type: Rotatable
+    rotateWhileAnchored: true
+- #Starts anchored, can be rotated while anchored
+type: entity
+  name: stool
+  id: StoolBase
+  parent: OfficeChairBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
   components:
-    - type: Sprite
-      state: wooden_chair_settler
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairWoodSettler
-
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
 - type: entity
-  parent: StoolBase
-  id: N14ChairStoolBarBlack
-  description: A black bar stool.
+  name: chair
+  id: Chair
+  parent: ChairBase
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
-      state: bar_black
-      snapCardinals: true
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairStoolBarBlack
-
+  - type: Sprite
+    state: chair
+  - type: Construction
+    graph: Seat
+    node: chair
 - type: entity
-  parent: StoolBase
-  id: N14ChairStoolBarTan
-  description: A tan bar stool.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
-      state: bar_tan
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairStoolBarTan
-
-- type: entity
-  parent: StoolBase
-  id: N14ChairStoolBarRed
-  description: A red bar stool.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: barstool
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairStoolBarRed
-
-- type: entity
-  parent: N14ChairWood
-  id: N14ChairArmchair
-  name: armchair
-  description: A padded armchair.
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: armchair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairArmchair
-
-# Metal Chairs
-- type: entity
+  name: chair
+  id: ChairGreyscale
   parent: Chair
-  id: N14ChairMetalGreen
-  description: A metal chair for sitting on.
+  suffix: White
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: metal_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairMetalGreen
-
+  - type: Sprite
+    state: chair-greyscale
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalGreenUnfinished
-  suffix: unfinished
+  name: stool
+  id: Stool
+  parent: UnanchoredChairBase
+  description: Apply butt.
   components:
-    - type: Sprite
-      state: metal_chair_unfinished
-
+  - type: Sprite
+    state: stool
+  - type: Construction
+    graph: Seat
+    node: stool
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalGreenBroken
-  suffix: broken
+  name: bar stool
+  id: StoolBar
+  parent: StoolBase
   components:
-    - type: Sprite
-      state: metal_chair_broken
-
+  - type: Sprite
+    state: bar
+  - type: Construction
+    graph: Seat
+    node: stoolBar
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalBlue
-  suffix: blue
+  name: brass chair
+  id: ChairBrass
+  parent: StoolBase
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: metal_chair_blue
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairMetalBlue
-
+  - type: Sprite
+    state: brass_chair
+  - type: Construction
+    graph: Seat
+    node: chairBrass
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalBlueUnfinished
-  suffix: blue, unfinished
-  components:
-    - type: Sprite
-      state: metal_chair_blue_unfinished
-
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalBlueBroken
-  suffix: blue, broken
-  components:
-    - type: Sprite
-      state: metal_chair_blue_broken
-
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalRed
-  suffix: red
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: metal_chair_red
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairMetalRed
-
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalRedUnfinished
-  suffix: red, unfinished
-  components:
-    - type: Sprite
-      state: metal_chair_red_unfinished
-
-- type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalRedBroken
-  suffix: red, broken
-  components:
-    - type: Sprite
-      state: metal_chair_red_broken
-
-- type: entity
+  name: white office chair
+  id: ChairOfficeLight
   parent: OfficeChairBase
-  id: N14ChairOfficeRed
-  name: office chair
-  suffix: red
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairOfficeRed
-
+  - type: Sprite
+    state: office-white
+  - type: Construction
+    graph: Seat
+    node: chairOffice
 - type: entity
-  parent: OfficeChairBase
-  id: N14ChairOfficeRedBroken
-  suffix: red, broken
+  name: dark office chair
+  id: ChairOfficeDark
+  parent: ChairOfficeLight
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair_broken
-
+  - type: Sprite
+    state: office-dark
+  - type: Construction
+    graph: Seat
+    node: chairOfficeDark
 - type: entity
-  parent: OfficeChairBase
-  id: N14ChairOfficeBlue
-  name: office chair
-  suffix: blue
+  name: comfy chair
+  id: ComfyChair
+  parent: ChairBase
+  description: It looks comfy.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair_blue
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairOfficeBlue
-
+  - type: Sprite
+    state: comfy
+  - type: Construction
+    graph: Seat
+    node: chairComfy
 - type: entity
-  parent: N14ChairOfficeRed
-  id: N14ChairOfficeBlueBroken
-  suffix: blue, broken
+  name: pilot seat
+  id: ChairPilotSeat
+  parent: ChairBase
+  description: The pilot seat of a prestigious ship.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair_blue_broken
-
+  - type: Sprite
+    state: shuttle
+  - type: Construction
+    graph: Seat
+    node: chairPilotSeat
 - type: entity
-  parent: OfficeChairBase
-  id: N14ChairOfficeGreen
-  name: office chair
-  suffix: green
+  name: wooden chair
+  id: ChairWood
+  parent: UnanchoredChairBase
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair_green
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairOfficeGreen
-
+  - type: Sprite
+    state: wooden
+  - type: Construction
+    graph: Seat
+    node: chairWood
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 25 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank: min: 1 max: 1'
+  - type: Tag
+    tags:
+    - Wooden
+  - type: StaticPrice
+    price: 0
 - type: entity
-  parent: OfficeChairBase
-  id: N14ChairOfficeGreenBroken
-  suffix: green, broken
+  name: ritual chair
+  id: ChairRitual
+  parent: ChairWood
+  description: Looks uncomfortable.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: office_chair_green_broken
-
+  - type: Sprite
+    state: ritual
+  - type: Construction
+    graph: RitualSeat
+    node: chairRitual
 - type: entity
-  parent: OfficeChairBase
-  id: N14ChairOfficeErgonomic
-  suffix: ergo
+  id: ChairMeat
+  parent: UnanchoredChairBase
+  name: meat chair
+  description: Uncomfortably sweaty.
   components:
-    - type: Sprite
-      sprite: _Nuclear14/Structures/Furniture/chairs.rsi
-      state: ergo_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairOfficeErgonomic
-
+  - type: Sprite
+    state: meat
+  - type: Construction
+    graph: Seat
+    node: chairMeat
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairMetalFolding
+  name: cursed chair
+  id: ChairCursed
+  parent: ChairWood
+  description: It's staring back.
+  components:
+  - type: Sprite
+    state: cursed
+  - type: Strap
+    buckleSound:
+      collection: MaleScreams
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: path: /Audio/Voice/Human/womanlaugh.ogg - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank: min: 1 max: 1'
+  - type: Construction
+    graph: RitualSeat
+    node: chairCursed
+- type: entity
+  name: web chair
+  id: ChairWeb
+  description: For true web developers.
+  parent: UnanchoredChairBase
+  components:
+  - type: Sprite
+    sprite: Structures/Web/chair.rsi
+    state: icon
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path: "/Audio/Weapons/slash.ogg"
+  - type: Damageable
+    damageModifierSet: Web
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWebSilk: min: 1 max: 1'
+  - type: Construction
+    graph: WebStructures
+    node: chair
+- type: entity
+  parent:
+  - SeatBase
+  - BaseFoldable
+  id: ChairFolding
   name: folding chair
-  suffix: folding
+  description: If you carry six of these you become the coolest kid at church.
   components:
-    - type: Sprite
-      state: metal_chair_folding
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairMetalFolding
-
+  - type: Rotatable
+  - type: Sprite
+    sprite: Structures/Furniture/folding_chair.rsi
+    layers:
+    - state: folding
+      map:
+      - "unfoldedLayer"
+    - state: folding_folded
+      map:
+      - "foldedLayer"
+      visible: false
+  - type: Item
+    size: Huge
+  - type: Appearance
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: MetalThud
+  - type: Construction
+    graph: Seat
+    node: chairFolding
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairBarRetro
-  name: retro chair
-  suffix: retro
+  parent: ChairFolding
+  id: ChairFoldingSpawnFolded
+  suffix: folded
   components:
-    - type: Sprite
-      state: retro_chair
-
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: False
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairPlastic
-  name: plastic chair
-  description: A plastic chair. Looks uncomfy.
-  suffix: plastic
+  name: steel bench
+  id: SteelBench
+  parent: ChairBase
+  description: A long chair made for a metro. Really standard design.
   components:
-    - type: Sprite
-      state: plastic_chair
-    - type: Construction
-      graph: N14Seat
-      node: N14ChairPlastic
-
+  - type: Sprite
+    state: steel-bench
+  - type: Construction
+    graph: Seat
+    node: chairSteelBench
 - type: entity
-  parent: N14ChairMetalGreen
-  id: N14ChairDinerBench
-  name: diner chair
-  description: An American Diner bench.
+  name: wooden bench
+  id: WoodenBench
+  parent: ChairBase
+  description: Did you get a splinter? Well, at least it’s eco friendly.
   components:
-    - type: Sprite
-      state: diner_chair
+  - type: Sprite
+    state: wooden-bench
+  - type: Construction
+    graph: Seat
+    node: chairWoodBench
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:DoActsBehavior acts: ["Destruction"] - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:SpawnEntitiesBehavior spawn: MaterialWoodPlank: min: 2 max: 4'
+  - type: StaticPrice
+    price: 0
