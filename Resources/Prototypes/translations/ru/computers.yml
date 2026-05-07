@@ -1,31 +1,91 @@
 - type: entity
+  id: N14BaseComputer
   parent: BaseComputer
-  id: ComputerShipyard
-  name: shipyard console
-  description: Used to purchase and sell shuttles
+  name: computer
+  description: An old heavy computer.
   components:
-    - type: ShipyardConsole
-    - type: AccessReader
-      access: [ [ Captain ] ]
-    - type: ActivatableUI
-      key: enum.ShipyardConsoleUiKey.Key
-    - type: UserInterface
-      interfaces:
-        enum.ShipyardConsoleUiKey.Key:
-          type: ShipyardConsoleBoundUserInterface
-    - type: Computer
-      board: ShipyardComputerCircuitboard
-    - type: PointLight
-      radius: 1.5
-      energy: 1.6
-      color: "#b89f25"
     - type: Sprite
+      sprite: _Nuclear14/Structures/Machines/computer.rsi
       layers:
         - map: [ "computerLayerBody" ]
           state: computer
         - map: [ "computerLayerKeyboard" ]
-          state: generic_keyboard
+          state: keyboard
         - map: [ "computerLayerScreen" ]
-          state: request
+          state: screens
         - map: [ "computerLayerKeys" ]
-          state: tech_key
+          state: keys
+    # #Misfits Change - Legion tactical map access was moved to N14ChalkboardFloor11
+    # to better match Legion theming and avoid console-based access inheritance.
+
+- type: entity
+  id: N14ComputerCargoOrders
+  parent: N14BaseComputer
+  name: cargo request computer
+  description: Used to order supplies.
+  components:
+    - type: CargoOrderConsole
+    - type: ActivatableUI
+      key: enum.CargoConsoleUiKey.Orders
+    - type: UserInterface
+      interfaces:
+        enum.CargoConsoleUiKey.Orders:
+          type: CargoOrderConsoleBoundUserInterface
+    - type: Computer
+      board: CargoRequestComputerCircuitboard
+    - type: PointLight
+      radius: 1.5
+      energy: 1.6
+      color: "#b89f25"
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: BasicDevice
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: DeviceLinkSource
+      range: 200
+      ports:
+        - OrderSender
+
+# Camera Monitors
+## Base
+- type: entity
+  parent: N14ComputerTerminalWallDisplays
+  id: N14ComputerCameraDisplay
+  name: camera display unit
+  description: A surveillance camera monitor. You're watching them. Maybe.
+  abstract: true
+  components:
+    # - type: Computer
+    # board: SurveillanceCameraMonitorCircuitboard
+    - type: DeviceNetwork
+      deviceNetId: Wired
+      receiveFrequencyId: SurveillanceCamera
+      transmitFrequencyId: SurveillanceCamera
+    - type: WiredNetworkConnection
+    - type: DeviceNetworkRequiresPower
+    - type: Speech
+    - type: SurveillanceCameraSpeaker
+    - type: SurveillanceCameraMonitor
+    - type: ActivatableUI
+      key: enum.SurveillanceCameraMonitorUiKey.Key
+    - type: ActivatableUIRequiresPower
+    - type: UserInterface
+      interfaces:
+        enum.SurveillanceCameraMonitorUiKey.Key:
+          type: SurveillanceCameraMonitorBoundUserInterface
+    - type: PointLight
+      radius: 1.5
+      energy: 1.6
+      color: "#b89f25"
+
+# In Use
+- type: entity
+  parent: N14ComputerCameraDisplay
+  id: N14ComputerCameraDisplayBrotherhoodWashington
+  suffix: BOS Washington
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wired
+      receiveFrequencyId: SurveillanceCamera
+      transmitFrequencyId: SurveillanceCameraBrotherhoodWashington
