@@ -1,832 +1,603 @@
-# - type: trait
-# id: WillToLive
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Redshirt
-# - WillToDie
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: DeadModifier
-# deadThresholdModifier: 10
-
-null
-
-# - type: trait
-# id: WillToDie
-# category: Physical
-# points: 2
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - WillToLive
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: DeadModifier
-# deadThresholdModifier: -15
-# - type: trait
-# id: Tenacity
-# category: Physical
-# points: -3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - GlassJaw
-# - BrittleBoneDisease
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: CritModifier
-# critThresholdModifier: 5
-# - type: trait
-# id: GlassJaw
-# category: Physical
-# points: 2
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Tenacity
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: CritModifier
-# critThresholdModifier: -10
-# - type: trait
-# id: Vigor
-# category: Physical
-# points: -6
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Lethargy
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Oni
-# - IPC
-# functions:
-# - !type:TraitModifyStamina
-# staminaModifier: 10
-# decayModifier: 0.6
-# cooldownModifier: -0.75
-# - type: trait
-# id: Lethargy
-# category: Physical
-# points: 4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Vigor
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Felinid
-# - Tajaran
-# functions:
-# - !type:TraitModifyStamina
-# staminaModifier: -15
-# decayModifier: -0.6
-# cooldownModifier: 0.75
-# - type: trait
-# id: HighAdrenaline
-# category: Physical
-# points: -5
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - AdrenalDysfunction
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: Adrenaline
-# rangeModifier: 0.4
-# inverse: true
-# - type: trait
-# id: AdrenalDysfunction
-# category: Physical
-# points: 3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - HighAdrenaline
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: Adrenaline
-# rangeModifier: 0.8
-# - type: trait
-# id: Masochism
-# category: Physical
-# points: -5
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - LowPainTolerance
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: PainTolerance
-# rangeModifier: 0.4
-# inverse: true
-# - type: trait
-# id: LowPainTolerance
-# category: Physical
-# points: 3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Masochism
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: PainTolerance
-# rangeModifier: 0.6
-# - type: trait
-# id: Steadfast
-# category: Physical
-# points: -4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Felinid
-# - Tajaran
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Feeble
-# functions:
-# - !type:TraitModifySlowOnDamage
-# damageThresholdsModifier: 10
-# speedModifierMultiplier: 0.68
-# - type: trait
-# id: Feeble
-# category: Physical
-# points: 3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Felinid
-# - Tajaran
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Steadfast
-# functions:
-# - !type:TraitModifySlowOnDamage
-# damageThresholdsModifier: -15
-# speedModifierMultiplier: 1.2
-# - type: trait
-# id: MartialArtist
-# category: Physical
-# points: -5
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - Boxer
-# - MartialArtist
-# - Gladiator
-# functions:
-# - !type:TraitModifyUnarmed
-# heavyOnLightMiss: true
-# attackRateModifier: 0.8
-# rangeModifier: 1.1
-# - !type:TraitReplaceComponent
-# components:     # Keep BoxerComponent for now until we have After/Before on traits prototypes
-# - type: Boxer # for potential conflicts with other traits that replace unarmed damage
-# modifiers:
-# coefficients:
-# Blunt: 1.2
-# Slash: 1.2
-# Piercing: 1.2
-# Heat: 1.2
-# Poison: 1.2
-# Asphyxiation: 1.2
-# # An attack rate of 1.25 hits per second (1 / 0.8 = 1.25) multiplied by 20% extra damage
-# # effectively means 50% more overall DPS, same DPS bonus as before (1 * 1.25 * 1.2 = 1.5)
-# # but the extra attack rate makes it visually apparent that it's Martial Artist.
-# - type: trait
-# id: Small
-# category: Physical
-# points: -2
-# requirements:
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Felinid # Felinids/Tajaran already have this feature by default.
-# - Tajaran
-# - !type:CharacterHeightRequirement
-# max: 150
-# - !type:CharacterWidthRequirement
-# max: 32
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: PseudoItem
-# storedOffset: 0,17
-# shape:
-# - 0,0,1,4
-# - 0,2,3,4
-# - 4,0,5,4
-# - type: trait
-# id: TemperatureTolerance
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Vulpkanin # This trait functions exactly as-is for the Vulpkanin trait.
-# - Plasmaman # Plasmamen have cold immunity so this trait is unnecessary
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: TemperatureProtection
-# coefficient: 0.1 # Enough resistance to walk into the chef's freezer, or tolerate daytime temperatures on Glacier without a jacket.
-# # These traits largely exist to demonstrate more of the "Component Removals" functionality. This way contributors
-# # can get used to seeing that they can "Remove and Replace" a pre-existing component.
-# # When declared, componentRemovals work like a "RemComp" that activates upon joining a round.
-# - type: trait
-# id: Talons
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Harpy # Harpies already have talons
-# - Arachnid # Apparently they have a "piercing" bite
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Claws
-# functions:
-# - !type:TraitModifyUnarmed
-# soundHit:
-# collection: AlienClaw
-# animation: WeaponArcClaw
-# damage:
-# types:
-# Piercing: 5 # No, this isn't "OP", this is literally the worst brute damage type in the game.
-# # Same deal as Slash, except that a majority of all armor provides Piercing resistance.
-# - !type:TraitRemoveComponent # Plasmamen have self-damage on melee attacks
-# components:
-# - type: DamageOnHit
-# damage:
-# types:
-# Blunt: 0
-# - type: trait
-# id: Claws
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Felinid # Felinids already have cat claws.
-# - Tajaran # Tajaran also have cat claws
-# - Reptilian # Reptilians also have cat claws.
-# - Shadowkin # Shadowkins also have claws.
-# # - Vulpkanin # Vulpkanin have "Blunt" claws. One could argue this trait "Sharpens" their claws.
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Talons
-# functions:
-# - !type:TraitModifyUnarmed
-# soundHit:
-# collection: AlienClaw
-# animation: WeaponArcClaw
-# damage:
-# types:
-# Slash: 5 # Trade stamina damage on hit for a very minor amount of extra bleed.
-# # Blunt also deals bleed damage, so this is more of a sidegrade.
-# - !type:TraitRemoveComponent
-# components:
-# - type: DamageOnHit
-# damage:
-# types:
-# Blunt: 0
-# - type: trait
-# id: NaturalWeaponRemoval
-# category: Physical
-# points: 0
-# requirements:
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Human
-# - Oni
-# - SlimePerson
-# - Diona
-# - Dwarf
-# - Arachne
-# - IPC # Other species could justify getting this trait for Blunt stamina damage,
-# # but 6 blunt -> 5 blunt is a straight up downgrade.
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Talons
-# - Claws
-# functions:
-# - !type:TraitModifyUnarmed
-# soundHit:
-# collection: Punch
-# animation: WeaponArcFist
-# damage:
-# types:
-# Blunt: 5
-# - !type:TraitRemoveComponent
-# components:
-# - type: DamageOnHit
-# damage:
-# types:
-# Blunt: 0
-# - type: trait
-# id: StrikingCalluses
-# category: Physical
-# points: -3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterSpeciesRequirement
-# species:
-# - Human # Entirely arbitrary, I've decided I want a trait unique to humans. Since they don't normally get anything exciting.
-# # When we get the Character Records system in, I also want to make this require certain Backgrounds.
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Claws
-# - Talons
-# - !type:CharacterLogicOrRequirement
-# requirements:
-# - !type:CharacterTraitRequirement
-# traits:
-# - MartialArtist
-# - !type:CharacterJobRequirement
-# jobs:
-# - Boxer
-# - MartialArtist
-# - Gladiator
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitModifyUnarmed
-# flatDamageIncrease:
-# types:
-# Blunt: 1
-# - type: trait
-# id: Spinarette
-# category: Physical
-# points: -4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - Arachnid
-# - Arachne
-# - Shadowkin
-# - IPC
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: Sericulture
-# action: ActionSericulture
-# productionLength: 2
-# entityProduced: MaterialWebSilk1
-# hungerCost: 4
-# - type: trait
-# id: BionicArm
-# category: Physical
-# points: -8
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - Gladiator
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: Prying
-# speedModifier: 1
-# pryPowered: true
-# - !type:TraitPushDescription
-# descriptionExtensions:
-# - description: examine-bionic-arm-message
-# fontSize: 12
-# requireDetailRange: true
-# - type: trait
-# id: PlateletFactories
-# category: Physical
-# points: -10
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions: # TODO: Code Platelet factories as an actual obtainable implant, and replace this with TraitAddImplant
-# - !type:TraitReplaceComponent
-# components:
-# - type: PassiveDamage
-# allowedStates:
-# - Alive
-# - Critical
-# damageCap: 200
-# damage:
-# groups:
-# Brute: -0.07
-# Burn: -0.07
-# Airloss: -0.07
-# Toxin: -0.07
-# Genetic: -0.07
-# - type: trait
-# id: DermalArmor
-# category: Physical
-# points: -6
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddArmor
-# damageModifierSets:
-# - DermalArmor
-# - !type:TraitPushDescription
-# descriptionExtensions:
-# - description: examine-dermal-armor-message
-# fontSize: 12
-# requireDetailRange: true
-# - type: trait
-# id: CyberEyes
-# category: Physical
-# points: -4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Photophobia
-# - Blindness
-# - Nearsighted
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitPushDescription
-# descriptionExtensions:
-# - description: examine-cybereyes-message
-# fontSize: 12
-# requireDetailRange: true
-# - !type:TraitReplaceComponent
-# components:
-# - type: Flashable # Effectively, removes any flash-vulnerability species traits.
-# - type: trait
-# id: FlareShielding
-# category: Physical
-# points: -4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: FlashImmunity
-# - type: EyeProtection
-# - type: trait
-# id: CyberEyesSecurity
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterDepartmentRequirement
-# departments:
-# - Security
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - CyberEyesOmni
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: ShowJobIcons
-# - type: ShowMindShieldIcons
-# - type: ShowCriminalRecordIcons
-# - type: trait
-# id: CyberEyesMedical
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - CyberEyesDiagnostic
-# - CyberEyesOmni
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: ShowHealthBars
-# damageContainers:
-# - Biological
-# - type: ShowHealthIcons
-# damageContainers:
-# - Biological
-# - type: trait
-# id: CyberEyesDiagnostic
-# category: Physical
-# points: -1
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - CyberEyesMedical
-# - CyberEyesOmni
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: ShowHealthBars
-# damageContainers:
-# - Inorganic
-# - Silicon
-# - type: trait
-# id: CyberEyesOmni
-# category: Physical
-# points: -3
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterDepartmentRequirement
-# departments:
-# - Security
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - CyberEyesMedical
-# - CyberEyesDiagnostic
-# - CyberEyesSecurity
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: ShowJobIcons
-# - type: ShowMindShieldIcons
-# - type: ShowCriminalRecordIcons
-# - type: ShowHealthIcons
-# damageContainers:
-# - Biological
-# - type: ShowHealthBars
-# damageContainers:
-# - Biological
-# - Inorganic
-# - Silicon
-# - type: trait
-# id: Redshirt
-# category: Physical
-# points: 8
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - WillToLive
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: DeadModifier
-# deadThresholdModifier: -100
-# - type: trait
-# id: BrittleBoneDisease
-# category: Physical
-# points: 10
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Borg
-# - MedicalBorg
-# - !type:CharacterSpeciesRequirement
-# inverted: true
-# species:
-# - IPC
-# - !type:CharacterTraitRequirement
-# inverted: true
-# traits:
-# - Tenacity
-# functions:
-# - !type:TraitReplaceComponent
-# components:
-# - type: CritModifier
-# critThresholdModifier: -50
-# - type: trait
-# id: LightAmplification
-# category: Physical
-# points: -4
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: NightVision
-# - type: trait
-# id: ThermographicVision
-# category: Physical
-# points: -8
-# requirements:
-# - !type:CharacterJobRequirement
-# inverted: true
-# jobs:
-# - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-# - !type:CharacterTraitRequirement
-# traits:
-# - CyberEyes
-# - !type:CharacterItemGroupRequirement
-# group: TraitsMind
-# functions:
-# - !type:TraitAddComponent
-# components:
-# - type: ThermalVision
-# pulseTime: 2
-# toggleAction: PulseThermalVision
-# - !type:TraitPushDescription
-# descriptionExtensions:
-# - description: examine-thermal-vision-message
-# fontSize: 12
-# requireDetailRange: true
+- # Biological and conditioning traits
+type: trait
+  id: N14PillowKnuckles
+  category: Physical
+  points: 1
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14IronFist
+        - N14RadClaws
+  functions:
+    - !type 
+      flatDamageIncrease:
+        types:
+          Blunt: -1
+- type: trait
+  id: N14IronFist
+  category: Physical
+  points: -2
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+    - !type 
+      inverted: true
+      traits:
+        - N14PillowKnuckles
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      flatDamageIncrease:
+        types:
+          Blunt: 2
+- type: trait
+  id: N14RadClaws
+  category: Physical
+  points: -2
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14PillowKnuckles
+    - !type 
+      species:
+        - Ghoul
+        - GhoulGlowing
+  functions:
+    - !type 
+      flatDamageIncrease:
+        types:
+          Slash: 1
+          Radiation: 1
+- type: trait
+  id: N14WeakLiquor
+  category: Physical
+  points: 0
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14PartyAnimal
+  functions:
+    - !type 
+      components:
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 2
+- type: trait
+  id: N14PartyAnimal
+  category: Physical
+  points: -1
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14WeakLiquor
+  functions:
+    - !type 
+      components:
+        - type: LightweightDrunk
+          boozeStrengthMultiplier: 0.5
+- type: trait
+  id: N14ShortArms
+  category: Physical
+  points: 1
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14Blitz
+  functions:
+    - !type 
+      rangeModifier: 0.9
+- type: trait
+  id: N14Blitz
+  category: Physical
+  points: -2
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+    - !type 
+      inverted: true
+      traits:
+        - N14ShortArms
+  functions:
+    - !type 
+      rangeModifier: 1.15
+- type: trait
+  id: N14ScriptedDeath
+  category: Physical
+  points: 6
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14LifeTaker
+        - N14LifeGiver
+  functions:
+    - !type 
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: -100
+- type: trait
+  id: N14LifeTaker
+  category: Physical
+  points: 2
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14ScriptedDeath
+        - N14LifeGiver
+  functions:
+    - !type 
+      components:
+        - type: CritModifier
+          critThresholdModifier: -10
+    - !type 
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: -20
+- type: trait
+  id: N14LifeGiver
+  category: Physical
+  points: -3
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14ScriptedDeath
+        - N14LifeTaker
+  functions:
+    - !type 
+      components:
+        - type: CritModifier
+          critThresholdModifier: 5
+    - !type 
+      components:
+        - type: DeadModifier
+          deadThresholdModifier: 10
+- type: trait
+  id: N14BadReflexes
+  category: Physical
+  points: 1
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14LightningHands
+    - !type 
+      species:
+        - Human
+        - Ghoul
+        - GhoulGlowing
+  functions:
+    - !type 
+      attackRateModifier: 1.1
+- type: trait
+  id: N14LightningHands
+  category: Physical
+  points: -2
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+    - !type 
+      inverted: true
+      traits:
+        - N14BadReflexes
+    - !type 
+      species:
+        - Human
+        - Ghoul
+        - GhoulGlowing
+  functions:
+    - !type 
+      attackRateModifier: 0.9
+- type: trait
+  id: N14Poisoned
+  category: Physical
+  points: 3
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14UnnaturalReg
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      components:
+        - type: PassiveDamage
+          allowedStates:
+          - Alive
+          - Critical
+          damageCap: 200
+          damage:
+            types:
+              Poison: 0.07
+- type: trait
+  id: N14UnnaturalReg
+  category: Physical
+  points: -5
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14Poisoned
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      components:
+        - type: PassiveDamage
+          allowedStates:
+          - Alive
+          damageCap: 200
+          damage:
+            types:
+              # #Misfits Fix - PassiveDamage group healing is split across member types; direct types make burn regeneration visible.
+              Blunt: '-0.035'
+              Slash: '-0.035'
+              Piercing: '-0.035'
+              Heat: '-0.035'
+              Shock: '-0.035'
+              Cold: '-0.035'
+              Caustic: '-0.035'
+              Asphyxiation: '-0.035'
+              Bloodloss: '-0.035'
+              Poison: '-0.015'
+              Radiation: '-0.015'
+- type: trait
+  id: N14WorldChampion
+  category: Physical
+  points: -6 #Make super mutants unable to take this when they get added
+  # Forge-Change-Start
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+  # Forge-Change-End
+  functions:
+    - !type 
+      components:
+        - type: MeleeThrowOnHit
+          speed: 10
+          lifetime: 0.025
+          minlifetime: 0.0125
+- type: trait
+  id: N14SittingDuck
+  category: Physical
+  points: 2
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14MovingAsset
+  functions:
+    - !type 
+      components:
+        - type: TraitSpeedModifier
+          sprintModifier: 0.9
+          walkModifier: 0.9
+          requiredTriggeredSpeedModifier: 0.9
+- type: trait
+  id: N14MovingAsset
+  category: Physical
+  points: -2
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14SittingDuck
+  functions:
+    - !type 
+      components:
+        - type: TraitSpeedModifier
+          sprintModifier: 1.05
+          walkModifier: 1.05
+          requiredTriggeredSpeedModifier: 1.05
+- type: trait
+  id: N14StiffJoints
+  category: Physical
+  points: 2
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14DeskNinja
+  functions:
+    - !type 
+      components:
+        - type: ClimbDelayModifier
+          climbDelayMultiplier: 1.25
+        - type: SlippableModifier
+          paralyzeTimeMultiplier: 1.25
+- type: trait
+  id: N14DeskNinja
+  category: Physical
+  points: -4
+  requirements:
+    - !type 
+      inverted: true
+      traits:
+        - N14StiffJoints
+  functions:
+    - !type 
+      components:
+        - type: ClimbDelayModifier
+          climbDelayMultiplier: 0.5
+        - type: SlippableModifier
+          paralyzeTimeMultiplier: 0.5
+- type: trait
+  id: N14SilentTakedown
+  category: Physical
+  points: -3
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+  # Forge-Change-End
+  # Misfits Fix: CharacterTraitRequirement block removed — all referenced N14ExtremeAug* traits are commented out
+  #- !type:CharacterTraitRequirement
+  #  inverted: true
+  #  traits:
+  #    - N14ExtremeAugKnight
+  #    - N14ExtremeAugScribe
+  #    - N14ExtremeAugPaladin
+  functions:
+    - !type 
+      components:
+        - type: StaminaDamageOnHit
+          damage: 8
+- type: trait
+  id: N14GammaShield
+  category: Physical
+  points: -8
+  requirements:
+    - !type 
+      species:
+        - Ghoul
+        - GhoulGlowing
+  functions:
+    - !type 
+      damageModifierSets:
+        - N14GammaShield
+- # Agumentations and implants start here
+type: trait
+  id: N14HandyTools
+  category: Physical
+  points: -5
+  # Misfits Fix: CharacterTraitRequirement block removed — all referenced N14ExtremeAug* traits are commented out
+  #requirements:
+  #  - !type:CharacterTraitRequirement
+  #    inverted: true
+  #    traits:
+  #      - N14ExtremeAugKnight
+  #      - N14ExtremeAugScribe
+  functions:
+    - !type 
+      components:
+        - type: Prying
+          speedModifier: 0.75
+- type: trait
+  id: N14DermalArmorWaster
+  category: Physical
+  points: -8
+  requirements:
+    - !type 
+      inverted: true
+      jobs:
+        - BoSMidPaladinCommander
+        - BoSMidPaladin
+        - BoSMidKnight
+        - VaultDoctor
+        - VaultDweller
+        - VaultEngineer
+        - TribalElder
+        - Tribal
+        - TribalFarmer
+        - TribalShaman
+        - BoSWestElderCommander
+        - FollowerHead
+        - FollowerDoctor
+        - FollowerVolunteer
+    - !type 
+      inverted: true
+      traits:
+        - N14DermalArmor
+        - N14PhoenixArmor
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      damageModifierSets:
+        - N14DermalArmor
+- type: trait
+  id: N14DermalArmor
+  category: Physical
+  points: -6
+  requirements:
+    - !type 
+      jobs:
+        - BoSMidPaladinCommander
+        - BoSMidPaladin
+        - BoSMidKnight
+        - BoSWestElderCommander
+    - !type 
+      inverted: true
+      traits:
+        - N14DermalArmorWaster
+        - N14PhoenixArmor
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      damageModifierSets:
+        - N14DermalArmor
+- # Midwestern chapter-only augmentations
+type: trait
+  id: N14PhoenixArmor
+  category: Physical
+  points: -6
+  requirements:
+    - !type 
+      jobs:
+        - BoSMidPaladinCommander
+        - BoSMidPaladin
+        - BoSMidKnight
+    - !type 
+      inverted: true
+      traits:
+        - N14DermalArmorWaster
+        - N14DermalArmor
+    - !type 
+      species:
+        - Human
+  functions:
+    - !type 
+      damageModifierSets:
+        - N14PhoenixArmor
+#Misfits Change /Comment-out/: Washington chapter-only augmentations removed — jobs no longer exist.
+#- type: trait
+#  id: N14ExtremeAugKnight
+#  category: Physical
+#  points: -8
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSWashingtonKnight
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14DermalArmor
+#        - N14HandyTools
+#        - N14IronFist
+#        - N14PillowKnuckles
+#        - N14SilentTakedown
+#        - N14BrotherBeep
+#    - !type:CharacterSpeciesRequirement
+#      species:
+#        - Human
+#  functions:
+#    - !type:TraitModifyUnarmed
+#      flatDamageIncrease:
+#        types:
+#          Blunt: 1
+#    - !type:TraitAddComponent
+#      components:
+#        - type: Prying
+#          speedModifier: 0.75
+#        - type: StaminaDamageOnHit
+#          damage: 6
+#    - !type:TraitModifyLanguages
+#      languagesSpoken:
+#        - N14BrotherBeep
+#      languagesUnderstood:
+#        - N14BrotherBeep
+#Misfits Removed — converted to a physical item (TrainingManualPowerArmor). Paladin/Senior Paladin/Head Paladin
+# get PowerArmorProficiency innately via AddComponentSpecial in their job specials.
+#- type: trait
+#  id: N14PowerArmorTraining
+#  category: Physical
+#  points: -3
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: PowerArmorProficiency
+#- type: trait
+#  id: N14ExtremeAugScribe
+#  category: Physical
+#  points: -8
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSWashingtonScribe
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14DermalArmor
+#        - N14GammaShield
+#        - N14GooglyEyes
+#        - N14HandyTools
+#        - N14BrotherBeep
+#    - !type:CharacterSpeciesRequirement
+#      species:
+#        - Human
+#        - Ghoul
+#  functions:
+#    - !type:TraitAddComponent
+#      components:
+#        - type: FlashImmunity
+#        - type: EyeProtection
+#        - type: SurgerySpeedModifier
+#          speedModifier: 1.33
+#    - !type:TraitModifyLanguages
+#      languagesSpoken:
+#        - N14BrotherBeep
+#      languagesUnderstood:
+#        - N14BrotherBeep
+#- type: trait
+#  id: N14ExtremeAugPaladin
+#  category: Physical
+#  points: -8
+#  requirements:
+#    - !type:CharacterJobRequirement
+#      jobs:
+#        - BoSWashingtonCommander
+#        - BoSWashingtonPaladin
+#    - !type:CharacterTraitRequirement
+#      inverted: true
+#      traits:
+#        - N14DermalArmor
+#        - N14GammaShield
+#        - N14GooglyEyes
+#        - N14HandyTools
+#        - N14IronFist
+#        - N14PillowKnuckles
+#        - N14RadClaws
+#        - N14SilentTakedown
+#        - N14BrotherBeep
+#    - !type:CharacterSpeciesRequirement
+#      species:
+#        - Human
+#        - Ghoul
+#  functions:
+#    - !type:TraitModifyUnarmed
+#      flatDamageIncrease:
+#        types:
+#          Blunt: 1
+#    - !type:TraitAddComponent
+#      components:
+#        - type: FlashImmunity
+#        - type: EyeProtection
+#        - type: StaminaDamageOnHit
+#          damage: 6
+#    - !type:TraitModifyLanguages
+#      languagesSpoken:
+#        - N14BrotherBeep
+#      languagesUnderstood:
+#        - N14BrotherBeep
