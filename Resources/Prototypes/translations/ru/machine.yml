@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: Machine
+  id: N14TallMachineFrame
   start: start
   graph:
     - node: start
@@ -9,9 +9,6 @@
         - !type :DeleteEntity
       edges:
         - to: missingWires
-          completed:
-            - !type 
-              value: false
           steps:
             - material: Steel
               amount: 5
@@ -22,13 +19,9 @@
               amount: 5
               doAfter: 3
     - node: missingWires
-      entity: UnfinishedMachineFrame
-      actions:
-        - !type :EmptyAllContainers
+      entity: N14MachineFrameTall
       edges:
         - to: machineFrame
-          conditions:
-            - !type :EntityAnchored
           steps:
             - material: Cable
         - to: start
@@ -38,70 +31,80 @@
               amount: 5
             - !type :DeleteEntity
           steps:
-            - tool: Screwing
-              doAfter: 2
+            - tool: Welding
+              doAfter: 5
     - node: machineFrame
-      entity: MachineFrame
-      actions:
-        - !type 
-          container: machine_parts
-        - !type 
-          container: machine_board
-        - !type :MachineFrameRegenerateProgress
+      entity: N14MachineFrameTallWired
       edges:
-        - to: machine
-          conditions:
-            - !type :EntityAnchored
-            - !type 
-              guideIconBoard:
-                sprite: Objects/Misc/module.rsi
-                state: id_mod
-              guideIconParts:
-                sprite: Objects/Misc/stock_parts.rsi
-                state: scan_module
+        - to: ElectronicsRack
           steps:
             - tool: Screwing
               doAfter: 1
-        - to: machineFrame
-          conditions:
-            - !type :EntityAnchored
-            - !type 
-              container: machine_board
+            - material: Circuitry
+        - to: ServerRack
           steps:
-            - tool: Prying
-              doAfter: 2
-              completed:
-                - !type :EmptyAllContainers
-                - !type :MachineFrameRegenerateProgress
+            - tool: Screwing
+              doAfter: 1
+            - material: Circuitry
+        - to: RecorderRack
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - material: Circuitry
         - to: missingWires
-          conditions:
-            - !type :EntityAnchored
-            - !type 
-              container: machine_board
-              examineText: construction-condition-machine-container-empty
           completed:
             - !type 
               prototype: CableApcStack1
           steps:
             - tool: Cutting
               doAfter: 1
-    - node: machine
-      entity: !type
-      ":BoardNodeEntity { container": machine_board }
+    - node: ElectronicsRack
+      entity: N14MachineRackElectronics
       edges:
         - to: machineFrame
+          steps:
+            - tool: Screwing
+              doAfter: 2
           completed:
             - !type 
-              event: !type :MachineDeconstructedEvent
-              broadcast: false
-          conditions:
-            - !type :EntityAnchored
-            - !type :WirePanel
+              prototype: N14MachineFrameTallWired
+              amount: 1
+            - !type 
+              prototype: N14MaterialCircuitry1
+              amount: 1
+            - !type ':DeleteEntity {}'
+    - node: ServerRack
+      entity: N14MachineRackServer
+      edges:
+        - to: machineFrame
           steps:
-            - tool: Prying
+            - tool: Screwing
               doAfter: 2
+          completed:
+            - !type 
+              prototype: N14MachineFrameTallWired
+              amount: 1
+            - !type 
+              prototype: N14MaterialCircuitry1
+              amount: 1
+            - !type ':DeleteEntity {}'
+    - node: RecorderRack
+      entity: N14MachineRackRecorder
+      edges:
+        - to: machineFrame
+          steps:
+            - tool: Screwing
+              doAfter: 2
+          completed:
+            - !type 
+              prototype: N14MachineFrameTallWired
+              amount: 1
+            - !type 
+              prototype: N14MaterialCircuitry1
+              amount: 1
+            - !type ':DeleteEntity {}'
     - node: destroyedMachineFrame
-      entity: MachineFrameDestroyed
+      entity: N14MachineFrameTallDestroyed
       edges:
         - to: start
           steps:
