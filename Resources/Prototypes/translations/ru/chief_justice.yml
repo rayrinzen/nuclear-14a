@@ -1,0 +1,58 @@
+- type: job
+  id: ChiefJustice
+  name: job-name-chief-justice
+  description: job-description-chief-justice
+  playTimeTracker: JobChiefJustice
+  setPreference: false
+  requirements:
+    - !type 
+      tracker: JobClerk
+      min: 36000 # 10 hours
+    - !type 
+      tracker: JobLawyer
+      min: 36000 # 10 hours
+    - !type 
+      tracker: JobProsecutor
+      min: 36000 # 10 hours
+    - !type 
+      min: 90000 # 25 hours
+    - !type :CharacterWhitelistRequirement
+  weight: 20
+  startingGear: CJGear
+  icon: "JobIconChiefJustice"
+  requireAdminNotify: true
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - Command
+  - ChiefJustice
+  - Justice
+  - Security
+  - Maintenance
+  - External
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  - !type 
+    components:
+      - type: CommandStaff
+- type: startingGear
+  id: CJGear
+  subGear:
+  - PassengerPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitChiefJustice
+    back: ClothingBackpackFilled # TODO- make Justice department bags
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatCJToque
+    outerClothing: ClothingOuterChiefJustice
+    id: ChiefJusticePDA
+    ears: ClothingHeadsetAltJustice
+    gloves: ClothingHandsGlovesColorWhite
+  # Todo - pocket1: Gavel
+  innerClothingSkirt: ClothingUniformJumpskirtChiefJustice
+  satchel: ClothingBackpackSatchelFilled # TODO- make Justice departmebt bags
+  duffelbag: ClothingBackpackDuffelFilled
+
+
