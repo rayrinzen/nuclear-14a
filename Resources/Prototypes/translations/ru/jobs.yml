@@ -1,76 +1,37 @@
-- type: entity
-  id: SpawnPointGladiator
-  parent: SpawnPointJobBase
-  name: gladiator
-  components:
-    - type: SpawnPoint
-      job_id: Gladiator
-    - type: Sprite
-      layers:
-        - state: green
-        - sprite: DeltaV/Markers/jobs.rsi
-          state: nyanogladiator
+# Command
 
 - type: entity
-  id: SpawnPointPrisoner
+  id: SpawnPointBlueshieldOfficer
   parent: SpawnPointJobBase
-  name: prisoner
+  name: blueshieldofficer
   components:
     - type: SpawnPoint
-      job_id: Prisoner
+      job_id: BlueshieldOfficer
     - type: Sprite
       layers:
         - state: green
-        - state: prisoner
+        - state: ertleader
 
 - type: entity
-  id: SpawnPointPrisonGuard
+  id: SpawnPointNanotrasenRepresentative
   parent: SpawnPointJobBase
-  name: prison guard
+  name: nanotrasenrepresentative
   components:
     - type: SpawnPoint
-      job_id: PrisonGuard
+      job_id: NanotrasenRepresentative
     - type: Sprite
       layers:
         - state: green
-        - sprite: DeltaV/Markers/jobs.rsi
-          state: nyanoprisonguard
+        - state: centcom
 
 - type: entity
-  id: SpawnPointMailCarrier
+  id: SpawnPointMagistrate
   parent: SpawnPointJobBase
-  name: courier # Delta V - Mail Carrier to Courier replacement
+  name: magistrate
   components:
     - type: SpawnPoint
-      job_id: MailCarrier
+      job_id: Magistrate
     - type: Sprite
       layers:
         - state: green
-        - sprite: DeltaV/Markers/jobs.rsi
-          state: courier # Delta V - Mail Carrier to Courier replacement
-
-- type: entity
-  id: SpawnPointMartialArtist
-  parent: SpawnPointJobBase
-  name: martial artist
-  components:
-    - type: SpawnPoint
-      job_id: MartialArtist
-    - type: Sprite
-      layers:
-        - state: green
-        - sprite: DeltaV/Markers/jobs.rsi
-          state: nyanomartialartist
-
-- type: entity
-  id: SpawnPointForensicMantis
-  parent: SpawnPointJobBase
-  name: mantis
-  components:
-    - type: SpawnPoint
-      job_id: ForensicMantis
-    - type: Sprite
-      layers:
-        - state: green
-        - sprite: DeltaV/Markers/jobs.rsi
-          state: nyanomantis
+        - state: centcom
