@@ -1,87 +1,59 @@
 - type: entity
-  id: BaseMagazineUniversalMagnum
-  name: "Universal magazine (.45 magnum)"
-  parent: BaseMagazinePistol
+  id: BaseMagazineBoxMagnumExtended
+  parent: BaseMagazineBoxMagnum
   abstract: true
   components:
-    - type: Tag
-      tags:
-        - MagazineUniversalMagnum
     - type: BallisticAmmoProvider
+      mayTransfer: true
       whitelist:
         tags:
           - CartridgeMagnum
       proto: CartridgeMagnum
-      capacity: 12
-    - type: Item
-      size: Small
+      capacity: 16
+
+- type: entity
+  id: MagazineBoxMagnumEnsnaring
+  parent: BaseMagazineBoxMagnumExtended
+  name: ammunition box (.45 magnum ensnaring)
+  components:
+    - type: BallisticAmmoProvider
+      proto: CartridgeMagnumEnsnaring
     - type: Sprite
-      sprite: Nyanotrasen/Objects/Weapons/Guns/Ammunition/Magazine/Magnum/universal_mag.rsi
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]
         - state: mag-1
           map: [ "enum.GunVisualLayers.Mag" ]
-    - type: MagazineVisuals
-      magState: mag
-      steps: 12
-      zeroVisible: false
-    - type: Appearance
+        - state: incendiary #i changed just color because it almost white
+          color: "#cfff77"
 
-# Magazines for the Universal Pistol
+# - type: entity
+#   id: MagazineBoxMagnumEMP
+#   parent: BaseMagazineBoxMagnumExtended
+#   name: ammunition box (.45 magnum EMP)
+#   components:
+#   - type: BallisticAmmoProvider
+#     proto: CartridgeMagnumEMP
+#   - type: Sprite
+#     layers:
+#     - state: base
+#       map: ["enum.GunVisualLayers.Base"]
+#     - state: mag-1
+#       map: ["enum.GunVisualLayers.Mag"]
+#     - state: incendiary
+#       color: "#009eff"
 - type: entity
-  id: MagazineUniversalMagnum
-  name: "Universal magazine (.45 magnum)"
-  parent: BaseMagazineUniversalMagnum
+  id: MagazineBoxMagnumFlash
+  parent: BaseMagazineBoxMagnumExtended
+  name: ammunition box (.45 magnum flash)
   components:
     - type: BallisticAmmoProvider
-      proto: CartridgeMagnum
-      capacity: 12
+      proto: CartridgeMagnumFlash
     - type: Sprite
       layers:
-        - state: red
+        - state: base
           map: [ "enum.GunVisualLayers.Base" ]
         - state: mag-1
           map: [ "enum.GunVisualLayers.Mag" ]
-    - type: MagazineVisuals
-      magState: mag
-      steps: 12
-      zeroVisible: false
-
-- type: entity
-  id: MagazineUniversalMagnumPractice
-  name: "Universal magazine (.45 magnum practice)"
-  parent: BaseMagazineUniversalMagnum
-  components:
-    - type: BallisticAmmoProvider
-      proto: CartridgeMagnumPractice
-      capacity: 12
-    - type: Sprite
-      layers:
-        - state: practice
-          map: [ "enum.GunVisualLayers.Base" ]
-        - state: mag-1
-          map: [ "enum.GunVisualLayers.Mag" ]
-    - type: MagazineVisuals
-      magState: mag
-      steps: 12
-      zeroVisible: false
-
-- type: entity
-  id: MagazineUniversalMagnumRubber
-  name: "Universal magazine (.45 magnum rubber)"
-  parent: BaseMagazineUniversalMagnum
-  components:
-    - type: BallisticAmmoProvider
-      proto: CartridgeMagnumRubber
-      capacity: 12
-    - type: Sprite
-      layers:
-        - state: rubber
-          map: [ "enum.GunVisualLayers.Base" ]
-        - state: mag-1
-          map: [ "enum.GunVisualLayers.Mag" ]
-    - type: MagazineVisuals
-      magState: mag
-      steps: 12
-      zeroVisible: false
+        - state: incendiary
+          color: "#fff94d"
