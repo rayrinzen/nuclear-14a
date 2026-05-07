@@ -1,12 +1,13 @@
-# This file is moreso for any base parts from Shitmed that dont fall under any particular umbrella.
-- type: humanoidBaseSprite
-  id: MobPizzaLArm
-  baseSprite:
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
-    state: "l_arm"
-
-- type: humanoidBaseSprite
-  id: MobPizzaRArm
-  baseSprite:
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
-    state: "r_arm"
+- type: entity
+  id: ActionCancelEscape
+  name: Stop escaping
+  description: Calm down and sit peacefuly in your carrier's inventory
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: InstantAction
+    icon:
+      sprite: Actions/escapeinventory.rsi
+      state: cancel-escape
+    event: !type :EscapeInventoryCancelActionEvent
+    useDelay: 2
