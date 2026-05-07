@@ -1,100 +1,162 @@
 - type: latheRecipe
-  id: Beaker
+  id: N14Beaker
   result: Beaker
   completetime: 2
+  category: N14Chemistry
   materials:
     Glass: 100
 
 - type: latheRecipe
-  id: LargeBeaker
+  id: N14LargeBeaker
   result: LargeBeaker
   completetime: 2
+  category: N14Chemistry
   materials:
     Glass: 200
 
 - type: latheRecipe
-  id: CryostasisBeaker
-  result: CryostasisBeaker
-  completetime: 2
-  materials:
-    Steel: 250
-    Plastic: 50
-
-- type: latheRecipe
-  id: SyringeCryostasis
-  result: SyringeCryostasis
-  completetime: 2
-  materials:
-    Steel: 200
-    Plastic: 50
-
-- type: latheRecipe
-  id: Dropper
+  id: N14Dropper
   result: Dropper
   completetime: 2
+  category: N14Chemistry
   materials:
     Glass: 200
     Plastic: 100
 
 - type: latheRecipe
-  id: Syringe
-  result: Syringe
+  id: N14Syringe
+  result: N14ChemicalSyringe
   completetime: 2
+  category: N14Chemistry
   materials:
     Plastic: 100
     Steel: 25
 
 - type: latheRecipe
-  id: BluespaceBeaker
-  result: BluespaceBeaker
+  id: N14SyringeInjectable
+  result: N14DoctorSyringe
   completetime: 2
+  category: N14Chemistry
   materials:
-    Steel: 200 #Cheaper Due to Needing Bluespace
-    Plastic: 200
-    Plasma: 50
-    Silver: 50
-    Bluespace: 100 #DeltaV: Bluespace
+    Plastic: 100
+    Steel: 25
 
 - type: latheRecipe
-  id: SyringeBluespace
-  result: SyringeBluespace
-  completetime: 2
-  materials:
-    Steel: 100 #Cheaper Due to Needing Bluespace
-    Plastic: 100
-    Glass: 200
-    Plasma: 50
-    Bluespace: 100 #DeltaV: Bluespace
-  #Silver: 50
-- type: latheRecipe
-  id: PillCanister
+  id: N14PillCanister
   result: PillCanister
   completetime: 2
+  category: N14Chemistry
   materials:
     Plastic: 100
 
 - type: latheRecipe
-  id: ChemistryEmptyBottle01
-  result: ChemistryEmptyBottle01
+  id: N14PillCanisterRadX
+  result: N14RadXCanister
   completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14PillCanisterMentats
+  result: N14MentatsCanister
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14PillCanisterBuffout
+  result: N14BuffoutCanister
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14PillCanisterCateye
+  result: N14CateyeCanister
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14PillCanisterFixer
+  result: N14FixerCanister
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  id: N14JetInhaler
+  result: N14JetInhaler
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: N14TurboInhaler
+  result: N14TurboInhaler
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Plastic: 100
+
+- type: latheRecipe
+  id: N14PsychoSyringe
+  result: N14PsychoSyringe
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14ChemicalSyringeAntidoteEmpty
+  result: N14ChemicalSyringeAntidoteEmpty
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14HydraInhaler
+  result: N14HydraInhaler
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14RadAwayPhialEmpty
+  result: N14RadAwayPhialEmpty
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14AntidoteEmpty
+  result: N14AntidoteEmpty
+  completetime: 2
+  category: N14Chemistry
+  materials:
+    Glass: 100
+
+- type: latheRecipe
+  id: N14BitterdrinkEmpty
+  result: N14BitterdrinkEmpty
+  completetime: 2
+  category: N14Chemistry
   materials:
     Glass: 50
 
-# - type: latheRecipe # DeltaV - Disable the Vape
-#   id: Vape
-#   icon:
-#     sprite: Objects/Consumable/Smokeables/Vapes/vape-standard.rsi
-#     state: icon
-#   result: Vape
-#   completetime: 2
-#   materials:
-#     Plastic: 100
-#     Steel: 250
 - type: latheRecipe
-  id: ClothingEyesGlassesChemical
-  result: ClothingEyesGlassesChemical
+  id: N14ChemistryEmptyBottle01
+  result: ChemistryEmptyBottle01
   completetime: 2
+  category: N14Chemistry
   materials:
-    Steel: 200
-    Plastic: 300
-    Glass: 500
+    Glass: 50
