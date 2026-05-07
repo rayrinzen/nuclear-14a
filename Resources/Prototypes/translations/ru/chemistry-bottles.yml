@@ -1,6 +1,6 @@
 - type: entity
-  id: NapalmChemistryBottle
-  name: napalm bottle
+  id: MercuryChemistryBottle
+  name: mercury bottle
   parent: BaseChemistryEmptyBottle
   components:
     - type: SolutionContainerManager
@@ -8,23 +8,7 @@
         drink:
           maxVol: 30
           reagents:
-            - ReagentId: Napalm
-              Quantity: 30
-    - type: Tag
-      tags:
-        - Bottle
-
-- type: entity
-  id: UltravasculineChemistryBottle
-  name: ultravasculine bottle
-  parent: BaseChemistryEmptyBottle
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: Ultravasculine
+            - ReagentId: Mercury
               Quantity: 30
     - type: Tag
       tags:
