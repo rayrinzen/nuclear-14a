@@ -1,176 +1,244 @@
 - type: entity
-  parent: SimpleSpaceMobBase
-  id: MobIfritFamiliar
-  name: Ifrit
-  description: The mystagogue's servant.
+  parent:
+  - BaseMob
+  - MobCombat
+  - MobDamageable
+  id: BaseMobPsionicFamiliar
+  abstract: true
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Aliens/Guardians/guardians.rsi
     layers:
-      - state: magic_base
-        map:
-        - "enum.DamageStateVisualLayers.Base"
-      - state: magic_flare
-        map:
-        - "enum.DamageStateVisualLayers.BaseUnshaded"
-        color: "#40a7d7"
-        shader: unshaded
-  - type: RandomSprite
-    available:
-        - 
-      enum.DamageStateVisualLayers.BaseUnshaded:
-          magic_flare: Sixteen
-  - type: Fixtures
-    fixtures:
-      fix1:
-          shape: '!type:PhysShapeCircle radius: 0.35'
-          density: 225
-          mask:
-            - FlyingMobMask
-          layer:
-            - FlyingMobLayer
-  - type: Bloodstream
-    bloodReagent: Phlogiston
-    bloodMaxVolume: 0
-  - type: MeleeWeapon
-    altDisarm: false # No shoving
-    angle: 0
-    damage:
-      types:
-        Heat: 10
-    animation: WeaponArcPunch
-  - type: MobState
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: bat
+      sprite: Mobs/Animals/bat.rsi
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-familiar-name
+    description: ghost-role-information-familiar-description
+    rules: ghost-role-information-familiar-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
   - type: MobThresholds
     thresholds:
       0: Alive
-      120: Dead
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 120 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: Access
-    tags:
-    - Chapel
-    - Research
-  - type: MindContainer
-    showExamineInfo: true
-  - type: Familiar
-  - type: Dispellable
+      50: Dead
   - type: Damageable
     damageContainer: CorporealSpirit
     damageModifierSet: CorporealSpirit
-  - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute.
-    allowedStates:
-    - Alive
-    damageCap: 120
-    damage:
-      types:
-        Cold: '-0.07'
-      groups:
-        Brute: '-0.07'
-  - type: Speech
-    speechSounds: Bass
-  - type: Puller
-    needsHands: false
-  - type: Tag
-    tags:
-      - CannotSuicide
-      - DoorBumpOpener
-  - type: Body
-    prototype: Human # For two hands.
-  - type: InnateTool
-    tools:
-      - id: WelderIfrit
-      - id: WelderIfrit
-  - type: Hands
-  - type: ZombieImmune # No zombie servant
-  - type: RandomMetadata
-    nameSegments:
-    - names_golem
+  - type: MindContainer
+    showExamineInfo: false
+  - type: NpcFactionMember
+    factions:
+    - PsionicInterloper
+  - type: Alerts
+  - type: Familiar
   - type: Psionic
     removable: false
     roller: false
-    assayFeedback:
-      - ifrit-feedback
     psychognomicDescriptors:
       - p-descriptor-bound
       - p-descriptor-cyclic
   - type: InnatePsionicPowers
     powersToAdd:
-      - PyrokinesisPower
       - TelepathyPower
-  - type: Grammar
-    attributes:
-      proper: true
-  - type: MovementIgnoreGravity
-  - type: NoSlip
-  - type: EyeProtection
-  - type: NpcFactionMember
-    factions:
-    - PsionicInterloper
-    - NanoTrasen
-  - type: LanguageKnowledge
-    speaks:
-    - TauCetiBasic
-    understands:
-    - TauCetiBasic
-  - type: GhostTakeoverAvailable
+  - type: HTN
+    rootTask:
+      task: MeleePsionicFamiliarCompound
+    blackboard:
+      IdleRange: !type ':Single 3.5'
+      FollowCloseRange: !type ':Single 2.0'
+      FollowRange: !type ':Single 3.0'
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+    retaliateFriendlies: true
+  - type: PsionicFamiliar
+  - type: Dispellable
+  - type: DamageOnDispel
+    damage:
+      types:
+        Heat: 100
+- type: entity
+  name: Remilia
+  parent: BaseMobPsionicFamiliar
+  id: MobBatRemilia
+  description: The chaplain's familiar. Likes fruit.
+  components:
   - type: GhostRole
-    name: ghost-role-information-ifrit-name
-    description: ghost-role-information-ifrit-description
-    rules: ghost-role-information-ifrit-rules
     makeSentient: true
     allowMovement: true
     allowSpeech: true
-    requirements:
-    - !type 
-      department: Epistemics
-      min: 14400 # 4 hours
+    name: ghost-role-information-remilia-name
+    description: ghost-role-information-remilia-description
+    rules: ghost-role-information-remilia-rules
+  - type: GhostTakeoverAvailable
+  - type: Grammar
+    attributes:
+      gender: female
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+      - XenoglossyPower
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+  - type: Speech
+    speechSounds: Squeak
+    speechVerb: SmallMob
+    allowedEmotes:
+    - 'Squeak'
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.25'
+        density: 0.8
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-bat
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/fox_squeak.ogg
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Dead
 - type: entity
-  parent: WelderExperimental
-  id: WelderIfrit
-  name: ifrit hand
-  description: The welding hand of an ifrit.
+  name: Cerberus
+  parent: MobCorgiNarsi
+  id: MobCorgiCerberus
+  description: This pupper is not wholesome.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowMovement: true
+    allowSpeech: true
+    name: ghost-role-information-cerberus-name
+    description: ghost-role-information-cerberus-description
+    rules: ghost-role-information-cerberus-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: MeleeWeapon
+    altDisarm: false
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 8
+        Slash: 7
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type ':Bool true'
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+    - PsionicInterloper
+  - type: InteractionPopup
+    successChance: 0.5
+    interactSuccessString: petting-success-corrupted-corgi
+    interactFailureString: petting-failure-corrupted-corgi
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      120: Dead
+  - type: Grammar
+    attributes:
+      gender: male
+      proper: true
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - VimPilot
+  - type: Access
+    tags:
+    - Chapel
+  - type: MindContainer
+    showExamineInfo: true
+  - type: Familiar
+  - type: Dispellable
+  - type: Psionic
+    removable: false
+    roller: false
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+  - type: Vocal
+    sounds:
+      Male: Cerberus
+      Female: Cerberus
+      Unsexed: Cerberus
+- type: entity
+  name: imp familiar
+  parent: BaseMobPsionicFamiliar
+  id: MobPsionicFamiliarImp
+  description: A living mote of flame summoned from Gehenna.
   components:
   - type: Sprite
-    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
-  - type: Item
-    sprite: Nyanotrasen/Objects/Tools/ifrit_hand.rsi
-  - type: SolutionContainerManager
-    solutions:
-      Welder:
-        reagents:
-        - ReagentId: Phlogiston
-          Quantity: 1000
-        maxVol: 1000
-  - type: Welder
-    fuelReagent: Phlogiston
-    tankSafe: true
-  -   #    welderOnSounds:
-  #      collection: WelderIfritHandOn
-  #    welderOffSounds:
-  #      collection: WelderIfritHandOff
-  #  - type: Tool
-  #    useSound:
-  #      collection: WelderIfritHand
-  #  - type: MeleeWeapon
-  #    soundHit:
-  #      collection: WelderIfritHand
-  # TODO some way to give the MeleeWeapon a separate soundHit for when it's on,
-  # similar to EnergySword. will have to go in ToolSystem.Welder.cs
-  # for now, just make it sound like it's on fire no matter what because it
-  # sounds cooler than the default fizzling noise.
-type: MeleeWeapon
+    drawdepth: Mobs
+    layers:
+    - map:
+    - "enum.DamageStateVisualLayers.Base"
+      state: imp
+      sprite: Mobs/Demons/imp.rsi
+  - type: InnatePsionicPowers
+    powersToAdd:
+      - TelepathyPower
+      - PyrokineticFlare
+      - XenoglossyPower
+  - type: MeleeWeapon
+    damage:
+      types:
+        Heat: 9
     soundHit:
-      path: /Audio/Items/welder.ogg
-  - type: SolutionRegeneration
-    solution: Welder
-    generated:
-      reagents:
-        - ReagentId: Phlogiston
-          Quantity: 1
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
   - type: PointLight
-    enabled: false
     radius: 2
-    energy: 1.5
-    color: orange
+    energy: 30
+    color: "#ff4500"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeCircle radius: 0.35'
+        density: 13
+        mask:
+        - Opaque
+        layer:
+        - MobLayer
+  - type: RandomMetadata
+    nameSegments:
+    - names_golem
