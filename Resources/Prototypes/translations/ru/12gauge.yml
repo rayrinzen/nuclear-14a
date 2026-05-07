@@ -1,31 +1,42 @@
 - type: entity
-  abstract: true
+  id: N14BaseMagazineShotgun12
+  name: ammo drum (12 gauge shells)
   parent: BaseItem
-  id: BaseMagazineBox12gauge
+  abstract: true
   components:
+  - type: Tag
+    tags:
+    - N14MagazineShotgun12
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - N14ShellShotgun12
-    proto: N14ShellShotgun12
-    capacity: 30
+    capacity: 8
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type :Container
   - type: Sprite
-    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Boxes/12-gauge.rsi
     netsync: false
+    sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Magazines/12gauge/mag.rsi
+    layers:
+    - state: base
+      map:
+      - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
   - type: Appearance
-  - type: FoldableAmmoBox #Misfits Change /Add/: Empty cardboard ammo boxes can fold back into one cardboard sheet.
 - type: entity
-  parent: BaseMagazineBox12gauge
-  id: MagazineBox12gauge
-  name: ammunition box (12 gauge)
+  id: N14MagazineShotgun12
+  name: ammo drum (12 gauge shells)
+  parent: N14BaseMagazineShotgun12
   components:
   - type: BallisticAmmoProvider
     proto: N14ShellShotgun12
@@ -34,3 +45,6 @@
     - state: base
       map:
       - "enum.GunVisualLayers.Base"
+    - state: mag-1
+      map:
+      - "enum.GunVisualLayers.Mag"
