@@ -1,29 +1,80 @@
-- type: construction
-  name: prescription medhud
-  id: PrescriptionMedHud
-  graph: PrescriptionMedHud
-  startNode: start
-  targetNode: prescmedhud
-  category: construction-category-clothing
-  description: Prescription medhud, merged glasses and medhud together by sheer luck and cables with glue.
-  icon:
-    {
-      sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi,
-      state: icon
-    }
-  objectType: Item
+# Jumpsuits - Security
 
-- type: construction
-  name: prescription sechud
-  id: PrescriptionHudSecurity
-  graph: PrescriptionSecHud
-  startNode: start
-  targetNode: prescsechud
-  category: construction-category-clothing
-  description: Prescription sechud, merged glasses and sechud together by sheer luck and cables with glue.
-  icon:
-    {
-      sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi,
-      state: icon
-    }
-  objectType: Item
+- type: latheRecipe
+  id: ClothingUniformJumpsuitSecBlue
+  result: ClothingUniformJumpsuitSecBlue
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitSecGrey
+  result: ClothingUniformJumpsuitSecGrey
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitWardenBlue
+  result: ClothingUniformJumpsuitWardenBlue
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpsuitWardenGrey
+  result: ClothingUniformJumpsuitWardenGrey
+  completetime: 4
+  materials:
+    Cloth: 300
+
+# Jumpskirts - Security
+- type: latheRecipe
+  id: ClothingUniformJumpskirtSecBlue
+  result: ClothingUniformJumpskirtSecBlue
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtSecGrey
+  result: ClothingUniformJumpskirtSecGrey
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtHoSBlue
+  result: ClothingUniformJumpskirtHoSBlue
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtHoSGrey
+  result: ClothingUniformJumpskirtHoSGrey
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtWardenBlue
+  result: ClothingUniformJumpskirtWardenBlue
+  completetime: 4
+  materials:
+    Cloth: 300
+
+- type: latheRecipe
+  id: ClothingUniformJumpskirtWardenGrey
+  result: ClothingUniformJumpskirtWardenGrey
+  completetime: 4
+  materials:
+    Cloth: 300
+
+# Security Sweater
+- type: latheRecipe
+  id: ClothingOuterStasecSweater
+  result: ClothingOuterStasecSweater
+  completetime: 4
+  materials:
+    Cloth: 500
