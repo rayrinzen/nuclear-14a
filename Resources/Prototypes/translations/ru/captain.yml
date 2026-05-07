@@ -1,146 +1,54 @@
-- type: characterItemGroup
-  id: LoadoutCaptainBackpacks
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutBackpackCaptain
-    - type: loadout
-      id: LoadoutBackpackSatchelCaptain
-    - type: loadout
-      id: LoadoutBackpackDuffelCaptain
-    - type: loadout
-      id: LoadoutBackpackCaptainFilled
-    - type: loadout
-      id: LoadoutBackpackSatchelCaptainFilled
-    - type: loadout
-      id: LoadoutBackpackDuffelCaptainFilled
-
-- type: characterItemGroup
-  id: LoadoutCaptainBelt
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainSwordSheath
-
-#- type: characterItemGroup
-#  id: LoadoutCaptainEars
-#  maxItems: 1
-#  items:
-#- type: characterItemGroup
-#  id: LoadoutCaptainEquipment
-#  maxItems: 1
-#  items:
-- type: characterItemGroup
-  id: LoadoutCaptainTrinkets
-  maxItems: 3
-  items:
-    - type: loadout
-      id: LoadoutCaptainDrinkFlask
-    - type: loadout
-      id: LoadoutCaptainMedalCase
-    - type: loadout
-      id: LoadoutCaptainSpaceCash1000
-    - type: loadout
-      id: LoadoutCaptainCigarCase
-
-- type: characterItemGroup
-  id: LoadoutCaptainWeapon
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainAntiqueLaserPistol
-    - type: loadout
-      id: LoadoutCaptainPulsePistol
-
-- type: characterItemGroup
-  id: LoadoutCaptainEyes
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainEyesSunglasses
-
-- type: characterItemGroup
-  id: LoadoutCaptainGloves
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainGlovesCapGloves
-    - type: loadout
-      id: LoadoutCaptainGlovesInspection
-
-- type: characterItemGroup
-  id: LoadoutCaptainHead
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCommandCapHat
-    - type: loadout
-      id: LoadoutCommandCapHatCapcap
-    - type: loadout
-      id: LoadoutCommandCapHatBeret
-
-- type: characterItemGroup
-  id: LoadoutCaptainId
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainNTPDA
-
-- type: characterItemGroup
-  id: LoadoutCaptainNeck
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCommandCapNeckMantle
-    - type: loadout
-      id: LoadoutCommandCapNeckCloak
-    - type: loadout
-      id: LoadoutCommandCapNeckCloakFormal
-    - type: loadout
-      id: LoadoutCaptainNeckGoldMedal
-
-- type: characterItemGroup
-  id: LoadoutCaptainMask
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCommandCapMaskGas
-    - type: loadout
-      id: LoadoutCommandCapMaskGasCombat
-
-- type: characterItemGroup
-  id: LoadoutCaptainOuter
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCommandCapOuterWinter
-    - type: loadout
-      id: LoadoutCaptainOuterCarapace
-    - type: loadout
-      id: LoadoutCaptainOuterTrench
-
-- type: characterItemGroup
-  id: LoadoutCaptainShoes
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCaptainShoesLaceup
-    - type: loadout
-      id: LoadoutCaptainShoesLeather
-    - type: loadout
-      id: LoadoutCaptainShoesWinter
-    - type: loadout
-      id: LoadoutCaptainShoesCombat
-
-- type: characterItemGroup
-  id: LoadoutCaptainUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutCommandCapJumpsuit
-    - type: loadout
-      id: LoadoutCommandCapJumpskirt
-    - type: loadout
-      id: LoadoutCommandCapJumpsuitFormal
-    - type: loadout
-      id: LoadoutCommandCapJumpskirtFormal
+- type: job
+  id: Captain
+  name: job-name-captain
+  description: job-description-captain
+  playTimeTracker: JobCaptain
+  setPreference: false
+  # requirements:
+  # - !type:CharacterTraitRequirement
+  # inverted: true
+  # traits:
+  # - Foreigner
+  # - ForeignerLight
+  # - Pacifist
+  weight: 20
+  startingGear: CaptainGear
+  icon: "JobIconCaptain"
+  requireAdminNotify: true
+  joinNotifyCrew: true
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  special:
+  - !type 
+    implants:
+    - MindShieldImplant
+  - !type 
+    components:
+      - type: CommandStaff
+  afterLoadoutSpecial:
+  - !type 
+    charges: 8
+  - !type 
+    powerCell: PowerCellHigh
+- type: startingGear
+  id: CaptainGear
+  subGear:
+  - CaptainPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    back: ClothingBackpackCaptainFilled
+    shoes: ClothingShoesBootsLaceup
+    id: CaptainPDA
+    ears: ClothingHeadsetAltCommand
+  innerClothingSkirt: ClothingUniformJumpskirtCaptain
+  satchel: ClothingBackpackSatchelCaptainFilled
+  duffelbag: ClothingBackpackDuffelCaptainFilled
+- type: startingGear
+  id: CaptainPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCaptain
+    head: ClothingHeadEnvirohelmCaptain
+    gloves: ClothingHandsGlovesCaptain
