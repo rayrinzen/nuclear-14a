@@ -1,9 +1,52 @@
-- type: soundCollection
+- type: weather
   id: NCRadioactiveParticles
-  files:
-    - /Audio/Effects/Weather/wind_2_1.ogg
-    - /Audio/Effects/Weather/wind_2_2.ogg
-    - /Audio/Effects/Weather/wind_3_1.ogg
-    - /Audio/Effects/Weather/wind_4_1.ogg
-    - /Audio/Effects/Weather/wind_4_2.ogg
-    - /Audio/Effects/Weather/wind_5_1.ogg
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: fallout
+  sound:
+    collection: NCRadioactiveParticles
+    params:
+      loop: true
+      volume: -6
+  duration: 150
+  radioactive: true
+  rads: 1.25
+  showMessage: true
+  chance: 1 # Misfits: reduced from 2
+  sender: weather-announcement
+  message: weather-radioactive-particles
+
+- type: weather
+  id: NCRadioactiveRain
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: rain_radioactive
+  sound:
+    path: /Audio/Effects/Weather/rain2.ogg
+    params:
+      loop: true
+      volume: -5
+  duration: 180
+  radioactive: true
+  rads: 0.75
+  showMessage: true
+  chance: 1 # Misfits: reduced from 2
+  sender: weather-announcement
+  message: weather-radioactive-rain
+
+- type: weather
+  id: NCRadioactiveStorm
+  sprite:
+    sprite: /Textures/Effects/weather.rsi
+    state: storm_radioactive
+  sound:
+    path: /Audio/Effects/Weather/rain_heavy.ogg
+    params:
+      loop: true
+      volume: -6
+  duration: 180
+  radioactive: true
+  showMessage: true
+  chance: 1
+  sender: weather-announcement
+  message: weather-radioactive-rain
