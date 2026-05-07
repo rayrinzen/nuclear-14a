@@ -1,24 +1,80 @@
 - type: entity
-  parent: ClothingMaskBase
-  id: N14ClothingMaskBlackMask
-  name: black mask
-  description: "A short black, covering your mouth."
+  parent: [ ClothingHeadBaseButcherable, BaseFoldable ]
+  id: ClothingHeadBandBase
+  abstract: true
   components:
-    - type: Sprite
-      sprite: Corvax/Clothing/Mask/Bandanas/blackscarf.rsi
-    - type: Clothing
-      sprite: Corvax/Clothing/Mask/Bandanas/blackscarf.rsi
-    - type: BreathMask
+    - type: Foldable
+      folded: true
+    - type: Mask
+      isToggled: true
     - type: IngestionBlocker
+      enabled: false
     - type: IdentityBlocker
+      enabled: false
+      coverage: MOUTH
+    - type: Sprite # needed for vendor inventory icons
+      layers:
+        - state: icon
+          map: [ "foldedLayer" ]
+          visible: true
+        - state: icon_mask
+          map: [ "unfoldedLayer" ]
+          visible: false
+    - type: Tag
+      tags:
+        - Bandana
 
 - type: entity
-  parent: ClothingMaskBase
-  id: N14ClothingMaskSheriff
-  name: brown mask
-  description: "A simple brown mask that highlights you."
-  components:
-    - type: Sprite
-      sprite: Corvax/Clothing/Mask/Bandanas/sheriffscarf.rsi
-    - type: Clothing
-      sprite: Corvax/Clothing/Mask/Bandanas/sheriffscarf.rsi
+  parent: [ ClothingHeadBandBase, ClothingMaskBandWhite ]
+  id: ClothingHeadBandWhite
+  name: bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandBlack ]
+  id: ClothingHeadBandBlack
+  name: black bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandBlue ]
+  id: ClothingHeadBandBlue
+  name: blue bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandBotany ]
+  id: ClothingHeadBandBotany
+  name: botany bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandGold ]
+  id: ClothingHeadBandGold
+  name: gold bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandGreen ]
+  id: ClothingHeadBandGreen
+  name: green bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandGrey ]
+  id: ClothingHeadBandGrey
+  name: grey bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandRed ]
+  id: ClothingHeadBandRed
+  name: red bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandSkull ]
+  id: ClothingHeadBandSkull
+  name: skull bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandMerc ]
+  id: ClothingHeadBandMerc
+  name: mercenary bandana
+
+- type: entity
+  parent: [ ClothingHeadBandBase, ClothingMaskBandBrown ]
+  id: ClothingHeadBandBrown
+  name: brown bandana
