@@ -1,43 +1,31 @@
-- type: listing
-  id: UplinkKanabou
-  name: uplink-kanabou-name
-  description: uplink-kanabou-desc
-  productEntity: Kanabou
+- # Mechs
+type: listing
+  id: UplinkDarkGygax
+  name: uplink-mech-teleporter-assault-name
+  description: uplink-mech-teleporter-assault-desc
+  icon:
+  sprite: /Textures/Objects/Specific/Mech/mecha.rsi
+  state: darkgygax
+  productEntity: CrateCybersunDarkGygaxBundle
   cost:
-    Telecrystal: 10
+    Telecrystal: 80 # Einstein Engines -  1/5th the price due to no telecrystal rework
   categories:
-  - UplinkWeaponry
+  - UplinkAllies
+- type: listing
+  id: UplinkMauler
+  name: uplink-mech-teleporter-heavy-name
+  description: uplink-mech-teleporter-heavy-desc
+  icon:
+  sprite: /Textures/Objects/Specific/Mech/mecha.rsi
+  state: mauler
+  productEntity: CrateCybersunMaulerBundle
+  cost:
+    Telecrystal: 105 # Einstein Engines - lower the price due to no telecrystal rework
+  # cost reduced such that nukies can still only buy one with all pooled nukies' TC
+  categories:
+  - UplinkAllies
   conditions:
   - !type 
     whitelist:
-    - Oni
-- type: listing
-  id: UplinkRickenbacker
-  name: uplink-rickenbacker4001-name
-  description: uplink-rickenbacker4001-desc
-  productEntity: Rickenbacker4001Instrument
-  cost:
-    Telecrystal: 10
-  categories:
-  - UplinkJob
-  conditions:
-  - !type 
-    whitelist:
-    - Musician
-- type: listing
-  id: UplinkSamurai
-  name: uplink-samurai-crate-name
-  description: uplink-samurai-crate-desc
-  productEntity: CrateSyndicateSamurai
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type 
-    whitelist:
-    - Oni
-  - !type 
-    blacklist:
-      components:
-      - SurplusBundle
+      tags:
+      - NukeOpsUplink
