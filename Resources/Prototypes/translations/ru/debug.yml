@@ -1,20 +1,12 @@
+#MARK: Holotapes
 - type: entity
-  id: WeaponMechDebugMelle
-  parent:
-    [ BaseMechWeaponMelee, DebugMechEquipment ]
-    # Debug equipment does have all whitelist tags.
-  name: debug bam
-  suffix: Mech Weapon, DEBUG, Melee
-  description: A robust thing.
+  parent: BaseItem
+  id: N14EmptySlot
+  categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: paddy_claw
-    - type: MeleeWeapon
-      hidden: true
-      attackRate: 0.75
-      damage:
-        types:
-          Blunt: 40
-          Structural: 20
-      soundHit:
-        collection: MetalThud
+      sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
+      state: holotape_black
+      scale: 0.75, 0.75
+    - type: TimedDespawn
+      lifetime: 1
