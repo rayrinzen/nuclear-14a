@@ -1,0 +1,16 @@
+﻿- type: entity
+  id: ActionChargeSpell
+  name: Charge
+  description: Adds a charge back to your wand
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Weapons/Guns/Basic/wands.rsi
+      state: nothing
+    event: !type
+      charge: 1
+      speech: DI'RI CEL!
