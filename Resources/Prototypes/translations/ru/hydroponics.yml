@@ -1,64 +1,51 @@
-- type: constructionGraph
+- type: construction
+  name: soil
   id: N14Soil
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: Soil
-          steps:
-            - material: Compost
-              amount: 2
-              doAfter: 1
-    - node: Soil
-      entity: N14Soil
-      edges:
-        - to: start
-          completed:
-            - !type 
-              prototype: N14CompostRotted
-              amount: 1
-            - !type ':DeleteEntity {}'
-          steps:
-            - tool: Prying # shoveling
-              doAfter: 3
-- type: constructionGraph
-  id: N14Planter
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: box
-          completed:
-            - !type 
-              southRotation: true
-          steps:
-            - material: WoodPlank
-              amount: 4
-              doAfter: 5
-    - node: box
-      entity: N14HydroponicsPlanterEmpty
-      edges:
-        - to: Planter
-          steps:
-            - material: Compost
-              amount: 2
-              doAfter: 1
-        - to: start
-          completed:
-          - !type 
-            prototype: MaterialWoodPlank1
-            amount: 4
-          - !type ':DeleteEntity {}'
-          steps:
-          - tool: Prying
-            doAfter: 3
-    - node: Planter
-      entity: N14HydroponicsPlanter
-      edges:
-        - to: box
-          completed:
-          - !type 
-                prototype: N14CompostRotted
-                amount: 2
-          steps:
-            - tool: Prying # shoveling
+  graph: N14Soil
+  startNode: start
+  targetNode: Soil
+  category: construction-category-utilities
+  description: A patch of soil for growing things.
+  hide: false
+  icon:
+    sprite: Structures/Hydroponics/misc.rsi
+    state: soil
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type :TileNotBlocked
+- type: construction
+  name: planter
+  id: N14HydroponicsPlanter # Forge-Change
+  graph: N14Planter
+  startNode: start
+  targetNode: Planter
+  category: construction-category-utilities
+  description: A planter for growing things in.
+  icon:
+    sprite: _Nuclear14/Structures/Hydroponics/planterbox.rsi
+    state: icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type :TileNotBlocked
+  hide: false
+- type: construction
+  name: Seed Extractor
+  id: N14SeedExtractor
+  graph: N14SeedExtractor
+  startNode: start
+  targetNode: seedextractor
+  category: construction-category-machines
+  description: A jet inhaler with a RadAway phial screwed on top of it. Two puffs away from being rad free.
+  icon:
+    sprite: _Nuclear14/Objects/Specific/Hydroponics/equipment.rsi
+    state: seedextractor
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type :TileNotBlocked
+  hide: false
