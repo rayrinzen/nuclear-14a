@@ -1,55 +1,45 @@
-- type: entity
-  id: WeaponMechSpecialMousetrapMortar
-  parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
-  suffix: Mech Weapon, Gun, Special, Mortar
-  name: mousetrap mortar
-  description: Mounted mousetrap launcher.
-  components:
-    - type: Sprite
-      state: mecha_mousetrapmrtr
-    - type: Gun
-      minAngle: 24
-      maxAngle: 45
-      angleIncrease: 4
-      angleDecay: 16
-      fireRate: 0.5
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-      soundEmpty:
-        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-    - type: AmmoCounter
-    - type: ProjectileBatteryAmmoProvider
-      proto: MousetrapArmed
-      fireCost: 100
-    - type: Appearance
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconStrength
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Strength
 
-- type: entity
-  id: WeaponMechSpecialBananaMortar
-  parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
-  suffix: Mech Weapon, Gun, Special, Mortar
-  name: banana mortar
-  description: Mounted banana peel launcher.
-  components:
-    - type: Sprite
-      state: mecha_bananamrtr
-    - type: Gun
-      minAngle: 24
-      maxAngle: 25
-      angleIncrease: 4
-      angleDecay: 16
-      fireRate: 0.5
-      selectedMode: SemiAuto
-      availableModes:
-        - SemiAuto
-      soundGunshot:
-        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-      soundEmpty:
-        path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
-    - type: AmmoCounter
-    - type: ProjectileBatteryAmmoProvider
-      proto: TrashBananaPeel
-      fireCost: 100
-    - type: Appearance
+null
+
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconPerception
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Perception
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconEndurance
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Endurance
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconCharisma
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Charisma
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconIntelligence
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Intelligence
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconAgility
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Agility
+# - type: statusIcon
+# parent: JobIcon
+# id: SpecialIconLuck
+# icon:
+# sprite: _Nuclear14/Interface/Misc/special_icons.rsi
+# state: Luck
