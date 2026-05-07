@@ -1,194 +1,195 @@
-# TODO once tiles can be smoothed and carpets ported over to that, add them to the FloorTile outputs
-- type: entity
+- # TODO move all of this to tiles once tile smoothing is supported
+type: entity
+  id: CarpetBase
+  parent: BaseStructure
   name: carpet
-  parent: FloorTileItemBase
-  id: FloorCarpetItemRed
+  description: "Fancy walking surface."
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: FloorTiles
+  - type: Icon
+    state: full
+  - type: IconSmooth
+    key: full
+    base: carpet_
+  - type: Tag
+    tags:
+    - Carpet
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Butcherable
+    butcheringType: Knife
+    butcherDelay: 2
+    spawned:
+    - id: MaterialCloth1
+      amount: 1
+- type: entity
+  id: Carpet
+  parent: CarpetBase
   suffix: Red
   components:
-    - type: Sprite
-      state: carpet-red
-    - type: Item
-      heldPrefix: carpet-red
-    - type: FloorTile
-      outputs:
-        - Plating
-    - type: Stack
-      stackType: FloorCarpetRed
-    - type: Tag
-      tags:
-        - CarpetRed
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: Carpet
-      doAfter: 0.5
-      removeOnInteract: true
-
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/red_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/red_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemRed: min: 1 max: 1'
 - type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemBlack
+  id: CarpetBlack
+  parent: CarpetBase
   suffix: Black
   components:
-    - type: Sprite
-      state: carpet-black
-    - type: Item
-      heldPrefix: carpet-black
-    - type: Stack
-      stackType: FloorCarpetBlack
-    - type: Tag
-      tags:
-        - CarpetBlack
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetBlack
-      doAfter: 0.5
-      removeOnInteract: true
-
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/black_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/black_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemBlack: min: 1 max: 1'
 - type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemBlue
-  suffix: Blue
-  components:
-    - type: Sprite
-      state: carpet-blue
-    - type: Item
-      heldPrefix: carpet-blue
-    - type: Stack
-      stackType: FloorCarpetBlue
-    - type: Tag
-      tags:
-        - CarpetBlue
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetBlue
-      doAfter: 0.5
-      removeOnInteract: true
-
-- type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemGreen
-  suffix: Green
-  components:
-    - type: Sprite
-      state: carpet-green
-    - type: Item
-      heldPrefix: carpet-green
-    - type: Stack
-      stackType: FloorCarpetGreen
-    - type: Tag
-      tags:
-        - CarpetGreen
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetGreen
-      doAfter: 0.5
-      removeOnInteract: true
-
-- type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemOrange
-  suffix: Orange
-  components:
-    - type: Sprite
-      state: carpet-orange
-    - type: Item
-      heldPrefix: carpet-orange
-    - type: Stack
-      stackType: FloorCarpetOrange
-    - type: Tag
-      tags:
-        - CarpetOrange
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetOrange
-      doAfter: 0.5
-      removeOnInteract: true
-
-- type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemSkyBlue
-  suffix: Sky Blue
-  components:
-    - type: Sprite
-      state: carpet-skyblue
-    - type: Item
-      heldPrefix: carpet-skyblue
-    - type: Stack
-      stackType: FloorCarpetSkyBlue
-    - type: Tag
-      tags:
-        - CarpetSBlue
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetSBlue
-      doAfter: 0.5
-      removeOnInteract: true
-
-- type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemPurple
-  suffix: Purple
-  components:
-    - type: Sprite
-      state: carpet-purple
-    - type: Item
-      heldPrefix: carpet-purple
-    - type: Stack
-      stackType: FloorCarpetPurple
-    - type: Tag
-      tags:
-        - CarpetPurple
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetPurple
-      doAfter: 0.5
-      removeOnInteract: true
-
-- type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemPink
+  id: CarpetPink
+  parent: CarpetBase
   suffix: Pink
   components:
-    - type: Sprite
-      state: carpet-pink
-    - type: Item
-      heldPrefix: carpet-pink
-    - type: Stack
-      stackType: FloorCarpetPink
-    - type: Tag
-      tags:
-        - CarpetPink
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetPink
-      doAfter: 0.5
-      removeOnInteract: true
-
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/pink_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/pink_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemPink: min: 1 max: 1'
 - type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemCyan
+  id: CarpetBlue
+  parent: CarpetBase
+  suffix: Blue
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/blue_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/blue_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemBlue: min: 1 max: 1'
+- type: entity
+  id: CarpetGreen
+  parent: CarpetBase
+  suffix: Green
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/green_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/green_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemGreen: min: 1 max: 1'
+- type: entity
+  id: CarpetOrange
+  parent: CarpetBase
+  suffix: Orange
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/orange_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/orange_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemOrange: min: 1 max: 1'
+- type: entity
+  id: CarpetSBlue
+  parent: CarpetBase
+  suffix: Sky Blue
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/skyblue_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/skyblue_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemSkyBlue: min: 1 max: 1'
+- type: entity
+  id: CarpetPurple
+  parent: CarpetBase
+  suffix: Purple
+  components:
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/purple_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/purple_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemPurple: min: 1 max: 1'
+- type: entity
+  id: CarpetCyan
+  parent: CarpetBase
   suffix: Cyan
   components:
-    - type: Sprite
-      state: carpet-cyan
-    - type: Item
-      heldPrefix: carpet-cyan
-    - type: Stack
-      stackType: FloorCarpetCyan
-    - type: Tag
-      tags:
-        - CarpetCyan
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetCyan
-      doAfter: 0.5
-      removeOnInteract: true
-
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/cyan_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/cyan_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemCyan: min: 1 max: 1'
 - type: entity
-  parent: FloorCarpetItemRed
-  id: FloorCarpetItemWhite
+  id: CarpetWhite
+  parent: CarpetBase
   suffix: White
   components:
-    - type: Sprite
-      state: carpet-white
-    - type: Item
-      heldPrefix: carpet-white
-    - type: Stack
-      stackType: FloorCarpetWhite
-    - type: Tag
-      tags:
-        - CarpetWhite
-    - type: SpawnAfterInteract #Nuke after convert to FloorTile
-      prototype: CarpetWhite
-      doAfter: 0.5
-      removeOnInteract: true
+  - type: Clickable
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/white_carpet.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/white_carpet.rsi
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 100 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]' #excess damage (nuke?). avoid computational cost of spawning entities.
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ] - !type:SpawnEntitiesBehavior spawn: FloorCarpetItemWhite: min: 1 max: 1'
+- # TODO nuke this once tiles support rotating sprites
+type: entity
+  id: CarpetChapel
+  parent: BaseStructure
+  name: "chapel's carpet"
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Carpets/chapel_carpet.rsi
+    state: chapel
+    drawdepth: FloorTiles
+  - type: Icon
+    sprite: Structures/Furniture/Carpets/chapel_carpet.rsi
+    state: chapel
+  - type: Tag
+    tags:
+    - Carpet
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+      - trigger: '!type:DamageTrigger damage: 10 behaviors: - !type:DoActsBehavior acts: [ "Destruction" ]'
