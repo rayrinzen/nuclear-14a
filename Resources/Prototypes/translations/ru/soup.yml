@@ -1,346 +1,1192 @@
-# Soups and Stews
-
-- type: entity
-  name: cotton soup
-  parent: FoodBowlBase
-  id: FoodMothCottonSoup
-  description: A soup made from raw cotton in a flavourful vegetable broth. Enjoyed only by moths and the criminally tasteless.
+- # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
+type: entity
+  parent: FoodBase
+  id: FoodBowlBase
+  abstract: true
   components:
-    - type: FlavorProfile
-      flavors:
-        - cotton
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: cottonsoup
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 6
-            - ReagentId: Vitamin
-              Quantity: 6
-            - ReagentId: Water
-              Quantity: 3
-            - ReagentId: Fiber
-              Quantity: 5
-    - type: Tag
-      tags:
-        - ClothMade
-#Tastes like cotton and broth
-- type: entity
-  name: cheese soup
+  - type: Item
+    storedRotation: -90
+  - type: Food
+    trash:
+    - FoodBowlBig
+    utensil: Spoon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: Spillable
+    solution: food
+  -   # soup weapon!
+type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Soup
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 5 behaviors: - !type:PlaySoundBehavior sound: collection: GlassBreak params: volume: -8 - !type:SpillBehavior { } - !type:SpawnEntitiesBehavior spawn: FoodBowlBigTrash: min: 1 max: 1 - !type:DoActsBehavior acts: [ "Destruction" ]'
+- # Custom Soup Example
+type: entity
+  name: pea soup
   parent: FoodBowlBase
-  id: FoodMothCheeseSoup
-  description: A simple and filling soup made from homemade cheese and sweet potato.
+  id: FoodSoupPea
+  description: A humble split pea soup.
   components:
-    - type: FlavorProfile
-      flavors:
-        - cheesy
-        - creamy
-        - potatoes
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: cheesesoup
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 10
-            - ReagentId: Vitamin
-              Quantity: 5
-            - ReagentId: Protein
-              Quantity: 1
-            - ReagentId: Milk
-              Quantity: 3
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-
-- type: entity
-  name: seed soup
+  - type: FlavorProfile
+    flavors:
+      - creamy
+      - peas
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+    layers:
+    - state: bowl
+    - state: alpha-filling
+      color: green
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+- # Salad
+type: entity
+  name: aesir salad
   parent: FoodBowlBase
-  id: FoodMothSeedSoup
-  description: A seed based soup, made by germinating seeds and then boiling them.
+  id: FoodSaladAesir
+  description: Probably too incredible for mortals to fully enjoy.
   components:
-    - type: FlavorProfile
-      flavors:
-        - bitter
-        - sour
-        - seeds
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: seedsoup
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 7
-            - ReagentId: Vitamin
-              Quantity: 3
-            - ReagentId: Water
-              Quantity: 5
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-
+  - type: FlavorProfile
+    flavors:
+      - leafy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: aesir
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 6
+        - ReagentId: Omnizine
+          Quantity: 8
+  - type: Tag
+    tags:
+    - Soup
+    - Fruit
 - type: entity
-  name: moth eyeball soup
+  name: herb salad
   parent: FoodBowlBase
-  id: FoodMothEyeballSoup
+  id: FoodSaladHerb
+  description: A tasty salad with apples on top.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - leafy
+      - apple
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: herb
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: valid salad
+  parent: FoodBowlBase
+  id: FoodSaladValid
+  description: It's just an herb salad with meatballs and fried potato slices. Nothing suspicious about it.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - leafy
+      - meaty
+      - potatoes
+      - validhunting
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: valid
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: DoctorsDelight
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Meat
+    - Fruit
+    - Soup
+- type: entity
+  name: coleslaw
+  parent: FoodBowlBase
+  id: FoodSaladColeslaw
+  description: Shredded cabbage and red onions dressed with a vinaigrette.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - onion
+      - cabbage
+      - sour
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: coleslaw
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Allicin
+          Quantity: 3
+- type: entity
+  name: caesar salad
+  parent: FoodBowlBase
+  id: FoodSaladCaesar
+  description: A simple yet flavorful salad of onions, lettuce, croutons, and shreds of cheese dressed in oil. Comes with a slice of pita bread!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - onion
+      - cabbage
+      - bread
+      - cheesy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: caesar
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 6
+- type: entity
+  name: kimchi salad
+  parent: FoodBowlBase
+  id: FoodSaladKimchi
+  description: It really is just a spicy salad.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+      - cabbage
+      - carrot
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: kimchi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Allicin
+          Quantity: 2
+- type: entity
+  name: fruit salad
+  parent: FoodBowlBase
+  id: FoodSaladFruit
+  description: Your standard fruit salad.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fruity
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: fruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: jungle salad
+  parent: FoodBowlBase
+  id: FoodSaladJungle
+  description: Exotic fruits in a bowl.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fruity
+      - jungle
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: fruit
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: citrus salad
+  parent: FoodBowlBase
+  id: FoodSaladCitrus
+  description: Citrus overload!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - leafy
+      - sour
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: citrusdelight
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 38
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Vitamin
+          Quantity: 15
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: salad of eden
+  parent: FoodBowlBase
+  id: FoodSaladEden
+  description: A salad brimming with untapped potential.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bitter
+      - hope
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: eden
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Omnizine
+          Quantity: 5
+- # Rice
+type: entity
+  name: boiled rice
+  parent: FoodBowlBase
+  id: FoodRiceBoiled
+  description: A warm bowl of rice.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: rice
+- type: entity
+  name: egg-fried rice
+  parent: FoodBowlBase
+  id: FoodRiceEgg
+  description: A bowl of rice with a fried egg.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - egg
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: rice-egg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+- type: entity
+  name: rice and pork
+  parent: FoodBowlBase
+  id: FoodRicePork
+  description: Well, it looks like pork...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - meaty
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: rice-pork
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 18
+        - ReagentId: Vitamin
+          Quantity: 7
+        - ReagentId: Dexalin
+          Quantity: 6.5
+        - ReagentId: Epinephrine
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+- type: entity
+  name: rice pudding
+  parent: FoodBowlBase
+  id: FoodRicePudding
+  description: Everybody loves rice pudding!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - sweet
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: rice-pudding
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: Milk
+          Quantity: 5
+        - ReagentId: Sugar
+          Quantity: 5
+- type: entity
+  name: black-eyed gumbo
+  parent: FoodBowlBase
+  id: FoodRiceGumbo
+  description: A spicy and savory meat and rice dish.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - spicy
+      - meaty
+      - savory
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: gumbo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 3
+        - ReagentId: CapsaicinOil
+          Quantity: 2
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+- # Misc
+type: entity
+  name: oatmeal
+  parent: FoodBowlBase
+  id: FoodOatmeal
+  description: A nice bowl of oatmeal.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - oats
+      - milk
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: oatmeal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Milk
+          Quantity: 10
+- type: entity
+  name: space liberty duff
+  parent: FoodBowlBase
+  id: FoodJellyDuff
+  description: Jello gelatin, from Alfred Hubbard's cookbook.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - jelly
+      - mushrooms
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: spacelibertyduff
+- type: entity
+  name: amanita jelly
+  parent: FoodInjectableBase
+  id: FoodJellyAmanita
+  description: It's evil, don't touch it!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - mushroom
+      - jelly
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meals.rsi
+    state: amanita-jelly
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6
+        - ReagentId: Amatoxin
+          Quantity: 6
+- # Soup
+type: entity
+  name: meatball soup
+  parent: FoodBowlBase
+  id: FoodSoupMeatball
+  description: You've got balls kid, BALLS!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meatballs
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: meatball
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 7
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Water
+          Quantity: 10
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+- type: entity
+  name: slime soup
+  parent: FoodBowlBase
+  id: FoodSoupSlime
+  description: If no water is available, you may substitute tears.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - slimy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: slime
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Water
+          Quantity: 10
+- type: entity
+  name: tomato soup
+  parent: FoodBowlBase
+  id: FoodSoupTomatoBlood
+  description: Smells like copper... is that a bone?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - metallic
+      - tomato
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: tomato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+        - ReagentId: Iron
+          Quantity: 10
+        - ReagentId: Blood
+          Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: wing fang chu
+  parent: FoodBowlBase
+  id: FoodSoupWingFangChu
+  description: A savory dish of alien wing wang in soy.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - salty
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: wingfangchu
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Protein
+          Quantity: 9
+        - ReagentId: Soysauce
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 7
+- type: entity
+  name: clown's tears
+  parent: FoodBowlBase
+  id: FoodSoupClown
+  description: Not very funny.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - bad-joke
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: clowntears
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 9
+        - ReagentId: Water
+          Quantity: 10
+- type: entity
+  name: vegetable soup
+  parent: FoodBowlBase
+  id: FoodSoupVegetable
+  description: A true vegan meal
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vegetables
+      - sadness
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: vegetable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 7
+        - ReagentId: Water
+          Quantity: 10
+        - ReagentId: Oculine
+          Quantity: 1
+- type: entity
+  name: nettle soup
+  parent: FoodBowlBase
+  id: FoodSoupNettle
+  description: To think, the botanist would've beat you to death with one of these.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - nettles
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: nettle
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 8
+        - ReagentId: Water
+          Quantity: 10
+        - ReagentId: Omnizine
+          Quantity: 5
+        - ReagentId: Histamine
+          Quantity: 0.5
+- type: entity
+  name: mystery soup
+  parent: FoodBowlBase
+  id: FoodSoupMystery
+  description: The mystery is, why aren't you eating it?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chaos
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: mystery
+- type: entity
+  name: bowl of hot chili
+  parent: FoodBowlBase
+  id: FoodSoupChiliHot
+  description: A Texan five-alarm chili!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: chili-hot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: CapsaicinOil
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 4
+          - ReagentId: Allicin
+            Quantity: 3
+  - type: Tag
+    tags:
+    - ChiliBowl
+- type: entity
+  name: cold chili
+  parent: FoodBowlBase
+  id: FoodSoupChiliCold
+  description: This slush is barely a liquid!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - minty
+      - tomato
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: chili-cold
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 8
+          - ReagentId: Vitamin
+            Quantity: 4
+  - type: Tag
+    tags:
+    - ChiliBowl
+- type: entity
+  name: chili con carnival
+  parent: FoodBowlBase
+  id: FoodSoupChiliClown
+  description: A delicious stew of meat, chilies, and salty, salty clown tears.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+      - tomato
+      - bad-joke
+      - parents
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: chili-clown
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: CapsaicinOil
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 4
+          - ReagentId: Allicin
+            Quantity: 3
+  - type: Tag
+    tags:
+    - ChiliBowl
+- type: entity
+  name: monkey's delight
+  parent: FoodBowlBase
+  id: FoodSoupMonkey
+  description: A delicious soup with hunks of monkey meat simmered to perfection, in a broth that tastes faintly of bananas.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - jungle
+      - banana
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: monkeydelight
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 10
+          - ReagentId: Vitamin
+            Quantity: 5
+          - ReagentId: TableSalt
+            Quantity: 1
+          - ReagentId: Blackpepper
+            Quantity: 1
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
+- type: entity
+  name: tomato soup
+  parent: FoodBowlBase
+  id: FoodSoupTomato
+  description: Drinking this feels like being a vampire! A tomato vampire...
+  components:
+  - type: FlavorProfile
+    flavors:
+      - tomato
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: tomato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 22
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 3
+          - ReagentId: Vitamin
+            Quantity: 5
+          - ReagentId: Water
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- type: entity
+  name: eyeball soup
+  parent: FoodBowlBase
+  id: FoodSoupEyeball
   description: It's looking back at you...
   components:
-    - type: FlavorProfile
-      flavors:
-        - tomato
-        - metallic
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: eyesoup
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 12
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 5
-            - ReagentId: Vitamin
-              Quantity: 3
-# Tastes like tomato, squirming.
+  - type: FlavorProfile
+    flavors:
+      - tomato
+      - squirming
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: eyeball
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
 - type: entity
-  name: bean stew
+  name: miso soup
   parent: FoodBowlBase
-  id: FoodMothBeanStew
-  description: A spicy bean stew with lots of veggies, commonly served as a filling and satisfying meal with rice or bread.
+  id: FoodSoupMiso
+  description: Salty, fishy soup, best had with ramen.
   components:
-    - type: FlavorProfile
-      flavors:
-        - salty
-        - cabbage
-        - spicy
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: beanstew
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 25
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 12
-            - ReagentId: Vitamin
-              Quantity: 8
-            - ReagentId: Protein
-              Quantity: 3
-            - ReagentId: Water
-              Quantity: 2
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like beans, cabbage and spicy sauce
+  - type: FlavorProfile
+    flavors:
+      - miso
+  - type: Food
+    trash:
+    - FoodBowlFancy
+  - type: Sprite
+    layers:
+    - state: bowl2
+    - state: miso
+  -   #rip milo
+type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 9
+          - ReagentId: Vitamin
+            Quantity: 3
+          - ReagentId: Water
+            Quantity: 10
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
 - type: entity
-  name: oat stew
+  name: mushroom soup
   parent: FoodBowlBase
-  id: FoodMothOatStew
-  description: A hearty oat stew, prepared with oats, sweet potatoes, and various winter vegetables.
+  id: FoodSoupMushroom
+  description: A delicious and hearty mushroom soup.
   components:
-    - type: FlavorProfile
-      flavors:
-        - oats
-        - potatoes
-        - carrot
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: oatstew
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 5
-            - ReagentId: Vitamin
-              Quantity: 10
-            - ReagentId: Water
-              Quantity: 5
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like oats, sweet potato, carrot and parsnip
+  - type: FlavorProfile
+    flavors:
+      - mushroom
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: mushroom
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 2
+          - ReagentId: Vitamin
+            Quantity: 6
+          - ReagentId: Water
+            Quantity: 5
+          - ReagentId: Milk
+            Quantity: 5
 - type: entity
-  name: heartburn soup
+  name: beet soup
   parent: FoodBowlBase
-  id: FoodMothHeartburnSoup
-  description: The heartburn soup is named after two things; it's rosy pink colour and it's scorchingly hot chili heat.
+  id: FoodSoupBeet
+  description: Wait, how do you spell it again..?
   components:
-    - type: FlavorProfile
-      flavors:
-        - spicy
-        - pink
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: heartburnsoup
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 6
-            - ReagentId: Vitamin
-              Quantity: 4
-            - ReagentId: Protein
-              Quantity: 4
-            - ReagentId: CapsaicinOil
-              Quantity: 1
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like oats, sweet potato, carrot and parsnip
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: beet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 3
+          - ReagentId: Vitamin
+            Quantity: 7
+          - ReagentId: Water
+            Quantity: 10
+- # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
+type: entity
+  name: red beet soup
+  parent: FoodBowlBase
+  id: FoodSoupBeetRed
+  description: Quite a delicacy.
+  components:
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: redbeet
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 4
+          - ReagentId: Vitamin
+            Quantity: 6
+- # Tastes like beet.
+type: entity
+  name: stew
+  parent: FoodBowlBase
+  id: FoodSoupStew
+  description: A nice and warm stew. Healthy and strong.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - tomato
+      - carrot
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: stew
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Protein
+            Quantity: 5
+          - ReagentId: Vitamin
+            Quantity: 2
+  - type: Tag
+    tags:
+    - Meat
+    - Fruit
+    - Soup
 - type: entity
-  name: mulan congee
+  name: sweet potato soup
   parent: FoodBowlBase
-  id: FoodMothHuaMulanCongee
-  description: A smiley bowl of rice porridge with eggs and bacon.
+  id: FoodSoupPotato
+  description: Delicious sweet potato in soup form.
   components:
-    - type: FlavorProfile
-      flavors:
-        - eggs
-        - bacon
-        - rice
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: huamulancongee
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 30
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 22
-            - ReagentId: Protein
-              Quantity: 8
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: sweetpotato
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 12
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 4
+          - ReagentId: Vitamin
+            Quantity: 5
+- # Tastes like sweet potato.
+type: entity
+  name: french onion soup
+  parent: FoodBowlBase
+  id: FoodSoupOnion
+  description: Good enough to make a grown mime cry.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - onion
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: onion
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 1
+          - ReagentId: Vitamin
+            Quantity: 5
+          - ReagentId: Allicin
+            Quantity: 5
 - type: entity
-  name: cornmeal porridge
+  name: bisque
   parent: FoodBowlBase
-  id: FoodMothCornmealPorridge
-  description: A plate of cornmeal porridge. It's more flavourful than most porridges, and makes a good base for other flavours, too.
+  id: FoodSoupBisque
+  description: A classic entrée from Space France.
   components:
-    - type: FlavorProfile
-      flavors:
-        - corn
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: cornmealporridge
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 11
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 9
-            - ReagentId: Vitamin
-              Quantity: 2
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like cornmeal.
+  - type: FlavorProfile
+    flavors:
+      - creamy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: bisque
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: Vitamin
+            Quantity: 6
+          - ReagentId: Protein
+            Quantity: 6
+          - ReagentId: Water
+            Quantity: 5
+- # Tastes like crab.
+type: entity
+  name: electron soup
+  parent: FoodBowlBase
+  id: FoodSoupElectron
+  description: A gastronomic curiosity of ethereal origin.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - mushrooms
+      - electrons
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: electron
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 3
+          - ReagentId: Licoxide
+            Quantity: 6
 - type: entity
-  name: cheesy porridge
+  name: bungo curry
   parent: FoodBowlBase
-  id: FoodMothCheesyPorridge
-  description: A rich and creamy bowl of cheesy cornmeal porridge.
+  id: FoodSoupBungo
+  description: A spicy vegetable curry made with the humble bungo fruit, Exotic!
   components:
-    - type: FlavorProfile
-      flavors:
-        - cheesy
-        - corn
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: cheesyporridge
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 20
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 12
-            - ReagentId: Vitamin
-              Quantity: 4
-            - ReagentId: Protein
-              Quantity: 4
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like cornmeal, cheese, more cheese, lots of cheese.
-- type: entity
-  name: fried eggplant and polenta
+  - type: FlavorProfile
+    flavors:
+      - jungle
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: bungo
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: Vitamin
+            Quantity: 5
+          - ReagentId: CapsaicinOil
+            Quantity: 5
+  - type: Tag
+    tags:
+    - Fruit
+    - Soup
+- # Tastes like bungo, hot curry.
+type: entity
+  name: escargot
   parent: FoodBowlBase
-  id: FoodMothEggplantPolenta
-  description: Polenta loaded with cheese, served with a few discs of fried eggplant and some tomato sauce.
+  id: FoodSoupEscargot
+  description: A creamy and rich bowl of snails, bon appetit!
   components:
-    - type: FlavorProfile
-      flavors:
-        - corn
-        - cheesy
-        - eggplant
-        - tomato
-    - type: Sprite
-      sprite: Nyanotrasen/Objects/Consumable/Food/soup.rsi
-      state: eggplantpolenta
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 30
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 10
-            - ReagentId: Vitamin
-              Quantity: 6
-            - ReagentId: Protein
-              Quantity: 12
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
-#Tastes like cornmeal, cheese, eggplant and tomato sauce
-- type: entity
-  name: vegetarian chili
-  parent: FoodBowlBase
-  id: FoodMothVegetarianChili
-  description: For the hombres who don't want carne.
-  components:
-    - type: FlavorProfile
-      flavors:
-        - bitter
-        - sour
-        - tomato
-    - type: Sprite
-      sprite: Objects/Consumable/Food/bowl.rsi
-      layers:
-        - state: bowl
-        - state: chili-hot
-    - type: SolutionContainerManager
-      solutions:
-        food:
-          maxVol: 15
-          reagents:
-            - ReagentId: Nutriment
-              Quantity: 6
-            - ReagentId: CapsaicinOil
-              Quantity: 3
-            - ReagentId: Vitamin
-              Quantity: 3
-            - ReagentId: JuiceTomato
-              Quantity: 3
-    - type: Tag
-      tags:
-        - ClothMade # Mothic Food
+  - type: FlavorProfile
+    flavors:
+      - creamy
+      - slimy
+  - type: Sprite
+    layers:
+    - state: bowl
+    - state: escargot
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nutriment
+            Quantity: 6
+          - ReagentId: Vitamin
+            Quantity: 6
+          - ReagentId: Allicin
+            Quantity: 3
+  - type: Tag
+    tags:
+    - Meat
+    - Soup
