@@ -1,109 +1,134 @@
-- # wood shelves
-type: constructionGraph
-  id: ShelvesWood
+- type: constructionGraph
+  id: N14Bed
   start: start
   graph:
     - node: start
+      actions:
+        - !type ':DestroyEntity {}'
       edges:
-        - to: ShelfWood
+        - to: bed
+          completed:
+            - !type ':SnapToGrid { }'
           steps:
-            - material: WoodPlank
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Cloth
               amount: 6
-              doAfter: 4
-        - to: ShelfWoodTall
+              doAfter: 2
+        - to: bedwood
+          completed:
+            - !type ':SnapToGrid { }'
           steps:
             - material: WoodPlank
-              amount: 9
-              doAfter: 4
-        - to: ShelfWoodShowcase
-          steps:
-            - material: WoodPlank
-              amount: 11
-              doAfter: 6
-        - to: ShelfWoodStand
-          steps:
-            - material: WoodPlank
+              amount: 2
+              doAfter: 1
+            - material: Cloth
               amount: 6
-              doAfter: 5
-        - to: ShelfWoodStandSmall
+              doAfter: 2
+        -         # start Misfits change
+to: bedwoodbunk
+          completed:
+            - !type ':SnapToGrid { }'
           steps:
             - material: WoodPlank
-              amount: 5
-              doAfter: 5
-        - to: ShelfWoodClothesRack
-          steps:
-            - material: WoodPlank
-              amount: 9
-              doAfter: 6
-    - node: ShelfWood
-      entity: N14ShelfWood1
-      edges:
-        - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 6
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
+              amount: 2
+              doAfter: 1
+            - material: Cloth
               amount: 6
-            - !type :DeleteEntity
-    - node: ShelfWoodTall
-      entity: N14ShelfWood
-      edges:
-        - to: start
-          steps:
-            - tool: Screwing
-              doAfter: 7
+              doAfter: 2
+        -         # end Misfits change
+to: bedroll
           completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 9
-            - !type :DeleteEntity
-    - node: ShelfWoodShowcase
-      entity: N14ShelfWoodShowcase
-      edges:
-        - to: start
+            - !type ':SnapToGrid { }'
           steps:
-            - tool: Screwing
-              doAfter: 8
+            - material: Cloth
+              amount: 3
+              doAfter: 2
+        - to: mattress
           completed:
-            - !type 
-              prototype: MaterialWoodPlank1
-              amount: 11
-            - !type :DeleteEntity
-    - node: ShelfWoodStand
-      entity: N14ShelfWoodStand
-      edges:
-        - to: start
+            - !type ':SnapToGrid { }'
           steps:
-            - tool: Screwing
-              doAfter: 6
-          completed:
-            - !type 
-              prototype: MaterialWoodPlank1
+            - material: Cloth
               amount: 6
-            - !type :DeleteEntity
-    - node: ShelfWoodStandSmall
-      entity: N14ShelfWoodStandSmall
+              doAfter: 2
+    - node: bed
+      entity: N14Bed
       edges:
         - to: start
+          completed:
+            - !type 
+              prototype: SheetSteel1
+              amount: 2
+            - !type 
+              prototype: MaterialCloth1
+              amount: 6
           steps:
             - tool: Screwing
-              doAfter: 4
+              doAfter: 1
+    - node: bedwood
+      entity: N14BedWood
+      edges:
+        - to: start
           completed:
             - !type 
               prototype: MaterialWoodPlank1
-              amount: 5
-            - !type :DeleteEntity
-    - node: ShelfWoodClothesRack
-      entity: N14ShelfWoodClothesRack
-      edges:
-        - to: start
+              amount: 2
+            - !type 
+              prototype: MaterialCloth1
+              amount: 6
           steps:
             - tool: Screwing
-              doAfter: 8
+              doAfter: 2
+    -     #start Misfits change
+node: bedwoodbunk
+      entity: N14BedWoodBunk
+      edges:
+        - to: start
           completed:
             - !type 
               prototype: MaterialWoodPlank1
-              amount: 9
-            - !type :DeleteEntity
+              amount: 2
+            - !type 
+              prototype: MaterialCloth1
+              amount: 6
+          steps:
+            - tool: Screwing
+              doAfter: 2
+    -     #end Misfits change
+node: medicalbed
+      entity: MedicalBed
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: SheetPlasteel1
+              amount: 2
+            - !type 
+              prototype: MaterialDurathread1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+    - node: bedroll
+      entity: N14Bedroll
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialCloth1
+              amount: 3
+          steps:
+            - tool: Slicing
+              doAfter: 1
+    - node: mattress
+      entity: N14BedMattress0
+      edges:
+        - to: start
+          completed:
+            - !type 
+              prototype: MaterialCloth1
+              amount: 6
+          steps:
+            - tool: Cutting
+              doAfter: 2
