@@ -1,17 +1,15 @@
 - type: entity
   parent: BaseItem
-  id: LegionnaireStandard
-  name: legionary banner
-  description: Honor, greatness, the heritage of the Legion.
+  id: N14Whip
+  name: whip
+  description: "A painful weapon of oppression."
   components:
     - type: Sprite
-      sprite: Corvax/Objects/Specific/romanstandard.rsi
+      sprite: Corvax/Objects/Weapons/Melee/whip.rsi
       state: icon
-    - type: Item
-      size: Ginormous
     - type: MeleeWeapon
+      soundHit:
+        collection: WhipSound
       damage:
         types:
-          Blunt: 25
-      soundHit:
-        collection: MetalThud
+          Slash: 10
