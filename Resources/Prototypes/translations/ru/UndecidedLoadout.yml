@@ -1,34 +1,33 @@
-#MARK: Squire
 - type: entity
-  id: N14BoSMidwestSquirekits
-  name: Undecided BoS Squire Kit
-  parent: NCRcadetloadoutkits
+  id: LegionPriestessLoadoutKits
+  name: kit
+  description: "please only take one."
+  parent: LegionCenturionloadoutkits
   components:
     - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/kits.rsi
-      state: rifleman
+      sprite: Corvax/Objects/Misc/kits.rsi
+      state: base
     - type: UndecidedLoadoutBackpack
       possibleSets:
-        - BoSSquiredefaultSet
-        - BoSSquiresniperSet
-
-#MARK: BoS Midwest Kitss
-- type: UndecidedLoadoutBackpackSet
-  id: BoSSquiredefaultSet
-  name: undecided-loadout-category-bos-squiredefault-name
-  description: undecided-loadout-category-bos-squiredefault-description
-  sprite:
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: marksman
-  content:
-    - KitSquireDefaultBoSMidwest
+        - PriestessHealingSet
+        - PriestessOrderSet
 
 - type: UndecidedLoadoutBackpackSet
-  id: BoSSquiresniperSet
-  name: undecided-loadout-category-bos-squiresniper-name
-  description: undecided-loadout-category-bos-squiresniper-description
+  id: PriestessHealingSet
+  name: undecided-loadout-category-misfits-priestess-healing-name
+  description: undecided-loadout-category-misfits-priestess-healing-desc
   sprite:
-    sprite: _Nuclear14/Objects/Misc/kits.rsi
-    state: marksman
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
   content:
-    - KitSquireSniperBoSMidwest
+    - KitPriestessHealing
+
+- type: UndecidedLoadoutBackpackSet
+  id: PriestessOrderSet
+  name: undecided-loadout-category-misfits-priestess-order-name
+  description: undecided-loadout-category-misfits-priestess-order-desc
+  sprite:
+    sprite: Corvax/Objects/Misc/kits.rsi
+    state: base
+  content:
+    - KitPriestessOrder
