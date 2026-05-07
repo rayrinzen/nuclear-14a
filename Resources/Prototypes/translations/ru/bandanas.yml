@@ -1,182 +1,132 @@
 - type: entity
-  parent: [ ClothingMaskBaseButcherable, BaseFoldable ]
-  id: ClothingMaskBandanaBase
-  abstract: true
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskRedMask
+  name: red mask
+  suffix: Generic
+  description: A short red scarf for covering your mouth.
   components:
-    - type: Appearance
-    - type: Foldable
-      canFoldInsideContainer: true
-    - type: FoldableClothing
-      foldedSlots:
-        - HEAD
-      unfoldedSlots:
-        - MASK
+    - type: Sprite
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/redscarf.rsi
+    - type: Clothing
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/redscarf.rsi
     - type: Mask
     - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
     - type: IdentityBlocker
-      coverage: MOUTH
-    - type: Sprite
-      layers:
-        - state: icon_mask
-          map: [ "unfoldedLayer" ]
-        - state: icon
-          map: [ "foldedLayer" ]
-          visible: false
     - type: Tag
       tags:
-        - Bandana
-    - type: HideLayerClothing
-      slots:
-        - Snout
-      hideOnToggle: true
-    - type: StaticPrice
-      price: 2 # Corvax-Change
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandWhite
-  name: bandana
-  description: A bandana to make you look cool.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Bandanas/white.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Bandanas/white.rsi
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBlack
-  name: black bandana
-  description: A black bandana to make you look cool.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Bandanas/black.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Bandanas/black.rsi
-    - type: Construction
-      graph: blackbandana
-      node: bandanablack
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBlue
-  name: blue bandana
-  description: A blue bandana to make you look cool.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Bandanas/blue.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Bandanas/blue.rsi
-    - type: Construction
-      graph: bluebandana
-      node: bandanablue
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBotany
-  name: botany bandana
-  description: A botany bandana to make you look cool, made from natural fibers.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Bandanas/botany.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Bandanas/botany.rsi
-    - type: Tag
-      tags:
-        - ClothMade
         - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandGold
-  name: gold bandana
-  description: A gold bandana to make you look cool.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskDesertMask
+  name: desert mask
+  suffix: Generic
+  description: A short tan scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/gold.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/desertmask.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/gold.rsi
-    - type: Construction
-      graph: goldbandana
-      node: bandanagold
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/desertmask.rsi
+    - type: BreathMask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandGreen
-  name: green bandana
-  description: A green bandana to make you look cool.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskBlueMask
+  name: blue mask
+  suffix: Generic
+  description: A short blue scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/green.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/bluescarf.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/green.rsi
-    - type: Construction
-      graph: greenbandana
-      node: bandanagreen
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/bluescarf.rsi
+    - type: Mask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandGrey
-  name: grey bandana
-  description: A grey bandana to make you look cool.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskGreenMask
+  name: green mask
+  suffix: Generic
+  description: A short green scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/grey.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/greenscarf.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/grey.rsi
-    - type: Construction
-      graph: greybandana
-      node: bandanagrey
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/greenscarf.rsi
+    - type: Mask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandRed
-  name: red bandana
-  description: A red bandana to make you look cool.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskOrangeMask
+  name: orange mask
+  suffix: Generic
+  description: A short orange scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/red.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/orangescarf.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/red.rsi
-    - type: Construction
-      graph: redbandana
-      node: bandanared
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/orangescarf.rsi
+    - type: Mask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandSkull
-  name: skull bandana
-  description: A bandana with a skull to make you look even cooler.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskBrownMask
+  name: brown mask
+  suffix: Generic
+  description: A short brown scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/skull.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/brownscarf.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/skull.rsi
-    - type: Construction
-      graph: skullbandana
-      node: bandanaskull
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/brownscarf.rsi
+    - type: Mask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
 
 - type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandMerc
-  name: mercenary bandana
-  description: To protect the head from the sun, insects and other dangers of the higher path.
+  parent: ClothingMaskPullableBase
+  id: N14ClothingMaskPatriotMask
+  name: patriot mask
+  suffix: Generic
+  description: A short and very patriotic scarf for covering your mouth.
   components:
     - type: Sprite
-      sprite: Clothing/Head/Bandanas/merc.rsi
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/patriotscarf.rsi
     - type: Clothing
-      sprite: Clothing/Head/Bandanas/merc.rsi
-
-- type: entity
-  parent: ClothingMaskBandanaBase
-  id: ClothingMaskBandBrown
-  name: brown bandana
-  description: A brown bandana to make you look cool.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Bandanas/brown.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Bandanas/brown.rsi
-    - type: Construction
-      graph: brownbandana
-      node: bandanabrown
+      sprite: _Nuclear14/Clothing/Mask/Bandanas/patriotscarf.rsi
+    - type: Mask
+    - type: IngestionBlocker
+    # #Misfits Fix - Face coverings should block identification.
+    - type: IdentityBlocker
+    - type: Tag
+      tags:
+        - WhitelistChameleon
