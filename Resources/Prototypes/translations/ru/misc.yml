@@ -1,225 +1,258 @@
 - type: entity
-  id: LockerSyndicatePersonalFilled
-  suffix: Filled
-  parent: LockerSyndicatePersonal
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBunny
+  name: bunny ears
+  description: Cute bunny ears.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        children:
-        - !type 
-          id: ClothingBeltMilitaryWebbing
-        - !type 
-          id: ClothingHandsGlovesCombat
-        - !type 
-          id: JetpackBlackFilled
-        - !type 
-          id: ClothingUniformJumpsuitOperative
-        - !type 
-          id: ClothingUniformJumpskirtOperative
-        - !type 
-          id: ClothingHeadsetAltSyndicate
-        - !type 
-          id: ClothingEyesHudSyndicate
-- type: entityTable
-  id: FillLockerEmergencyStandard
-  table: !type
-    children:
-    - !type 
-      id: ClothingMaskBreath
-    - !type 
-      id: ClothingOuterSuitEmergency
-    - !type 
-      children:
-      - !type 
-        id: EmergencyOxygenTankFilled
-      - !type 
-        id: OxygenTankFilled
-    - !type 
-      id: ToolboxEmergencyFilled
-      prob: 0.5
-    - !type 
-      id: MedkitOxygenFilled
-      prob: 0.2
-    - !type 
-      id: WeaponFlareGun
-      prob: 0.05
-    - !type 
-      id: BoxMRE
-      prob: 0.1
+  - type: Sprite
+    sprite: Clothing/Head/Misc/bunny.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/bunny.rsi
 - type: entity
-  id: ClosetEmergencyFilledRandom
-  parent: ClosetEmergency
-  suffix: Filled, Random
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCake
+  name: cake hat
+  description: You put the cake on your head. Brilliant.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: FillLockerEmergencyStandard
+  - type: Sprite
+    sprite: Clothing/Head/Misc/cake.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/cake.rsi
 - type: entity
-  id: ClosetWallEmergencyFilledRandom
-  parent: ClosetWallEmergency
-  suffix: Filled, Random
+  parent: ClothingHeadBase
+  id: ClothingHeadHatChickenhead
+  name: chicken head
+  description: "It's a chicken head. Bok bok bok!"
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: FillLockerEmergencyStandard
+  - type: Sprite
+    sprite: Clothing/Head/Misc/chickenhead.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/chickenhead.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
 - type: entity
-  id: ClosetEmergencyN2FilledRandom
-  parent: ClosetEmergencyN2
-  suffix: Filled, Random
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFlowerWreath
+  name: flower wreath
+  description: A wreath of colourful flowers. Can be worn both on head and neck.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        children:
-        - !type 
-          id: ClothingMaskBreath
-        - !type 
-          id: ClothingOuterSuitEmergency
-        - !type 
-          children:
-          - !type 
-            id: EmergencyNitrogenTankFilled
-          - !type 
-            id: NitrogenTankFilled
-- type: entityTable
-  id: FillLockerFireStandard
-  table: !type
-    children:
-    - !type 
-      id: ClothingOuterSuitFire
-    - !type 
-      id: ClothingHeadHelmetFire
-    - !type 
-      id: ClothingMaskGas
-    - !type 
-      children:
-      - !type 
-        id: EmergencyOxygenTankFilled
-      - !type 
-        id: OxygenTankFilled
-    - !type 
-      id: CrowbarRed
-    - !type 
-      children:
-      - !type 
-        id: FireExtinguisher
-        weight: 98
-      - !type 
-        id: SprayBottleWater #It's just budget cut after budget cut man
-        weight: 2
+  - type: Sprite
+    sprite: Clothing/Head/Misc/flower-wreath.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/flower-wreath.rsi
+    slots:
+    - HEAD
+    - neck
+  - type: Construction
+    graph: flowerwreath
+    node: flowerwreath
 - type: entity
-  id: ClosetFireFilled
-  parent: ClosetFire
-  suffix: Filled
+  parent: ClothingHeadLightBase
+  id: ClothingHeadHatPumpkin
+  name: pumpkin hat
+  description: A jack o' lantern! Believed to ward off evil spirits.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: FillLockerFireStandard
+  - type: Sprite
+    sprite: Clothing/Head/Misc/pumpkin.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/pumpkin.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 1
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    color: "#cc6600"
+    netsync: false
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
 - type: entity
-  id: ClosetWallFireFilledRandom
-  parent: ClosetWallFire
-  suffix: Filled
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPwig
+  name: pwig
+  description: To be honest, those look ridiculous.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: FillLockerFireStandard
-- type: entityTable
-  id: SyndieMaintLoot
-  table: !type
-    children:
-    - !type 
-      children:
-      - !type 
-        id: ClothingUniformJumpsuitOperative
-      - !type 
-        id: ClothingUniformJumpskirtOperative
-    - !type 
-      id: ClothingBackpackDuffelSyndicate
-    - !type 
-      id: CyberPen
-    - !type 
-      id: CigPackSyndicate
-    - !type 
-      id: ClothingBackpackDuffelSyndicatePyjamaBundle
-    - !type 
-      id: ClothingBeltMilitaryWebbing
-    - !type 
-      id: ClothingShoesBootsCombatFilled
-    - !type 
-      id: ToolboxSyndicateFilled
-    - !type 
-      id: BalloonSyn
-    - !type 
-      id: WeaponSniperMosin
-      weight: 2
-    - !type 
-      id: ClothingEyesNightVisionGogglesSyndie
-    - !type 
-      id: ClothingEyesThermalVisionGogglesSyndie
-- type: entityTable
-  id: MaintenanceLockerLoot
-  table: !type
-    children:
-    - !type 
-      id: StrangePill
-      prob: 0.20
-    - !type 
-      tableId: MaintToolsTable
-      rolls: !type
-        range: 1, 5
-    - !type 
-      tableId: MaintFluffTable
-      prob: 0.33
-      rolls: !type
-        range: 0, 2
-    - !type 
-      tableId: AllPlushiesTable
-      prob: 0.10
-      rolls: !type
-        range: 1, 2
-    - !type 
-      tableId: MaintWeaponTable
-      prob: 0.075
-    - !type 
-      tableId: SyndieMaintLoot
-      prob: 0.05
+  - type: Sprite
+    sprite: Clothing/Head/Misc/pwig.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/pwig.rsi
 - type: entity
-  id: ClosetMaintenanceFilledRandom
-  suffix: Filled, Random
-  parent: ClosetMaintenance
+  parent: ClothingHeadBase
+  id: ClothingHeadMirror
+  name: head mirror
+  description: I doubt even the CMO knows how to use this thing.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: MaintenanceLockerLoot
+  - type: Sprite
+    sprite: Clothing/Head/Misc/head_mirror.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/head_mirror.rsi
 - type: entity
-  id: ClosetWallMaintenanceFilledRandom
-  parent: ClosetWall
-  suffix: Filled, Random
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRichard
+  name: richard
+  description: 'Do you like hurting people?'
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        tableId: MaintenanceLockerLoot
+  - type: Sprite
+    sprite: Clothing/Head/Misc/richard.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/richard.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
 - type: entity
-  id: ClosetWallRadiationFilled
-  suffix: Filled
-  parent: ClosetWallRadiation
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSkub
+  name: skub hat
+  description: 'Best paired with the Skub Suit.'
   components:
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type
-        children:
-        - !type 
-          id: ClothingOuterSuitRad
-          amount: !type
-            value: 2
-        - !type 
-          id: GeigerCounter
-          amount: !type
-            value: 2
+  - type: Sprite
+    sprite: Clothing/Head/Misc/skubhead.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/skubhead.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatShrineMaidenWig
+  name: shrine maiden's wig
+  description: The tag reads "All proceeds go to the Hakurei Shrine."
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCone
+  name: warning cone
+  description: This cone is trying to warn you of something!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/cone.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/cone.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatFancyCrown
+  name: fancy crown
+  description: It smells like dead rat. Lets you speak like one!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/fancycrown.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/fancycrown.rsi
+  - type: MobPrice
+    price: 3000
+  - type: AddAccentClothing
+    accent: MobsterAccent
+- type: entity
+  parent: ClothingHeadBase
+  id: ActionBecomeValid
+  name: Become Valid
+  description: "*notices your killsign* owo whats this"
+  suffix: Valid, DO NOT MAP
+  components:
+  - type: InstantAction
+    event: !type :ToggleActionEvent
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatDogEars
+  name: doggy ears
+  description: Only for good boys.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/dogears.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Hats/dogears.rsi
+  - type: AddAccentClothing
+    accent: BarkAccent
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSquid
+  name: squiddy
+  description: "Scare your friends with this eldritch mask."
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/squiddy.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/squiddy.rsi
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatRedRacoon
+  name: red racoon hat
+  description: Fluffy hat of red racoon!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/red_racoon.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/red_racoon.rsi
+- type: entity
+  parent: Clothing
+  id: WaterDropletHat
+  name: water droplet
+  description: Makes 8-eyed friends 8 times more adorable!
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/waterdroplet.rsi
+    state: icon
+  - type: Item
+    sprite: Clothing/Head/Misc/waterdroplet.rsi
+    size: Tiny
+    storedRotation: -90
+  - type: Clothing
+    slots:
+    - HEAD
+  - type: Food
+    solution: drink
+    useSound: /Audio/Items/drink.ogg
+    eatMessage: drink-component-try-use-drink-success-slurp
+    delay: 0.5
+    forceFeedDelay: 1.5
+  - type: FlavorProfile
+    flavors:
+      - water
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 2
+        reagents:
+        - ReagentId: Water
+          Quantity: 2
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Damageable
+    damageContainer: Biological
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 1 behaviors: - !type:PlaySoundBehavior sound: collection: desecration - !type:SpillBehavior solution: drink - !type:DoActsBehavior acts: [ "Destruction" ]'
+  - type: Tag
+    tags:
+      - WhitelistChameleon
+  - type: StaticPrice
+    price: 1
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHeadBandBasic
+  name: basic headband
+  description: Perfect for martial artists, sweaty rogue operators, and tunnel gangsters.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Misc/headband.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Misc/headband.rsi
