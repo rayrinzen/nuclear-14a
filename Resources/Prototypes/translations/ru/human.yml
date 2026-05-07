@@ -1,35 +1,101 @@
 - type: entity
-  name: syndicate footsoldier spawner
-  id: SpawnMobSyndicateFootSoldier
-  parent: MarkerBase
+  name: civilian
+  parent: BaseMobHuman
+  id: MobCivilian
+  description: A miserable pile of secrets.
   components:
-    #God forgive me for what I'm about to do
-    - type: Sprite
-      layers:
-        - state: green
-        - sprite: Mobs/Species/Human/parts.rsi
-          state: full
-        - sprite: Clothing/Shoes/Boots/combatboots.rsi
-          state: equipped-FEET
-        - sprite: Clothing/Uniforms/Jumpsuit/operative.rsi
-          state: equipped-INNERCLOTHING
-        - sprite: Clothing/OuterClothing/Armor/security.rsi
-          state: equipped-OUTERCLOTHING
-        - sprite: Clothing/Hands/Gloves/Color/black.rsi
-          state: equipped-HAND
-        - sprite: Clothing/Mask/gas.rsi
-          state: equipped-MASK
-        - sprite: Clothing/Head/Helmets/swat_syndicate.rsi
-          state: equipped-HELMET
-    - type: ConditionalSpawner
-      prototypes:
-        - MobSyndicateFootsoldier
+    - type: InputMover
+    - type: MobMover
+    - type: Loadout
+      prototypes: [ PassengerGear ]
+    - type: NpcFactionMember
+      factions:
+        - NanoTrasen
 
 - type: entity
-  name: syndicate shuttle pilot spawner
-  id: SpawnMobSyndicateFootsoldierPilot
-  parent: SpawnMobSyndicateFootSoldier
+  name: salvager
+  parent: BaseMobHuman
+  id: MobSalvager
   components:
-    - type: ConditionalSpawner
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
       prototypes:
-        - MobSyndicateFootsoldierPilot
+        - SalvageSpecialistGear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: spirate
+  parent: BaseMobHuman
+  id: MobSpirate
+  description: Yarr!
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - PirateGear
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: syndicate footsoldier
+  parent: BaseMobHuman
+  id: MobSyndicateFootsoldier
+  components:
+    - type: NpcFactionMember
+      factions:
+        - Syndicate
+    - type: Loadout
+      prototypes:
+        - SyndicateFootsoldierGearRuin
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: syndicate shuttle pilot
+  parent: MobSyndicateFootsoldier
+  id: MobSyndicateFootsoldierPilot
+
+- type: entity
+  parent: BaseMobHuman
+  suffix: Dead
+  save: false # mobs are currently not saveable.
+  id: SalvageHumanCorpse
+  name: unidentified corpse
+  description: I think they're dead.
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: Damageable
+      damage:
+        types:
+          Bloodloss: 49
+          Asphyxiation: 76
+          Slash: 56
+          Blunt: 19
+          Radiation: 1984 # DV: Unrevivable due to prolonged exposure to space.
+    - type: Inventory
+      templateId: corpse
+
+- type: entity
+  parent: MobHuman
+  id: MobCluwne
+  name: person
+  description: A polymorphed unfortunate.
+  components:
+    - type: Cluwne
+    - type: Speech
+      speechVerb: Cluwne
