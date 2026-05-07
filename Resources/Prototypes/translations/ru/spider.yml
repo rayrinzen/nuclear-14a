@@ -1,22 +1,79 @@
 - type: entity
-  id: ActionSpiderWeb
-  name: Spider Web
-  description: Spawns a web that slows your prey down.
-  categories:
-  - HideSpawnMenu
+  id: PartSpider
+  parent: BaseItem
+  name: "spider body part"
+  abstract: true
   components:
-  - type: InstantAction
-    icon: Interface/Actions/web.png
-    event: !type :SpiderWebActionEvent
-    useDelay: 25
+  - type: Damageable
+    damageContainer: OrganicPart
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type
+        ents: [ ]
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+      - Trash
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: DemonsBlood
+        Quantity: 10
 - type: entity
-  id: ActionSericulture
-  name: Weave silk
-  description: Weave a bit of silk for use in arts and crafts.
-  categories:
-  - HideSpawnMenu
+  id: ThoraxSpider
+  name: "spider thorax" #for arachne, actual spiders should get a cephalothorax that combines with head.
+  parent: PartSpider
   components:
-  - type: InstantAction
-    icon: Interface/Actions/web.png
-    event: !type :SericultureActionEvent
-    useDelay: 1
+  - type: Sprite
+    sprite: Mobs/Species/Moth/parts.rsi # placeholder sprite
+    state: "torso_m"
+  - type: Icon
+    sprite: Mobs/Species/Moth/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    slotId: thorax
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: DemonsBlood
+        Quantity: 20
+- type: entity
+  id: RightLegSpider
+  name: "right spider leg"
+  parent: PartSpider
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    state: spiderleg
+  - type: Icon
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: spiderleg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+  - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
+    walkSpeed: 2.7
+    sprintSpeed: 5
+- type: entity
+  id: LeftLegSpider
+  name: "left spider leg"
+  parent: PartSpider
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    state: spiderleg
+  - type: Icon
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: spiderleg
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+  - type: MovementBodyPart #should actual spiders get a seperate part from arachne?
+    walkSpeed: 2.7
+    sprintSpeed: 5
