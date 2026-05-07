@@ -1,14 +1,10 @@
-- type: latheRecipe
-  id: ConveyorBeltAssembly
-  result: ConveyorBeltAssembly
-  completetime: 4
-  materials:
-    Steel: 500
-    Plastic: 50
+# Supplies
 
-- type: latheRecipe
-  id: AppraisalTool
-  result: AppraisalTool
-  completetime: 4
-  materials:
-    Steel: 500
+null
+
+# Medical / Aid
+# Weapons
+# Ammo
+# Clothing / Armor
+# Companions
+# Crafting
