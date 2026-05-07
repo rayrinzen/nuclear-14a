@@ -1,5 +1,24 @@
 - type: entity
-  id: BulletImpactEffect
+  id: PlasmaMuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: TimedDespawn
+      lifetime: 0.4
+    - type: Sprite
+      drawdepth: Effects
+      layers:
+        - shader: unshaded
+          map: [ "enum.EffectLayers.Unshaded" ]
+          sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Projectiles/plasma.rsi
+          state: muzzle_plasma
+    - type: EffectVisuals
+    - type: Tag
+      tags:
+        - HideContextMenu
+    - type: AnimationPlayer
+
+- type: entity
+  id: BulletPlasmaImpactEffect
   categories: [ HideSpawnMenu ]
   components:
     - type: TimedDespawn
@@ -9,63 +28,8 @@
       layers:
         - shader: unshaded
           map: [ "enum.EffectLayers.Unshaded" ]
-          sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-          state: impact_bullet
-    - type: EffectVisuals
-    - type: Tag
-      tags:
-        - HideContextMenu
-
-- type: entity
-  id: BulletImpactEffectDisabler
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: TimedDespawn
-      lifetime: 0.2
-    - type: Sprite
-      drawdepth: Effects
-      layers:
-        - shader: unshaded
-          map: [ "enum.EffectLayers.Unshaded" ]
-          sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-          state: impact_laser_blue
-    - type: EffectVisuals
-    - type: Tag
-      tags:
-        - HideContextMenu
-
-- type: entity
-  id: BulletImpactEffectOrangeDisabler
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: TimedDespawn
-      lifetime: 0.2
-    - type: Sprite
-      drawdepth: Effects
-      layers:
-        - shader: unshaded
-          map: [ "enum.EffectLayers.Unshaded" ]
-          sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
-          state: impact_laser_greyscale
-          color: orangered
-    - type: EffectVisuals
-    - type: Tag
-      tags:
-        - HideContextMenu
-
-- type: entity
-  id: BulletImpactEffectKinetic
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: TimedDespawn
-      lifetime: 0.2
-    - type: Sprite
-      drawdepth: Effects
-      layers:
-        - shader: unshaded
-          map: [ "enum.EffectLayers.Unshaded" ]
-          sprite: Effects/arcs.rsi
-          state: punch
+          sprite: _Nuclear14/Objects/Weapons/Guns/Ammunition/Projectiles/plasma.rsi
+          state: impact_plasma
     - type: EffectVisuals
     - type: Tag
       tags:
