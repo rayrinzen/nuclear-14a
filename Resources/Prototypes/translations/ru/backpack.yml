@@ -1,41 +1,12 @@
 - type: entity
-  parent: ClothingBackpackSatchelLeather
-  id: ClothingBackpackMafiaFilled
-  suffix: Filled, Mafia
-  components:
-    - type: StorageFill
-      contents:
-        - id: BoxSurvival
-        - id: WeaponSubMachineGunTypewriter
-        - id: WeaponPistolViperWood
-        - id: MagazinePistol
-        - id: BaseBallBat
-
-- type: entity
   categories: [ HideSpawnMenu ]
-  parent: ClothingBackpackMedical
-  id: ClothingBackpackParamedicFilledDV
+  parent: ClothingBackpackScience
+  id: ClothingBackpackMantisFilled
   components:
     - type: StorageFill
       contents:
-        - id: EmergencyRollerBedSpawnFolded
-        - id: BodyBagFolded
-        - id: Portafib
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: ClothingBackpackMedical
-  id: ClothingBackpackPsychologistFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: RubberStampPsychologist
-
-- type: entity
-  categories: [ HideSpawnMenu ]
-  parent: ClothingBackpack
-  id: ClothingBackpackLawyerFilled
-  components:
-    - type: StorageFill
-      contents:
-        - id: RubberStampLawyer
+        # - id: BoxForensicPad # DeltaV - Mantis is no longer a Detective
+        - id: HandLabeler
+        - id: PillMindbreakerToxin
+        - id: BoxFolderGrey
+        - id: RubberStampMantis
