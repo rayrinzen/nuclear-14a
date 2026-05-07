@@ -1,20 +1,33 @@
+# #Misfits Add - Vault-assigned robot headset: wasteland + vault comms
 - type: entity
-  parent: ClothingHeadset
-  id: ClothingHeadsetMagistrate
-  name: magistrate's headset
-  description: The headset used by the magistrate.
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetRobotVault
+  name: integrated vault comms module
+  description: A hardwired communications module tuned to both wasteland and Vault frequencies.
   components:
     - type: ContainerFill
       containers:
         key_slots:
-          - EncryptionKeyCommand
-          - EncryptionKeyCentCom
-          - EncryptionKeyJustice
-          - EncryptionKeyPrison
-          - EncryptionKeySecurity
           - EncryptionKeyCommon
+          - EncryptionKeyWastelandGlobal
+          - EncryptionKeyVault
     - type: Sprite
-      sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
-      state: icon_alt
+      sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
     - type: Clothing
-      sprite: DeltaV/Clothing/Ears/Headsets/justice.rsi
+      sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
+
+# #Misfits Change - Wasteland scrap headset for junk pile loot drops
+- type: entity
+  parent: N14ClothingHeadsetAlt
+  id: MisfitsClothingHeadsetWastelandScrap
+  name: scrap headset
+  description: A battered, jury-rigged headset salvaged from the wastes. Barely holds together, but it still picks up the wasteland frequency.
+  components:
+    - type: ContainerFill
+      containers:
+        key_slots:
+          - EncryptionKeyWastelandGlobal
+    - type: Sprite
+      sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
+    - type: Clothing
+      sprite: _Misfits/Clothing/Ears/Headsets/scrap.rsi
