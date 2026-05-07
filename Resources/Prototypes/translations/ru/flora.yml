@@ -1,42 +1,25 @@
 - type: entity
-  id: RandomFloraTree
-  name: random tree spawner
-  parent: MarkerBase
+  parent: BaseTree
+  id: ForgeDeadTree1
+  name: Dead Tree
+  description: An old, dead tree scorched by the sun and radioactive wasteland.
   components:
-    - type: Sprite
-      layers:
-        - state: red
-        - sprite: Objects/Decoration/Flora/flora_trees.rsi
-          state: icon
-    - type: RandomSpawner
-      prototypes:
-        - FloraTreeLarge01
-        - FloraTreeLarge02
-        - FloraTreeLarge03
-        - FloraTreeLarge04
-        - FloraTreeLarge05
-        - FloraTreeLarge06
-        - FloraTreeConifer01
-        - FloraTreeConifer02
-        - FloraTreeConifer03
-        - FloraTreeSnow01
-        - FloraTreeSnow02
-        - FloraTreeSnow03
-        - FloraTreeSnow04
-        - FloraTreeSnow05
-        - FloraTreeSnow06
-        - FloraTree01
-        - FloraTree02
-        - FloraTree03
-        - FloraTree04
-        - FloraTree05
-        - FloraTree06
-      chance: 0.95
-      rarePrototypes:
-        - ShadowTree01
-        - ShadowTree02
-        - ShadowTree03
-        - ShadowTree04
-        - ShadowTree05
-        - ShadowTree06
-      rareChance: 0.05
+  - type: Sprite
+    sprite: Corvax/Structures/Misc/deadtree.rsi
+    state: dead-tree
+    offset: 0,0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: '!type:PhysShapeAabb bounds: "-0.7,-0.3,-0.4,-1.2"'
+        density: 1000
+        layer:
+        - WallLayer
+- type: entity
+  parent: ForgeDeadTree1
+  id: ForgeDeadTree2
+  components:
+  - type: Sprite
+    sprite: Corvax/Structures/Misc/deadtree.rsi
+    state: dead-tree2
+    offset: 0,0
