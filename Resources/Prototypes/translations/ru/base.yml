@@ -1,42 +1,18 @@
-- type: Interaction
-  id: Base
+- type: entity
+  id: BaseMechWeaponRange
+  parent: BaseMechEquipment
   abstract: true
-  effectSuccess:
-    popup: Small
-  effectFailure:
-    popup: SubtleFail
-
-# Base global interaction
-- type: Interaction
-  id: BaseGlobal
-  abstract: true
-  global: true
-
-# Base interaction that involves hands
-- type: Interaction
-  id: BaseHands
-  abstract: true
-  requiresHands: true
-  requiresCanInteract: true
-  contactInteraction: true
-  range:
-    max: 1.2
-  effectSuccess:
-    popup: Obvious
-    sound: { path: /Audio/Effects/thudswoosh.ogg }
-  effectFailure:
-    popup: Fail
-    sound: { path: /Audio/Effects/thudswoosh.ogg }
-
-# Base interaction using dangerous popups
-- type: Interaction
-  id: BaseDangerous
-  abstract: true
-  effectSuccess:
-    popup: Dangerous
-    sound: { path: /Audio/Effects/thudswoosh.ogg }
-  effectFailure:
-    popup: Fail
-    sound: { path: /Audio/Effects/thudswoosh.ogg }
-  effectDelayed:
-    popup: DangerousDelayed
+  components:
+    - type: Battery
+      maxCharge: 100 # Battery is charged by mech
+      startingCharge: 100
+    - type: Appearance
+    - type: StaticPrice
+      price: 1
+    - type: Item
+      size: Ginormous
+    - type: MultiHandedItem
+    - type: ClothingSpeedModifier
+      walkModifier: 0.5
+      sprintModifier: 0.5
+    - type: HeldSpeedModifier
