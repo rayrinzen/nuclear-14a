@@ -1,12 +1,80 @@
-#MARK: Holotapes
-- type: entity
-  parent: BaseItem
-  id: N14EmptySlot
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: Sprite
-      sprite: _Nuclear14/Objects/Misc/tapes_cards.rsi
-      state: holotape_black
-      scale: 0.75, 0.75
-    - type: TimedDespawn
-      lifetime: 1
+- type: htnCompound
+  id: DebugCounterCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          amount: 1
+      - !type 
+        operator: !type
+          key: Count
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+- type: htnCompound
+  id: DebugRandomCounterCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          minAmount: 0
+          maxAmount: 100
+      - !type 
+        operator: !type
+          key: Count
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+- type: htnCompound
+  id: DebugRandomLessCompound
+  branches:
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          targetKey: Count
+          minAmount: 0
+          maxAmount: 100
+      - !type 
+        operator: !type
+          key: Count
+        preconditions:
+          - !type 
+            key: Count
+            value: 50
+      - !type 
+          operator: !type
+            targetKey: IdleTime
+            minKey: MinimumIdleTime
+            maxKey: MaximumIdleTime
+      - !type 
+        operator: !type
+          key: IdleTime
+        preconditions:
+          - !type 
+            key: IdleTime
+    - 
+    tasks:
+      - !type 
+        operator: !type
+          speech: "fuck!"
