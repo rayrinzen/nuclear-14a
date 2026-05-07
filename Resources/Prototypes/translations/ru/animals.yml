@@ -1,54 +1,55 @@
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatAnimalCat
-  name: grey cat hat
-  description: A cute and fluffy head of a grey cat.
+  name: Random Animal Spawner
+  id: RandomAnimalSpawner
+  parent: MarkerBase
+  suffix: No Mice
   components:
     - type: Sprite
-      sprite: Clothing/Head/Animals/cat.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Animals/cat.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatAnimalCatBrown
-  name: brown cat hat
-  description: A cute and fluffy head of a brown cat.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Animals/cat2.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Animals/cat2.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatAnimalCatBlack
-  name: black cat hat
-  description: A cute and fluffy head of a black cat.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Animals/cat3.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Animals/cat3.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatAnimalHeadslime
-  name: headslime hat
-  description: A green, sticky headslime, you put it on your head.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Animals/headslime.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Animals/headslime.rsi
-
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatAnimalMonkey
-  name: monkey hat
-  description: That's a monkey head. It has a hole on a mouth to eat bananas.
-  components:
-    - type: Sprite
-      sprite: Clothing/Head/Animals/monkey.rsi
-    - type: Clothing
-      sprite: Clothing/Head/Animals/monkey.rsi
+      layers:
+        - state: red
+        - sprite: Mobs/Animals/chicken.rsi
+          state: icon-1
+    - type: RandomSpawner
+      offset: 0
+      prototypes:
+        - MobChicken
+        - MobDuckMallard
+        - MobDuckWhite
+        - MobDuckBrown
+        - MobCow
+        - MobGoat
+        - MobPig
+        - MobMonkey
+        - MobParrot
+        - MobPenguin
+        - MobPossum
+        - MobPossumOld
+        - MobRaccoon
+        - MobFox
+        - MobArcticFox
+        - MobCat
+      chance: 1
+      rarePrototypes:
+        - MobGorilla
+        - MobKangaroo
+        - MobBoxingKangaroo
+        - MobGoose
+        - MobSnake
+        - MobGiantSpider
+        - MobGiantSpiderAngry
+        - MobCorgi
+        - MobCorgiNarsi
+        - MobCorgiPuppy
+        - MobCrab
+        - MobCatSpace
+        - MobCatKitten
+        - MobSloth
+        - MobFerret
+        - MobFerretWhite
+        - MobLizard
+        - MobSlug
+        - MobFrog
+        - MobMothroach
+        - MobArcticFox
+        - MobPibble
+      rareChance: 0.15
