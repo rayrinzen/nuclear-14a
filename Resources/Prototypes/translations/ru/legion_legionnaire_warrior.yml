@@ -1,0 +1,59 @@
+- type: job
+  id: CaesarLegionLegionnaireWarrior
+  setPreference: true
+  hideIfPlaytimeRequirementsNotMet: false # #Misfits Tweak - all jobs visible in selection
+  jobWhitelistBypassesRoleTimers: true # #Misfits Change
+  weight: 50
+  name: job-name-caesar-legion-legionnaire-warrior
+  description: job-description-caesar-legion-legionnaire-warrior
+  playTimeTracker: CaesarLegionLegionnaireWarrior
+  requirements:
+    - !type 
+      department: CaesarLegion
+      min: 28800 # 8 hours
+    - !type 
+      species:
+      - Human
+    - !type 
+      sex: Male
+    - !type 
+      gender: Male
+  startingGear: CaesarLegionLegionnaireWarriorGear
+  alwaysUseSpawner: true
+  icon: "JobIconlegionerWarrior"
+  supervisors: job-name-caesar-legion-other
+  canBeAntag: false
+  accessGroups:
+  - CaesarLegionLegionnaireWarrior
+  special:
+  - !type 
+    components:
+      - type: NpcFactionMember
+        factions:
+          - CaesarLegion
+      - type: ReplacementAccent
+        accent: latin
+  - !type 
+    traits:
+    - LanguageLatin
+- type: startingGear
+  id: CaesarLegionLegionnaireWarriorGear
+  equipment:
+    jumpsuit: N14ClothingUniformJumpsuitLegionnaire
+    ears: N14ClothingHeadsetLegion
+    neck: ClothingNeckRedScarf
+    eyes: N14ClothingEyesGlassesWelding
+    back: N14ClothingBackpackMilitary
+    shoes: N14ClothingShoesKaligi
+    head: N14ClothingHeadHatLightBaseballHelmet # #Misfits Change /Tweak/: Prime Legionary wears a light baseball helmet
+    outerClothing: MisfitsLegionWarriorArmor # #Misfits Tweak: T3 armor (0.80/0.75) — Warrior Legionnaire tier
+    gloves: N14ClothingHandsGlovesTribal
+    pocket1: LegionWarriorloadoutkits
+    id: N14IDLegionaryMedalSilver
+  innerClothingSkirt: N14ClothingUniformJumpsuitLegionnaireOther
+  storage:
+    back:
+    - N14BoxPlasticFilledMilitaryLegion
+    - N14HealingPowder
+- type: playTimeTracker
+  id: CaesarLegionLegionnaireWarrior
