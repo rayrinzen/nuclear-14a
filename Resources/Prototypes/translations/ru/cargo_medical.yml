@@ -1,149 +1,49 @@
 - type: cargoProduct
-  id: MedicalSupplies
+  id: StimpakCrate
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: firstaid
-  product: CrateMedicalSupplies
-  cost: 3000
-  category: cargoproduct-category-name-medical
+    sprite: _Nuclear14/Objects/Specific/Medical/drugs.rsi
+    state: stimpak
+  product: N14CrateBreakPlainFilledStimpak
+  cost: 210 # Corvax-Change
+  category: Medical / Aid
   group: market
 
 - type: cargoProduct
-  id: MedicalChemistrySupplies
+  id: RadawayCrate
   icon:
-    sprite: Objects/Specific/Chemistry/beaker.rsi
-    state: beaker
-  product: CrateChemistrySupplies
-  cost: 750
-  category: cargoproduct-category-name-medical
+    sprite: _Nuclear14/Objects/Specific/Medical/bloodbags.rsi
+    state: radaway
+  product: N14CrateBreakPlainFilledRadaway
+  cost: 250
+  category: Medical / Aid
   group: market
 
 - type: cargoProduct
-  id: MedicalChemistryVials
+  id: AntidoteCrate
   icon:
-    sprite: Objects/Specific/Chemistry/vial.rsi
-    state: vial
-  product: CrateChemistryVials
-  cost: 1000
-  category: cargoproduct-category-name-medical
+    sprite: _Nuclear14/Objects/Specific/Medical/fallout2.rsi
+    state: antidote
+  product: N14CrateBreakPlainFilledAntidote
+  cost: 200
+  category: Medical / Aid
   group: market
 
 - type: cargoProduct
-  id: EmergencyBurnKit
+  id: OintmentCrate
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: burnkit
-  product: CrateEmergencyBurnKit
-  cost: 700
-  category: cargoproduct-category-name-medical
+    sprite: Objects/Specific/Medical/medical.rsi
+    state: ointment
+  product: N14CrateBreakPlainFilledOintment
+  cost: 250
+  category: Medical / Aid
   group: market
 
 - type: cargoProduct
-  id: EmergencyToxinKit
+  id: HealthAnalyzerCrate
   icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: toxinkit
-  product: CrateEmergencyToxinKit
-  cost: 600
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: EmergencyO2Kit
-  icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: o2kit
-  product: CrateEmergencyO2Kit
-  cost: 600
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: EmergencyBruteKit
-  icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: brutekit
-  product: CrateEmergencyBruteKit
-  cost: 600
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: EmergencyAdvancedKit
-  icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: advkit
-  product: CrateEmergencyAdvancedKit
-  cost: 2000
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: EmergencyRadiationKit
-  icon:
-    sprite: Objects/Specific/Medical/firstaidkits.rsi
-    state: radkit
-  product: CrateEmergencyRadiationKit
-  cost: 600
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: MedicalBodybags
-  icon:
-    sprite: Objects/Specific/Medical/Morgue/bodybags.rsi
-    state: bag_folded
-  product: CrateBodyBags
-  cost: 700
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: MedicalBiosuit
-  icon:
-    sprite: Clothing/Head/Hoods/Bio/bio.rsi
+    sprite: _Nuclear14/Objects/Specific/Medical/healthanalyzer.rsi
     state: icon
-  product: CrateVirologyBiosuit
-  cost: 800
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: MedicalMindShieldImplants
-  icon:
-    sprite: Objects/Specific/Medical/implanter.rsi
-    state: implanter0
-  product: CrateMindShieldImplants
-  cost: 3000
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: ChemistryP
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryP
-  cost: 850
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: ChemistryS
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryS
-  cost: 750
-  category: cargoproduct-category-name-medical
-  group: market
-
-- type: cargoProduct
-  id: CrateChemistryD
-  icon:
-    sprite: Structures/Storage/Crates/chemcrate_secure.rsi
-    state: icon
-  product: CrateChemistryD
-  cost: 750
-  category: cargoproduct-category-name-medical
+  product: N14CrateBreakPlainFilledHealthAnalyzer
+  cost: 200
+  category: Medical / Aid
   group: market
