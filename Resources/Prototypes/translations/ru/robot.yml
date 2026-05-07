@@ -1,14 +1,6 @@
-# This is a placeaholder for robots in future as I have to modify borg code to remove upstream stuff.
-
-- type: job
-  id: Robot
-  setPreference: false # Delete line for RP
-  name: job-name-robot
-  description: job-description-robot
-  playTimeTracker: Robot
-  icon: "JobIconPassenger"
-  supervisors: job-supervisors-robot
-  jobEntity: PlayerBorgGeneric
-
-- type: playTimeTracker
-  id: Robot
+- type: language
+  id: N14Robot #Used only by player-controlled mobs that can't speak like humans
+  isVisibleLanguage: false
+  speech:
+    color: "#d69b3dcc"
+  obfuscation: '!type:SyllableObfuscation minSyllables: 1 maxSyllables: 10 replacement: - 1 - 0'
