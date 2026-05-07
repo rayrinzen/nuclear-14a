@@ -1,81 +1,39 @@
-# Lawyer
-#- type: characterItemGroup
-#  id: LoadoutLawyerBackpacks
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerBelt
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerEars
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerEquipment
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerEyes
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerGloves
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerHead
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerId
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerNeck
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerMask
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerOuter
-#  maxItems: 1
-#  items:
-#
-#- type: characterItemGroup
-#  id: LoadoutLawyerShoes
-#  maxItems: 1
-#  items:
-#
-- type: characterItemGroup
-  id: LoadoutLawyerUniforms
-  maxItems: 1
-  items:
-    - type: loadout
-      id: LoadoutServiceLawyerUniformBlueSuit
-    - type: loadout
-      id: LoadoutServiceLawyerUniformBlueSkirt
-    - type: loadout
-      id: LoadoutServiceLawyerUniformRedSuit
-    - type: loadout
-      id: LoadoutServiceLawyerUniformRedSkirt
-    - type: loadout
-      id: LoadoutServiceLawyerUniformPurpleSuit
-    - type: loadout
-      id: LoadoutServiceLawyerUniformPurpleSkirt
-    - type: loadout
-      id: LoadoutServiceLawyerUniformGoodSuit
-    - type: loadout
-      id: LoadoutServiceLawyerUniformGoodSkirt
+- type: job
+  id: Lawyer
+  name: job-name-lawyer
+  description: job-description-lawyer
+  playTimeTracker: JobLawyer
+  antagAdvantage: 2 # DeltaV - Reduced TC: Security Radio and Access
+  startingGear: LawyerGear
+  icon: "JobIconLawyer"
+  supervisors: job-supervisors-cj # Delta V - Change supervisor to chief justice
+  access:
+    - Service
+    - Lawyer
+    - Maintenance
+  setPreference: false
+
+- type: startingGear
+  id: LawyerGear
+  subGear:
+    - LawyerPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitLawyerBlack # TODO change jumpsuit to randomiser of the 4 variants
+    back: ClothingBackpackLawyerFilled #DeltaV - stamp included
+    shoes: ClothingShoesBootsLaceup
+    id: LawyerPDA
+    ears: ClothingHeadsetSecurity
+    pocket1: BookSecurity
+  inhand:
+    - BriefcaseBrownFilled
+  innerClothingSkirt: ClothingUniformJumpskirtLawyerBlack
+  satchel: ClothingBackpackSatchelLawyerFilled #DeltaV - stamp included
+  duffelbag: ClothingBackpackDuffelLawyerFilled #DeltaV - stamp included
+
+- type: startingGear
+  id: LawyerPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
+    head: ClothingHeadEnvirohelmColorWhite
+    gloves: ClothingHandsGlovesEnviroglovesWhite
