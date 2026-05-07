@@ -1,39 +1,19 @@
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: ClarkeCentralElectronics
-  result: ClarkeCentralElectronics
+  id: AutodocCircuitboard
+  result: AutodocCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
 
 - type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: ClarkePeripheralsElectronics
-  result: ClarkePeripheralsElectronics
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: GygaxCentralElectronics
-  result: GygaxCentralElectronics
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: GygaxPeripheralsElectronics
-  result: GygaxPeripheralsElectronics
-
-- type: latheRecipe
-  parent: BaseGoldCircuitboardRecipe
-  id: GygaxTargetingElectronics
-  result: GygaxTargetingElectronics
-
-- type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
-  id: DurandCentralElectronics
-  result: DurandCentralElectronics
-
-- type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
-  id: DurandPeripheralsElectronics
-  result: DurandPeripheralsElectronics
-
-- type: latheRecipe
-  parent: BaseSilverCircuitboardRecipe
-  id: DurandTargetingElectronics
-  result: DurandTargetingElectronics
+  id: OperatingTableCircuitboard
+  result: OperatingTableCircuitboard
+  category: Circuitry
+  completetime: 4
+  materials:
+    Steel: 100
+    Glass: 500
+    Gold: 100
