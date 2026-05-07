@@ -1,250 +1,191 @@
 - type: reagent
-  id: Cola
-  name: reagent-name-cola
   parent: BaseSoda
-  desc: reagent-desc-cola
+  id: NukaCola
+  flavor: nuka-cola
+  name: reagent-name-nuka-cola
+  desc: reagent-desc-nuka-cola
   physicalDesc: reagent-physical-desc-fizzy
-  flavor: soda
-  color: "#6c2828"
-  recognizable: true
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/colaglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
+  color: "#362d1d"
   metabolisms:
     Drink:
       effects:
       - !type 
-        factor: 2
-      - !type 
-        key: Drowsiness
-        time: 1.0
-        type: Remove
-- type: reagent
-  id: RoyRogers
-  name: reagent-name-roy-rogers
-  parent: BaseSoda
-  desc: reagent-desc-roy-rogers
-  physicalDesc: reagent-physical-desc-sweet
-  flavor: cola
-  color: "#262019"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/royrogers.rsi
-    state: icon
-  metabolisms:
-    Drink:
-      effects:
-      - !type 
-        factor: 4
-- type: reagent
-  id: ChangelingSting
-  name: reagent-name-changeling-sting
-  parent: BaseSoda
-  desc: reagent-desc-changeling-sting
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: soda
-  color: "#2E6671"
-- type: reagent
-  id: DrGibb
-  name: reagent-name-dr-gibb
-  parent: BaseSoda
-  desc: reagent-desc-dr-gibb
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: drgibb
-  color: "#102000"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/dr_gibb_glass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-- type: reagent
-  id: EnergyDrink
-  name: reagent-name-energy-drink
-  parent: BaseSoda
-  desc: reagent-desc-energy-drink
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: energydrink
-  color: "#ffffbf"
-  metabolisms:
-    Drink:
-      effects:
-      - !type 
-        factor: 2
-      - !type 
-        key: Drowsiness
-        time: 2.0
-        type: Remove
+        factor: 3
       - !type 
         reagent: Theobromine
         amount: 0.1
-  fizziness: 0.4
 - type: reagent
-  id: GrapeSoda
-  name: reagent-name-grape-soda
   parent: BaseSoda
-  desc: reagent-desc-grape-soda
+  id: IrradiatedNukaCola
+  name: reagent-name-irradiated-nuka-cola
+  desc: reagent-desc-irradiated-nuka-cola
   physicalDesc: reagent-physical-desc-fizzy
-  flavor: grapesoda
-  color: "#ae94a6"
-- type: reagent
-  id: IceCream
-  name: reagent-name-ice-cream
-  parent: BaseSoda
-  desc: reagent-desc-ice-cream
-  physicalDesc: reagent-physical-desc-creamy
-  flavor: icecream
-  color: "#fffbd6"
-  recognizable: true
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/icecreamglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: true
-  fizziness: 0
-- type: reagent
-  id: LemonLime
-  name: reagent-name-lemon-lime
-  parent: BaseSoda
-  desc: reagent-desc-lemon-lime
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: lemonlimesoda
-  color: "#878F00"
-- type: reagent
-  id: PwrGame
-  name: reagent-name-pwr-game
-  parent: BaseSoda
-  desc: reagent-desc-pwr-game
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: pwrgamesoda
-  color: "#9385bf"
-  fizziness: 0.9 # gamers crave the fizz
-- type: reagent
-  id: RootBeer
-  name: reagent-name-root-beer
-  parent: BaseSoda
-  desc: reagent-desc-root-beer
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: rootbeersoda
-  color: "#381c07"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/rootbeerglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 6
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-- type: reagent
-  id: RootBeerFloat
-  name: reagent-name-root-beer-float
-  parent: BaseSoda
-  desc: reagent-desc-root-beer-float
-  physicalDesc: reagent-physical-desc-fizzy-and-creamy
-  flavor: rootbeerfloat
-  color: "#4f361f"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/rootbeerfloatglass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 7
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-  fizziness: 0.4
-- type: reagent
-  id: SolDry
-  name: reagent-name-sol-dry
-  parent: BaseSoda
-  desc: reagent-desc-sol-dry
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: gingersoda
-  color: "#ccb87e"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/sol_dry_glass.rsi
-    state: icon
-- type: reagent
-  id: ShirleyTemple
-  name: reagent-name-shirley-temple
-  parent: BaseSoda
-  desc: reagent-desc-shirley-temple
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: sweet
-  color: "#af2221"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/shirleytemple.rsi
-    state: icon
+  flavor: nuka-cola-irradiated
+  color: "#4a4a32"
   metabolisms:
     Drink:
       effects:
       - !type 
-        factor: 4
-- type: reagent
-  id: SpaceMountainWind
-  name: reagent-name-space-mountain-wind
-  parent: BaseSoda
-  desc: reagent-desc-space-mountain-wind
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: sodacitrus
-  color: "#a6fa5a"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/space_mountain_wind_glass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 5
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-- type: reagent
-  id: SpaceUp
-  name: reagent-name-space-up
-  parent: BaseSoda
-  desc: reagent-desc-space-up
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: spaceup
-  color: "#e3e3e37d"
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/space-up_glass.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 6
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-- type: reagent
-  id: Starkist
-  name: reagent-name-starkist
-  parent: BaseSoda
-  desc: reagent-desc-starkist
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: starkistsoda
-  color: "#9F3400"
-- type: reagent
-  id: FourteenLoko
-  name: reagent-name-fourteen-loko
-  parent: BaseSoda
-  desc: reagent-desc-fourteen-loko
-  physicalDesc: reagent-physical-desc-fizzy
-  flavor: fourteenlokosoda
-  color: "#deb928"
-  metabolisms:
-    Drink:
-      effects:
-      - !type 
-        factor: 2
-      - !type 
-        reagent: Theobromine
-        amount: 0.1
+        factor: 3
     Poison:
       effects:
       - !type 
-        conditions:
-        - !type 
-          type: Slime
-          shouldHave: false
         damage:
           types:
-            Poison: 1
+            Radiation: 0.1
 - type: reagent
-  id: ShamblersJuice
-  name: reagent-name-shamblers-juice
-  parent: BaseSoda
-  desc: reagent-desc-shamblers-juice
+  parent: IrradiatedNukaCola
+  id: NukaColaQuantum
+  name: reagent-name-nuka-cola-quantum
+  desc: reagent-desc-nuka-cola-quantum
+  flavor: nuka-cola-quantum
   physicalDesc: reagent-physical-desc-fizzy
-  flavor: metallic
-  color: "#66538F"
+  color: "#ACE5F2"
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 3
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Radiation: 0.1
+    Medicine:
+      effects:
+      - !type 
+        damage:
+          groups:
+            Burn: '-1.0'
+            Brute: '-1.0'
+            Airloss: '-1.0'
+- type: reagent
+  parent: NukaColaQuantum
+  id: NukaColaQuartz
+  name: reagent-name-nuka-cola-quartz
+  desc: reagent-desc-nuka-cola-quartz
+  flavor: nuka-cola-quartz
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#ACE5F2"
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaClear
+  name: reagent-name-nuka-cola-clear
+  desc: reagent-desc-nuka-cola-clear
+  flavor: nuka-cola-clear
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#EEF9FC"
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaCherry
+  name: reagent-name-nuka-cola-cherry
+  desc: reagent-desc-nuka-cola-cherry
+  flavor: nuka-cola-cherry
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#C02500"
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaGrape
+  name: reagent-name-nuka-cola-grape
+  desc: reagent-desc-nuka-cola-grape
+  flavor: nuka-cola-grape
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#543AC1"
+- type: reagent
+  parent: NukaCola
+  id: NukaColaWild
+  name: reagent-name-nuka-cola-wild
+  desc: reagent-desc-nuka-cola-wild
+  flavor: nuka-cola-wild
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#150d01"
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaOrange
+  name: reagent-name-nuka-cola-orange
+  desc: reagent-desc-nuka-cola-orange
+  flavor: nuka-cola-orange
+  physicalDesc: reagent-physical-desc-fizzy
+  color: "#ff3c0e"
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaVictory
+  name: reagent-name-nuka-cola-victory
+  desc: reagent-desc-nuka-cola-victory
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: nuka-cola-victory
+  color: "#FF3E0E"
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: -2
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Radiation: 0.1
+    Medicine:
+      effects:
+      - !type 
+        damage:
+          groups:
+            Burn: '-1.0'
+            Brute: '-1.0'
+            Airloss: '-1.0'
+- type: reagent
+  parent: IrradiatedNukaCola
+  id: NukaColaYellow
+  name: reagent-name-nuka-cola-yellow
+  desc: reagent-desc-nuka-cola-yellow
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: nuka-cola-yellow
+  color: "#9E8743"
+  metabolisms:
+    Drink:
+      effects:
+      - !type 
+        factor: 1
+    Poison:
+      effects:
+      - !type 
+        damage:
+          types:
+            Radiation: 0.1
+      - !type 
+        probability: 0.25
+- # Vim
+type: reagent
+  parent: IrradiatedNukaCola
+  id: Vim
+  name: reagent-name-vim
+  desc: reagent-desc-vim
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: vim
+  color: "#362d1d"
+- type: reagent
+  parent: NukaColaQuantum
+  id: VimCaptainsblend
+  name: reagent-name-vim-captainsblend
+  desc: reagent-desc-vim-captainsblend
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: vim-captains-blend
+  color: "#ACE5F2"
+- type: reagent
+  parent: NukaCola
+  id: VimRefresh
+  name: reagent-name-vim-refresh
+  desc: reagent-desc-vim-refresh
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: vim-refresh
+  color: "#C2F2AC"
+- type: reagent
+  parent: NukaColaQuantum
+  id: VimQuartz
+  name: reagent-name-vim-quartz
+  desc: reagent-desc-vim-quartz
+  physicalDesc: reagent-physical-desc-fizzy
+  flavor: vim-quartz
+  color: "#E5F2AC"
