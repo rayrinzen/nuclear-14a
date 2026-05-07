@@ -1,30 +1,156 @@
 - type: entity
-  id: BaseMagazineHeavyRifle
-  name: "magazine (.20 rifle)"
+  id: BaseSpeedLoaderHeavyRifle
+  name: "speed loader (.20 rifle)"
   parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineHeavyRifle
-  - type: Item
-    size: Small
+      - SpeedLoaderRifleHeavy
+  - type: SpeedLoader
   - type: BallisticAmmoProvider
-    mayTransfer: true
-    capacity: 100
+    whitelist:
+      tags:
+        - CartridgeRifle
+    capacity: 8
+  - type: Sprite
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type :Container
+      ballistic-ammo: !type
+        ents: [ ]
+- type: entity
+  id: SpeedLoaderRifleHeavy
+  name: "speed loader (.20 rifle)"
+  parent: BaseSpeedLoaderHeavyRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle
+  - type: Icon
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    state: icon
   - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
     layers:
-    - state: base
-      map:
-      - "enum.GunVisualLayers.Base"
-    - state: mag-1
-      map:
-      - "enum.GunVisualLayers.Mag"
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-8
+        map:
+        - "enum.GunVisualLayers.Mag"
   - type: MagazineVisuals
-    magState: mag
-    steps: 2
+    magState: base
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: SpeedLoaderRifleHeavyEmpty
+  name: "speed loader (.20 rifle any)"
+  parent: SpeedLoaderRifleHeavy
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Icon
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    state: base
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-8
+        map:
+        - "enum.GunVisualLayers.Mag"
+- type: entity
+  id: SpeedLoaderRifleHeavyIncendiary
+  name: "speed loader (.20 rifle incendiary)"
+  parent: BaseSpeedLoaderHeavyRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleIncendiary
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: base-8
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: base
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: SpeedLoaderRifleHeavyPractice
+  name: "speed loader (.20 rifle practice)"
+  parent: BaseSpeedLoaderHeavyRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRiflePractice
+  - type: Icon
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    state: practice-icon
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: practice-8
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: practice
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: SpeedLoaderRifleHeavyUranium
+  name: "speed loader (.20 rifle uranium)"
+  parent: BaseSpeedLoaderHeavyRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleUranium
+  - type: Icon
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    state: uranium-icon
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: uranium-8
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: uranium
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+- type: entity
+  id: SpeedLoaderRifleHeavyRubber
+  name: "speed loader (.20 rifle rubber)"
+  parent: BaseSpeedLoaderHeavyRifle
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleRubber
+  - type: Icon
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    state: rubber-icon
+  - type: Sprite
+    sprite: _NF/Objects/Weapons/Guns/Ammunition/SpeedLoaders/HeavyRifle/argenti_speed_loader.rsi
+    layers:
+      - state: base
+        map:
+        - "enum.GunVisualLayers.Base"
+      - state: rubber-8
+        map:
+        - "enum.GunVisualLayers.Mag"
+  - type: MagazineVisuals
+    magState: rubber
+    steps: 9
     zeroVisible: false
   - type: Appearance
