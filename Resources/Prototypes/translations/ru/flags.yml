@@ -1,127 +1,56 @@
-- type: construction
-  id: N14DecorationFlagBearerEmpty # Empty
-  graph: DecorationFlagEmpty
-  startNode: start
-  targetNode: FlagEmpty
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: emptyflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  name: NCR Flag
-  id: N14DecorationFlagNCR # NCR
-  graph: DecorationFlagNCR
-  startNode: start
-  targetNode: FlagNCR
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: ncrflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagYuma # Yuma Tribe
-  name: Yuma Tribe Flag
-  graph: DecorationFlagYuma
-  startNode: start
-  targetNode: FlagYuma
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: cornflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagBrotherhoodMidwest # MW Brotherhood
-  name: Brotherhood of Steel Flag
-  graph: DecorationFlagBrotherhoodMidwest
-  startNode: start
-  targetNode: FlagBrotherhoodMidwest
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags2.rsi
-    state: mbosflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagLocust # Raiders / Locust
-  name: Raider Flag
-  graph: DecorationFlagLocust
-  startNode: start
-  targetNode: FlagLocust
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: locustflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagGunner # Gunners
-  name: Gunner Flag
-  graph: DecorationFlagGunner
-  startNode: start
-  targetNode: FlagGunner
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: gunnerflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagFollowers # Followers
-  name: Followers Flag
-  graph: DecorationFlagFollowers
-  startNode: start
-  targetNode: FlagFollowers
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: followersflag
-  conditions:
-    - !type :TileNotBlocked
-- type: construction
-  id: N14DecorationFlagLegion # Legion
-  name: Legion Flag
-  graph: DecorationFlagLegion
-  startNode: start
-  targetNode: FlagLegion
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  hide: false
-  icon:
-    sprite: _Nuclear14/Structures/Decoration/flags.rsi
-    state: legionflag
-  conditions:
-    - !type :TileNotBlocked
+- # See Structures/Decoration and wallmounts for non wield flags.
+type: entity
+  parent: BaseItem
+  id: N14DecorationFlagpoleNCR
+  name: NCR flag pole
+  description: An NCR flag on a wooden pole.
+  suffix: Mapping
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Decoration/Flags/ncr_flagpole.rsi
+    state: icon
+    noRot: true
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+  - type: Item
+    size: Huge
+  - type: UseDelay
+    delay: 1
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTrigger damage: 50 behaviors: - !type:PlaySoundBehavior sound: collection: WoodDestroy - !type:DoActsBehavior acts: [ "Destruction" ]' # N14TODO: Needs inhands sprites
+- #MBoS Flagpole
+type: entity
+  parent: N14DecorationFlagpoleNCR
+  id: N14DecorationFlagpoleMBOS
+  name: BoS Flag Pole
+  description: A Brotherhood of Steel flag on a wooden pole.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Decoration/Flags/mbos_flagpole.rsi
+    state: icon
+    noRot: true
+- #WBoS Flagpole
+type: entity
+  parent: N14DecorationFlagpoleNCR
+  id: N14DecorationFlagpoleWBOS
+  name: Washington BoS Flag Pole
+  description: A Washinton Brotherhood flag on a wooden pole.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Decoration/Flags/wbos_flagpole.rsi
+    state: icon
+    noRot: true
