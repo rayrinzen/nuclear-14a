@@ -1,22 +1,22 @@
 - type: entity
-  parent: ClothingShoesBase
-  id: N14ClothingBootsLegate
-  name: legate boots
-  description: "Durable military boots that protect the wearer."
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsRyuzo
+  name: rugged fur boots
+  description: These would be perfect for chilly winter walks out in the forests - if they still existed, that is.
+  suffix: ADMIN ONLY, DO NOT MAP
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Shoes/Boots/legateboots.rsi
+      sprite: DeltaV/Clothing/Shoes/Boots/ryuzoboots.rsi
     - type: Clothing
-      sprite: Corvax/Clothing/Shoes/Boots/legateboots.rsi
+      sprite: DeltaV/Clothing/Shoes/Boots/ryuzoboots.rsi
 
 - type: entity
-  parent: ClothingShoesBase
-  id: N14ClothingBootsCenturion
-  name: centurion boots
-  description: "Protective boots for the needs of the Legion army."
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsFishing
+  name: fishing boots
+  description: Smells fishy!
   components:
     - type: Sprite
-      sprite: Corvax/Clothing/Shoes/Boots/centurionboots.rsi
+      sprite: DeltaV/Clothing/Shoes/Boots/fishing_boots.rsi
     - type: Clothing
-      sprite: Corvax/Clothing/Shoes/Boots/centurionboots.rsi
-    - type: NoSlip
+      sprite: DeltaV/Clothing/Shoes/Boots/fishing_boots.rsi
