@@ -1,258 +1,104 @@
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatBunny
-  name: bunny ears
-  description: Cute bunny ears.
+  parent: ClothingNeckBase
+  id: ClothingNeckHeadphones
+  name: headphones
+  description: Quality headphones from Drunk Masters, with good sound insulation.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/bunny.rsi
+    sprite: Clothing/Neck/Misc/headphones.rsi
+    layers:
+    - state: icon
+      map:
+      - "enum.ToggleVisuals.Layer"
   - type: Clothing
-    sprite: Clothing/Head/Misc/bunny.rsi
+    equippedPrefix: off
+    sprite: Clothing/Neck/Misc/headphones.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: enum.ToggleVisuals.Layer
+    clothingVisuals:
+      neck:
+      - state: on-equipped-NECK
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleVisuals.Toggled:
+        enum.ToggleVisuals.Layer:
+          True:
+          state: icon-on
+          False:
+          state: icon
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Items/flashlight_on.ogg
+    soundDeactivate:
+      path: /Audio/Items/flashlight_off.ogg
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatCake
-  name: cake hat
-  description: You put the cake on your head. Brilliant.
+  parent: ClothingNeckBase
+  id: ClothingNeckStethoscope
+  name: stethoscope
+  description: An outdated medical apparatus for listening to the sounds of the human body. It also makes you look like you know what you're doing.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/cake.rsi
+    sprite: Clothing/Neck/Misc/stethoscope.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/cake.rsi
+    sprite: Clothing/Neck/Misc/stethoscope.rsi
+  - type: Stethoscope
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatChickenhead
-  name: chicken head
-  description: "It's a chicken head. Bok bok bok!"
+  parent: ClothingNeckBase
+  id: ClothingNeckBling
+  name: bling
+  description: Damn, it feels good to be a gangster.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/chickenhead.rsi
+    sprite: Clothing/Neck/Misc/bling.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/chickenhead.rsi
-  - type: IngestionBlocker
-  - type: IdentityBlocker
+    sprite: Clothing/Neck/Misc/bling.rsi
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatFlowerWreath
-  name: flower wreath
-  description: A wreath of colourful flowers. Can be worn both on head and neck.
+  parent: ClothingNeckBase
+  id: ClothingNeckLawyerbadge
+  name: lawyer badge
+  description: A badge to show that the owner is a 'legitimate' lawyer who passed the NT bar exam required to practice law.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/flower-wreath.rsi
+    sprite: Clothing/Neck/Misc/lawyerbadge.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/flower-wreath.rsi
-    slots:
-    - HEAD
-    - neck
-  - type: Construction
-    graph: flowerwreath
-    node: flowerwreath
+    sprite: Clothing/Neck/Misc/lawyerbadge.rsi
+  - type: TypingIndicatorClothing
+    proto: lawyer
 - type: entity
-  parent: ClothingHeadLightBase
-  id: ClothingHeadHatPumpkin
-  name: pumpkin hat
-  description: A jack o' lantern! Believed to ward off evil spirits.
+  id: ActionStethoscope
+  name: Listen with stethoscope
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: EntityTargetAction
+    icon:
+      sprite: Clothing/Neck/Misc/stethoscope.rsi
+      state: icon
+    event: !type :StethoscopeActionEvent
+    checkCanInteract: false
+    priority: -1
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckBellCollar
+  name: bell collar
+  description: A way to inform others about your presence, or just to annoy everyone around you!
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/pumpkin.rsi
+    sprite: Clothing/Neck/Misc/bellcollar.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/pumpkin.rsi
-  - type: IngestionBlocker
-  - type: IdentityBlocker
-  - type: PointLight
-    enabled: false
-    radius: 3
-    energy: 1
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    color: "#cc6600"
-    netsync: false
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
+    sprite: Clothing/Neck/Misc/bellcollar.rsi
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepJester
 - type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatPwig
-  name: pwig
-  description: To be honest, those look ridiculous.
+  parent: ClothingNeckBase
+  id: ClothingNeckDogtags
+  name: dogtags
+  description: A pair of engraved metal identification tags.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Misc/pwig.rsi
+    sprite: Clothing/Neck/Misc/dogtags.rsi
   - type: Clothing
-    sprite: Clothing/Head/Misc/pwig.rsi
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadMirror
-  name: head mirror
-  description: I doubt even the CMO knows how to use this thing.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/head_mirror.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/head_mirror.rsi
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatRichard
-  name: richard
-  description: 'Do you like hurting people?'
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/richard.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/richard.rsi
-  - type: IngestionBlocker
-  - type: IdentityBlocker
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatSkub
-  name: skub hat
-  description: 'Best paired with the Skub Suit.'
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/skubhead.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/skubhead.rsi
-  - type: IngestionBlocker
-  - type: IdentityBlocker
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatShrineMaidenWig
-  name: shrine maiden's wig
-  description: The tag reads "All proceeds go to the Hakurei Shrine."
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/shrine-maidens-wig.rsi
-  - type: Tag
-    tags:
-    - HamsterWearable
-    - WhitelistChameleon
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatCone
-  name: warning cone
-  description: This cone is trying to warn you of something!
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/cone.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/cone.rsi
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatFancyCrown
-  name: fancy crown
-  description: It smells like dead rat. Lets you speak like one!
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/fancycrown.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/fancycrown.rsi
-  - type: MobPrice
-    price: 3000
-  - type: AddAccentClothing
-    accent: MobsterAccent
-- type: entity
-  parent: ClothingHeadBase
-  id: ActionBecomeValid
-  name: Become Valid
-  description: "*notices your killsign* owo whats this"
-  suffix: Valid, DO NOT MAP
-  components:
-  - type: InstantAction
-    event: !type :ToggleActionEvent
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatDogEars
-  name: doggy ears
-  description: Only for good boys.
-  suffix: DO NOT MAP
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Hats/dogears.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Hats/dogears.rsi
-  - type: AddAccentClothing
-    accent: BarkAccent
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatSquid
-  name: squiddy
-  description: "Scare your friends with this eldritch mask."
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/squiddy.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/squiddy.rsi
-  - type: IngestionBlocker
-  - type: IdentityBlocker
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatRedRacoon
-  name: red racoon hat
-  description: Fluffy hat of red racoon!
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/red_racoon.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/red_racoon.rsi
-- type: entity
-  parent: Clothing
-  id: WaterDropletHat
-  name: water droplet
-  description: Makes 8-eyed friends 8 times more adorable!
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/waterdroplet.rsi
-    state: icon
-  - type: Item
-    sprite: Clothing/Head/Misc/waterdroplet.rsi
-    size: Tiny
-    storedRotation: -90
-  - type: Clothing
-    slots:
-    - HEAD
-  - type: Food
-    solution: drink
-    useSound: /Audio/Items/drink.ogg
-    eatMessage: drink-component-try-use-drink-success-slurp
-    delay: 0.5
-    forceFeedDelay: 1.5
-  - type: FlavorProfile
-    flavors:
-      - water
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 2
-        reagents:
-        - ReagentId: Water
-          Quantity: 2
-  - type: DamageOnHighSpeedImpact
-    minimumSpeed: 0.1
-    damage:
-      types:
-        Blunt: 1
-  - type: Damageable
-    damageContainer: Biological
-  - type: Destructible
-    thresholds:
-    - trigger: '!type:DamageTrigger damage: 1 behaviors: - !type:PlaySoundBehavior sound: collection: desecration - !type:SpillBehavior solution: drink - !type:DoActsBehavior acts: [ "Destruction" ]'
-  - type: Tag
-    tags:
-      - WhitelistChameleon
-  - type: StaticPrice
-    price: 1
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHatHeadBandBasic
-  name: basic headband
-  description: Perfect for martial artists, sweaty rogue operators, and tunnel gangsters.
-  components:
-  - type: Sprite
-    sprite: Clothing/Head/Misc/headband.rsi
-  - type: Clothing
-    sprite: Clothing/Head/Misc/headband.rsi
+    sprite: Clothing/Neck/Misc/dogtags.rsi
