@@ -1,172 +1,213 @@
-- type: species
-  id: Harpy
-  name: species-name-harpy
-  roundStart: false
-  prototype: MobHarpy
-  sprites: MobHarpySprites
-  defaultSkinTone: "#c0967f"
-  markingLimits: MobHarpyMarkingLimits
-  dollPrototype: MobHarpyDummy
-  skinColoration: HumanToned
-  minHeight: 0.6
-  defaultHeight: 0.8
-  maxHeight: 1.1
-  minWidth: 0.55
-  defaultWidth: 0.8
-  maxWidth: 1.15
-
-- type: speciesBaseSprites
-  id: MobHarpySprites
-  sprites:
-    Head: MobHarpyHead
-    Face: MobHumanoidAnyMarking
-    Hair: MobHumanoidAnyMarking
-    FacialHair: MobHumanoidAnyMarking
-    Snout: MobHumanoidAnyMarking
-    Chest: MobHarpyTorso
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
-    LArm: MobHarpyLArm
-    RArm: MobHarpyRArm
-    LHand: MobHarpyLHand
-    RHand: MobHarpyRHand
-    LLeg: MobHarpyLLeg
-    RLeg: MobHarpyRLeg
-    LFoot: MobHarpyLFoot
-    RFoot: MobHarpyRFoot
-
-- type: markingPoints
-  id: MobHarpyMarkingLimits
-  points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
-      required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ HarpyTailPhoenix ]
-    HeadTop:
-      points: 1
-      required: true
-      defaultMarkings: [ HarpyEarsDefault ]
-    HeadSide:
-      points: 3
-      required: false
-    Chest:
-      points: 1
-      required: true
-      defaultMarkings: [ HarpyChestDefault ]
-    RightLeg:
-      points: 2
-      required: false
-    RightFoot:
-      points: 2
-      required: false
-    LeftLeg:
-      points: 2
-      required: false
-    LeftFoot:
-      points: 2
-      required: false
-    RightArm:
-      points: 1
-      required: false
-      defaultMarkings: [ HarpyWingDefaultHuescale ]
-    RightHand:
-      points: 2
-      required: false
-    LeftArm:
-      points: 2
-      required: false
-    LeftHand:
-      points: 2
-      required: false
-
-- type: humanoidBaseSprite
-  id: MobHarpyHead
-  baseSprite:
+- type: entity
+  id: PartHarpy
+  parent: BaseItem
+  name: "harpy body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: OrganicPart # Shitmed Change
+  - type: BodyPart
+  - type: ContainerContainer
+    containers:
+      bodypart: !type
+        ents: [ ]
+  - type: StaticPrice #DynamicPrice
+    price: 100
+  - type: Tag
+    tags:
+      - Trash
+  -   # Shitmed Change Start
+type: Gibbable
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTypeTrigger damageType: Blunt damage: 110 behaviors: - !type:GibPartBehavior { }'
+    - trigger: '!type:DamageTypeTrigger damageType: Slash damage: 150 behaviors: - !type:GibPartBehavior { }'
+    - trigger: '!type:DamageTypeTrigger damageType: Heat damage: 200 behaviors: - !type:SpawnEntitiesBehavior spawnInContainer: true spawn: Ash: min: 1 max: 1 - !type:BurnBodyBehavior { } - !type:PlaySoundBehavior sound: collection: MeatLaserImpact' # Shitmed Change End
+- type: entity
+  id: TorsoHarpy
+  name: "harpy torso"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobHarpyHeadMale
-  baseSprite:
+    state: "torso_m"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobHarpyHeadFemale
-  baseSprite:
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
+    # Shitmed Change Start
+    toolName: "a torso"
+    containerName: "torso_slot"
+  - type: ContainerContainer
+    containers:
+      torso_slot: !type ':ContainerSlot {}'
+  - type: Destructible
+    thresholds:
+    - trigger: '!type:DamageTypeTrigger damageType: Blunt damage: 400 behaviors: - !type:GibPartBehavior { }'
+    - trigger: '!type:DamageTypeTrigger damageType: Slash damage: 400 behaviors: - !type:GibPartBehavior { }'
+    - trigger: '!type:DamageTypeTrigger damageType: Heat damage: 400 behaviors: - !type:SpawnEntitiesBehavior spawnInContainer: true spawn: Ash: min: 1 max: 1 - !type:BurnBodyBehavior { } - !type:PlaySoundBehavior sound: collection: MeatLaserImpact' # Shitmed Change End
+- type: entity
+  id: HeadHarpy
+  name: "harpy head"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: head_f
-
-- type: humanoidBaseSprite
-  id: MobHarpyTorso
-  baseSprite:
+    state: "head_m"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobHarpyTorsoMale
-  baseSprite:
+    state: "head_m"
+  - type: BodyPart
+    partType: Head
+    vital: true
+    toolName: "a head" # Shitmed Change
+  - type: Input
+    context: "ghost"
+  - type: InputMover
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
+- type: entity
+  id: LeftArmHarpy
+  name: "left harpy arm"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobHarpyTorsoFemale
-  baseSprite:
+    state: "l_arm"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobHarpyLLeg
-  baseSprite:
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+    toolName: "a left arm" # Shitmed Change
+- type: entity
+  id: RightArmHarpy
+  name: "right harpy arm"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: l_leg
-
-- type: humanoidBaseSprite
-  id: MobHarpyLHand
-  baseSprite:
+    state: "r_arm"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: l_hand
-
-- type: humanoidBaseSprite
-  id: MobHarpyLArm
-  baseSprite:
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+    toolName: "a right arm" # Shitmed Change
+    onAdd:
+    - type: Flight
+      isLayerAnimated: true
+      layer: "/Textures/Mobs/Customization/Harpy/harpy_wings.rsi"
+      animationKey: "Flap"
+- type: entity
+  id: LeftHandHarpy
+  name: "left harpy hand"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: l_arm
-
-- type: humanoidBaseSprite
-  id: MobHarpyLFoot
-  baseSprite:
+    state: "l_hand"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: l_foot
-
-- type: humanoidBaseSprite
-  id: MobHarpyRLeg
-  baseSprite:
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+    toolName: "a left hand" # Shitmed Change
+- type: entity
+  id: RightHandHarpy
+  name: "right harpy hand"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobHarpyRHand
-  baseSprite:
+    state: "r_hand"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: r_hand
-
-- type: humanoidBaseSprite
-  id: MobHarpyRArm
-  baseSprite:
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+    toolName: "a right hand" # Shitmed Change
+- type: entity
+  id: LeftLegHarpy
+  name: "left harpy leg"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: r_arm
-
-- type: humanoidBaseSprite
-  id: MobHarpyRFoot
-  baseSprite:
+    state: "l_leg"
+  - type: Icon
     sprite: Mobs/Species/Harpy/parts.rsi
-    state: r_foot
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+    toolName: "a left leg" # Shitmed Change
+  - type: MovementBodyPart
+- type: entity
+  id: RightLegHarpy
+  name: "right harpy leg"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+    toolName: "a right leg" # Shitmed Change
+  - type: MovementBodyPart
+- type: entity
+  id: LeftFootHarpy
+  name: "left harpy foot"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+    toolName: "a left foot" # Shitmed Change
+- type: entity
+  id: RightFootHarpy
+  name: "right harpy foot"
+  parent: PartHarpy
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: Mobs/Species/Harpy/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right
+    toolName: "a right foot" # Shitmed Change
