@@ -1,20 +1,6 @@
 - type: stealTargetGroup
-  id: SpaceCashLuckyBill
-  name: logistics officer's lucky bill
+  id: AntiPsychicKnife
+  name: anti-psychic knife
   sprite:
-    sprite: DeltaV/Objects/Misc/first_bill.rsi
+    sprite: Nyanotrasen/Objects/Weapons/Melee/anti_psychic_knife.rsi
     state: icon
-
-- type: stealTargetGroup
-  id: BookIanDossier
-  name: head of personnel's photobook
-  sprite:
-    sprite: DeltaV/Objects/Misc/bureaucracy.rsi
-    state: folder-hop-ian
-
-- type: stealTargetGroup
-  id: RubberStampNotary
-  name: notary stamp
-  sprite:
-    sprite: DeltaV/Objects/Misc/stamps.rsi
-    state: stamp-notary
