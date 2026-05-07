@@ -1,107 +1,43 @@
 - type: characterItemGroup
-  id: LoadoutNeck
+  id: N14LoadoutNeck
   items:
     - type: loadout
-      id: LoadoutNeckHeadphones
+      id: N14LoadoutNeckCloakLeather
     - type: loadout
-      id: LoadoutNeckBellCollar
+      id: N14LoadoutNeckMantleLeather
     - type: loadout
-      id: LoadoutNeckOldMantle
+      id: N14LoadoutNeckCloakDarkCloak
     - type: loadout
-      id: LoadoutNeckUnathiMantle
+      id: ClothingNeckScarfStripedBlack
     - type: loadout
-      id: LoadoutNeckDogtags
+      id: ClothingNeckTribalCloak
     - type: loadout
-      id: LoadoutNeckScarfStripedRed
+      id: ClothingNeckTribalCloakBr
     - type: loadout
-      id: LoadoutNeckScarfStripedBlue
+      id: MisfitsLoadoutNeckDesertScarf # #Misfits Add - cosmetic desert scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedGreen
+      id: MisfitsLoadoutNeckRedScarf # #Misfits Add - cosmetic red scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedBlack
+      id: MisfitsLoadoutNeckBlueScarf # #Misfits Add - cosmetic blue scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedBrown
+      id: MisfitsLoadoutNeckGreenScarf # #Misfits Add - cosmetic green scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedOrange
+      id: MisfitsLoadoutNeckOrangeScarf # #Misfits Add - cosmetic orange scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedPurple
+      id: MisfitsLoadoutNeckBrownScarf # #Misfits Add - cosmetic brown scarf
     - type: loadout
-      id: LoadoutNeckScarfStripedZebra
+      id: MisfitsLoadoutNeckPatriotScarf # #Misfits Add - cosmetic patriot scarf
     - type: loadout
-      id: LoadoutNeckTieWhite
+      id: MisfitsLoadoutNeckTownGuardMantle # #Misfits Add - cosmetic army rain mantle
     - type: loadout
-      id: LoadoutNeckTieShort
+      id: ClothingNeckShawl
+    - type: loadout # #Misfits Add - NCR faction cloaks and mantles
+      id: MisfitsLoadoutNeckCloakNCR
     - type: loadout
-      id: LoadoutNeckTieBow
+      id: MisfitsLoadoutNeckCloakNCRSnow
     - type: loadout
-      id: LoadoutNeckTieBowTie
-    - type: loadout
-      id: LoadoutNeckTieRibbon
-    - type: loadout
-      id: LoadoutItemsPrideLGBTPin
-    - type: loadout
-      id: LoadoutItemsPrideAromanticPin
-    - type: loadout
-      id: LoadoutItemsPrideAsexualPin
-    - type: loadout
-      id: LoadoutItemsPrideBisexualPin
-    - type: loadout
-      id: LoadoutItemsPrideGayPin
-    - type: loadout
-      id: LoadoutItemsPrideIntersexPin
-    - type: loadout
-      id: LoadoutItemsPrideLesbianPin
-    - type: loadout
-      id: LoadoutItemsPrideNonBinaryPin
-    - type: loadout
-      id: LoadoutItemsPridePansexualPin
-    - type: loadout
-      id: LoadoutItemsPrideTransPin
-    - type: loadout
-      id: LoadoutNeckCrucifixColor
-    - type: loadout
-      id: LoadoutNeckCrucifixColorSaintPeter
-    - type: loadout
-      id: LoadoutNeckCrucifixGold
-    - type: loadout
-      id: LoadoutNeckCrucifixGoldSaintPeter
-    - type: loadout
-      id: LoadoutNeckCrucifixSilver
-    - type: loadout
-      id: LoadoutNeckCrucifixSilverSaintPeter
-    - type: loadout
-      id: LoadoutNeckScapular
-    - type: loadout
-      id: LoadoutNeckTallit
-    - type: loadout
-      id: LoadoutNeckBedsheetCosmos
-    - type: loadout
-      id: LoadoutNeckBedsheetRainbow
-    - type: loadout
-      id: LoadoutNeckBedsheetWhite
-    - type: loadout
-      id: LoadoutNeckBedsheetNT
-    - type: loadout
-      id: LoadoutNeckNecklaceStandard
-    - type: loadout
-      id: LoadoutNeckNecklaceLow
-    - type: loadout
-      id: LoadoutNeckNecklaceRound
-    - type: loadout
-      id: LoadoutNeckNecklaceSmall
-    - type: loadout
-      id: LoadoutNeckNecklaceGold
-    - type: loadout
-      id: LoadoutNeckNecklaceSilver
-    - type: loadout
-      id: LoadoutNeckNecklaceChainGold
-    - type: loadout
-      id: LoadoutNeckNecklaceChainSilver
-    - type: loadout
-      id: LoadoutNeckNecklacePendantGold
-    - type: loadout
-      id: LoadoutNeckNecklacePendantGoldLarge
-    - type: loadout
-      id: LoadoutNeckNecklacePendantSilver
-    - type: loadout
-      id: LoadoutNeckNecklacePendantSilverLarge
+      id: MisfitsLoadoutNeckMantleNCR
+    - type: loadout # #Misfits Add - NCR Rangers woods cloak
+      id: MisfitsLoadoutNeckCloakNCRWoods
+    - type: loadout # #Misfits Add - Tribal cloak
+      id: MisfitsLoadoutNeckCloakTribal
